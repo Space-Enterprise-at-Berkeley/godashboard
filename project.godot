@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="Godashboard"
+run/main_scene="res://display/display_root.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Databus="*res://comms/databus.gd"
+Comms="*res://comms/comms.gd"
+
+[display]
+
+window/size/mode=2
 
 [rendering]
 
