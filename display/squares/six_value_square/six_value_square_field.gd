@@ -6,7 +6,8 @@ extends Control
 @onready var value_label: Label = $VBoxContainer/Label2
 
 func _ready() -> void:
-	Databus.connect(field, update_field)
+	#Databus.connect(field, update_field)
+	pass
 
 func _process(delta: float) -> void:
 	pass
