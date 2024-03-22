@@ -40,7 +40,7 @@ var LEXERS: Array[Array] = [
 	[TokenType.NULL, _regex("^null")],
 	[TokenType.NUMBER_BIN, _regex("^[-+]?0b[0-1]+")],
 	[TokenType.NUMBER_HEX, _regex("^[-+]?0x[0-9a-fA-F]+")],
-	[TokenType.NUMBER_FLOAT, _regex("^[-+]?[0-9]+(?:[\\.e][0-9]+)?")],
+	[TokenType.NUMBER_FLOAT, _regex("^[-+]?[0-9]+[\\.e][0-9]+")],
 	[TokenType.NUMBER_INT, _regex("^[-+]?[0-9]+")],
 	[TokenType.STRING, _regex("^\"(?:[^\"\\\\]|\\\\.)*\"")],
 	[TokenType.COMMENT, _regex("^//.*")],
