@@ -1,60 +1,68 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxihkcnhy316b"]
+[gd_scene load_steps=3 format=3 uid="uid://cxihkcnhy316b"]
 
 [ext_resource type="PackedScene" uid="uid://bikq88cfvyq3o" path="res://display/squares/six_value_square/six_value_square.tscn" id="1_50184"]
+[ext_resource type="PackedScene" uid="uid://62pvyo6stl1o" path="res://display/header/header.tscn" id="1_ovtev"]
 
 [node name="DisplayRoot" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Header" parent="CanvasLayer/VBoxContainer" instance=ExtResource("1_ovtev")]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 columns = 3
 
-[node name="SixValueSquare" parent="CanvasLayer/GridContainer" instance=ExtResource("1_50184")]
+[node name="SixValueSquare" parent="CanvasLayer/VBoxContainer/GridContainer" instance=ExtResource("1_50184")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SixValueSquare2" parent="CanvasLayer/GridContainer" instance=ExtResource("1_50184")]
+[node name="SixValueSquare2" parent="CanvasLayer/VBoxContainer/GridContainer" instance=ExtResource("1_50184")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SixValueSquare3" parent="CanvasLayer/GridContainer" instance=ExtResource("1_50184")]
+[node name="SixValueSquare3" parent="CanvasLayer/VBoxContainer/GridContainer" instance=ExtResource("1_50184")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SixValueSquare4" parent="CanvasLayer/GridContainer" instance=ExtResource("1_50184")]
+[node name="SixValueSquare4" parent="CanvasLayer/VBoxContainer/GridContainer" instance=ExtResource("1_50184")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SixValueSquare5" parent="CanvasLayer/GridContainer" instance=ExtResource("1_50184")]
+[node name="SixValueSquare5" parent="CanvasLayer/VBoxContainer/GridContainer" instance=ExtResource("1_50184")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SixValueSquare6" parent="CanvasLayer/GridContainer" instance=ExtResource("1_50184")]
+[node name="SixValueSquare6" parent="CanvasLayer/VBoxContainer/GridContainer" instance=ExtResource("1_50184")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SixValueSquare7" parent="CanvasLayer/GridContainer" instance=ExtResource("1_50184")]
+[node name="SixValueSquare7" parent="CanvasLayer/VBoxContainer/GridContainer" instance=ExtResource("1_50184")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SixValueSquare8" parent="CanvasLayer/GridContainer" instance=ExtResource("1_50184")]
+[node name="SixValueSquare8" parent="CanvasLayer/VBoxContainer/GridContainer" instance=ExtResource("1_50184")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SixValueSquare9" parent="CanvasLayer/GridContainer" instance=ExtResource("1_50184")]
+[node name="SixValueSquare9" parent="CanvasLayer/VBoxContainer/GridContainer" instance=ExtResource("1_50184")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

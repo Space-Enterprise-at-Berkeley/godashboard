@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmfkd4iieen17"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0iau"]
+bg_color = Color(0, 0.498039, 0, 1)
+
+[node name="BoardStatus" type="PanelContainer"]
+offset_right = 72.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n0iau")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "AC1 - 65"
