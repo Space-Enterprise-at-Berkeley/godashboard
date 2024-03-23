@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ybppi6jsirls"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5oqq"]
+bg_color = Color(0, 0.498039, 0, 1)
+
+[resource]
+BoardStatusConnected/base_type = &"PanelContainer"
+BoardStatusConnected/styles/panel = SubResource("StyleBoxFlat_u5oqq")
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5
