@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://62pvyo6stl1o"]
 
-[ext_resource type="PackedScene" uid="uid://bmfkd4iieen17" path="res://display/header/board_status.tscn" id="1_capje"]
+[ext_resource type="Script" path="res://display/header/header.gd" id="1_x6xkv"]
 
 [node name="Header" type="HBoxContainer"]
 anchors_preset = 15
@@ -9,42 +9,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-
-[node name="BoardStatus" parent="." instance=ExtResource("1_capje")]
-layout_mode = 2
-
-[node name="BoardStatus2" parent="." instance=ExtResource("1_capje")]
-layout_mode = 2
-
-[node name="BoardStatus3" parent="." instance=ExtResource("1_capje")]
-layout_mode = 2
-
-[node name="BoardStatus4" parent="." instance=ExtResource("1_capje")]
-layout_mode = 2
-
-[node name="BoardStatus5" parent="." instance=ExtResource("1_capje")]
-layout_mode = 2
-
-[node name="BoardStatus6" parent="." instance=ExtResource("1_capje")]
-layout_mode = 2
-
-[node name="BoardStatus7" parent="." instance=ExtResource("1_capje")]
-layout_mode = 2
-
-[node name="BoardStatus8" parent="." instance=ExtResource("1_capje")]
-layout_mode = 2
-
-[node name="BoardStatus9" parent="." instance=ExtResource("1_capje")]
-layout_mode = 2
-
-[node name="BoardStatus10" parent="." instance=ExtResource("1_capje")]
-layout_mode = 2
-
-[node name="BoardStatus11" parent="." instance=ExtResource("1_capje")]
-layout_mode = 2
-
-[node name="BoardStatus12" parent="." instance=ExtResource("1_capje")]
-layout_mode = 2
-
-[node name="BoardStatus13" parent="." instance=ExtResource("1_capje")]
-layout_mode = 2
+script = ExtResource("1_x6xkv")

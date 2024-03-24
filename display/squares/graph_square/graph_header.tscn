@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://blqijmv7tyvaw"]
+
+[ext_resource type="Script" path="res://display/squares/graph_square/graph_header.gd" id="1_rctnq"]
+
+[node name="GraphHeader" type="HBoxContainer"]
+script = ExtResource("1_rctnq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Text"

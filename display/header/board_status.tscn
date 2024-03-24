@@ -1,15 +1,18 @@
-[gd_scene format=3 uid="uid://bmfkd4iieen17"]
+[gd_scene load_steps=2 format=3 uid="uid://bmfkd4iieen17"]
+
+[ext_resource type="Script" path="res://display/header/board_status.gd" id="1_1ox6m"]
 
 [node name="BoardStatus" type="PanelContainer"]
 offset_right = 72.0
 offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"BoardStatusConnected"
+theme_type_variation = &"BoardStatusDisconnected"
+script = ExtResource("1_1ox6m")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
-text = "AC1 - 65"
+text = "BOARD - 0"

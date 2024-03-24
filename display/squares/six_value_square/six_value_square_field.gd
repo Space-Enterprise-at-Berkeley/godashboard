@@ -1,16 +1,29 @@
-extends Control
+extends VBoxContainer
+class_name SixValueSquareField
 
-@export var field: String = "pt1.ptValue0"
-@export var units: String = "PSI"
+@onready var name_label: Label = $Name
+@onready var value_label: Label = $Value
 
-@onready var value_label: Label = $VBoxContainer/Label2
+var field: String = ""
+var units: String = ""
+var name_text: String = ""
 
 func _ready() -> void:
-	#Databus.connect(field, update_field)
-	pass
+	Databus.update.connect(_handle_packet)
 
-func _process(delta: float) -> void:
-	pass
+func setup(config: Dictionary) -> void:
+	if config["field"] == null:
+		name_label.hide()
+		value_label.hide()
+		return
+	field = config["field"]
+	units = config["units"]
+	name_text = name
+	name_label.text = config["name"]
 
-func update_field(value) -> void:
-	value_label.text = str(value) + " " + units
+func _handle_packet(fields: Dictionary, timestamp: int) -> void:
+	if fields.has(field):
+		update_field(fields[field])
+
+func update_field(value: float) -> void:
+	value_label.text = str(value).pad_decimals(1) + " " + units

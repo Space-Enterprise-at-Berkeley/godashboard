@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bikq88cfvyq3o"]
 
-[ext_resource type="PackedScene" uid="uid://rje0kfb87oh7" path="res://display/squares/six_value_square/six_value_square_field.tscn" id="1_21x87"]
+[ext_resource type="Script" path="res://display/squares/six_value_square/six_value_square.gd" id="1_ulh8h"]
 
 [node name="SixValueSquare" type="Control"]
 layout_mode = 3
@@ -9,6 +9,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ulh8h")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -26,33 +29,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 3
-
-[node name="SixValueSquareField" parent="GridContainer" instance=ExtResource("1_21x87")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SixValueSquareField2" parent="GridContainer" instance=ExtResource("1_21x87")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SixValueSquareField3" parent="GridContainer" instance=ExtResource("1_21x87")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SixValueSquareField4" parent="GridContainer" instance=ExtResource("1_21x87")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SixValueSquareField5" parent="GridContainer" instance=ExtResource("1_21x87")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SixValueSquareField6" parent="GridContainer" instance=ExtResource("1_21x87")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3

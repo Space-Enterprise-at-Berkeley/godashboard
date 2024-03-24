@@ -1,5 +1,7 @@
 extends Node
 
+signal config_update
+
 enum TokenType {
 	BRACE_OPEN,
 	BRACE_CLOSE,
@@ -29,6 +31,9 @@ class Token:
 		data = data_p
 		offset = offset_p
 
+class ParseError:
+	pass
+
 var LEXERS: Array[Array] = [
 	[TokenType.BRACE_OPEN, _regex("^\\{")],
 	[TokenType.BRACE_CLOSE, _regex("^\\}")],
@@ -50,17 +55,22 @@ var LEXERS: Array[Array] = [
 
 const UNLEXED: Array[TokenType] = [TokenType.COMMENT, TokenType.WHITESPACE]
 
+var config = {}
+var exists = false
+
 func _ready() -> void:
-	var file: FileAccess = FileAccess.open("res://configtest/test.zocs", FileAccess.READ)
+	var file: FileAccess = FileAccess.open("C:\\Users\\Zander\\Desktop\\seb\\ground\\config.jsonc", FileAccess.READ)
 	var text: String = file.get_as_text()
 	var res: Variant = parse_config(text)
-	print(res)
+	config = res
+	exists = true
+	config_update.emit()
 
 func parse_config(text: String) -> Variant:
 	var tokens: Array[Token] = _lex(text)
-	print(tokens.map(func (e: Token) -> String: return TokenType.keys()[e.type]))
+	#print(tokens.map(func (e: Token) -> String: return TokenType.keys()[e.type]))
 	if len(tokens) == 0:
-		return ERR_PARSE_ERROR
+		return ParseError.new()
 	var parsed: Variant = _parse(tokens)
 	return parsed;
 
@@ -100,18 +110,18 @@ func _parse(tokens: Array[Token]) -> Variant:
 					tokens.pop_front()
 					return ret
 				var key: Variant = _parse(tokens)
-				if key is int and key == ERR_PARSE_ERROR:
-					return ERR_PARSE_ERROR
+				if key is ParseError:
+					return ParseError.new()
 				if tokens.pop_front().type != TokenType.COLON:
 					push_error("Expected \":\" at index %s" % token.offset)
-					return ERR_PARSE_ERROR
+					return ParseError.new()
 				var val: Variant = _parse(tokens)
-				if val is int and val == ERR_PARSE_ERROR:
-					return ERR_PARSE_ERROR
+				if val is ParseError:
+					return ParseError.new()
 				ret[key] = val
 				if tokens[0].type != TokenType.BRACE_CLOSE and tokens.pop_front().type != TokenType.COMMA:
 					push_error("Expected \",\" or \"}\" at index %s" % token.offset)
-					return ERR_PARSE_ERROR
+					return ParseError.new()
 		TokenType.BRACKET_OPEN:
 			var ret: Array = []
 			while true:
@@ -119,12 +129,12 @@ func _parse(tokens: Array[Token]) -> Variant:
 					tokens.pop_front()
 					return ret
 				var val: Variant = _parse(tokens)
-				if val is int and val == ERR_PARSE_ERROR:
-					return ERR_PARSE_ERROR
+				if val is ParseError:
+					return ParseError.new()
 				ret.append(val)
 				if tokens[0].type != TokenType.BRACKET_CLOSE and tokens.pop_front().type != TokenType.COMMA:
 					push_error("Expected \",\" or \"]\" at index %s" % token.offset)
-					return ERR_PARSE_ERROR
+					return ParseError.new()
 		TokenType.BOOLEAN:
 			return value == "true"
 		TokenType.NULL:
@@ -144,9 +154,14 @@ func _parse(tokens: Array[Token]) -> Variant:
 		TokenType.STRING:
 			return _parse_string(value)
 	push_error("Unexpected token at index %s: %s" % token.offset, token.data)
-	return ERR_PARSE_ERROR
+	return ParseError.new()
 
-func _parse_string(str: String) -> String:
+func _parse_string(str: String) -> Variant:
+	if str[1] == "$":
+		var file: FileAccess = FileAccess.open("C:\\Users\\Zander\\Desktop\\seb\\ground\\config\\%s" %str.substr(2, str.length() - 3), FileAccess.READ)
+		var text: String = file.get_as_text()
+		var res: Variant = parse_config(text)
+		return res
 	var out: String = ""
 	var escaped: bool = false
 	for i in range(1, str.length() - 1):
