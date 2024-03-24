@@ -5,7 +5,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7d1ej"]
 shader = ExtResource("2_lv0gk")
-shader_parameter/width = 2.0
+shader_parameter/points = PackedVector2Array()
 
 [node name="GraphSquare" type="Control"]
 layout_mode = 3
@@ -53,3 +53,4 @@ render_target_update_mode = 0
 material = SubResource("ShaderMaterial_7d1ej")
 layout_mode = 2
 size_flags_vertical = 3
+color = Color(1, 1, 1, 0)

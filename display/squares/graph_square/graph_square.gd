@@ -9,7 +9,7 @@ const graph_header_scene: PackedScene = preload("res://display/squares/graph_squ
 var field_names: Array[String] = []
 var points: Dictionary
 var colors: Dictionary
-var lines: Dictionary
+#var lines: Dictionary
 
 func _ready() -> void:
 	Databus.update.connect(_handle_packet)
@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 			var x_pos: float = viewport.size.x * (point[1] - x_min) / 30000.0
 			var y_pos: float = viewport.size.y * (1 - ((point[0] - y_min) / y_height))
 			vector_points.append(Vector2(x_pos, y_pos))
-		lines[field].points = vector_points
+		#lines[field].points = vector_points
 
 func setup(config: Dictionary) -> void:
 	for child in viewport.get_children():
@@ -53,11 +53,12 @@ func setup(config: Dictionary) -> void:
 		points[f] = []
 		var color: Color = Color(field["color"][0] / 255.0, field["color"][1] / 255.0, field["color"][2] / 255.0)
 		colors[f] = color
-		var line: Line2D = Line2D.new()
-		line.default_color = color
-		line.width = 1
-		viewport.add_child(line)
-		lines[f] = line
+		
+		#var line: Line2D = Line2D.new()
+		#line.default_color = color
+		#line.width = 1
+		#viewport.add_child(line)
+		#lines[f] = line
 
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
 	for f in fields:
