@@ -1,0 +1,13 @@
+{
+	// Firmware Status
+	"0": [
+		["firmwareCommitHash", "asASCIIString"]
+	],
+
+	// Capacitance
+	"1": [
+		["cap", "asFloat"],
+		["ref", "asFloat"],
+		["temperature", "asFloat"]
+	]
+}

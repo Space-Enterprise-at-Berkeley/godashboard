@@ -1,0 +1,37 @@
+{
+	// Firmware Status
+	"0": [
+		["firmwareCommitHash", "asASCIIString"]
+	],
+
+	// 24V Supply Stats
+	"1": [
+		["tcSupply24Voltage", "asFloat"],
+		["tcSupply24Current", "asFloat"],
+		["tcSupply24Power", "asFloat"]
+	],
+
+	// TC Value
+	"2": [
+		["tcValue0", "asFloat"],
+		["tcValue1", "asFloat"],
+		["tcValue2", "asFloat"],
+		["tcValue3", "asFloat"],
+		["tcValue4", "asFloat"],
+		["tcValue5", "asFloat"],
+		["tcValue6", "asFloat"],
+		["tcValue7", "asFloat"]
+	],
+
+	// Raw Voltages
+	"5": [
+		["tcRawVoltage0", "asFloat"],
+		["tcRawVoltage1", "asFloat"],
+		["tcRawVoltage2", "asFloat"],
+		["tcRawVoltage3", "asFloat"],
+		["tcRawVoltage4", "asFloat"],
+		["tcRawVoltage5", "asFloat"],
+		["tcRawVoltage6", "asFloat"],
+		["tcRawVoltage7", "asFloat"]
+	]
+}

@@ -1,0 +1,181 @@
+{
+	"name": "Propellant Fill",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "nosTankPT",
+					"name": "NOS Tank",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "nosFillPT",
+					"name": "Fill",
+					"units": "PSI",
+					"color": [0, 255, 0]
+				},
+				{
+					"field": "nosAutoventPressure",
+					"name": "AV",
+					"units": "PSI",
+					"color": [0, 0, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "ipaTankPT", // formerly had @linear/2.5,10
+					"name": "IPA Tank",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "ipaPressPT",
+					"name": "Press",
+					"units": "PSI",
+					"color": [0, 255, 0]
+				},
+				{
+					"field": "ipaAutoventPressure",
+					"name": "AV",
+					"units": "PSI",
+					"color": [0, 0, 255]
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosTankPT@roc", //don't know if works yet 
+					"name": "NOS Tank RoC",
+					"units": "PSI/s"
+				},
+				{
+					"field": "ipaTankPT@roc", //same
+					"name": "IPA Tank RoC",
+					"units": "PSI/s"
+				},
+				{
+					"field": null 
+					
+				},
+				{
+					"field": "nosTankPT", 
+					"name": "NOS Tank PT",
+					"units": "PSI"
+				},
+				{
+					"field": "ipaTankPT", 
+					"name": "IPA Tank PT",
+					"units": "PSI"
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "ncapCap",
+					"name": "Nitrous Cap Fill Value",
+					"units": "pF",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "icapCap",
+					"name": "IPA Cap Fill Value",
+					"units": "pF",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "iregEncoderAngle",
+					"name": "I-Reg Encoder Angle",
+					"units": "Ticks",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "iregAngleSetpoint",
+					"name": "Setpoint",
+					"units": "Ticks",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "autoventThreshold",
+					"type": "ereg-timed",
+					"name": "Autovent Threshold",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"target": "nosAutoventThreshold"
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"target": "ipaAutoventThreshold"
+						}
+					},
+					"safe": true
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "nosTankTC",
+					"name": "NOS Tank TC",
+					"units": "C",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "ipaTankTC",
+					"name": "IPA Tank TC",
+					"units": "C",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "nosTankLC0",
+					"name": "NOS LC",
+					"units": "lbs",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "ipaTankLC0",
+					"name": "IPA LC",
+					"units": "lbs",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		"$components/e_vents.jsonc"
+	]
+}

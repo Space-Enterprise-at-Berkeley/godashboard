@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://1uu0p2dip6t7"]
+
+[ext_resource type="Script" path="res://display/layout/packet_simulator/packet_simulator.gd" id="1_bbc2e"]
+[ext_resource type="PackedScene" uid="uid://du5kp44a8j6uf" path="res://display/layout/packet_simulator/packet_editor.tscn" id="2_r62qc"]
+
+[node name="PacketSimulator" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bbc2e")
+
+[node name="PacketCLI" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PacketEditor" parent="PacketCLI" instance=ExtResource("2_r62qc")]
+layout_mode = 2
+
+[node name="FunctionGenerator" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddFunction" type="Button" parent="FunctionGenerator"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "+"

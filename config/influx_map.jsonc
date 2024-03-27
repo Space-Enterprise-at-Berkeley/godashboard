@@ -1,0 +1,341 @@
+{
+	// TC Board 1
+
+	"tc1.boardConnected": "tc1Connected",
+	"tc1.boardKbps": "tc1Kbps",
+
+	"tc1.tcSupply24Voltage": "tc1Supply24Voltage",
+	"tc1.tcSupply24Current": "tc12Supply24Current",
+	"tc1.tcSupply24Power": "tc1Supply24Power",
+
+	"tc1.tcValue0": "nosTankTC",
+	"tc1.tcValue1": "ipaTankTC",
+	"tc1.tcValue2": "nosInjectorTC",
+	"tc1.tcValue3": "ipaInjectorTC",
+	// "tc1.tcValue4": "",
+	// "tc1.tcValue5": "",
+	// "tc1.tcValue6": "",
+	// "tc1.tcValue7": "",
+
+	// TC Board 2
+
+	"tc2.boardConnected": "tc2Connected",
+	"tc2.boardKbps": "tc2Kbps",
+
+	"tc2.tcSupply24Voltage": "tc2Supply24Voltage",
+	"tc2.tcSupply24Current": "tc2Supply24Current",
+	"tc2.tcSupply24Power": "tc2Supply24Power",
+
+	"tc2.tcValue0": "engineTC0",
+	"tc2.tcValue1": "engineTC1",
+	"tc2.tcValue2": "engineTC2",
+	"tc2.tcValue3": "engineTC3",
+	"tc2.tcValue4": "engineTC4",
+	"tc2.tcValue5": "engineTC5",
+	"tc2.tcValue6": "engineTC6",
+	"tc2.tcValue7": "engineTC7",
+
+	// PT Board 1
+
+	"pt1.boardConnected": "pt1Connected",
+	"pt1.boardKbps": "pt1Kbps",
+
+	"pt1.ptSupply24Voltage": "pt1Supply24Voltage",
+	"pt1.ptSupply24Current": "pt1Supply24Current",
+	"pt1.ptSupply24Power": "pt1Supply24Power",
+
+	"pt1.ptValue0": "nosTankPT",
+	"pt1.ptValue1": "nosFillPT",
+	"pt1.ptValue2": "mainValvePT",
+	"pt1.ptValue3": "solenoidPanelPT",
+	"pt1.ptValue4": "ipaTankPT",
+	// "pt1.ptValue5": "ipaPressPT",
+	// "pt1.ptValue6": "enginePT6",
+	// "pt1.ptValue7": "enginePT7",
+
+	// PT Board 2
+
+	"pt2.boardConnected": "pt2Connected",
+	"pt2.boardKbps": "pt2Kbps",
+
+	"pt2.ptSupply24Voltage": "pt2Supply24Voltage",
+	"pt2.ptSupply24Current": "pt2Supply24Current",
+	"pt2.ptSupply24Power": "pt2Supply24Power",
+
+	"pt2.ptValue0": "nosInjectorPT",
+	"pt2.ptValue1": "ipaInjectorPT",
+	// "pt2.ptValue2": "chamberPT",
+	// "pt2.ptValue3": "manifoldPT",
+	// "pt2.ptValue4": "channelPT0",
+	// "pt2.ptValue5": "channelPT1",
+	// "pt2.ptValue6": "channelPT2",
+	// "pt2.ptValue7": "channelPT3",
+	"pt2.ptValue2": "enginePT0",
+	"pt2.ptValue3": "enginePT1",
+	"pt2.ptValue4": "enginePT2",
+	"pt2.ptValue5": "enginePT3",
+	"pt2.ptValue6": "enginePT4",
+	"pt2.ptValue7": "enginePT5",
+
+	// PT Board 3
+
+	"pt3.boardConnected": "pt3Connected",
+	"pt3.boardKbps": "pt3Kbps",
+
+	"pt3.ptSupply24Voltage": "pt3Supply24Voltage",
+	"pt3.ptSupply24Current": "pt3Supply24Current",
+	"pt3.ptSupply24Power": "pt3Supply24Power",
+
+	"pt3.ptValue0": "enginePT6",
+	"pt3.ptValue1": "enginePT7",
+	"pt3.ptValue2": "enginePT8",
+	"pt3.ptValue3": "enginePT9",
+	"pt3.ptValue4": "enginePT10",
+	// "pt3.ptValue5": "enginePT11",
+	// "pt3.ptValue6": "enginePT4",
+	// "pt3.ptValue7": "enginePT5",
+
+	
+
+	// LC Board 1
+
+	"lc1.boardConnected": "lc1Connected",
+	"lc1.boardKbps": "lc1Kbps",
+
+	"lc1.lcSupply24Voltage": "lc1Supply24Voltage",
+	"lc1.lcSupply24Current": "lc1Supply24Current",
+	"lc1.lcSupply24Power": "lc1Supply24Power",
+
+	"lc1.lcValue0": "nosTankLC0",
+	// "lc1.lcValue1": "nosTankLC1",
+	"lc1.lcValue2": "ipaTankLC0",
+	// "lc1.lcValue3": "ipaTankLC1",
+
+	// LC Board 2
+
+	"lc2.boardConnected": "lc2Connected",
+	"lc2.boardKbps": "lc2Kbps",
+
+	"lc2.lcSupply24Voltage": "lc2Supply24Voltage",
+	"lc2.lcSupply24Current": "lc2Supply24Current",
+	"lc2.lcSupply24Power": "lc2Supply24Power",
+
+	"lc2.lcValue0": "engineLC0",
+	"lc2.lcValue1": "engineLC1",
+	"lc2.lcValue2": "engineLC2",
+	"lc2.lcValue3": "engineLC3",
+
+	// AC Board 1
+
+	"ac1.boardConnected": "ac1Connected",
+	"ac1.boardKbps": "ac1Kbps",
+
+	"ac1.acSupply24Voltage": "ac1Supply24Voltage",
+	"ac1.acSupply24Current": "ac1Supply24Current",
+	"ac1.acSupply24Power": "ac1Supply24Power",
+
+	// "ac1.actuatorState0": "",
+	"ac1.actuatorState1": "breakwireState",
+	// "ac1.actuatorState2": "",
+	"ac1.actuatorState3": "armState",
+	"ac1.actuatorState4": "nosMainState",
+	"ac1.actuatorState5": "ipaMainState",
+	// "ac1.actuatorState6": "",
+	"ac1.actuatorState7": "igniterState",
+
+	// "ac1.actuatorContinuity0": "",
+	"ac1.actuatorContinuity1": "breakwireContinuity",
+	// "ac1.actuatorContinuity2": "",
+	"ac1.actuatorContinuity3": "armContinuity",
+	"ac1.actuatorContinuity4": "nosMainContinuity",
+	"ac1.actuatorContinuity5": "ipaMainContinuity",
+	// "ac1.actuatorContinuity6": "",
+	"ac1.actuatorContinuity7": "igniterContinuity",
+
+	// "ac1.actuatorCurrent0": "",
+	"ac1.actuatorCurrent1": "breakwireCurrent",
+	// "ac1.actuatorCurrent2": "",
+	"ac1.actuatorCurrent3": "armCurrent",
+	"ac1.actuatorCurrent4": "nosMainCurrent",
+	"ac1.actuatorCurrent5": "ipaMainCurrent",
+	// "ac1.actuatorCurrent6": "",
+	"ac1.actuatorCurrent7": "igniterCurrent",
+
+	// "ac1.potentiometer0": "",
+	"ac1.potentiometer1": "breakwirePot",
+	// "ac1.potentiometer2": "",
+	"ac1.potentiometer3": "armPot",
+	"ac1.potentiometer4": "nosMainPot",
+	"ac1.potentiometer5": "ipaMainPot",
+	// "ac1.potentiometer6": "",
+	"ac1.potentiometer7": "igniterPot",
+
+	// AC Board 2
+
+	"ac2.boardConnected": "ac2Connected",
+	"ac2.boardKbps": "ac2Kbps",
+
+	"ac2.acSupply24Voltage": "ac2Supply24Voltage",
+	"ac2.acSupply24Current": "ac2Supply24Current",
+	"ac2.acSupply24Power": "ac2Supply24Power",
+
+	"ac2.actuatorState0": "nosGemsState",
+	// "ac2.actuatorState1": "nosFillState",
+	// "ac2.actuatorState2": "nosSlowVentState",
+	"ac2.actuatorState3": "nosLineVentState",
+	"ac2.actuatorState4": "nosEmergencyVentState",
+	"ac2.actuatorState5": "nosDrainState",
+	"ac2.actuatorState6": "nosSlowVentState",
+	"ac2.actuatorState7": "nosFillState",
+
+	"ac2.actuatorContinuity0": "nosGemsContinuity",
+	// "ac2.actuatorContinuity1": "nosFillContinuity",
+	// "ac2.actuatorContinuity2": "nosSlowVentContinuity",
+	"ac2.actuatorContinuity3": "nosLineVentContinuity",
+	"ac2.actuatorContinuity4": "nosEmergencyVentContinuity",
+	"ac2.actuatorContinuity5": "nosDrainContinuity",
+	"ac2.actuatorContinuity6": "nosSlowVentContinuity",
+	"ac2.actuatorContinuity7": "nosFillContinuity",
+
+	"ac2.actuatorCurrent0": "nosGemsCurrent",
+	// "ac2.actuatorCurrent1": "nosFillCurrent",
+	// "ac2.actuatorCurrent2": "nosSlowVentCurrent",
+	"ac2.actuatorCurrent3": "nosLineVentCurrent",
+	"ac2.actuatorCurrent4": "nosEmergencyVentCurrent",
+	"ac2.actuatorCurrent5": "nosDrainCurrent",
+	"ac2.actuatorCurrent6": "nosSlowVentCurrent",
+	"ac2.actuatorCurrent7": "nosFillCurrent",
+
+	"ac2.potentiometer0": "nosGemsPot",
+	// "ac2.potentiometer1": "nosFillPot",
+	// "ac2.potentiometer2": "nosSlowVentPot",
+	"ac2.potentiometer3": "nosLineVentPot",
+	"ac2.potentiometer4": "nosEmergencyVentPot",
+	"ac2.potentiometer5": "nosDrainPot",
+	"ac2.potentiometer6": "nosSlowVentPot",
+	// "ac2.potentiometer7": "",
+
+	"ac2.autoventPressure": "nosAutoventPressure",
+	"ac2.automationState": "nosAutomationState",
+
+	// AC Board 3
+
+	"ac3.boardConnected": "ac3Connected",
+	"ac3.boardKbps": "ac3Kbps",
+
+	"ac3.acSupply24Voltage": "ac3Supply24Voltage",
+	"ac3.acSupply24Current": "ac3Supply24Current",
+	"ac3.acSupply24Power": "ac3Supply24Power",
+
+	"ac3.actuatorState0": "ipaGemsState",
+	// "ac3.actuatorState1": "ipaFillState",
+	"ac3.actuatorState2": "ipaSlowVentState",
+	// "ac3.actuatorState3": "ipaLineVentState",
+	"ac3.actuatorState4": "ipaEmergencyVentState",
+	"ac3.actuatorState5": "ipaDrainState",
+	"ac3.actuatorState6": "ipaPressFlowState",
+	// "ac3.actuatorState7": "",
+
+	"ac3.actuatorContinuity0": "ipaGemsContinuity",
+	// "ac3.actuatorContinuity1": "ipaFillContinuity",
+	"ac3.actuatorContinuity2": "ipaSlowVentContinuity",
+	// "ac3.actuatorContinuity3": "ipaLineVentContinuity",
+	"ac3.actuatorContinuity4": "ipaEmergencyVentContinuity",
+	"ac3.actuatorContinuity5": "ipaDrainContinuity",
+	"ac3.actuatorContinuity6": "ipaPressFlowContinuity",
+	// "ac3.actuatorContinuity7": "",
+
+	"ac3.actuatorCurrent0": "ipaGemsCurrent",
+	// "ac3.actuatorCurrent1": "ipaFillCurrent",
+	"ac3.actuatorCurrent2": "ipaSlowVentCurrent",
+	// "ac3.actuatorCurrent3": "ipaLineVentCurrent",
+	"ac3.actuatorCurrent4": "ipaEmergencyVentCurrent",
+	"ac3.actuatorCurrent5": "ipaDrainCurrent",
+	"ac3.actuatorCurrent6": "ipaPressFlowCurrent",
+	// "ac3.actuatorCurrent7": "",
+
+	"ac3.potentiometer0": "ipaGemsPot",
+	// "ac3.potentiometer1": "ipaFillPot",
+	"ac3.potentiometer2": "ipaSlowVentPot",
+	// "ac3.potentiometer3": "ipaLineVentPot",
+	"ac3.potentiometer4": "ipaEmergencyVentPot",
+	"ac3.potentiometer5": "ipaDrainPot",
+	"ac3.potentiometer6": "ipaPressFlowPot",
+	// "ac3.potentiometer7": "",
+
+	"ac3.autoventPressure": "ipaAutoventPressure",
+
+	// IPA E-Reg
+
+	"ireg.boardConnected": "iregConnected",
+	"ireg.boardKbps": "iregKbps",
+
+	// "ireg.filteredUpstreamPressure1": "iregFilteredUpstreamPressure",
+	"ireg.filteredUpstreamPressure1": "ipaPressPT",
+	"ireg.filteredUpstreamPressure2": "iregFilteredUpstreamPressure2",
+	"ireg.filteredDownstreamPressure1": "iregFilteredDownstreamPressure",
+	"ireg.filteredDownstreamPressure2": "iregFilteredDownstreamPressure2",
+	"ireg.rawUpstreamPressure1": "iregRawUpstreamPressure",
+	"ireg.rawUpstreamPressure2": "iregRawUpstreamPressure2",
+	"ireg.rawDownstreamPressure1": "iregRawDownstreamPressure",
+	"ireg.rawDownstreamPressure2": "iregRawDownstreamPressure2",
+
+	"ireg.encoderAngle": "iregEncoderAngle",
+	"ireg.angleSetpoint": "iregAngleSetpoint",
+	"ireg.pressureSetpoint": "iregPressureSetpoint",
+	"ireg.motorPower": "iregMotorPower",
+	"ireg.pressureControlP": "iregP",
+	"ireg.pressureControlI": "iregI",
+	"ireg.pressureControlD": "iregD",
+
+	"ireg.pressureSetpointConfig": "iregPressureSetpointConfig",
+	"ireg.pOuterNominal": "iregPOuter",
+	"ireg.iOuterNominal": "iregIOuter",
+	"ireg.dOuterNominal": "iregDOuter",
+	"ireg.pInner": "iregPInner",
+	"ireg.iInner": "iregIInner",
+	"ireg.dInner": "iregDInner",
+	"ireg.flowDuration": "iregFlowDuration",
+
+	"ireg.motorDirPass": "iregMotorDirPass",
+	"ireg.servoDirPass": "iregServoDirPass",
+
+	"ireg.errorCode": "iregErrorCode",
+
+	"ireg.flowState": "iregFlowState",
+
+	"ireg.fullyClosedSwitch": "iregFullyClosedSwitch",
+	"ireg.fullyOpenSwitch": "iregFullyOpenSwitch",
+
+	"ireg.currentA": "iregCurrentA",
+	"ireg.currentB": "iregCurrentB",
+	"ireg.currentC": "iregCurrentC",
+
+	"ireg.boardTempA": "iregBoardTempA",
+	"ireg.boardTempB": "iregBoardTempB",
+	"ireg.motorTemp": "iregMotorTemp",
+
+	"ireg.avgCurrent": "iregAvgCurrent",
+	"ireg.bufferSize": "iregBufferSize",
+
+	// IPA Cap Fill
+
+	"icap.boardConnected": "icapConnected",
+	"icap.boardKbps": "icapKbps",
+
+	"icap.cap": "icapCap",
+	"icap.ref": "icapRef",
+	"icap.temperature": "icapTemperature",
+
+	// NOS Cap Fill
+
+	"ncap.boardConnected": "ncapConnected",
+	"ncap.boardKbps": "ncapKbps",
+
+	"ncap.cap": "ncapCap",
+	"ncap.ref": "ncapRef",
+	"ncap.temperature": "ncapTemperature",
+	
+	// To make commas easier
+	"": ""
+}

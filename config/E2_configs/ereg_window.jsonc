@@ -1,0 +1,187 @@
+{
+	"name": "E-Reg",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "oreg.filteredUpstreamPressure1",
+					"name": "O-Reg Press",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "freg.filteredUpstreamPressure1",
+					"name": "F-Reg Press",
+					"units": "PSI",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "oreg.filteredDownstreamPressure1",
+					"name": "LOX Pressure",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "oreg.pressureSetpoint",
+					"name": "Setpoint",
+					"units": "C",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "freg.filteredDownstreamPressure1",
+					"name": "Fuel Pressure",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "freg.pressureSetpoint",
+					"name": "Setpoint",
+					"units": "C",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "oreg.filteredUpstreamPressure1",
+					"name": "LOX Press",
+					"units": "PSI"
+				},
+				{
+					"field": "oreg.filteredDownstreamPressure1",
+					"name": "LOX Tank",
+					"units": "PSI"
+				},
+				{
+					"field": "oreg.pressureSetpoint",
+					"name": "Lox SetP",
+					"units": "PSI"
+				},
+				{
+					"field": "freg.filteredUpstreamPressure1",
+					"name": "Fuel Press",
+					"units": "PSI"
+				},
+				{
+					"field": "freg.filteredDownstreamPressure1",
+					"name": "Fuel Tank",
+					"units": "PSI"
+				},
+				{
+					"field": "freg.pressureSetpoint",
+					"name": "Fuel SetP",
+					"units": "PSI"
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt.ptValue0",
+					"name": "LOX Injector PT",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "pt.ptValue4",
+					"name": "Fuel Injector PT",
+					"units": "PSI",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "oreg.filteredUpstreamPressure1@roc",
+					"name": "LOX Press RoC",
+					"units": "PSI/s"
+				},
+				{
+					"field": "freg.filteredUpstreamPressure1@roc",
+					"name": "Fuel Press RoC",
+					"units": "PSI/s"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "oreg.motorPower",
+					"name": "LOX Motor Power",
+					"units": "%",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "freg.motorPower",
+					"name": "Fuel Motor Power",
+					"units": "%",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "oreg.encoderAngle",
+					"name": "LOX Encoder Angle",
+					"units": "",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "oreg.angleSetpoint",
+					"name": "Setpoint",
+					"units": "",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "freg.encoderAngle",
+					"name": "Fuel Encoder Angle",
+					"units": "",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "freg.angleSetpoint",
+					"name": "Setpoint",
+					"units": "",
+					"color": [0, 255, 0]
+				}
+			]
+		}
+	]
+}

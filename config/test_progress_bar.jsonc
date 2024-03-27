@@ -1,0 +1,21 @@
+{
+	"type": "progress",
+	"values": [
+		{
+			"field": "cap-fill.loxCapVal",
+			"name": "LOX Cap Fill",
+			"units": "pF",
+			"color": [255, 0, 0],
+			"minValue": 50,
+			"delta": 0.5
+		},
+		{
+			"field": "cap-fill.fuelCapVal",
+			"name": "Fuel Cap Fill",
+			"units": "pF",
+			"color": [0, 255, 0],
+			"minValue": 50,
+			"delta": 0.5
+		}
+	]
+}

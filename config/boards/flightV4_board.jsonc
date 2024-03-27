@@ -1,0 +1,24 @@
+{
+	// Firmware Status
+	"0": [
+		["firmwareCommitHash", "asASCIIString"]
+	],
+
+	// Cap Fill
+	"21": [
+		["loxCapVal", "asFloat"],
+		["loxCapAvg", "asFloat"],
+		["loxCapTemperature", "asFloat"],
+		["loxCapRefVal", "asFloat"],
+		["loxCapRawVal", "asFloat"]
+	],
+
+	// Fuel Cap Fill
+	"22": [
+		["fuelCapVal", "asFloat"],
+		["fuelCapAvg", "asFloat"],
+		["fuelCapTemperature", "asFloat"],
+		["fuelCapRefVal", "asFloat"],
+		["fuelCapRawVal", "asFloat"]
+	]
+}

@@ -1,0 +1,315 @@
+{
+	"name": "Sensors",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac2.actuatorContinuity2",
+					"name": "N2 Flow",
+					"units": "V"
+				},
+				{
+					"field": "ac2.actuatorContinuity6",
+					"name": "LOX GEMS",
+					"units": "V"
+				},
+				{
+					"field": "ac2.actuatorContinuity7",
+					"name": "Fuel GEMS",
+					"units": "V"
+				},
+				{
+					"field": "ac1.actuatorContinuity3",
+					"name": "ARM",
+					"units": "V"
+				},
+				{
+					"field": "ac1.actuatorContinuity4",
+					"name": "LOX Main",
+					"units": "V"
+				},
+				{
+					"field": "ac1.actuatorContinuity5",
+					"name": "Fuel Main",
+					"units": "V"
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac2.actuatorContinuity0",
+					"name": "LOW Press Fill",
+					"units": "V"
+				},
+				{
+					"field": "ac2.actuatorContinuity3",
+					"name": "N2 Vent",
+					"units": "V"
+				},
+				{
+					"field": "ac1.actuatorContinuity7",
+					"name": "Igniter",
+					"units": "V"
+				},
+				{
+					"field": "ac2.actuatorContinuity4",
+					"name": "LOX Vent",
+					"units": "V"
+				},
+				{
+					"field": "ac2.actuatorContinuity5",
+					"name": "Fuel Vent",
+					"units": "V"
+				},
+				{
+					"field": "ac1.actuatorContinuity1",
+					"name": "Breakwire",
+					"units": "V"
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "oreg.currentA",
+					"name": "OReg IA",
+					"units": "mA",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "oreg.currentB",
+					"name": "OReg IB",
+					"units": "mA",
+					"color": [0, 255, 0]
+				},
+				{
+					"field": "oreg.currentC",
+					"name": "OReg IC",
+					"units": "mA",
+					"color": [0, 0, 255]
+				},
+				{
+					"field": "freg.currentA",
+					"name": "FReg IA",
+					"units": "mA",
+					"color": [255, 0, 255]
+				},
+				{
+					"field": "freg.currentB",
+					"name": "FReg IB",
+					"units": "mA",
+					"color": [200, 200, 0]
+				},
+				{
+					"field": "freg.currentC",
+					"name": "FReg IC",
+					"units": "mA",
+					"color": [0, 255, 255]
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac2.actuatorCurrent2",
+					"name": "N2 Flow",
+					"units": "mA"
+				},
+				{
+					"field": "ac2.actuatorCurrent6",
+					"name": "LOX GEMS",
+					"units": "mA"
+				},
+				{
+					"field": "ac2.actuatorCurrent7",
+					"name": "Fuel GEMS",
+					"units": "mA"
+				},
+				{
+					"field": "ac1.actuatorCurrent3",
+					"name": "ARM",
+					"units": "mA"
+				},
+				{
+					"field": "ac1.actuatorCurrent4",
+					"name": "LOX Main",
+					"units": "mA"
+				},
+				{
+					"field": "ac1.actuatorCurrent5",
+					"name": "Fuel Main",
+					"units": "mA"
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac2.actuatorCurrent0",
+					"name": "LOW Press Fill",
+					"units": "mA"
+				},
+				{
+					"field": "ac2.actuatorCurrent3",
+					"name": "N2 Vent",
+					"units": "mA"
+				},
+				{
+					"field": "ac1.actuatorCurrent7",
+					"name": "Igniter",
+					"units": "mA"
+				},
+				{
+					"field": "ac2.actuatorCurrent4",
+					"name": "LOX Vent",
+					"units": "mA"
+				},
+				{
+					"field": "ac2.actuatorCurrent5",
+					"name": "Fuel Vent",
+					"units": "mA"
+				},
+				{
+					"field": "ac1.actuatorCurrent1",
+					"name": "Breakwire",
+					"units": "mA"
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "oreg.boardTemp1",
+					"name": "OReg Temp1",
+					"units": "C",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "oreg.boardTemp2",
+					"name": "OReg Temp2",
+					"units": "C",
+					"color": [0, 255, 0]
+				},
+				{
+					"field": "oreg.motorTemp",
+					"name": "OReg Mtr Tmp",
+					"units": "C",
+					"color": [0, 0, 255]
+				},
+				{
+					"field": "freg.boardTemp1",
+					"name": "FReg Temp1",
+					"units": "C",
+					"color": [255, 0, 255]
+				},
+				{
+					"field": "freg.boardTemp2",
+					"name": "FReg Temp2",
+					"units": "C",
+					"color": [200, 200, 0]
+				},
+				{
+					"field": "freg.motorTemp",
+					"name": "FReg Mtr Tmp",
+					"units": "C",
+					"color": [0, 255, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "lc.lcValue0",
+					"name": "LC 0",
+					"units": "lbs",
+					"color": [0, 255, 255]
+				},
+				{
+					"field": "lc.lcValue1",
+					"name": "LC 1",
+					"units": "lbs",
+					"color": [0, 255, 0]
+				},
+				{
+					"field": "lc.lcValue2",
+					"name": "LC 2",
+					"units": "lbs",
+					"color": [0, 0, 255]
+				}
+				// {
+				// 	"field": "lc.lcValue3",
+				// 	"name": "LC 3",
+				// 	"units": "lbs",
+				// 	"color": [255, 0, 0]
+				// }
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "tc.tcValue6",
+					"name": "Engn TC 6",
+					"units": "C",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "tc.tcValue1",
+					"name": "Engn TC 1",
+					"units": "C",
+					"color": [0, 255, 0]
+				},
+				{
+					"field": "tc.tcValue2",
+					"name": "Engn TC 2",
+					"units": "C",
+					"color": [0, 0, 255]
+				},
+				{
+					"field": "tc.tcValue3",
+					"name": "Engn TC 3",
+					"units": "C",
+					"color": [255, 0, 255]
+				},
+				{
+					"field": "tc.tcValue4",
+					"name": "Engn TC 4",
+					"units": "C",
+					"color": [200, 200, 0]
+				},
+				{
+					"field": "tc.tcValue5",
+					"name": "Engn TC 5",
+					"units": "C",
+					"color": [0, 255, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "tc.tcValue6",
+					"name": "LOX Tank TC",
+					"units": "C",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "tc.tcValue7",
+					"name": "Fuel Tank TC",
+					"units": "C",
+					"color": [0, 255, 0]
+				}
+			]
+		}
+	]
+}

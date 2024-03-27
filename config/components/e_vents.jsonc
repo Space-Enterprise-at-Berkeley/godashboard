@@ -1,0 +1,39 @@
+{
+    "type": "four-button",
+    "buttons": [
+        {
+            "id": "nosEmergencyVent",
+            "type": "valve",
+            "name": "NOS E-Vent",
+            "field": "nosEmergencyVentState",
+            "actions": {
+                "enable": {
+                    "type": "on",
+                    "target": "nosEmergencyVent"
+                },
+                "disable": {
+                    "type": "off",
+                    "target": "nosEmergencyVent"
+                }
+            },
+            "green": [0, 1]
+        },
+        {
+            "id": "ipaEmergencyVent",
+            "type": "valve",
+            "name": "IPA E-Vent",
+            "field": "ipaEmergencyVentState",
+            "actions": {
+                "enable": {
+                    "type": "on",
+                    "target": "nosEmergencyVent"
+                },
+                "disable": {
+                    "type": "off",
+                    "target": "nosEmergencyVent"
+                }
+            },
+            "green": [0, 1]
+        }
+    ]
+}

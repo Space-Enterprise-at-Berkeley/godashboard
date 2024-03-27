@@ -1,0 +1,31 @@
+{
+	// Firmware Status
+	"0": [
+		["firmwareCommitHash", "asASCIIString"]
+	],
+
+	// 24V Supply Stats
+	"1": [
+		["ptSupply24Voltage", "asFloat"],
+		["ptSupply24Current", "asFloat"],
+		["ptSupply24Power", "asFloat"]
+	],
+
+	// PT Value
+	"2": [
+		["ptValue0", "asFloat"],
+		["ptValue1", "asFloat"],
+		["ptValue2", "asFloat"],
+		["ptValue3", "asFloat"],
+		["ptValue4", "asFloat"],
+		["ptValue5", "asFloat"],
+		["ptValue6", "asFloat"],
+		["ptValue7", "asFloat"]
+	],
+
+	// PT Automation
+	"160": [
+		["value1", "asFloat"],
+		["value2", "asFloat"]
+	]
+}

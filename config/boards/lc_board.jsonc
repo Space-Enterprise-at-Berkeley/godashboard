@@ -1,0 +1,21 @@
+{
+	// Firmware Status
+	"0": [
+		["firmwareCommitHash", "asASCIIString"]
+	],
+
+	// 24V Supply Stats
+	"1": [
+		["lcSupply24Voltage", "asFloat"],
+		["lcSupply24Current", "asFloat"],
+		["lcSupply24Power", "asFloat"]
+	],
+
+	// LC Value
+	"2": [
+		["lcValue0", "asFloat"],
+		["lcValue1", "asFloat"],
+		["lcValue2", "asFloat"],
+		["lcValue3", "asFloat"]
+	]
+}

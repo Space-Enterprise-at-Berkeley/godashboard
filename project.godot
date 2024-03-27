@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 Databus="*res://comms/databus.gd"
 Comms="*res://comms/comms.gd"
 Config="*res://util/config.gd"
+FocusFixer="*res://util/focus_fixer.gd"
+Globals="*res://util/globals.gd"
 
 [display]
 

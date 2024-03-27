@@ -1,0 +1,306 @@
+{
+	"name": "Miscellaneous",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac1.actuatorContinuity6",
+					"name": "HIGH Press Fill",
+					"units": "V"
+				},
+				{
+					"field": "ac1.acSupply24Voltage",
+					"name": "AC1",
+					"units": "V"
+				},
+				{
+					"field": "ac2.acSupply24Voltage",
+					"name": "AC2",
+					"units": "V"
+				},
+				{
+					"field": "tc.tcSupply24Voltage",
+					"name": "TC",
+					"units": "V"
+				},
+				{
+					"field": "lc.lcSupply24Voltage",
+					"name": "LC",
+					"units": "V"
+				},
+				{
+					"field": "pt.ptSupply24Voltage",
+					"name": "PT",
+					"units": "V"
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac1.actuatorCurrent6",
+					"name": "HIGH Press Fill",
+					"units": "mA"
+				},
+				{
+					"field": "ac1.acSupply24Current",
+					"name": "AC1",
+					"units": "mA"
+				},
+				{
+					"field": "ac2.acSupply24Current",
+					"name": "AC2",
+					"units": "mA"
+				},
+				{
+					"field": "tc.tcSupply24Current",
+					"name": "TC",
+					"units": "mA"
+				},
+				{
+					"field": "lc.lcSupply24Current",
+					"name": "LC",
+					"units": "mA"
+				},
+				{
+					"field": "pt.ptSupply24Current",
+					"name": "PT",
+					"units": "mA"
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "ncapCap",
+					"name": "Nitrous Cap Fill Value",
+					"units": "pF",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "icapCap",
+					"name": "IPA Cap Fill Value",
+					"units": "pF",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "oreg.motorPower",
+					"name": "LOX Motor Power",
+					"units": "%",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "freg.motorPower",
+					"name": "Fuel Motor Power",
+					"units": "%",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "eregP",
+					"type": "ereg-timed",
+					"name": "E-Reg P",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"board": "oreg",
+							"packet": 206
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"board": "freg",
+							"packet": 206
+						}
+					}
+				},
+				{
+					"id": "eregI",
+					"type": "ereg-timed",
+					"name": "E-Reg I",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"board": "oreg",
+							"packet": 207
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"board": "freg",
+							"packet": 207
+						}
+					}
+				},
+				{
+					"id": "eregD",
+					"type": "ereg-timed",
+					"name": "E-Reg D",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"board": "oreg",
+							"packet": 208
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"board": "freg",
+							"packet": 208
+						}
+					}
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "zeroLC",
+					"type": "ereg-timed",
+					"name": "Zero LC",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "zero",
+							"board": "lc",
+							"packet": 100
+						},
+						"fuel-timed": {
+							"type": "zero",
+							"board": "lc",
+							"packet": 100
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "zeroPT",
+					"type": "ereg-timed",
+					"name": "Zero PT",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "zero",
+							"board": "pt",
+							"packet": 100
+						},
+						"fuel-timed": {
+							"type": "zero",
+							"board": "pt",
+							"packet": 100
+						}
+					},
+					"safe": true
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "oreg.avgCurrent",
+					"name": "O OC Avg",
+					"units": "mA"
+				},
+				{
+					"field": "ac2.loxAutoventPressure",
+					"name": "O Autovent"
+				},
+				{
+					"field": "oreg.bufferSize",
+					"name": "O OC Buffer",
+					"units": ""
+				},
+				{
+					"field": "freg.avgCurrent",
+					"name": "F OC Avg",
+					"units": "mA"
+				},
+				{
+					"field": "ac2.fuelAutoventPressure",
+					"name": "F Autovent"
+				},
+				{
+					"field": "freg.bufferSize",
+					"name": "F OC Buffer",
+					"units": ""
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "oreg.pressureSetpointConfig",
+					"name": "LOX Setpoint",
+					"units": "PSI"
+				},
+				{
+					"field": "freg.pressureSetpointConfig",
+					"name": "Fuel Setpoint",
+					"units": "PSI"
+				},
+				{
+					"field": "oreg.flowDuration",
+					"name": "Burn Time (O-Reg)",
+					"units": "s"
+				},
+				{
+					"field": "oreg.fullyClosedSwitch",
+					"name": "LOX Closed Switch",
+					"units": ""
+				},
+				{
+					"field": "freg.fullyClosedSwitch",
+					"name": "Fuel Closed Switch",
+					"units": ""
+				},
+				{
+					"field": "freg.flowDuration",
+					"name": "Burn Time (F-Reg)",
+					"units": "s"
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt.ptValue1@rtd", //-0.676 * mean("value") + 2901.7
+					"name": "RTD LOx",
+					"units": "C",
+					"color": [255, 0, 0]
+				},
+				{
+				 	"field": "pt.ptValue5@rtd",
+				 	"name": "RTD Fuel",
+				 	"units": "C",
+				 	"color": [0, 255, 0]
+				}
+			]
+		}
+	]
+}

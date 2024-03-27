@@ -1,0 +1,72 @@
+{
+	// Firmware Status
+	"0": [
+		["firmwareCommitHash", "asASCIIString"]
+	],
+
+	// 24V Supply Stats
+	"1": [
+		["acSupply24Voltage", "asFloat"],
+		["acSupply24Current", "asFloat"],
+		["acSupply24Power", "asFloat"]
+	],
+
+	// Actuator States
+	"2": [
+		["actuatorState0", "asUInt8"],
+		["actuatorState1", "asUInt8"],
+		["actuatorState2", "asUInt8"],
+		["actuatorState3", "asUInt8"],
+		["actuatorState4", "asUInt8"],
+		["actuatorState5", "asUInt8"],
+		["actuatorState6", "asUInt8"],
+		["actuatorState7", "asUInt8"]
+	],
+
+	// Actuator Continuities
+	"3": [
+		["actuatorContinuity0", "asFloat"],
+		["actuatorContinuity1", "asFloat"],
+		["actuatorContinuity2", "asFloat"],
+		["actuatorContinuity3", "asFloat"],
+		["actuatorContinuity4", "asFloat"],
+		["actuatorContinuity5", "asFloat"],
+		["actuatorContinuity6", "asFloat"],
+		["actuatorContinuity7", "asFloat"]
+	],
+
+	// Actuator Currents
+	"4": [
+		["actuatorCurrent0", "asFloat"],
+		["actuatorCurrent1", "asFloat"],
+		["actuatorCurrent2", "asFloat"],
+		["actuatorCurrent3", "asFloat"],
+		["actuatorCurrent4", "asFloat"],
+		["actuatorCurrent5", "asFloat"],
+		["actuatorCurrent6", "asFloat"],
+		["actuatorCurrent7", "asFloat"]
+	],
+
+	// Autovent
+	"5": [
+		["autoventPressure", "asFloat"]
+	],
+
+	// Potentiometers
+	"6": [
+		["potentiometer0", "asUInt16"],
+		["potentiometer1", "asUInt16"],
+		["potentiometer2", "asUInt16"],
+		["potentiometer3", "asUInt16"],
+		["potentiometer4", "asUInt16"],
+		["potentiometer5", "asUInt16"],
+		["potentiometer6", "asUInt16"],
+		["potentiometer7", "asUInt16"]
+	],
+
+	// Automation Info
+	"7": [
+		["automationState", "asUInt8"],
+		["fillDp", "asFloat"]
+	]
+}

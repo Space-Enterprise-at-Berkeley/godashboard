@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://rdicnqvoq18r"]
+
+[ext_resource type="Script" path="res://display/layout/packet_simulator/function_generator_entry.gd" id="1_s0ugc"]
+[ext_resource type="Shader" path="res://resources/shader/recolor_icon.gdshader" id="2_k0yc7"]
+[ext_resource type="Texture2D" uid="uid://bnrh66gjee452" path="res://resources/icon/reload.svg" id="2_ugulc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pvges"]
+shader = ExtResource("2_k0yc7")
+shader_parameter/color = Color(0.792157, 0.792157, 0.792157, 1)
+
+[node name="Control" type="PanelContainer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s0ugc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="FunctionGeneratorEntry" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/FunctionGeneratorEntry"]
+layout_mode = 2
+
+[node name="Delete" type="Button" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
+layout_mode = 2
+text = "X"
+
+[node name="DestinationType" type="OptionButton" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "Monocast"
+popup/item_0/id = 0
+popup/item_1/text = "Multicast"
+popup/item_1/id = 1
+popup/item_2/text = "Broadcast"
+popup/item_2/id = 2
+popup/item_3/text = "Localhost"
+popup/item_3/id = 3
+
+[node name="DestinationIP" type="LineEdit" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Destination IP"
+editable = false
+
+[node name="SourceIP" type="LineEdit" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Fake Source"
+editable = false
+
+[node name="Delay" type="LineEdit" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1000"
+placeholder_text = "Delay (ms)"
+
+[node name="Enabled" type="CheckButton" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
+layout_mode = 2
+button_pressed = true
+
+[node name="Update" type="Button" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
+material = SubResource("ShaderMaterial_pvges")
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+icon = ExtResource("2_ugulc")
+expand_icon = true
+
+[node name="FunctionText" type="LineEdit" parent="MarginContainer/FunctionGeneratorEntry"]
+layout_mode = 2
+placeholder_text = "Function"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/FunctionGeneratorEntry"]
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

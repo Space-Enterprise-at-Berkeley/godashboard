@@ -1,0 +1,170 @@
+{
+	"name": "TVC",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "tvcStart",
+					"type": "valve",
+					"name": "TVC Start",
+					"field": "ac2.actuatorState6",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"board": "tvc",
+							"packet": 102,
+							"number": 0
+						},
+						"disable": {
+							"type": "off",
+							"board": "tvc",
+							"packet": 104,
+							"number": 0
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"id": "tvcZero",
+					"type": "valve",
+					"name": "TVC Zero",
+					"field": "ac2.actuatorState6",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"board": "tvc",
+							"packet": 103,
+							"number": 0
+						},
+						"disable": {
+							"type": "off",
+							"board": "tvc",
+							"packet": 103,
+							"number": 0
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"id": "tvcAngle",
+					"type": "timed",
+					"name": "TVC Angle",
+					"field": "",
+					"actions": {
+						"enable": {
+							"type": null
+						},
+						"disable": {
+							"type": null
+						},
+						"enable-timed": {
+							"type": "signal-timed",
+							"board": "tvc",
+							"packet": 106
+						},
+						"disable-timed": {
+							"type": "signal-timed",
+							"board": "tvc",
+							"packet": 106
+						}
+					}
+				},
+				{
+					"id": "tvcRadius",
+					"type": "timed",
+					"name": "TVC Radius",
+					"field": "",
+					"actions": {
+						"enable": {
+							"type": null
+						},
+						"disable": {
+							"type": null
+						},
+						"enable-timed": {
+							"type": "signal-timed",
+							"board": "tvc",
+							"packet": 105
+						},
+						"disable-timed": {
+							"type": "signal-timed",
+							"board": "tvc",
+							"packet": 105
+						}
+					}
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "tvc.encoderX",
+					"name": "Encoder X",
+					"units": "",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "tvc.setpointX",
+					"name": "Setpoint X",
+					"units": "",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "tvc.encoderY",
+					"name": "Encoder Y",
+					"units": "",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "tvc.setpointY",
+					"name": "Setpoint Y",
+					"units": "",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "tvc.encoderX",
+					"name": "Encoder X",
+					"units": ""
+				},
+				{
+					"field": "tvc.encoderY",
+					"name": "Encoder Y",
+					"units": ""
+				},
+				{
+					"field": "tvc.radius",
+					"name": "Radius",
+					"units": ""
+				},
+				{
+					"field": "tvc.setpointX",
+					"name": "Setpoint X",
+					"units": ""
+				},
+				{
+					"field": "tvc.setpointY",
+					"name": "Setpoint Y",
+					"units": ""
+				},
+				{
+					"field": "tvc.angle",
+					"name": "Angle",
+					"units": ""
+				}
+			]
+		}
+	]
+}

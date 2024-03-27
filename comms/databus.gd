@@ -2,6 +2,13 @@ extends Node
 
 signal update(fields, timestamp)
 
+enum AddressType {
+	MONOCAST,
+	MULTICAST,
+	BROADCAST,
+	LOCALHOST,
+}
+
 class Packet:
 	var fields: Dictionary
 	var timestamp: int
@@ -133,3 +140,6 @@ func _board_poll_kbps() -> void:
 				update["%sConnected" %board] = false
 			send_update(update, get_current_time())
 		await get_tree().create_timer(1).timeout
+
+func send_packet(destType: AddressType, id: int, args: Array) -> void:
+	pass

@@ -1,0 +1,520 @@
+{
+	"name": "Controls",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "press",
+					"type": "timed",
+					"name": "Press Flow RBV",
+					"field": "ac2.actuatorState2",
+					"actions": {
+						"enable": {
+							// "type": "extend-full",
+							// "board": "ac2",
+							// "packet": 100,
+							// "number": 2
+							"type": null
+						},
+						"disable": {
+							"type": "retract-full",
+							"board": "ac2",
+							"packet": 100,
+							"number": 2
+						},
+						"enable-timed": {
+							"type": "extend-timed",
+							"board": "ac2",
+							"packet": 100,
+							"number": 2
+						},
+						"disable-timed": {
+							"type": "retract-timed",
+							"board": "ac2",
+							"packet": 100,
+							"number": 2
+						}
+					},
+					"safe": true,
+					"green": [0, 1]
+				},
+				{
+					"id": "arm",
+					"type": "valve",
+					"name": "ARM",
+					"field": "ac1.actuatorState3",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"board": "ac1",
+							"packet": 100,
+							"number": 3
+						},
+						"disable": {
+							"type": "off",
+							"board": "ac1",
+							"packet": 100,
+							"number": 3
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"type": null
+				},
+				{
+					"id": "mainVent",
+					"type": "valve",
+					"name": "Main Vent",
+					"field": "ac1.actuatorState2",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"board": "ac1",
+							"packet": 100,
+							"number": 2
+						},
+						"disable": {
+							"type": "off",
+							"board": "ac1",
+							"packet": 100,
+							"number": 2
+						}
+					},
+					"green": [0, 1]
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "loxVent",
+					"type": "timed",
+					"name": "LOX Vent RBV",
+					"field": "ac2.actuatorState4",
+					"actions": {
+						"enable": {
+							"type": "retract-full",
+							"board": "ac2",
+							"packet": 100,
+							"number": 4
+						},
+						"disable": {
+							"type": "extend-full",
+							"board": "ac2",
+							"packet": 100,
+							"number": 4
+						},
+						"enable-timed": {
+							"type": "retract-timed",
+							"board": "ac2",
+							"packet": 100,
+							"number": 4
+						},
+						"disable-timed": {
+							"type": "extend-timed",
+							"board": "ac2",
+							"packet": 100,
+							"number": 4
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"id": "fuelVent",
+					"type": "timed",
+					"name": "Fuel Vent RBV",
+					"field": "ac2.actuatorState5",
+					"actions": {
+						"enable": {
+							"type": "retract-full",
+							"board": "ac2",
+							"packet": 100,
+							"number": 5
+						},
+						"disable": {
+							"type": "extend-full",
+							"board": "ac2",
+							"packet": 100,
+							"number": 5
+						},
+						"enable-timed": {
+							"type": "retract-timed",
+							"board": "ac2",
+							"packet": 100,
+							"number": 5
+						},
+						"disable-timed": {
+							"type": "extend-timed",
+							"board": "ac2",
+							"packet": 100,
+							"number": 5
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "eregDiagnostic",
+					"type": "ereg",
+					"name": "Run Diagnostic",
+					"field": "",
+					"actions": {
+						"lox": {
+							"type": "signal",
+							"board": "oreg",
+							"packet": 204
+						},
+						"fuel": {
+							"type": "signal",
+							"board": "freg",
+							"packet": 204
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "eregAbort",
+					"type": "ereg",
+					"name": "Reset E-Reg",
+					"field": "",
+					"actions": {
+						"lox": {
+							"type": "signal",
+							"board": "oreg",
+							"packet": 133
+						},
+						"fuel": {
+							"type": "signal",
+							"board": "freg",
+							"packet": 133
+						}
+					},
+					"safe": true
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "loxGems",
+					"type": "valve",
+					"name": "LOX GEMS",
+					"field": "ac2.actuatorState6",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"board": "ac2",
+							"packet": 100,
+							"number": 6
+						},
+						"disable": {
+							"type": "off",
+							"board": "ac2",
+							"packet": 100,
+							"number": 6
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"id": "fuelGems",
+					"type": "valve",
+					"name": "Prop GEMS",
+					"field": "ac2.actuatorState7",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"board": "ac2",
+							"packet": 100,
+							"number": 7
+						},
+						"disable": {
+							"type": "off",
+							"board": "ac2",
+							"packet": 100,
+							"number": 7
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"id": "loxMain",
+					"type": "valve",
+					"name": "LOX Main",
+					"field": "ac1.actuatorState4",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"board": "ac1",
+							"packet": 100,
+							"number": 4
+						},
+						"disable": {
+							"type": "off",
+							"board": "ac1",
+							"packet": 100,
+							"number": 4
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"id": "propMain",
+					"type": "valve",
+					"name": "Prop Main",
+					"field": "ac1.actuatorState5",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"board": "ac1",
+							"packet": 100,
+							"number": 5
+						},
+						"disable": {
+							"type": "off",
+							"board": "ac1",
+							"packet": 100,
+							"number": 5
+						}
+					},
+					"green": [0, 1]
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "pressFill",
+					"type": "timed",
+					"name": "HIGH Press Fill Line",
+					"field": "ac2.actuatorState0",
+					"actions": {
+						"enable": {
+							// "type": "retract-full",
+							// "board": "ac2",
+							// "packet": 100,
+							// "number": 0
+							"type": null
+						},
+						"disable": {
+							"type": "extend-full",
+							"board": "ac2",
+							"packet": 100,
+							"number": 0
+						},
+						"enable-timed": {
+							"type": "retract-timed",
+							"board": "ac2",
+							"packet": 100,
+							"number": 0
+						},
+						"disable-timed": {
+							"type": "extend-timed",
+							"board": "ac2",
+							"packet": 100,
+							"number": 0
+						}
+					},
+					"safe": true,
+					"green": [0, 1]
+				},
+				{
+					"id": "pressVent",
+					"type": "timed",
+					"name": "Press Vent RBV",
+					"field": "ac2.actuatorState3",
+					"actions": {
+						"enable": {
+							"type": "retract-full",
+							"board": "ac2",
+							"packet": 100,
+							"number": 3
+						},
+						"disable": {
+							"type": "extend-full",
+							"board": "ac2",
+							"packet": 100,
+							"number": 3
+						},
+						"enable-timed": {
+							"type": "retract-timed",
+							"board": "ac2",
+							"packet": 100,
+							"number": 3
+						},
+						"disable-timed": {
+							"type": "extend-timed",
+							"board": "ac2",
+							"packet": 100,
+							"number": 3
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "logs"
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "pressFill2",
+					"type": "timed",
+					"name": "LOW Press Fill Line",
+					"field": "ac1.actuatorState6",
+					"actions": {
+						"enable": {
+							// "type": "retract-full",
+							// "board": "ac2",
+							// "packet": 100,
+							// "number": 0
+							"type": null
+						},
+						"disable": {
+							"type": "extend-full",
+							"board": "ac1",
+							"packet": 100,
+							"number": 6
+						},
+						"enable-timed": {
+							"type": "retract-timed",
+							"board": "ac1",
+							"packet": 100,
+							"number": 6
+						},
+						"disable-timed": {
+							"type": "extend-timed",
+							"board": "ac1",
+							"packet": 100,
+							"number": 6
+						}
+					},
+					"safe": true,
+					"green": [0, 1]
+				},
+				{
+					"id": "eregPartialOpen",
+					"type": "ereg-timed",
+					"name": "E-Reg Partial Open",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"board": "oreg",
+							"packet": 202
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"board": "freg",
+							"packet": 202
+						}
+					},
+					"safe": true
+				},
+				{
+					"type": null
+				},
+				{
+					"id": "launchEnable",
+					"type": "switch",
+					"name": "Launch Enable",
+					"field": "",
+					"actions": {
+						"enable": {
+							"type": "enable",
+							"id": "launch"
+						},
+						"disable": {
+							"type": "disable",
+							"id": "launch"
+						}
+					}
+				}
+			]
+		},
+		{
+			"type": "launch"
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "eregStaticPress",
+					"type": "ereg",
+					"name": "Static Press",
+					"field": "",
+					"actions": {
+						"lox": {
+							"type": "signal",
+							"board": "oreg",
+							"packet": 203
+						},
+						"fuel": {
+							"type": "signal",
+							"board": "freg",
+							"packet": 203
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "eregStartPings",
+					"type": "ereg",
+					"name": "Start Pings",
+					"field": "",
+					"actions": {
+						"lox": {
+							"type": "start-pings",
+							"board": "oreg",
+							"packet": 209,
+							"delay": 200
+						},
+						"fuel": {
+							"type": "start-pings",
+							"board": "freg",
+							"packet": 209,
+							"delay": 200
+						}
+					},
+					"safe": true
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				}
+			]
+		}
+	]
+}

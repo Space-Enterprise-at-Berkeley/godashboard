@@ -1,0 +1,54 @@
+{
+	"ac1": {
+		"type": "ac",
+		"address": "10.0.0.11"
+	},
+	"ac2": {
+		"type": "ac",
+		"address": "10.0.0.12"
+	},
+	"ac3": {
+		"type": "ac",
+		"address": "10.0.0.13"
+	},
+	"tc1": {
+		"type": "tc",
+		"address": "10.0.0.51"
+	},
+	"tc2": {
+		"type": "tc",
+		"address": "10.0.0.52"
+	},
+	"pt1": {
+		"type": "pt",
+		"address": "10.0.0.31"
+	},
+	"pt2": {
+		"type": "pt",
+		"address": "10.0.0.32"
+	},
+	"pt3": {
+		"type": "pt",
+		"address": "10.0.0.33"
+	},
+	"lc1": {
+		"type": "lc",
+		"address": "10.0.0.21"
+	},
+	"lc2": {
+		"type": "lc",
+		"address": "10.0.0.22"
+	},
+	"icap": {
+		"type": "cap",
+		"address": "10.0.0.43"
+	},
+	"ncap": {
+		"type": "cap",
+		"address": "10.0.0.42"
+	},
+	"ireg": {
+		"type": "ereg",
+		"address": "10.0.0.71"
+	}
+}

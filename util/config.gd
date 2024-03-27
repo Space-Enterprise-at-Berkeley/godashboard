@@ -59,7 +59,7 @@ var config = {}
 var exists = false
 
 func _ready() -> void:
-	var file: FileAccess = FileAccess.open("C:\\Users\\Zander\\Desktop\\seb\\ground\\config.jsonc", FileAccess.READ)
+	var file: FileAccess = FileAccess.open("res://config/config.jsonc", FileAccess.READ)
 	var text: String = file.get_as_text()
 	var res: Variant = parse_config(text)
 	config = res
@@ -158,7 +158,7 @@ func _parse(tokens: Array[Token]) -> Variant:
 
 func _parse_string(str: String) -> Variant:
 	if str[1] == "$":
-		var file: FileAccess = FileAccess.open("C:\\Users\\Zander\\Desktop\\seb\\ground\\config\\%s" %str.substr(2, str.length() - 3), FileAccess.READ)
+		var file: FileAccess = FileAccess.open("res://config/%s" %str.substr(2, str.length() - 3), FileAccess.READ)
 		var text: String = file.get_as_text()
 		var res: Variant = parse_config(text)
 		return res

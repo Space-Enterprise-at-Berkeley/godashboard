@@ -1,0 +1,217 @@
+{
+	"name": "Flight",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "flight.gpsLatitude",
+					"name": "Latitude",
+					"units": ""
+				},
+				{
+					"field": "flight.gpsLongitude",
+					"name": "Longitude",
+					"units": ""
+				},
+				{
+					"field": "flight.gpsAltitude",
+					"name": "Altitude",
+					"units": ""
+				},
+				{
+					"field": "flight.numGpsSats",
+					"name": "Satellites",
+					"units": ""
+				},
+				{
+					"field": "flight.drogueDep",
+					"name": "Drogue",
+					"units": ""
+				},
+				{
+					"field": "flight.mainDep",
+					"name": "Main",
+					"units": ""
+				}
+			]
+		},
+		// {
+		// 	"type": "six-square",
+		// 	"values": [
+		// 		{
+		// 			"field": "flight.isRecording",
+		// 			"name": "Recording",
+		// 			"units": ""
+		// 		},
+		// 		{
+		// 			"field": "flight.blackboxWritten",
+		// 			"name": "Bytes Written",
+		// 			"units": ""
+		// 		},
+		// 		{
+		// 			"field": null
+		// 		},
+		// 		{
+		// 			"field": null
+		// 		},
+		// 		{
+		// 			"field": null
+		// 		},
+		// 		{
+		// 			"field": null
+		// 		}
+		// 	]
+		// },
+		{
+			// <Map fieldLat={"gpsLatitude"} fieldLong={"gpsLongitude"} />
+			"type": "gpsmap", 
+			"gpsLatitude": "flight.gpsLatitude",
+			"gpsLongitude": "flight.gpsLongitude"
+		},
+		// {
+		// 	"type": "orientation",
+		// 	"qw": "flight.qW",
+		// 	"qx": "flight.qX",
+		// 	"qy": "flight.qY",
+		// 	"qz": "flight.qZ"
+		// },
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "flight.baroAltitude",
+					"name": "Altitude",
+					"units": ""
+				},
+				{
+					"field": "flight.baroPressure2",
+					"name": "Pressure",
+					"units": "",
+					"decimals": 2
+				},
+				{
+					"field": "flight.apogee",
+					"name": "Apogee",
+					"units": ""
+				},
+				{
+					"field": "flight.filteredAltitude",
+					"name": "Filt Alt",
+					"units": ""
+				},
+				{
+					"field": "flight.filteredVelocity",
+					"name": "Filt Vel",
+					"units": ""
+				},
+				{
+					"field": "flight.filteredAccel",
+					"name": "Filt Accel",
+					"units": ""
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "flight.accelX",
+					"name": "Accel X",
+					"units": ""
+				},
+				{
+					"field": "flight.accelY",
+					"name": "Accel Y",
+					"units": ""
+				},
+				{
+					"field": "flight.accelZ",
+					"name": "Accel Z",
+					"units": ""
+				},
+				{
+					"field": "flight.breakwire0",
+					"name": "Breakwire 0",
+					"units": "V"
+				},
+				{
+					"field": "flight.breakwire1",
+					"name": "Breakwire 1",
+					"units": "V"
+				},
+				{
+					"field": "flight.bbWritten",
+					"name": "Black Box",
+					"units": ""
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "flight.gyroX",
+					"name": "gyroX",
+					"units": ""
+				},
+				{
+					"field": "flight.gyroY",
+					"name": "gyroY",
+					"units": ""
+				},
+				{
+					"field": "flight.gyroZ",
+					"name": "gyroZ",
+					"units": ""
+				},
+				{
+					"field": "flight.busVoltage",
+					"name": "FC",
+					"units": "V"
+				},
+				{
+					"field": "flight.shuntCurrent",
+					"name": "FC",
+					"units": "A"
+				},
+				{
+					"field": null
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "flight.video0Curr",
+					"name": "Video0",
+					"units": "A"
+				},
+				{
+					"field": "flight.video0Cont",
+					"name": "Video0",
+					"units": "V"
+				},
+				{
+					"field": "flight.video1Curr",
+					"name": "Video1",
+					"units": "A"
+				},
+				{
+					"field": "flight.video1Cont",
+					"name": "Video1",
+					"units": "V"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				}
+			]
+		}
+
+	]
+}
