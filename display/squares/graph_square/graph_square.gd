@@ -8,11 +8,12 @@ const graph_header_scene: PackedScene = preload("res://display/squares/graph_squ
 const graph_rect_scene: PackedScene = preload("res://display/squares/graph_square/graph_rect.tscn")
 
 const POINT_COUNT: int = 2000
-const TIME_MODULO: int = 10000000
+const TIME_WIDTH: int = 30000
 
 var field_names: Array[String] = []
 var graphs: Dictionary
 var points: Dictionary
+var mapped_points: Dictionary
 var point_indeces: Dictionary
 var colors: Dictionary
 var start_time: int
@@ -24,8 +25,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var y_min: float = INF
 	var y_max: float = -INF
-	var x_max: int = Databus.get_current_time()
-	var x_min: int = x_max - 30000
 	for field in field_names:
 		for point in points[field]:
 			if point.x >= 0:
@@ -37,16 +36,25 @@ func _process(delta: float) -> void:
 		y_min = 0
 		y_max = 0
 	var y_height_initial: float = y_max - y_min
+	
 	y_min -= maxf(0.1, 0.05 * y_height_initial)
 	y_max += maxf(0.1, 0.05 * y_height_initial)
+	var y_height: float = y_max - y_min
+	var time: int = Databus.get_current_time() - start_time
+	var time_min: int = time - TIME_WIDTH
 	
-	for graph in graphs:
-		var shader: ShaderMaterial = graphs[graph].material as ShaderMaterial
-		shader.set_shader_parameter("points", points[graph])
+	for field in field_names:
+		var unmapped: PackedVector2Array = points[field]
+		var mapped: PackedVector2Array = mapped_points[field]
+		var start_index: int = point_indeces[field]
+		for i in POINT_COUNT:
+			var unmapped_point: Vector2 = unmapped[(i + start_index) % POINT_COUNT]
+			mapped[i] = Vector2((unmapped_point.x - time_min) / TIME_WIDTH, 1.0 - ((unmapped_point.y - y_min) / y_height))
+		var shader: ShaderMaterial = graphs[field].material as ShaderMaterial
+		shader.set_shader_parameter("points", mapped)
 		shader.set_shader_parameter("max_y", y_max)
 		shader.set_shader_parameter("min_y", y_min)
-		shader.set_shader_parameter("timestamp", float(Databus.get_current_time() - start_time))
-		shader.set_shader_parameter("start_index", point_indeces[graph])
+		shader.set_shader_parameter("timestamp", float(time))
 
 func setup(config: Dictionary) -> void:
 	for child in graph_rects.get_children():
@@ -67,6 +75,8 @@ func setup(config: Dictionary) -> void:
 		graphs[f] = graph
 		graph_rects.add_child(graph)
 		(graph.material as ShaderMaterial).set_shader_parameter("color", color)
+		mapped_points[f] = PackedVector2Array()
+		mapped_points[f].resize(POINT_COUNT)
 
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
 	for f in fields:

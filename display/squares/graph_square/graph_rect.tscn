@@ -9,7 +9,6 @@ shader_parameter/points = null
 shader_parameter/timestamp = null
 shader_parameter/max_y = null
 shader_parameter/min_y = null
-shader_parameter/start_index = null
 shader_parameter/color = null
 
 [node name="GraphRect" type="ColorRect"]
