@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 const int POINT_LENGTH = 2000;
 const float TIME_WIDTH = 30000.0;
-const int STEP = 1;
+const int STEP = 8;
 
 uniform vec2 points[POINT_LENGTH];
 uniform float timestamp;
