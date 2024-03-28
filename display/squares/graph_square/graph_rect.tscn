@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6tds7yhf547l"]
+
+[ext_resource type="Shader" path="res://display/squares/graph_square/graphs.gdshader" id="1_8tde1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrmy7"]
+resource_local_to_scene = true
+shader = ExtResource("1_8tde1")
+shader_parameter/points = null
+shader_parameter/timestamp = null
+shader_parameter/max_y = null
+shader_parameter/min_y = null
+shader_parameter/start_index = null
+shader_parameter/color = null
+
+[node name="GraphRect" type="ColorRect"]
+material = SubResource("ShaderMaterial_vrmy7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0)

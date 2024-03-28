@@ -9,6 +9,9 @@ class_name FunctionGeneratorEntry
 @onready var packet_editor: PacketEditor = $MarginContainer/FunctionGeneratorEntry/PacketEditor
 @onready var timer: Timer = $Timer
 
+# Floating point moment
+const TIME_MODULO: int = 10000000
+
 var expression: Expression = Expression.new()
 var expression_valid: bool = false
 var variables: PackedStringArray = PackedStringArray(["t"])
@@ -32,5 +35,5 @@ func _execute() -> void:
 	if not expression_valid or not enabled_button.button_pressed:
 		return
 	var timestamp: int = Databus.get_current_time()
-	var value: Variant = expression.execute([timestamp])
+	var value: Variant = expression.execute([float(timestamp % TIME_MODULO)])
 	packet_simulator.parse_and_send(command.replace("@", str(value)))

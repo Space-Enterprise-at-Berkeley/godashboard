@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cym058py2gtra"]
+[gd_scene format=3 uid="uid://vb2ecdfa1s8f"]
 
 [node name="PacketCliHistory" type="RichTextLabel"]
 anchors_preset = 14
@@ -9,5 +9,4 @@ offset_top = -11.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "WWWWW"
 fit_content = true

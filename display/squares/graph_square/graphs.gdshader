@@ -1,7 +1,8 @@
 shader_type canvas_item;
 
-const int POINT_LENGTH = 5;
+const int POINT_LENGTH = 2000;
 const float TIME_WIDTH = 30000.0;
+const int STEP = 8;
 
 uniform vec2 points[POINT_LENGTH];
 uniform float timestamp;
@@ -21,14 +22,14 @@ void fragment() {
 	float width = min(TEXTURE_PIXEL_SIZE.x, TEXTURE_PIXEL_SIZE.y) * 10.0;
 	float y_height = max_y - min_y;
 	float min_x = timestamp - TIME_WIDTH;
-	for (int i = 0; i < POINT_LENGTH - 1; i ++) {
+	for (int i = 0; i < POINT_LENGTH - STEP; i += STEP) {
 		vec2 current_point = points[(i + start_index) % POINT_LENGTH];
 		current_point.y = 1.0 - ((current_point.y - min_y) / y_height);
 		current_point.x = (current_point.x - min_x) / TIME_WIDTH;
-		vec2 next_point = points[(i + start_index + 1) % POINT_LENGTH];
+		vec2 next_point = points[(i + start_index + STEP) % POINT_LENGTH];
 		next_point.y = 1.0 - ((next_point.y - min_y) / y_height);
 		next_point.x = (next_point.x - min_x) / TIME_WIDTH;
-		COLOR += vec4(line(current_point, next_point, width, UV)) * step(-0.5, next_point.x);
+		COLOR = max(COLOR, vec4(line(current_point, next_point, width, UV)) * step(-0.5, next_point.x));
 	}
 	COLOR.rgb *= color;
 }
