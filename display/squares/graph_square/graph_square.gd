@@ -3,13 +3,17 @@ class_name GraphSquare
 
 @onready var header: HFlowContainer = $VBoxContainer/Header
 @onready var viewport: SubViewport = $VBoxContainer/SubViewportContainer/SubViewport
+@onready var color_rect: ColorRect = $VBoxContainer/ColorRect
 
 const graph_header_scene: PackedScene = preload("res://display/squares/graph_square/graph_header.tscn")
 
+const POINT_COUNT: int = 5
+const TIME_MODULO: int = 10000000
+
 var field_names: Array[String] = []
 var points: Dictionary
+var point_indeces: Dictionary
 var colors: Dictionary
-#var lines: Dictionary
 
 func _ready() -> void:
 	Databus.update.connect(_handle_packet)
@@ -20,26 +24,25 @@ func _process(delta: float) -> void:
 	var x_max: int = Databus.get_current_time()
 	var x_min: int = x_max - 30000
 	for field in field_names:
-		points[field] = points[field].filter(func (v: Array) -> bool: return v[1] >= x_min)
 		for point in points[field]:
-			if point[0] < y_min:
-				y_min = point[0]
-			if point[0] > y_max:
-				y_max = point[0]
+			if point.x >= 0:
+				if point.y < y_min:
+					y_min = point.y
+				if point.y > y_max:
+					y_max = point.y
 	if not is_finite(y_min) or not is_finite(y_max):
 		y_min = 0
 		y_max = 0
 	var y_height_initial: float = y_max - y_min
 	y_min -= maxf(0.1, 0.05 * y_height_initial)
 	y_max += maxf(0.1, 0.05 * y_height_initial)
-	var y_height: float = y_max - y_min
-	for field in field_names:
-		var vector_points: PackedVector2Array = PackedVector2Array()
-		for point in points[field]:
-			var x_pos: float = viewport.size.x * (point[1] - x_min) / 30000.0
-			var y_pos: float = viewport.size.y * (1 - ((point[0] - y_min) / y_height))
-			vector_points.append(Vector2(x_pos, y_pos))
-		#lines[field].points = vector_points
+	
+	var shader: ShaderMaterial = color_rect.material as ShaderMaterial
+	shader.set_shader_parameter("points", points[points.keys()[0]])
+	shader.set_shader_parameter("max_y", y_max)
+	shader.set_shader_parameter("min_y", y_min)
+	shader.set_shader_parameter("timestamp", float(Databus.get_current_time() % TIME_MODULO))
+	shader.set_shader_parameter("start_index", point_indeces[points.keys()[0]])
 
 func setup(config: Dictionary) -> void:
 	for child in viewport.get_children():
@@ -50,17 +53,15 @@ func setup(config: Dictionary) -> void:
 		graph_header.setup(field)
 		var f: String = field["field"]
 		field_names.append(f)
-		points[f] = []
+		points[f] = PackedVector2Array()
+		points[f].resize(POINT_COUNT)
+		points[f].fill(Vector2(0, -1))
 		var color: Color = Color(field["color"][0] / 255.0, field["color"][1] / 255.0, field["color"][2] / 255.0)
 		colors[f] = color
-		
-		#var line: Line2D = Line2D.new()
-		#line.default_color = color
-		#line.width = 1
-		#viewport.add_child(line)
-		#lines[f] = line
+		point_indeces[f] = 0
 
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
 	for f in fields:
 		if field_names.has(f):
-			points[f].append([fields[f], timestamp])
+			points[f][point_indeces[f]] = Vector2(float(timestamp % TIME_MODULO), fields[f])
+			point_indeces[f] = (point_indeces[f] + 1) % POINT_COUNT

@@ -2,43 +2,35 @@ extends PanelContainer
 class_name FunctionGeneratorEntry
 
 @onready var delete_button: Button = $MarginContainer/FunctionGeneratorEntry/HBoxContainer/Delete
-@onready var destination_type: OptionButton = $MarginContainer/FunctionGeneratorEntry/HBoxContainer/DestinationType
-@onready var destination_ip: LineEdit = $MarginContainer/FunctionGeneratorEntry/HBoxContainer/DestinationIP
-@onready var source_ip: LineEdit = $MarginContainer/FunctionGeneratorEntry/HBoxContainer/SourceIP
 @onready var delay: LineEdit = $MarginContainer/FunctionGeneratorEntry/HBoxContainer/Delay
 @onready var enabled_button: CheckButton = $MarginContainer/FunctionGeneratorEntry/HBoxContainer/Enabled
 @onready var update_button: Button = $MarginContainer/FunctionGeneratorEntry/HBoxContainer/Update
 @onready var function_text: LineEdit = $MarginContainer/FunctionGeneratorEntry/FunctionText
+@onready var packet_editor: PacketEditor = $MarginContainer/FunctionGeneratorEntry/PacketEditor
 @onready var timer: Timer = $Timer
 
 var expression: Expression = Expression.new()
+var expression_valid: bool = false
 var variables: PackedStringArray = PackedStringArray(["t"])
+var packet_simulator: PacketSimulator
+var command: String = ""
 
 func _ready() -> void:
 	delete_button.pressed.connect(queue_free)
 	timer.timeout.connect(_execute)
-	destination_type.item_selected.connect(_change_destination_type)
 	update_button.pressed.connect(_update)
 
 func _delete() -> void:
 	queue_free()
 
-func _change_destination_type(index: int) -> void:
-	if index == Databus.AddressType.MONOCAST:
-		destination_ip.editable = true
-	else:
-		destination_ip.editable = false
-	if index == Databus.AddressType.LOCALHOST:
-		source_ip.editable = true
-	else:
-		source_ip.editable = false
-
 func _update() -> void:
-	expression.parse(function_text.text, variables)
+	expression_valid = expression.parse(function_text.text, variables) == OK
+	command = packet_editor.text_edit.text
+	timer.wait_time = delay.text.to_float() / 1000.0
 
 func _execute() -> void:
-	if not enabled_button.button_pressed:
+	if not expression_valid or not enabled_button.button_pressed:
 		return
 	var timestamp: int = Databus.get_current_time()
 	var value: Variant = expression.execute([timestamp])
-	print(value)
+	packet_simulator.parse_and_send(command.replace("@", str(value)))

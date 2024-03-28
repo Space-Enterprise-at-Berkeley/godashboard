@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://rdicnqvoq18r"]
+[gd_scene load_steps=6 format=3 uid="uid://rdicnqvoq18r"]
 
 [ext_resource type="Script" path="res://display/layout/packet_simulator/function_generator_entry.gd" id="1_s0ugc"]
 [ext_resource type="Shader" path="res://resources/shader/recolor_icon.gdshader" id="2_k0yc7"]
 [ext_resource type="Texture2D" uid="uid://bnrh66gjee452" path="res://resources/icon/reload.svg" id="2_ugulc"]
+[ext_resource type="PackedScene" uid="uid://du5kp44a8j6uf" path="res://display/layout/packet_simulator/packet_editor.tscn" id="4_r6evt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pvges"]
 shader = ExtResource("2_k0yc7")
@@ -30,29 +31,10 @@ layout_mode = 2
 layout_mode = 2
 text = "X"
 
-[node name="DestinationType" type="OptionButton" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
-layout_mode = 2
-item_count = 4
-popup/item_0/text = "Monocast"
-popup/item_0/id = 0
-popup/item_1/text = "Multicast"
-popup/item_1/id = 1
-popup/item_2/text = "Broadcast"
-popup/item_2/id = 2
-popup/item_3/text = "Localhost"
-popup/item_3/id = 3
-
-[node name="DestinationIP" type="LineEdit" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
+[node name="Name" type="LineEdit" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "Destination IP"
-editable = false
-
-[node name="SourceIP" type="LineEdit" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Fake Source"
-editable = false
+placeholder_text = "Name"
 
 [node name="Delay" type="LineEdit" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
 layout_mode = 2
@@ -75,7 +57,7 @@ expand_icon = true
 layout_mode = 2
 placeholder_text = "Function"
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/FunctionGeneratorEntry"]
+[node name="PacketEditor" parent="MarginContainer/FunctionGeneratorEntry" instance=ExtResource("4_r6evt")]
 layout_mode = 2
 
 [node name="Timer" type="Timer" parent="."]

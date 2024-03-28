@@ -9,10 +9,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 script = ExtResource("1_4dfiy")
 
 [node name="TextEdit" type="TextEdit" parent="."]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-text = "EEEEE"
+placeholder_text = "Command"

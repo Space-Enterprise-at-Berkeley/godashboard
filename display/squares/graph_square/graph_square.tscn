@@ -3,9 +3,15 @@
 [ext_resource type="Script" path="res://display/squares/graph_square/graph_square.gd" id="1_j7bdm"]
 [ext_resource type="Shader" path="res://display/squares/graph_square/graphs.gdshader" id="2_lv0gk"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7d1ej"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qrbj2"]
+resource_local_to_scene = true
 shader = ExtResource("2_lv0gk")
-shader_parameter/points = PackedVector2Array()
+shader_parameter/points = PackedVector2Array(2.65215e+06, 2, 2.65316e+06, 2, 2.65415e+06, 2, 2.65515e+06, 2, 2.65616e+06, 2)
+shader_parameter/timestamp = 2.65646e+06
+shader_parameter/max_y = 2.1
+shader_parameter/min_y = 1.9
+shader_parameter/start_index = null
+shader_parameter/color = Color(0, 1, 0, 1)
 
 [node name="GraphSquare" type="Control"]
 layout_mode = 3
@@ -46,11 +52,11 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1152, 644)
+size = Vector2i(2, 2)
 render_target_update_mode = 0
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
-material = SubResource("ShaderMaterial_7d1ej")
+material = SubResource("ShaderMaterial_qrbj2")
 layout_mode = 2
 size_flags_vertical = 3
 color = Color(1, 1, 1, 0)
