@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dhbhuwimrxr04"]
+[gd_scene load_steps=2 format=3 uid="uid://dhbhuwimrxr04"]
+
+[ext_resource type="Script" path="res://display/squares/four_button_square/four_button_square.gd" id="1_tlvhe"]
 
 [node name="FourButtonSquare" type="Control"]
 layout_mode = 3
@@ -9,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_tlvhe")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

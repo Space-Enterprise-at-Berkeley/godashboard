@@ -1,4 +1,13 @@
-[gd_scene format=3 uid="uid://ujlfoso2imrf"]
+[gd_scene load_steps=6 format=3 uid="uid://ujlfoso2imrf"]
+
+[ext_resource type="Shader" path="res://resources/shader/recolor_icon.gdshader" id="1_5milv"]
+[ext_resource type="Script" path="res://display/squares/four_button_square/generic_button.gd" id="1_iaaht"]
+[ext_resource type="Texture2D" uid="uid://d1aepdhmhot6" path="res://resources/icon/arrow_left.svg" id="2_d3hyg"]
+[ext_resource type="Texture2D" uid="uid://rplcyg1kc62m" path="res://resources/icon/arrow_right.svg" id="3_tm71b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qyism"]
+shader = ExtResource("1_5milv")
+shader_parameter/color = Color(0.792157, 0.792157, 0.792157, 1)
 
 [node name="GenericButton" type="Control"]
 layout_mode = 3
@@ -9,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_iaaht")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -27,14 +37,18 @@ grow_vertical = 2
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="ButtonCloseTimed" type="Button" parent="VBoxContainer/HBoxContainer2"]
+visible = false
+material = SubResource("ShaderMaterial_qyism")
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-text = "Close"
+icon = ExtResource("2_d3hyg")
+expand_icon = true
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(100, 10)
+custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/ColorRect"]
@@ -50,17 +64,22 @@ text = "Name
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="ButtonOpenTimed" type="Button" parent="VBoxContainer/HBoxContainer2"]
+visible = false
+material = SubResource("ShaderMaterial_qyism")
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-text = "Open
-"
+icon = ExtResource("3_tm71b")
+expand_icon = true
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer"]
+[node name="ButtonSafety" type="CheckButton" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+[node name="Time" type="LineEdit" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -70,6 +89,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="ButtonClose" type="Button" parent="VBoxContainer/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -77,6 +97,7 @@ size_flags_vertical = 4
 text = "Close"
 
 [node name="ButtonOpen" type="Button" parent="VBoxContainer/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 size_flags_horizontal = 4
