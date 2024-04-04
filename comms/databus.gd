@@ -227,3 +227,15 @@ func send_packet(ip: String, id: int, args: Array) -> void:
 		AddressType.LOCALHOST:
 			Comms.bcast_server.set_dest_address(Comms.LOCALHOST_IP, Comms.BCAST_PORT)
 			Comms.bcast_server.put_packet(output_buffer)
+
+func make_float(value: float) -> Array:
+	return [value, PacketDataType.FLOAT]
+
+func make_uint8(value: int) -> Array:
+	return [value, PacketDataType.UINT8]
+
+func make_uint16(value: int) -> Array:
+	return [value, PacketDataType.UINT8]
+
+func make_uint32(value: int) -> Array:
+	return [value, PacketDataType.UINT8]

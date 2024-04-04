@@ -19,7 +19,7 @@ enum ButtonType {
 @onready var time: LineEdit = $VBoxContainer/Time
 @onready var color_rect: ColorRect = $VBoxContainer/HBoxContainer2/ColorRect
 
-const button_type_lookup: Dictionary = {
+const BUTTON_TYPE_LOOKUP: Dictionary = {
 	null: ButtonType.NULL,
 	"valve": ButtonType.VALVE,
 	"timed": ButtonType.TIMED,
@@ -27,6 +27,8 @@ const button_type_lookup: Dictionary = {
 	"ereg": ButtonType.EREG,
 	"ereg-timed": ButtonType.EREG_TIMED,
 }
+const BUTTON_ENABLE: String = "buttonΕnable"
+const BUTTON_DISABLE: String = "buttonDisable"
 
 var id: String = ""
 var field: String = ""
@@ -41,9 +43,10 @@ func _ready() -> void:
 	button_close_timed.pressed.connect(_partial_close)
 	button_open_timed.pressed.connect(_partial_open)
 	button_safety.toggled.connect(_switch_safety)
+	Databus.update.connect(_handle_packet)
 
 func setup(config: Dictionary) -> void:
-	type = button_type_lookup[config["type"]]
+	type = BUTTON_TYPE_LOOKUP[config["type"]]
 	if type == ButtonType.NULL:
 		color_rect.hide()
 		return
@@ -131,19 +134,64 @@ func _disable() -> void:
 			button_open_timed.disabled = true
 			button_close_timed.disabled = true
 
+func _get_time_int() -> int:
+	var t: int = 0
+	if time.text.is_valid_int():
+		t = time.text.to_int()
+	return t
+
+func _get_time_float() -> int:
+	var t: float = 0.0
+	if time.text.is_valid_float():
+		t = time.text.to_float()
+	return t
+
 func _execute_action(action: Dictionary) -> void:
 	if action.get("type", null) == null:
 		return
-	var t: float
-	var t_valid: bool = false
-	if time.text.is_valid_float():
-		t_valid = true
-		t = time.text.to_float()
-	var target: Array = Config.config["commandMap"][action["target"]]
-	var board: String = target[0]
-	var packet: int = target[1]
-	var number: Variant = target[2]
+	var target: Array
+	var board: String
+	var packet: int
+	var number: Variant
+	if action.has("target"):
+		target = Config.config["commandMap"][action["target"]]
+		board = target[0]
+		packet = target[1]
+		number = target[2]
 	match action["type"]:
-		case "retract-full":
-			if number != null:
-				Databus.send_packet()
+		"retract-full":
+			Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(0), Databus.make_uint32(0)])
+		"extend-full":
+			Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(1), Databus.make_uint32(0)])
+		"retract-timed":
+			Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(2), Databus.make_uint32(_get_time_int())])
+		"extend-timed":
+			Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(3), Databus.make_uint32(_get_time_int())])
+		"on":
+			Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(4), Databus.make_uint32(0)])
+		"off":
+			Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(5), Databus.make_uint32(0)])
+		"enable":
+			Databus.send_update({BUTTON_ENABLE: action["id"]}, Databus.get_current_time())
+		"disable":
+			Databus.send_update({BUTTON_DISABLE: action["id"]}, Databus.get_current_time())
+		"signal":
+			Databus.send_packet(board, packet, [])
+		"signal-timed":
+			Databus.send_packet(board, packet, [Databus.make_float(_get_time_float())])
+		"start-pings":
+			Pings.add_ping(action["pingId"], func () -> void: Databus.send_packet(board, packet, []), action["delay"])
+		"stop-pings":
+			Pings.remove_ping(action["pingId"])
+		"zero":
+			Databus.send_packet(board, packet, [Databus.make_uint8(_get_time_int())])
+		"enable-heartbeat":
+			Globals.heartbeat_enabled = true
+		"disable-heartbeat":
+			Globals.heartbeat_enabled = false
+
+func _handle_packet(fields: Dictionary, timestamp: int) -> void:
+	if fields.get(BUTTON_ENABLE, null) == id:
+		_enable()
+	elif fields.get(BUTTON_DISABLE, null) == id:
+		_disable()

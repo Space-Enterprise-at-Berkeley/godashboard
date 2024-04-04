@@ -290,7 +290,8 @@
 							"enable": {
 								"type": "start-pings",
 								"pingId": "nosAuto",
-								"target": "nosAutomation"
+								"target": "nosAutomation",
+								"delay": 1000
 							},
 							"disable": {
 								"type": "stop-pings",
