@@ -1,0 +1,157 @@
+{
+	"Global": {
+		"packet_editor_ip": ["color", "packet_editor:packet_editor_ip"],
+		"packet_editor_id": ["color", "packet_editor:packet_editor_id"],
+		"packet_editor_value": ["color", "packet_editor:packet_editor_value"]
+	},
+	"MarginContainer": {
+		"margin_top": ["int", "margins/top:margin"],
+		"margin_bottom": ["int", "margins/bottom:margin"],
+		"margin_left": ["int", "margins/left:margin"],
+		"margin_right": ["int", "margins/right:margin"]
+	},
+	"BoardStatusConnected": {
+		"@": "PanelContainer",
+		"panel": [
+			"style_box_flat",
+			{
+				"bg_color": "board_status/connected:background_color"
+			}
+		]
+	},
+	"BoardStatusDisconnected": {
+		"@": "PanelContainer",
+		"panel": [
+			"style_box_flat",
+			{
+				"bg_color": "board_status/disconnected:background_color"
+			}
+		]
+	},
+	"ButtonClose": {
+		"@": "Button",
+		"normal": [
+			"style_box_flat",
+			{
+				"bg_color": "button_open_close/normal/close:background_color",
+				"expand_margin_top": "button_open_close/normal/margin/close:margin_top",
+				"expand_margin_bottom": "button_open_close/normal/margin/close:margin_bottom",
+				"corner_radius_top_left": "button_open_close/normal/corner_radius/close/top_left:corner_radius",
+				"corner_radius_top_right": "button_open_close/normal/corner_radius/close/top_right:corner_radius",
+				"corner_radius_bottom_left": "button_open_close/normal/corner_radius/close/bottom_left:corner_radius",
+				"corner_radius_bottom_right": "button_open_close/normal/corner_radius/close/bottom_right:corner_radius"
+			}
+		],
+		"hover": [
+			"style_box_flat",
+			{
+				"bg_color": "button_open_close/hover/close:background_color",
+				"expand_margin_top": "button_open_close/hover/margin/close:margin_top",
+				"expand_margin_bottom": "button_open_close/hover/margin/close:margin_bottom",
+				"corner_radius_top_left": "button_open_close/hover/corner_radius/close/top_left:corner_radius",
+				"corner_radius_top_right": "button_open_close/hover/corner_radius/close/top_right:corner_radius",
+				"corner_radius_bottom_left": "button_open_close/hover/corner_radius/close/bottom_left:corner_radius",
+				"corner_radius_bottom_right": "button_open_close/hover/corner_radius/close/bottom_right:corner_radius"
+			}
+		],
+		"pressed": [
+			"style_box_flat",
+			{
+				"bg_color": "button_open_close/pressed/close:background_color",
+				"expand_margin_top": "button_open_close/pressed/margin/close:margin_top",
+				"expand_margin_bottom": "button_open_close/pressed/margin/close:margin_bottom",
+				"corner_radius_top_left": "button_open_close/pressed/corner_radius/close/top_left:corner_radius",
+				"corner_radius_top_right": "button_open_close/pressed/corner_radius/close/top_right:corner_radius",
+				"corner_radius_bottom_left": "button_open_close/pressed/corner_radius/close/bottom_left:corner_radius",
+				"corner_radius_bottom_right": "button_open_close/pressed/corner_radius/close/bottom_right:corner_radius"
+			}
+		],
+		"focus": [
+			"style_box_flat",
+			{
+				"bg_color": "button_open_close/focus/close:background_color",
+				"expand_margin_top": "button_open_close/focus/margin/close:margin_top",
+				"expand_margin_bottom": "button_open_close/focus/margin/close:margin_bottom",
+				"corner_radius_top_left": "button_open_close/focus/corner_radius/close/top_left:corner_radius",
+				"corner_radius_top_right": "button_open_close/focus/corner_radius/close/top_right:corner_radius",
+				"corner_radius_bottom_left": "button_open_close/focus/corner_radius/close/bottom_left:corner_radius",
+				"corner_radius_bottom_right": "button_open_close/focus/corner_radius/close/bottom_right:corner_radius"
+			}
+		],
+		"disabled": [
+			"style_box_flat",
+			{
+				"bg_color": "button_open_close/disabled/close:background_color",
+				"expand_margin_top": "button_open_close/disabled/margin/close:margin_top",
+				"expand_margin_bottom": "button_open_close/disabled/margin/close:margin_bottom",
+				"corner_radius_top_left": "button_open_close/disabled/corner_radius/close/top_left:corner_radius",
+				"corner_radius_top_right": "button_open_close/disabled/corner_radius/close/top_right:corner_radius",
+				"corner_radius_bottom_left": "button_open_close/disabled/corner_radius/close/bottom_left:corner_radius",
+				"corner_radius_bottom_right": "button_open_close/disabled/corner_radius/close/bottom_right:corner_radius"
+			}
+		]
+	},
+	"ButtonOpen": {
+		"@": "Button",
+		"normal": [
+			"style_box_flat",
+			{
+				"bg_color": "button_open_close/normal/open:background_color",
+				"expand_margin_top": "button_open_close/normal/margin/open:margin_top",
+				"expand_margin_bottom": "button_open_close/normal/margin/open:margin_bottom",
+				"corner_radius_top_left": "button_open_close/normal/corner_radius/open/top_left:corner_radius",
+				"corner_radius_top_right": "button_open_close/normal/corner_radius/open/top_right:corner_radius",
+				"corner_radius_bottom_left": "button_open_close/normal/corner_radius/open/bottom_left:corner_radius",
+				"corner_radius_bottom_right": "button_open_close/normal/corner_radius/open/bottom_right:corner_radius"
+			}
+		],
+		"hover": [
+			"style_box_flat",
+			{
+				"bg_color": "button_open_close/hover/open:background_color",
+				"expand_margin_top": "button_open_close/hover/margin/open:margin_top",
+				"expand_margin_bottom": "button_open_close/hover/margin/open:margin_bottom",
+				"corner_radius_top_left": "button_open_close/hover/corner_radius/open/top_left:corner_radius",
+				"corner_radius_top_right": "button_open_close/hover/corner_radius/open/top_right:corner_radius",
+				"corner_radius_bottom_left": "button_open_close/hover/corner_radius/open/bottom_left:corner_radius",
+				"corner_radius_bottom_right": "button_open_close/hover/corner_radius/open/bottom_right:corner_radius"
+			}
+		],
+		"pressed": [
+			"style_box_flat",
+			{
+				"bg_color": "button_open_close/pressed/open:background_color",
+				"expand_margin_top": "button_open_close/pressed/margin/open:margin_top",
+				"expand_margin_bottom": "button_open_close/pressed/margin/open:margin_bottom",
+				"corner_radius_top_left": "button_open_close/pressed/corner_radius/open/top_left:corner_radius",
+				"corner_radius_top_right": "button_open_close/pressed/corner_radius/open/top_right:corner_radius",
+				"corner_radius_bottom_left": "button_open_close/pressed/corner_radius/open/bottom_left:corner_radius",
+				"corner_radius_bottom_right": "button_open_close/pressed/corner_radius/open/bottom_right:corner_radius"
+			}
+		],
+		"focus": [
+			"style_box_flat",
+			{
+				"bg_color": "button_open_close/focus/open:background_color",
+				"expand_margin_top": "button_open_close/focus/margin/open:margin_top",
+				"expand_margin_bottom": "button_open_close/focus/margin/open:margin_bottom",
+				"corner_radius_top_left": "button_open_close/focus/corner_radius/open/top_left:corner_radius",
+				"corner_radius_top_right": "button_open_close/focus/corner_radius/open/top_right:corner_radius",
+				"corner_radius_bottom_left": "button_open_close/focus/corner_radius/open/bottom_left:corner_radius",
+				"corner_radius_bottom_right": "button_open_close/focus/corner_radius/open/bottom_right:corner_radius"
+			}
+		],
+		"disabled": [
+			"style_box_flat",
+			{
+				"bg_color": "button_open_close/disabled/open:background_color",
+				"expand_margin_top": "button_open_close/disabled/margin/open:margin_top",
+				"expand_margin_bottom": "button_open_close/disabled/margin/open:margin_bottom",
+				"corner_radius_top_left": "button_open_close/disabled/corner_radius/open/top_left:corner_radius",
+				"corner_radius_top_right": "button_open_close/disabled/corner_radius/open/top_right:corner_radius",
+				"corner_radius_bottom_left": "button_open_close/disabled/corner_radius/open/bottom_left:corner_radius",
+				"corner_radius_bottom_right": "button_open_close/disabled/corner_radius/open/bottom_right:corner_radius"
+			}
+		]
+	}
+}

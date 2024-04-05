@@ -1,0 +1,31 @@
+{
+	"packet_editor": {
+		"packet_editor_ip": [255, 112, 133],
+		"packet_editor_id": [87, 179, 255],
+		"packet_editor_value": [161, 255, 224]
+	},
+	"margins": {
+		"margin": 5
+	},
+	"board_status": {
+		"connected": {
+			"background_color": [0, 127, 0]
+		},
+		"disconnected": {
+			"background_color": [127, 0, 0]
+		}
+	},
+	"button_open_close": {
+		"margin_top": 0,
+		"margin_bottom": 0,
+		"corner_radius": 37,
+		"normal": {
+			"close": {
+				"background_color": [127, 0, 0]
+			},
+			"open": {
+				"background_color": [0, 127, 0]
+			}
+		}
+	}
+}

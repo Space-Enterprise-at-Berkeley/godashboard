@@ -55,8 +55,8 @@ var LEXERS: Array[Array] = [
 
 const UNLEXED: Array[TokenType] = [TokenType.COMMENT, TokenType.WHITESPACE]
 
-var config = {}
-var exists = false
+var config: Variant = {}
+var exists: bool = false
 
 func _ready() -> void:
 	var file: FileAccess = FileAccess.open("res://config/config.jsonc", FileAccess.READ)
