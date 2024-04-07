@@ -4,17 +4,24 @@ class_name GraphSquare
 @onready var header: HFlowContainer = $VBoxContainer/Header
 @onready var viewport: SubViewport = $VBoxContainer/SubViewportContainer/SubViewport
 
+static var graph_count: int = 0
+
 const graph_header_scene: PackedScene = preload("res://display/squares/graph_square/graph_header.tscn")
 
 var field_names: Array[String] = []
-var points: Dictionary
-var colors: Dictionary
-var lines: Dictionary
+var points: Dictionary = {}
+var colors: Dictionary = {}
+var lines: Dictionary = {}
+var graph_id: int = 0
 
 func _ready() -> void:
 	Databus.update.connect(_handle_packet)
+	graph_id = graph_count
+	graph_count += 1
 
 func _process(delta: float) -> void:
+	if not is_visible_in_tree():
+		return
 	var y_min: float = INF
 	var y_max: float = -INF
 	var x_max: int = Databus.get_current_time()
