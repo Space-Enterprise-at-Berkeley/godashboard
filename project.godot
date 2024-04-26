@@ -25,9 +25,15 @@ Globals="*res://util/globals.gd"
 Pings="*res://util/pings.gd"
 Influx="*res://util/influx.gd"
 
+[debug]
+
+gdscript/warnings/unassigned_variable=2
+gdscript/warnings/untyped_declaration=2
+
 [display]
 
 window/size/mode=2
+window/subwindows/embed_subwindows=false
 
 [rendering]
 

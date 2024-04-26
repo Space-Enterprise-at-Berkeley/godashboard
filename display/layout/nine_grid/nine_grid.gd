@@ -7,7 +7,7 @@ const six_value_square_scene: PackedScene = preload("res://display/squares/six_v
 
 func setup(config: Dictionary) -> void:
 	name = config["name"]
-	for slot in config["slots"]:
+	for slot: Dictionary in config["slots"]:
 		match slot["type"]:
 			"six-square":
 				var six_value_square: SixValueSquare = six_value_square_scene.instantiate()

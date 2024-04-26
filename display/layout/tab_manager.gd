@@ -13,7 +13,7 @@ func _config_update() -> void:
 	for child in get_children():
 		child.queue_free()
 	var windows: Dictionary = Config.config["windows"]
-	for w in windows:
+	for w: String in windows:
 		var window: Dictionary = windows[w]
 		match window["layout"]:
 			"9-grid":

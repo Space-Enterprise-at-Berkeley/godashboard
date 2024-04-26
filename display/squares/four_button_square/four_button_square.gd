@@ -6,7 +6,7 @@ class_name FourButtonSquare
 const generic_button_scene: PackedScene = preload("res://display/squares/four_button_square/generic_button.tscn")
 
 func setup(config: Dictionary) -> void:
-	for button_config in config["buttons"]:
+	for button_config: Dictionary in config["buttons"]:
 		var button: GenericButton = generic_button_scene.instantiate()
 		grid_container.add_child(button)
 		button.setup(button_config)

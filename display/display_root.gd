@@ -21,12 +21,12 @@ func _ready() -> void:
 	Globals.theme = theme_node.theme
 
 func _generate_theme(filepath: String) -> Theme:
-	var theme = Theme.new()
+	var theme: Theme = Theme.new()
 	var file: FileAccess = FileAccess.open(filepath, FileAccess.READ)
 	var text: String = file.get_as_text()
 	var theme_json: Variant = Config.parse_config(text)
 	for theme_type: String in theme_definition:
-		for property in theme_definition[theme_type]:
+		for property: String in theme_definition[theme_type]:
 			if property == "@":
 				theme.add_type(theme_type)
 				theme.set_type_variation(theme_type, theme_definition[theme_type][property])

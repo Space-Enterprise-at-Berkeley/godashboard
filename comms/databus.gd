@@ -1,6 +1,6 @@
 extends Node
 
-signal update(fields, timestamp)
+signal update(fields: Dictionary, timestamp: int)
 
 enum AddressType {
 	MONOCAST,
@@ -53,7 +53,7 @@ func _config_update() -> void:
 	ip_cache = {}
 	for child in get_children():
 		child.queue_free()
-	for board_name in Config.config["boards"]:
+	for board_name: String in Config.config["boards"]:
 		ip_cache[Config.config["boards"][board_name]["address"]] = board_name
 		first_receive_times[board_name] = -1
 		first_receive_offsets[board_name] = -1
@@ -99,8 +99,8 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 	var definition: Array = Config.config["packets"][board_type][str(id)]
 	var mapped_update: Dictionary = {}
 	var influx_map: Dictionary = Config.config["influxMap"]
-	var offset = 0
-	for field in definition:
+	var offset: int = 0
+	for field: Array in definition:
 		var full_name: String = "%s.%s" %[board, field[0]]
 		var type: PacketDataType = TYPE_NAME_LOOKUP[field[1]]
 		var val: Variant = _read_value(field_data, offset, type)
@@ -151,7 +151,7 @@ func get_current_time() -> int:
 func _board_poll_kbps() -> void:
 	while true:
 		var update: Dictionary = {}
-		for board in boards_connected:
+		for board: String in boards_connected:
 			var kbps: float = boards_kbps[board]
 			boards_kbps[board] = 0
 			update["%sKbps" %board] = kbps
@@ -203,7 +203,7 @@ func send_packet(ip: String, id: int, args: Array) -> void:
 		output_buffer.append_array(parsed_ip[1].to_ascii_buffer())
 	var id_buffer: PackedByteArray = _encode_value(id, PacketDataType.UINT8)
 	var args_buffer: PackedByteArray = PackedByteArray()
-	for arg in args:
+	for arg: Array in args:
 		args_buffer.append_array(_encode_value(arg[0], arg[1]))
 	var length_buffer: PackedByteArray = _encode_value(args_buffer.size(), PacketDataType.UINT8)
 	var timestamp_buffer: PackedByteArray = _encode_value(get_current_time(), PacketDataType.UINT32)

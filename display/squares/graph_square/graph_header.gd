@@ -1,8 +1,8 @@
 extends HBoxContainer
 class_name GraphHeader
 
-@onready var color_rect = $ColorRect
-@onready var text = $Label
+@onready var color_rect: ColorRect = $ColorRect
+@onready var text: Label = $Label
 
 var field: String = ""
 var units: String = ""

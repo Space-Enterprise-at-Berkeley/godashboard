@@ -26,7 +26,7 @@ class Token:
 	var data: String
 	var offset: int
 	
-	func _init(type_p: TokenType, data_p: String, offset_p: int):
+	func _init(type_p: TokenType, data_p: String, offset_p: int) -> void:
 		type = type_p
 		data = data_p
 		offset = offset_p

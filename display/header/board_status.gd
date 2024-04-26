@@ -11,7 +11,7 @@ class_name BoardStatus
 func _ready() -> void:
 	Databus.update.connect(_handle_packet)
 
-func setup(b: String):
+func setup(b: String) -> void:
 	board = b
 	kbpsField = board + "Kbps"
 	connectedField = board + "Connected"

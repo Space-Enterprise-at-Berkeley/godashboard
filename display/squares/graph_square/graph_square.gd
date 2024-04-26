@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 	var x_min: int = x_max - 30000
 	for field in field_names:
 		points[field] = points[field].filter(func (v: Array) -> bool: return v[1] >= x_min)
-		for point in points[field]:
+		for point: Array in points[field]:
 			if point[0] < y_min:
 				y_min = point[0]
 			if point[0] > y_max:
@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 	var y_height: float = y_max - y_min
 	for field in field_names:
 		var vector_points: PackedVector2Array = PackedVector2Array()
-		for point in points[field]:
+		for point: Array in points[field]:
 			var x_pos: float = viewport.size.x * (point[1] - x_min) / 30000.0
 			var y_pos: float = viewport.size.y * (1 - ((point[0] - y_min) / y_height))
 			vector_points.append(Vector2(x_pos, y_pos))
@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 func setup(config: Dictionary) -> void:
 	for child in viewport.get_children():
 		child.queue_free()
-	for field in config["values"]:
+	for field: Dictionary in config["values"]:
 		var graph_header: GraphHeader = graph_header_scene.instantiate()
 		header.add_child(graph_header)
 		graph_header.setup(field)
@@ -67,6 +67,6 @@ func setup(config: Dictionary) -> void:
 		lines[f] = line
 
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
-	for f in fields:
+	for f: String in fields:
 		if field_names.has(f):
 			points[f].append([fields[f], timestamp])

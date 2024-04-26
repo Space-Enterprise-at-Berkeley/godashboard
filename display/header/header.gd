@@ -11,7 +11,7 @@ func _ready() -> void:
 func _config_update() -> void:
 	for child in get_children():
 		child.queue_free()
-	for board in Config.config["boards"]:
+	for board: String in Config.config["boards"]:
 		var board_status: BoardStatus = board_status_scene.instantiate()
 		add_child(board_status)
 		board_status.setup(board)
