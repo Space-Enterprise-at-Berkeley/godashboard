@@ -11,15 +11,16 @@ config_version=5
 [application]
 
 config/name="Godashboard"
-run/main_scene="res://display/display_root.tscn"
+run/main_scene="res://display/launcher/launcher.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
+Logger="*res://util/logger.gd"
+Config="*res://util/config.gd"
 Databus="*res://comms/databus.gd"
 Comms="*res://comms/comms.gd"
-Config="*res://util/config.gd"
 FocusFixer="*res://util/focus_fixer.gd"
 Globals="*res://util/globals.gd"
 Pings="*res://util/pings.gd"
@@ -32,7 +33,8 @@ gdscript/warnings/untyped_declaration=2
 
 [display]
 
-window/size/mode=2
+window/size/viewport_width=600
+window/size/viewport_height=400
 window/subwindows/embed_subwindows=false
 
 [rendering]

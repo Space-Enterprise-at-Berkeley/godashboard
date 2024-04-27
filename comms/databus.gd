@@ -47,6 +47,8 @@ var boards_kbps: Dictionary = {}
 
 func _ready() -> void:
 	Config.config_update.connect(_config_update)
+	if Config.exists:
+		_config_update()
 	_board_poll_kbps()
 
 func _config_update() -> void:
@@ -74,9 +76,11 @@ func process_packet(data: PackedByteArray, addr: String) -> void:
 func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 	var packet: Packet = Packet.new()
 	if not has_config:
+		Logger.warn("Config not ready to parse packet")
 		packet.error = true
 		return packet
 	if not ip_cache.has(addr):
+		Logger.warn("IP %s not recognized" % addr)
 		packet.error = true
 		return packet
 	var board: String = ip_cache[addr]
@@ -90,10 +94,12 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 	var sum_buf: PackedByteArray = data.slice(0, 6) + field_data
 	var expected_checksum: int = fletcher16(sum_buf)
 	if expected_checksum != checksum:
+		Logger.warn("Invalid checksum from board %s (packet id %d)" % [board, id])
 		packet.error = true
 		return packet
 	var board_type: String = Config.config["boards"][board]["type"]
 	if not Config.config["packets"][board_type].has(str(id)):
+		Logger.warn("Unrecognized packet %d on board %s" % [id, board])
 		packet.error = true
 		return packet
 	var definition: Array = Config.config["packets"][board_type][str(id)]
@@ -157,10 +163,12 @@ func _board_poll_kbps() -> void:
 			update["%sKbps" %board] = kbps
 			if not is_zero_approx(kbps) and not boards_connected[board]:
 				boards_connected[board] = true
-				update["%sConnected" %board] = true
+				update["%sConnected" % board] = true
+				Logger.info("Board connected: %s" % board)
 			elif is_zero_approx(kbps) and boards_connected[board]:
 				boards_connected[board] = false
-				update["%sConnected" %board] = false
+				update["%sConnected" % board] = false
+				Logger.warn("Board disconnected: %s" % board)
 			send_update(update, get_current_time())
 		await get_tree().create_timer(1).timeout
 

@@ -26,6 +26,8 @@
 		"boards_status": "$boards_status_window.jsonc",
 		"actuators_status": "$actuators_status_window.jsonc"
 	},
+	"windowPresets": "$window_presets.jsonc",
+	"quickWindowPresets": ["main", "debug", "empty"],
 	"preprocessors": "$preprocessors.jsonc",
 	"burnTime": 45000, // ms
 	// TODO: coldflow modes with ereg pressurization

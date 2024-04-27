@@ -4,10 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://62pvyo6stl1o" path="res://display/header/header.tscn" id="1_ovtev"]
 [ext_resource type="Script" path="res://display/layout/tab_manager.gd" id="3_pf6tb"]
 
-[node name="DisplayRoot" type="Node"]
+[node name="DisplayRoot" type="Window"]
+mode = 2
 script = ExtResource("1_dl7oo")
-theme_definition_file = "res://resources/definitions/theme.jsonc"
-theme_file = "res://resources/theme/default.jsonc"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

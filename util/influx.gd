@@ -86,7 +86,7 @@ func _upload_points() -> void:
 			TYPE_INT, TYPE_FLOAT, TYPE_BOOL:
 				body.append(str(point.value))
 			_:
-				print("Unknown data type for Influx: %d" % typeof(point.value))
+				Logger.warn("Unknown data type for Influx: %d" % typeof(point.value))
 		body.append(" ")
 		body.append(str(point.timestamp * 1000000))
 	_push_request(InfluxRequest.new(InfluxAction.UPLOAD_POINTS, "http://%s:%d/write?db=%s" % [host, port, database], [], HTTPClient.METHOD_POST, "".join(body)))
@@ -111,11 +111,11 @@ func _response_handler(result: int, response_code: int, headers: PackedStringArr
 			match action:
 				InfluxAction.CHECK_HEALTH:
 					if res["status"] != "pass":
-						push_error("Influx health failure")
+						Logger.warn("Influx health failure")
 				InfluxAction.LIST_DATABASES:
 					var databases: Array = res["results"][0]["series"][0]["values"].map(func (d: Array) -> String: return d[0]).filter(func (d: String) -> bool: return d != "_internal")
 					databases.reverse()
-					print(databases)
+					Logger.info("Found databases: " % str(databases))
 				InfluxAction.UPLOAD_POINTS:
 					pass
 					#print(body)

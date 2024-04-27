@@ -16,6 +16,7 @@ func setup(b: String) -> void:
 	kbpsField = board + "Kbps"
 	connectedField = board + "Connected"
 	text = board.to_upper() + " - %d"
+	update_kbps(0)
 
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
 	if fields.has(kbpsField):

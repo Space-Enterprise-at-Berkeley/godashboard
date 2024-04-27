@@ -68,7 +68,6 @@ func _ready() -> void:
 
 func parse_config(text: String) -> Variant:
 	var tokens: Array[Token] = _lex(text)
-	#print(tokens.map(func (e: Token) -> String: return TokenType.keys()[e.type]))
 	if len(tokens) == 0:
 		return ParseError.new()
 	var parsed: Variant = _parse(tokens)
@@ -95,7 +94,7 @@ func _lex(text: String) -> Array[Token]:
 				text = text.substr(str.length())
 				break
 		if not found:
-			push_error("Unlexable token at index %s: %s ..." % [offset, text.substr(15)])
+			Logger.error("Unlexable token at index %s: %s ..." % [offset, text.substr(15)])
 			return []
 	return tokens
 
@@ -113,14 +112,14 @@ func _parse(tokens: Array[Token]) -> Variant:
 				if key is ParseError:
 					return ParseError.new()
 				if tokens.pop_front().type != TokenType.COLON:
-					push_error("Expected \":\" at index %s" % token.offset)
+					Logger.error("Expected \":\" at index %s" % token.offset)
 					return ParseError.new()
 				var val: Variant = _parse(tokens)
 				if val is ParseError:
 					return ParseError.new()
 				ret[key] = val
 				if tokens[0].type != TokenType.BRACE_CLOSE and tokens.pop_front().type != TokenType.COMMA:
-					push_error("Expected \",\" or \"}\" at index %s" % token.offset)
+					Logger.error("Expected \",\" or \"}\" at index %s" % token.offset)
 					return ParseError.new()
 		TokenType.BRACKET_OPEN:
 			var ret: Array = []
@@ -133,7 +132,7 @@ func _parse(tokens: Array[Token]) -> Variant:
 					return ParseError.new()
 				ret.append(val)
 				if tokens[0].type != TokenType.BRACKET_CLOSE and tokens.pop_front().type != TokenType.COMMA:
-					push_error("Expected \",\" or \"]\" at index %s" % token.offset)
+					Logger.error("Expected \",\" or \"]\" at index %s" % token.offset)
 					return ParseError.new()
 		TokenType.BOOLEAN:
 			return value == "true"
@@ -153,7 +152,7 @@ func _parse(tokens: Array[Token]) -> Variant:
 			return value.to_int()
 		TokenType.STRING:
 			return _parse_string(value)
-	push_error("Unexpected token at index %s: %s" % token.offset, token.data)
+	Logger.error("Unexpected token at index %s: %s" % [token.offset, token.data])
 	return ParseError.new()
 
 func _parse_string(str: String) -> Variant:

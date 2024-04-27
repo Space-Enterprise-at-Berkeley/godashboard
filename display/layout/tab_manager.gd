@@ -5,24 +5,19 @@ const nine_grid_scene: PackedScene = preload("res://display/layout/nine_grid/nin
 const packet_simulator_scene: PackedScene = preload("res://display/layout/packet_simulator/packet_simulator.tscn")
 
 func _ready() -> void:
-	Config.config_update.connect(_config_update)
-	if Config.exists:
-		_config_update()
+	pass
 
-func _config_update() -> void:
-	for child in get_children():
-		child.queue_free()
+func add_tab(tab: String) -> void:
 	var windows: Dictionary = Config.config["windows"]
-	for w: String in windows:
-		var window: Dictionary = windows[w]
-		match window["layout"]:
-			"9-grid":
-				var nine_grid: NineGrid = nine_grid_scene.instantiate()
-				add_child(nine_grid)
-				nine_grid.setup(window)
-			"packet-simulator":
-				var packet_simulator: PacketSimulator = packet_simulator_scene.instantiate()
-				add_child(packet_simulator)
-				packet_simulator.setup(window)
-			_:
-				pass
+	var window: Dictionary = windows[tab]
+	match window["layout"]:
+		"9-grid":
+			var nine_grid: NineGrid = nine_grid_scene.instantiate()
+			add_child(nine_grid)
+			nine_grid.setup(window)
+		"packet-simulator":
+			var packet_simulator: PacketSimulator = packet_simulator_scene.instantiate()
+			add_child(packet_simulator)
+			packet_simulator.setup(window)
+		_:
+			pass
