@@ -4,6 +4,12 @@
 		"packet_editor_id": [87, 179, 255],
 		"packet_editor_value": [161, 255, 224]
 	},
+	"logs": {
+		"debug": [171, 201, 255],
+		"info": [143, 255, 219],
+		"warn": [255, 237, 161],
+		"error": [255, 112, 133]
+	},
 	"margins": {
 		"margin": 5
 	},

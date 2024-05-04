@@ -4,6 +4,7 @@ class_name NineGrid
 const four_button_square_scene: PackedScene = preload("res://display/squares/four_button_square/four_button_square.tscn")
 const graph_square_scene: PackedScene = preload("res://display/squares/graph_square/graph_square.tscn")
 const six_value_square_scene: PackedScene = preload("res://display/squares/six_value_square/six_value_square.tscn")
+const logs_square_scene: PackedScene = preload("res://display/squares/logs_square/logs_square.tscn")
 
 func setup(config: Dictionary) -> void:
 	name = config["name"]
@@ -21,5 +22,8 @@ func setup(config: Dictionary) -> void:
 				var four_button_square: FourButtonSquare = four_button_square_scene.instantiate()
 				add_child(four_button_square)
 				four_button_square.setup(slot)
+			"logs":
+				var logs_square: LogsSquare = logs_square_scene.instantiate()
+				add_child(logs_square)
 			_:
 				pass

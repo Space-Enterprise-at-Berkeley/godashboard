@@ -2,7 +2,11 @@
 	"Global": {
 		"packet_editor_ip": ["color", "packet_editor:packet_editor_ip"],
 		"packet_editor_id": ["color", "packet_editor:packet_editor_id"],
-		"packet_editor_value": ["color", "packet_editor:packet_editor_value"]
+		"packet_editor_value": ["color", "packet_editor:packet_editor_value"],
+		"log_level_debug": ["color", "logs:debug"],
+		"log_level_info": ["color", "logs:info"],
+		"log_level_warn": ["color", "logs:warn"],
+		"log_level_error": ["color", "logs:error"]
 	},
 	"MarginContainer": {
 		"margin_top": ["int", "margins/top:margin"],
