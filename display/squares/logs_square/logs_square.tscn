@@ -27,8 +27,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="SettingsContainer" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/SettingsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_following = true
 context_menu_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/SettingsContainer"]
+layout_mode = 2
