@@ -22,23 +22,24 @@ func _ready() -> void:
 	if file == null:
 		file = FileAccess.open("res://logs/%s.txt" %Time.get_datetime_string_from_system().replace(":", "-"), FileAccess.WRITE)
 
-func record(msg: String, level: LogLevel) -> void:
+func record(msg: Variant, level: LogLevel) -> void:
+	var m: String = str(msg)
 	if file == null:
 		file = FileAccess.open("res://logs/%s.txt" %Time.get_datetime_string_from_system().replace(":", "-"), FileAccess.WRITE)
 	var timestamp: int = Databus.get_current_time()
 	var timestring: String = Time.get_datetime_string_from_system()
-	file.store_line("[%s] [%s] %s" %[LOG_LEVEL_NAMES[level], timestring, msg])
+	file.store_line("[%s] [%s] %s" %[LOG_LEVEL_NAMES[level], timestring, m])
 	file.flush()
-	entry.emit(msg, level, timestamp)
+	entry.emit(m, level, timestamp)
 
-func debug(msg: String) -> void:
+func debug(msg: Variant) -> void:
 	record(msg, LogLevel.DEBUG)
 
-func info(msg: String) -> void:
+func info(msg: Variant) -> void:
 	record(msg, LogLevel.INFO)
 
-func warn(msg: String) -> void:
+func warn(msg: Variant) -> void:
 	record(msg, LogLevel.WARN)
 
-func error(msg: String) -> void:
+func error(msg: Variant) -> void:
 	record(msg, LogLevel.ERROR)
