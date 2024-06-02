@@ -1,5 +1,8 @@
 extends Node
 
+signal found_databases(databases: Array)
+signal health_check_result(result: bool)
+
 enum InfluxAction {
 	NONE,
 	CHECK_HEALTH,
@@ -37,17 +40,18 @@ var request_buffer: Array[InfluxRequest] = []
 var host: String = "localhost"
 var port: int = 8086
 var points_buffer: Array[InfluxPoint] = []
-var database: String = "test"
-var recording: String = "godashboard_test"
+var database: String = ""
+var recording: String = "data" # Unused, at least for now
 
 func _ready() -> void:
 	http = HTTPRequest.new()
 	add_child(http)
 	http.timeout = 1.0
 	http.request_completed.connect(_response_handler)
+
+func init(db_name: String) -> void:
+	database = db_name
 	Databus.update.connect(_handle_packet)
-	#_check_health()
-	#_list_databases()
 	_enable_upload_loop()
 
 func _push_request(request: InfluxRequest) -> void:
@@ -60,10 +64,10 @@ func _send_request() -> void:
 	action = request.action
 	http.request(request.url, request.headers, request.method, request.body)
 
-func _check_health() -> void:
+func check_health() -> void:
 	_push_request(InfluxRequest.new(InfluxAction.CHECK_HEALTH, "http://%s:%d/health" % [host, port], [], HTTPClient.METHOD_GET, ""))
 
-func _list_databases() -> void:
+func list_databases() -> void:
 	_push_request(InfluxRequest.new(InfluxAction.LIST_DATABASES, "http://%s:%d/query?q=SHOW%%20DATABASES" % [host, port], [], HTTPClient.METHOD_GET, ""))
 
 func _upload_points() -> void:
@@ -98,13 +102,12 @@ func _enable_upload_loop() -> void:
 
 func _response_handler(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS:
-		#push_error("Influx moment")
-		pass
+		Logger.warn("Influx moment")
 	else:
 		var ascii: String = body.get_string_from_ascii()
 		var json: JSON = JSON.new()
 		if json.parse(ascii) != OK:
-			# push_error("JSON parse error")
+			Logger.warn("JSON parse error")
 			pass
 		else:
 			var res: Variant = json.data
@@ -112,10 +115,12 @@ func _response_handler(result: int, response_code: int, headers: PackedStringArr
 				InfluxAction.CHECK_HEALTH:
 					if res["status"] != "pass":
 						Logger.warn("Influx health failure")
+					health_check_result.emit(res["status"] == "pass")
 				InfluxAction.LIST_DATABASES:
 					var databases: Array = res["results"][0]["series"][0]["values"].map(func (d: Array) -> String: return d[0]).filter(func (d: String) -> bool: return d != "_internal")
 					databases.reverse()
 					Logger.info("Found databases: " % str(databases))
+					found_databases.emit(databases)
 				InfluxAction.UPLOAD_POINTS:
 					pass
 					#print(body)
