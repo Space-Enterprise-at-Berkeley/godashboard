@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://62pvyo6stl1o"]
+[gd_scene load_steps=6 format=3 uid="uid://62pvyo6stl1o"]
 
 [ext_resource type="Script" path="res://display/header/header.gd" id="1_x6xkv"]
+[ext_resource type="Shader" path="res://resources/shader/recolor_icon.gdshader" id="2_bffdv"]
+[ext_resource type="PackedScene" uid="uid://dr1x5gtnsig6g" path="res://display/settings/settings_menu.tscn" id="2_f3856"]
+[ext_resource type="Texture2D" uid="uid://dn7ywu0v5h721" path="res://resources/icon/settings.svg" id="3_422nu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kojr"]
+shader = ExtResource("2_bffdv")
+shader_parameter/color = Color(0.792157, 0.792157, 0.792157, 1)
 
 [node name="Header" type="HBoxContainer"]
 anchors_preset = 15
@@ -10,3 +17,24 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 script = ExtResource("1_x6xkv")
+
+[node name="Boards" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/CenterContainer"]
+material = SubResource("ShaderMaterial_5kojr")
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+icon = ExtResource("3_422nu")
+expand_icon = true
+
+[node name="SettingsMenu" parent="." instance=ExtResource("2_f3856")]
+visible = false

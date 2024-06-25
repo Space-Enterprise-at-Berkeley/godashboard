@@ -42,6 +42,7 @@ var port: int = 8086
 var points_buffer: Array[InfluxPoint] = []
 var database: String = ""
 var recording: String = "data" # Unused, at least for now
+var enabled: bool = false
 
 func _ready() -> void:
 	http = HTTPRequest.new()
@@ -51,8 +52,10 @@ func _ready() -> void:
 
 func init(db_name: String) -> void:
 	database = db_name
-	Databus.update.connect(_handle_packet)
-	_enable_upload_loop()
+	if not enabled:
+		enabled = true
+		Databus.update.connect(_handle_packet)
+		_enable_upload_loop()
 
 func _push_request(request: InfluxRequest) -> void:
 	request_buffer.append(request)
@@ -119,7 +122,7 @@ func _response_handler(result: int, response_code: int, headers: PackedStringArr
 				InfluxAction.LIST_DATABASES:
 					var databases: Array = res["results"][0]["series"][0]["values"].map(func (d: Array) -> String: return d[0]).filter(func (d: String) -> bool: return d != "_internal")
 					databases.reverse()
-					Logger.info("Found databases: " % str(databases))
+					#Logger.info("Found databases: " % str(databases))
 					found_databases.emit(databases)
 				InfluxAction.UPLOAD_POINTS:
 					pass
