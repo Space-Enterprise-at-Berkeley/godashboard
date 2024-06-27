@@ -43,19 +43,25 @@ var points_buffer: Array[InfluxPoint] = []
 var database: String = ""
 var recording: String = "data" # Unused, at least for now
 var enabled: bool = false
+var timer: Timer
 
 func _ready() -> void:
 	http = HTTPRequest.new()
 	add_child(http)
 	http.timeout = 1.0
 	http.request_completed.connect(_response_handler)
+	timer = Timer.new()
+	timer.one_shot = false
+	timer.wait_time = 1
+	add_child(timer)
+	timer.timeout.connect(_upload_points)
 
 func init(db_name: String) -> void:
 	database = db_name
 	if not enabled:
 		enabled = true
 		Databus.update.connect(_handle_packet)
-		_enable_upload_loop()
+		timer.start()
 
 func _push_request(request: InfluxRequest) -> void:
 	request_buffer.append(request)
@@ -98,16 +104,13 @@ func _upload_points() -> void:
 		body.append(str(point.timestamp * 1000000))
 	_push_request(InfluxRequest.new(InfluxAction.UPLOAD_POINTS, "http://%s:%d/write?db=%s" % [host, port, database], [], HTTPClient.METHOD_POST, "".join(body)))
 
-func _enable_upload_loop() -> void:
-	while true:
-		_upload_points()
-		await get_tree().create_timer(1).timeout
-
 func _response_handler(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS:
 		Logger.warn("Influx moment")
 	else:
 		var ascii: String = body.get_string_from_ascii()
+		if ascii.length() == 0:
+			return
 		var json: JSON = JSON.new()
 		if json.parse(ascii) != OK:
 			Logger.warn("JSON parse error")

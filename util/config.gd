@@ -56,6 +56,7 @@ var LEXERS: Array[Array] = [
 const UNLEXED: Array[TokenType] = [TokenType.COMMENT, TokenType.WHITESPACE]
 
 var config: Variant = {}
+var preprocessors: Dictionary = {}
 var exists: bool = false
 
 func _ready() -> void:
@@ -87,11 +88,11 @@ func _lex(text: String) -> Array[Token]:
 			var res: RegExMatch = lexer[1].search(text)
 			if res:
 				found = true
-				var str: String = res.get_string()
+				var string: String = res.get_string()
 				if lexer[0] not in UNLEXED:
-					tokens.append(Token.new(lexer[0], str, offset))
-				offset += str.length()
-				text = text.substr(str.length())
+					tokens.append(Token.new(lexer[0], string, offset))
+				offset += string.length()
+				text = text.substr(string.length())
 				break
 		if not found:
 			Logger.error("Unlexable token at index %s: %s ..." % [offset, text.substr(15)])
@@ -155,16 +156,16 @@ func _parse(tokens: Array[Token]) -> Variant:
 	Logger.error("Unexpected token at index %s: %s" % [token.offset, token.data])
 	return ParseError.new()
 
-func _parse_string(str: String) -> Variant:
-	if str[1] == "$":
-		var file: FileAccess = FileAccess.open("res://config/%s" %str.substr(2, str.length() - 3), FileAccess.READ)
+func _parse_string(string: String) -> Variant:
+	if string[1] == "$":
+		var file: FileAccess = FileAccess.open("res://config/%s" %string.substr(2, string.length() - 3), FileAccess.READ)
 		var text: String = file.get_as_text()
 		var res: Variant = parse_config(text)
 		return res
 	var out: String = ""
 	var escaped: bool = false
-	for i in range(1, str.length() - 1):
-		var chr: String = str[i]
+	for i in range(1, string.length() - 1):
+		var chr: String = string[i]
 		if not escaped:
 			if chr == "\\":
 				escaped = true

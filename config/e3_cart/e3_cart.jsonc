@@ -1,0 +1,30 @@
+{
+	"boards": "$e3_cart/boards.jsonc",
+	"packets": {
+		"ac": "$boards/ac_board.jsonc",
+		"pt": "$boards/pt_board.jsonc",
+		"tc": "$boards/tc_board.jsonc",
+		"lc": "$boards/lc_board.jsonc",
+		"ereg": "$boards/ereg_board.jsonc",
+		"flightV4": "$boards/flightV4_board.jsonc",
+		"cap": "$boards/cap_board.jsonc"
+	},
+	"influxMap": "$e3_cart/influx_map.jsonc",
+	"commandMap": "$e3_cart/command_map.jsonc",
+	"windows": {
+		"packet_simulator": "$packet_simulator_window.jsonc",
+		"controls": "$e3_cart/controls_window.jsonc",
+		"pressures": "$e3_cart/pressures_window.jsonc",
+		"propellant_fill": "$e3_cart/propellant_fill_window.jsonc",
+		"engine": "$e3_cart/engine_window.jsonc",
+		"boards_status": "$e3_cart/boards_status_window.jsonc",
+		"actuators_status": "$e3_cart/actuators_status_window.jsonc"
+	},
+	"preprocessors": "$e3_cart/preprocessors.jsonc",
+	"burnTime": 45000, // ms
+	// TODO: coldflow modes with ereg pressurization
+	"mode": 2, // 0 = launch, 1 = hotfire, 2 = coldflow, 3 = coldflow with igniter, 4 = gasflow
+	"controller": "ac1",
+	"windowPresets": "$window_presets.jsonc",
+	"quickWindowPresets": ["main", "debug", "empty"]
+}

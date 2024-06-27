@@ -140,7 +140,7 @@ func _get_time_int() -> int:
 		t = time.text.to_int()
 	return t
 
-func _get_time_float() -> int:
+func _get_time_float() -> float:
 	var t: float = 0.0
 	if time.text.is_valid_float():
 		t = time.text.to_float()

@@ -1,6 +1,6 @@
 {
 	"main": {
-		"name": "Main",
+		"name": "E3 Cart",
 		"tabs": ["controls", "pressures", "propellant_fill", "engine", "boards_status", "actuators_status"]
 	},
 	"debug": {

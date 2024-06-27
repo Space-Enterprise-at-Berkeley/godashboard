@@ -71,6 +71,10 @@ func process_packet(data: PackedByteArray, addr: String) -> void:
 		data = data.slice(1 + addr_len)
 	var packet: Packet = _parse_packet(data, addr)
 	if not packet.error:
+		for field: String in packet.fields:
+			if Config.preprocessors.has(field):
+				for pre: String in Config.preprocessors[field]:
+					packet.fields[pre] = Config.preprocessors[field][pre].call(packet.fields[field])
 		update.emit(packet.fields, packet.timestamp)
 
 func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
@@ -156,20 +160,20 @@ func get_current_time() -> int:
 
 func _board_poll_kbps() -> void:
 	while true:
-		var update: Dictionary = {}
+		var update_data: Dictionary = {}
 		for board: String in boards_connected:
 			var kbps: float = boards_kbps[board]
 			boards_kbps[board] = 0
-			update["%sKbps" %board] = kbps
+			update_data["%sKbps" %board] = kbps
 			if not is_zero_approx(kbps) and not boards_connected[board]:
 				boards_connected[board] = true
-				update["%sConnected" % board] = true
+				update_data["%sConnected" % board] = true
 				Logger.info("Board connected: %s" % board)
 			elif is_zero_approx(kbps) and boards_connected[board]:
 				boards_connected[board] = false
-				update["%sConnected" % board] = false
+				update_data["%sConnected" % board] = false
 				Logger.warn("Board disconnected: %s" % board)
-			send_update(update, get_current_time())
+			send_update(update_data, get_current_time())
 		await get_tree().create_timer(1).timeout
 
 func _encode_value(value: Variant, type: PacketDataType) -> PackedByteArray:

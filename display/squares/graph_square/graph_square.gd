@@ -3,6 +3,7 @@ class_name GraphSquare
 
 @onready var header: HFlowContainer = $VBoxContainer/Header
 @onready var viewport: SubViewport = $VBoxContainer/SubViewportContainer/SubViewport
+@onready var filter_timer: Timer = $FilterTimer
 
 static var graph_count: int = 0
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 	Databus.update.connect(_handle_packet)
 	graph_id = graph_count
 	graph_count += 1
+	filter_timer.timeout.connect(_filter_points)
 
 func _process(delta: float) -> void:
 	if not is_visible_in_tree():
@@ -26,8 +28,8 @@ func _process(delta: float) -> void:
 	var y_max: float = -INF
 	var x_max: int = Databus.get_current_time()
 	var x_min: int = x_max - 30000
+	_filter_points()
 	for field in field_names:
-		points[field] = points[field].filter(func (v: Array) -> bool: return v[1] >= x_min)
 		for point: Array in points[field]:
 			if point[0] < y_min:
 				y_min = point[0]
@@ -47,6 +49,12 @@ func _process(delta: float) -> void:
 			var y_pos: float = viewport.size.y * (1 - ((point[0] - y_min) / y_height))
 			vector_points.append(Vector2(x_pos, y_pos))
 		lines[field].points = vector_points
+
+func _filter_points() -> void:
+	var x_max: int = Databus.get_current_time()
+	var x_min: int = x_max - 30000
+	for field in field_names:
+		points[field] = points[field].filter(func (v: Array) -> bool: return v[1] >= x_min)
 
 func setup(config: Dictionary) -> void:
 	for child in viewport.get_children():

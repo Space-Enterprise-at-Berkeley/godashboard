@@ -34,5 +34,5 @@ func _select_database(idx: int) -> void:
 	influx_start.disabled = false
 
 func _influx_start() -> void:
-	var db_name: String = influx_select_database.get_item_text(influx_select_database.get_selectable_item())
+	var db_name: String = influx_select_database.get_item_text(influx_select_database.get_selected_id())
 	Influx.init(db_name)

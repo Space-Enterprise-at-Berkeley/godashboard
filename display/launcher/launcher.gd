@@ -37,13 +37,14 @@ func _config_update() -> void:
 	for quick_preset: String in Config.config["quickWindowPresets"]:
 		var quick_preset_button: Button = launcher_quick_config_button_scene.instantiate()
 		quick_preset_button.text = presets[quick_preset]["name"]
-		quick_preset_button.pressed.connect(_create_window.bind(presets[quick_preset]["tabs"]))
+		quick_preset_button.pressed.connect(_create_window.bind(presets[quick_preset]["name"], presets[quick_preset]["tabs"]))
 		quick_preset_button.clip_text = true
 		quick_presets.add_child(quick_preset_button)
 
-func _create_window(tabs: Array) -> void:
+func _create_window(title: String, tabs: Array) -> void:
 	var window: DisplayRoot = display_root_scene.instantiate()
 	windows_list.add_child(window)
+	window.title = title
 	for tab: String in tabs:
 		window.add_tab(tab)
 	window.update_theme(theme_node.theme)
