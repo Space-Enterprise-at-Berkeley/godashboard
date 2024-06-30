@@ -1,6 +1,6 @@
 [configuration]
 
-entry_symbol = "module_init"
+entry_symbol = "libgodashboard_init"
 compatibility_minimum = "4.2"
 
 [libraries]

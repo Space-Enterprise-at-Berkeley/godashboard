@@ -62,6 +62,8 @@ func _config_update() -> void:
 		boards_kbps[board_name] = 0.0
 		boards_connected[board_name] = false
 	has_config = true
+	for camera: Dictionary in Config.config["cameras"]:
+		add_child(Camera.register_camera(camera["name"], camera["ip"]))
 
 func process_packet(data: PackedByteArray, addr: String) -> void:
 	if addr == Comms.LOCALHOST_IP:
