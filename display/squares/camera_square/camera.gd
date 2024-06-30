@@ -25,15 +25,14 @@ func _init(name_p: String, ip_p: String) -> void:
 	pipe = NamedPipe.new()
 
 func connect_camera() -> bool:
-	print(camera_name)
+	Logger.info("Connecting camera %s" % camera_name)
 	pipe.create_buffer(1 << 20)
 	thread = Thread.new()
 	thread.start(_spawn_rtsp_process)
 	var ret: bool
-	print(1)
 	await get_tree().create_timer(1).timeout # Avoid race conditions with trying to read before the pipe exists
-	print(2)
 	if OS.get_name() == "Windows":
+		print(1)
 		ret = pipe.init("\\\\.\\pipe\\godashboard_cam_%s" % camera_name)
 	else:
 		Logger.error("Unix systems not yet supported")
@@ -41,6 +40,9 @@ func connect_camera() -> bool:
 	if ret:
 		camera_connected = true
 		camera_connect.emit()
+		Logger.info("Camera %s connected" % camera_name)
+	else:
+		Logger.warn("Camera %s connection failed" % camera_name)
 	return ret
 
 func _process(delta: float) -> void:

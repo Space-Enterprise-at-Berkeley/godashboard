@@ -14,7 +14,7 @@ const TIME_MODULO: int = 10000000
 
 var expression: Expression = Expression.new()
 var expression_valid: bool = false
-var variables: PackedStringArray = PackedStringArray(["t"])
+var variables: PackedStringArray = PackedStringArray(["t", "noise"])
 var packet_simulator: PacketSimulator
 var command: String = ""
 
@@ -35,5 +35,11 @@ func _execute() -> void:
 	if not expression_valid or not enabled_button.button_pressed:
 		return
 	var timestamp: int = Databus.get_current_time()
-	var value: Variant = expression.execute([float(timestamp % TIME_MODULO)])
+	var value: Variant = expression.execute([
+		float(timestamp % TIME_MODULO), # t
+		function_noise # noise
+	])
 	packet_simulator.parse_and_send(command.replace("@", str(value)))
+
+func function_noise(magnitude: float) -> float:
+	return (randf() - 0.5) * 2 * magnitude

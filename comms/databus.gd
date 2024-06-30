@@ -76,8 +76,17 @@ func process_packet(data: PackedByteArray, addr: String) -> void:
 		for field: String in packet.fields:
 			if Config.preprocessors.has(field):
 				for pre: String in Config.preprocessors[field]:
-					packet.fields[pre] = Config.preprocessors[field][pre].call(packet.fields[field])
+					packet.fields[pre] = Config.preprocessors[field][pre].process_data(packet.fields[field], packet.timestamp)
 		update.emit(packet.fields, packet.timestamp)
+
+func register_field(field: String) -> void:
+	if not field.contains("@"):
+		return
+	var field_data: PackedStringArray = field.split("@")
+	if not Config.preprocessors.has(field_data[0]):
+		Config.preprocessors[field_data[0]] = {}
+	if not Config.preprocessors[field_data[0]].has(field_data[1]):
+		Config.preprocessors[field_data[0]][field] = Preprocessor.get_preprocessor(field_data[0], field_data[1])
 
 func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 	var packet: Packet = Packet.new()

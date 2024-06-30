@@ -17,6 +17,7 @@ func setup(config: Dictionary) -> void:
 		value_label.hide()
 		return
 	field = config["field"]
+	Databus.register_field(field)
 	units = config["units"]
 	name_text = name
 	name_label.text = config["name"]

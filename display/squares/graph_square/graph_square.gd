@@ -65,6 +65,7 @@ func setup(config: Dictionary) -> void:
 		graph_header.setup(field)
 		var f: String = field["field"]
 		field_names.append(f)
+		Databus.register_field(f)
 		points[f] = []
 		var color: Color = Color(field["color"][0] / 255.0, field["color"][1] / 255.0, field["color"][2] / 255.0)
 		colors[f] = color

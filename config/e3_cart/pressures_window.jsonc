@@ -1,5 +1,5 @@
 {
-	"name": "Coldflow Pressures",
+	"name": "Pressures",
 	"layout": "9-grid",
 	"slots": [
 		{
@@ -28,6 +28,12 @@
 					"name": "IPA Tank PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
+				},
+				{
+					"field": "ipaTankPT@filtered",
+					"name": "IPA Tank PT F",
+					"units": "PSI",
+					"color": [255, 100, 100]
 				},
 				{
 					"field": "iregFilteredDownstreamPressure2",
