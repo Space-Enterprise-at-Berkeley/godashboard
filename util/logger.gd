@@ -7,13 +7,17 @@ enum LogLevel {
 	INFO,
 	WARN,
 	ERROR,
+	CHAT,
+	ACHIEVEMENT,
 }
 
 const LOG_LEVEL_NAMES: Dictionary = {
 	LogLevel.DEBUG: "DEBUG",
 	LogLevel.INFO: "INFO",
 	LogLevel.WARN: "WARN",
-	LogLevel.ERROR: "ERROR"
+	LogLevel.ERROR: "ERROR",
+	LogLevel.CHAT: "CHAT",
+	LogLevel.ACHIEVEMENT: "ACHIEV"
 }
 
 var file: FileAccess = null
@@ -43,3 +47,9 @@ func warn(msg: Variant) -> void:
 
 func error(msg: Variant) -> void:
 	record(msg, LogLevel.ERROR)
+
+func chat(msg: Variant) -> void:
+	record(msg, LogLevel.CHAT)
+
+func achievement(msg: Variant) -> void:
+	record(msg, LogLevel.ACHIEVEMENT)

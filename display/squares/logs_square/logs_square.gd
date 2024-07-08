@@ -8,12 +8,15 @@ enum FilterType {
 
 @onready var text_box: RichTextLabel = $VBoxContainer/RichTextLabel
 @onready var filters_dropdown: MenuButton = $VBoxContainer/MarginContainer/Filters
+@onready var chat: TextEdit = $VBoxContainer/Chat
 
 var filters: Dictionary = {
 	"debug": [false, FilterType.ANY, func (m: String, l: Logger.LogLevel, t: int) -> bool: return l == Logger.LogLevel.DEBUG],
 	"info": [true, FilterType.ANY, func (m: String, l: Logger.LogLevel, t: int) -> bool: return l == Logger.LogLevel.INFO],
 	"warn": [true, FilterType.ANY, func (m: String, l: Logger.LogLevel, t: int) -> bool: return l == Logger.LogLevel.WARN],
 	"error": [true, FilterType.ANY, func (m: String, l: Logger.LogLevel, t: int) -> bool: return l == Logger.LogLevel.ERROR],
+	"chat": [true, FilterType.ANY, func (m: String, l: Logger.LogLevel, t: int) -> bool: return l == Logger.LogLevel.CHAT],
+	"achievement": [true, FilterType.ANY, func (m: String, l: Logger.LogLevel, t: int) -> bool: return l == Logger.LogLevel.ACHIEVEMENT],
 }
 var log_history: Array = []
 var colors: Dictionary = {}
@@ -25,6 +28,8 @@ func _ready() -> void:
 	colors[Logger.LogLevel.INFO] = Globals.theme.get_color("log_level_info", "Global")
 	colors[Logger.LogLevel.WARN] = Globals.theme.get_color("log_level_warn", "Global")
 	colors[Logger.LogLevel.ERROR] = Globals.theme.get_color("log_level_error", "Global")
+	colors[Logger.LogLevel.CHAT] = Globals.theme.get_color("log_level_chat", "Global")
+	colors[Logger.LogLevel.ACHIEVEMENT] = Globals.theme.get_color("log_level_achievement", "Global")
 	var dropdown: PopupMenu = filters_dropdown.get_popup()
 	for filter: String in filters:
 		filters_dropdown_order.append(filter)
@@ -79,3 +84,21 @@ func _toggle_filter(index: int) -> void:
 	popup.set_item_checked(index, new_state)
 	filters[filters_dropdown_order[index]][0] = new_state
 	_refresh()
+
+func _input(event: InputEvent) -> void:
+	if chat.has_focus() and event.is_pressed():
+		if event is InputEventKey:
+			if event.keycode == KEY_ENTER or event.keycode == KEY_KP_ENTER:
+				_send_chat()
+				get_viewport().set_input_as_handled()
+
+func _send_chat() -> void:
+	var user: String = OS.get_environment("USERNAME")
+	var msg: String = JSON.stringify({
+		"type": "chat",
+		"message": chat.text,
+		"sender": user
+	})
+	Logger.chat("(%s) %s" % [user, chat.text])
+	Comms.chat_server.put_packet(msg.to_utf8_buffer())
+	chat.clear()

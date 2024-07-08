@@ -6,7 +6,9 @@
 		"log_level_debug": ["color", "logs:debug"],
 		"log_level_info": ["color", "logs:info"],
 		"log_level_warn": ["color", "logs:warn"],
-		"log_level_error": ["color", "logs:error"]
+		"log_level_error": ["color", "logs:error"],
+		"log_level_chat": ["color", "logs:chat"],
+		"log_level_achievement": ["color", "logs:achievement"]
 	},
 	"MarginContainer": {
 		"margin_top": ["int", "margins/top:margin"],

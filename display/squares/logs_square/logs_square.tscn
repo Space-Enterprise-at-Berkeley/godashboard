@@ -51,3 +51,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_following = true
 context_menu_enabled = true
+
+[node name="Chat" type="TextEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+placeholder_text = "Message"

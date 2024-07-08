@@ -258,7 +258,11 @@ func make_uint8(value: int) -> Array:
 	return [value, PacketDataType.UINT8]
 
 func make_uint16(value: int) -> Array:
-	return [value, PacketDataType.UINT8]
+	return [value, PacketDataType.UINT16]
 
 func make_uint32(value: int) -> Array:
-	return [value, PacketDataType.UINT8]
+	return [value, PacketDataType.UINT32]
+
+func process_chat(data: PackedByteArray, addr: String) -> void:
+	var msg: Variant = JSON.parse_string(data.get_string_from_utf8())
+	Logger.chat("(%s) %s" % [msg["sender"], msg["message"]])
