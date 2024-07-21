@@ -10,3 +10,7 @@ func setup(config: Dictionary) -> void:
 		var button: GenericButton = generic_button_scene.instantiate()
 		grid_container.add_child(button)
 		button.setup(button_config)
+
+func _get_drag_data(at_position: Vector2) -> Variant:
+	print(1)
+	return null
