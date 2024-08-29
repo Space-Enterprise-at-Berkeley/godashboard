@@ -40,7 +40,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(600, 396)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="FilterTimer" type="Timer" parent="."]

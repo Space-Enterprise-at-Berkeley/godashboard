@@ -28,5 +28,5 @@
 	"controller": "ac1",
 	"windowPresets": "$window_presets.jsonc",
 	"quickWindowPresets": ["main", "debug", "empty"],
-	"cameras": [{"name": "testcam", "ip": "10.0.0.201"}]
+	"cameras": [{"id": 0, "name": "testcam", "ip": "10.0.0.201"}]
 }

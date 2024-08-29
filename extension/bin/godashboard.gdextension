@@ -1,9 +1,0 @@
-[configuration]
-
-entry_symbol = "libgodashboard_init"
-compatibility_minimum = "4.2"
-
-[libraries]
-
-windows.debug.x86_64 = "res://extension/bin/libgodashboard.windows.template_debug.x86_64.dll"
-windows.debug.x86_32 = "res://extension/bin/libgodashboard.windows.template_debug.x86_32.dll"

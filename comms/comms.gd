@@ -12,7 +12,7 @@ const CAMERA_PACKET_RESET_SIZE = 69
 var mcast_server: PacketPeerUDP = PacketPeerUDP.new()
 var bcast_server: PacketPeerUDP = PacketPeerUDP.new()
 var chat_server: PacketPeerUDP = PacketPeerUDP.new()
-var cameras: Dictionary = {}
+var camera_server: PacketPeerUDP = PacketPeerUDP.new()
 
 func _ready() -> void:
 	mcast_server.bind(MCAST_PORT)
@@ -21,6 +21,7 @@ func _ready() -> void:
 	chat_server.bind(CHAT_PORT)
 	chat_server.set_broadcast_enabled(true)
 	chat_server.set_dest_address(BCAST_IP, CHAT_PORT)
+	camera_server.bind(CAMERA_PORT)
 	_await_multicast()
 
 func _process(delta: float) -> void:
@@ -36,6 +37,15 @@ func _process(delta: float) -> void:
 		var data: PackedByteArray = chat_server.get_packet()
 		var addr: String = chat_server.get_packet_ip()
 		Databus.process_chat(data, addr)
+	#print(camera_server.get_available_packet_count())
+	#camera_server.poll()
+	#print(camera_server.is_connection_available())
+	while camera_server.get_available_packet_count() > 0:
+		print_debug("test")
+		var data: PackedByteArray = camera_server.get_packet()
+		var camera_id: int = data.decode_u8(0)
+		var camera: Camera = Camera.cameras_registry[Camera.cameras_id_lookup[camera_id]]
+		camera.process_frame(data.slice(1))
 
 func _await_multicast() -> void:
 	while true:
