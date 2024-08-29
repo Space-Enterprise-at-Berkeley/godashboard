@@ -68,11 +68,13 @@ void NamedPipe::delete_buffer() {
 #else
 
 bool NamedPipe::create_buffer(int size) {
-
+	buffer = new char[size];
+	buffer_size = size;
+	return buffer != NULL;
 }
 
 bool NamedPipe::init(String path) {
-
+	char *pipe = strdup(path.ascii().get_data());
 }
 
 PackedByteArray NamedPipe::read() {

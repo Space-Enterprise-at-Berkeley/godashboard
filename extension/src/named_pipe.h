@@ -6,7 +6,8 @@
 #ifdef _WIN32
 #include <Windows.h>
 #else
-
+#include <sys/types.h>
+#include <sys/stat.h>
 #endif
 
 using namespace godot;
