@@ -22,13 +22,13 @@ func _ready() -> void:
 	filter_timer.timeout.connect(_filter_points)
 
 func _process(delta: float) -> void:
+	_filter_points()
 	if not is_visible_in_tree():
 		return
 	var y_min: float = INF
 	var y_max: float = -INF
 	var x_max: int = Databus.get_current_time()
 	var x_min: int = x_max - 30000
-	_filter_points()
 	for field in field_names:
 		for point: Array in points[field]:
 			if point[0] < y_min:

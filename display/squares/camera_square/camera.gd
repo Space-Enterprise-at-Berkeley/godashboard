@@ -38,7 +38,7 @@ func process_frame(data: PackedByteArray) -> void:
 		return
 	if data.size() > 0:
 		var image: Image = Image.new()
-		print_debug(image.load_jpg_from_buffer(data))
+		image.load_jpg_from_buffer(data)
 		frame.emit(image)
 
 func _spawn_rtsp_process() -> void:

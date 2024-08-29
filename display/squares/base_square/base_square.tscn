@@ -16,6 +16,7 @@ size_flags_vertical = 3
 script = ExtResource("1_q7sry")
 
 [node name="DragHandle" type="TextureRect" parent="."]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 1
 anchors_preset = 1

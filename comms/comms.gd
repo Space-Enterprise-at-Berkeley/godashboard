@@ -37,11 +37,7 @@ func _process(delta: float) -> void:
 		var data: PackedByteArray = chat_server.get_packet()
 		var addr: String = chat_server.get_packet_ip()
 		Databus.process_chat(data, addr)
-	#print(camera_server.get_available_packet_count())
-	#camera_server.poll()
-	#print(camera_server.is_connection_available())
 	while camera_server.get_available_packet_count() > 0:
-		print_debug("test")
 		var data: PackedByteArray = camera_server.get_packet()
 		var camera_id: int = data.decode_u8(0)
 		var camera: Camera = Camera.cameras_registry[Camera.cameras_id_lookup[camera_id]]
