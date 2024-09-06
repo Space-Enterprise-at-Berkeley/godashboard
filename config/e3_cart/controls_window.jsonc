@@ -1,5 +1,5 @@
 {
-	"name": "Controls",
+	"name": "Hotfire Controls",
 	"layout": "9-grid",
 	"slots": [
 
@@ -361,6 +361,20 @@
 					},
 					{
 						"type": null
+					},
+					{
+						"id": "heartbeatEnable",
+						"type": "valve",
+						"name": "Heatbeat Enable",
+						"field": "",
+						"actions": {
+							"enable": {
+								"type": "enable-heartbeat"
+							},
+							"disable": {
+								"type": "disable-heartbeat"
+							}
+						}
 					}//,
 					// {
 					// 	"id": "nitrousEmergencyVent",
@@ -401,7 +415,7 @@
 					{
 						"id": "igniter",
 						"type": "valve",
-						"name": "Igniter Enable",
+						"name": "Igniter",
 						"field": "igniterState",
 						"actions": {
 							"enable": {
@@ -417,23 +431,20 @@
 						"green": [0, 1]
 					},
 					{
-						"id": "launchEnable",
+						"id": "nitrousLaunchEnable",
 						"type": "switch",
-						"name": "Launch Enable",
+						"name": "Nitrous Enable",
 						"field": "",
 						"actions": {
 							"enable": {
 								"type": "enable",
-								"id": "launch"
+								"id": "nitrousEnable"
 							},
 							"disable": {
 								"type": "disable",
-								"id": "launch"
+								"id": "nitrousEnable"
 							}
 						}
-					},
-					{
-						"type": null
 					},
 					{
 						"id": "eregStaticPress",
@@ -451,6 +462,22 @@
 							}
 						},
 						"safe": true
+					},
+					{
+						"id": "ipaLaunchEnable",
+						"type": "switch",
+						"name": "IPA Enable",
+						"field": "",
+						"actions": {
+							"enable": {
+								"type": "enable",
+								"id": "ipaEnable"
+							},
+							"disable": {
+								"type": "disable",
+								"id": "ipaEnable"
+							}
+						}
 					}
 				]
 				
@@ -468,24 +495,24 @@
 				"type": "four-button",
 				"buttons": 
 				[
-					{
-						"id": "ipaDrain",
-						"type": "valve",
-						"name": "IPA Drain",
-						"field": "ipaDrainState",
-						"actions": {
-							"enable": {
-								"type": "on",
-								"target": "ipaDrain"
-							},
-							"disable": {
-								"type": "off",
-								"target": "ipaDrain"
-							}
-						},
-						"green": [0, 1],
-						"safe": true
-					},
+					// {
+					// 	"id": "ipaDrain",
+					// 	"type": "valve",
+					// 	"name": "IPA Drain",
+					// 	"field": "ipaDrainState",
+					// 	"actions": {
+					// 		"enable": {
+					// 			"type": "on",
+					// 			"target": "ipaDrain"
+					// 		},
+					// 		"disable": {
+					// 			"type": "off",
+					// 			"target": "ipaDrain"
+					// 		}
+					// 	},
+					// 	"green": [0, 1],
+					// 	"safe": true
+					// },
 					{
 						"id": "nosDrain",
 						"type": "valve",
@@ -520,6 +547,9 @@
 							}
 						},
 						"green": [0, 1]
+					},
+					{
+						"type": null
 					},
 					{
 						"id": "ipaEmergencyVent",

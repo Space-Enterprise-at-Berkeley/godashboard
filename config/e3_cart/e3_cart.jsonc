@@ -21,7 +21,6 @@
 		"actuators_status": "$e3_cart/actuators_status_window.jsonc",
 		"cameras": "$e3_cart/cameras_window.jsonc"
 	},
-	"preprocessors": "$e3_cart/preprocessors.jsonc",
 	"burnTime": 45000, // ms
 	// TODO: coldflow modes with ereg pressurization
 	"mode": 2, // 0 = launch, 1 = hotfire, 2 = coldflow, 3 = coldflow with igniter, 4 = gasflow

@@ -222,13 +222,13 @@
 					"field": "iregCurrentB",
 					"name": "Current B",
 					"units": "mA",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				},
 				{
 					"field": "iregCurrentC",
 					"name": "Current C",
 					"units": "mA",
-					"color": [0, 0, 255]
+					"color": [178, 34, 34]
 				}
 			]
 		},

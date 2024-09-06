@@ -68,5 +68,9 @@
 	"7": [
 		["automationState", "asUInt8"],
 		["fillDp", "asFloat"]
+	],
+
+	"8": [
+		["gemsDutyCycle", "asFloat"]
 	]
 }

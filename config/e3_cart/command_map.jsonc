@@ -7,6 +7,12 @@
 	// PT Board 2
 
 	"zeroPT2": ["pt2", 100, null],
+
+	// Ereg Board 
+
+	// "zeroPTEreg": ["ireg", 100, 0],
+
+	// "calibratePTEreg": ["ireg", 101, 0],
 	
 	// LC Board 1
 

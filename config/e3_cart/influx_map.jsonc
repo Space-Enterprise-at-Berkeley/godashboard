@@ -8,14 +8,21 @@
 	"tc1.tcSupply24Current": "tc12Supply24Current",
 	"tc1.tcSupply24Power": "tc1Supply24Power",
 
-	"tc1.tcValue0": "nosTankTC",
-	"tc1.tcValue1": "ipaTankTC",
+	// "tc1.tcValue0": "BROKEN CHANNEL",
+	// "tc1.tcValue1": "ipaTankTC",
+	"tc1.tcValue1": "nosTankTC",
 	"tc1.tcValue2": "nosInjectorTC",
 	"tc1.tcValue3": "ipaInjectorTC",
-	// "tc1.tcValue4": "",
-	// "tc1.tcValue5": "",
-	// "tc1.tcValue6": "",
-	// "tc1.tcValue7": "",
+	"tc1.tcValue4": "ipaTankTC",
+	"tc1.tcValue5": "heaterTC",
+	"tc1.tcValue6": "engineTC0",
+	"tc1.tcValue7": "engineTC8",
+
+	// "tc1.tcRawVoltage0": "BROKEN CHANNEL",
+	// "tc1.tcRawVoltage1": "ipaTankTCRawVoltage",
+	"tc1.tcRawVoltage1": "nosTankTCRawVoltage",
+	"tc1.tcRawVoltage2": "nosInjectorTCRawVoltage",
+	"tc1.tcRawVoltage3": "ipaInjectorTCRawVoltage",
 
 	// TC Board 2
 
@@ -26,7 +33,7 @@
 	"tc2.tcSupply24Current": "tc2Supply24Current",
 	"tc2.tcSupply24Power": "tc2Supply24Power",
 
-	"tc2.tcValue0": "engineTC0",
+	// "tc2.tcValue0": "BROKEN CHANNEL",
 	"tc2.tcValue1": "engineTC1",
 	"tc2.tcValue2": "engineTC2",
 	"tc2.tcValue3": "engineTC3",
@@ -45,12 +52,12 @@
 	"pt1.ptSupply24Power": "pt1Supply24Power",
 
 	"pt1.ptValue0": "nosTankPT",
-	"pt1.ptValue1": "nosFillPT",
+	// "pt1.ptValue1": "nosFillPT",
 	"pt1.ptValue2": "mainValvePT",
 	"pt1.ptValue3": "solenoidPanelPT",
 	"pt1.ptValue4": "ipaTankPT",
-	// "pt1.ptValue5": "ipaPressPT",
-	// "pt1.ptValue6": "enginePT6",
+	// "pt1.ptValue5": "nosFillPT",
+	"pt1.ptValue6": "nosFillPT",
 	// "pt1.ptValue7": "enginePT7",
 
 	// PT Board 2
@@ -63,19 +70,19 @@
 	"pt2.ptSupply24Power": "pt2Supply24Power",
 
 	"pt2.ptValue0": "nosInjectorPT",
-	"pt2.ptValue1": "ipaInjectorPT",
-	// "pt2.ptValue2": "chamberPT",
+	// "pt2.ptValue1": BROKEN CHANNEL
+	// "pt2.ptValue2": "chamberPT0",
 	// "pt2.ptValue3": "manifoldPT",
 	// "pt2.ptValue4": "channelPT0",
 	// "pt2.ptValue5": "channelPT1",
 	// "pt2.ptValue6": "channelPT2",
 	// "pt2.ptValue7": "channelPT3",
-	"pt2.ptValue2": "enginePT0",
-	"pt2.ptValue3": "enginePT1",
+	"pt2.ptValue2": "chamberPT0",
+	"pt2.ptValue3": "manifoldPT",
 	"pt2.ptValue4": "enginePT2",
 	"pt2.ptValue5": "enginePT3",
 	"pt2.ptValue6": "enginePT4",
-	"pt2.ptValue7": "enginePT5",
+	"pt2.ptValue7": "chamberPT1", //"enginePT5",
 
 	// PT Board 3
 
@@ -86,14 +93,14 @@
 	"pt3.ptSupply24Current": "pt3Supply24Current",
 	"pt3.ptSupply24Power": "pt3Supply24Power",
 
-	"pt3.ptValue0": "enginePT6",
+	"pt3.ptValue0": "ipaInjectorPT", //"enginePT6",
 	"pt3.ptValue1": "enginePT7",
 	"pt3.ptValue2": "enginePT8",
 	"pt3.ptValue3": "enginePT9",
 	"pt3.ptValue4": "enginePT10",
-	// "pt3.ptValue5": "enginePT11",
+	// "pt3.ptValue5": "ipaInjectorPT",
 	// "pt3.ptValue6": "enginePT4",
-	// "pt3.ptValue7": "enginePT5",
+	// "pt3.ptValue7": "chamberPT1",
 
 	
 
@@ -181,7 +188,7 @@
 
 	"ac2.actuatorState0": "nosGemsState",
 	// "ac2.actuatorState1": "nosFillState",
-	// "ac2.actuatorState2": "nosSlowVentState",
+	// "ac2.actuatorState2": BROKEN CHANNEL,
 	"ac2.actuatorState3": "nosLineVentState",
 	"ac2.actuatorState4": "nosEmergencyVentState",
 	"ac2.actuatorState5": "nosDrainState",
@@ -190,7 +197,7 @@
 
 	"ac2.actuatorContinuity0": "nosGemsContinuity",
 	// "ac2.actuatorContinuity1": "nosFillContinuity",
-	// "ac2.actuatorContinuity2": "nosSlowVentContinuity",
+	// "ac2.actuatorContinuity2": BROKEN CHANNEL,
 	"ac2.actuatorContinuity3": "nosLineVentContinuity",
 	"ac2.actuatorContinuity4": "nosEmergencyVentContinuity",
 	"ac2.actuatorContinuity5": "nosDrainContinuity",
@@ -199,7 +206,7 @@
 
 	"ac2.actuatorCurrent0": "nosGemsCurrent",
 	// "ac2.actuatorCurrent1": "nosFillCurrent",
-	// "ac2.actuatorCurrent2": "nosSlowVentCurrent",
+	// "ac2.actuatorCurrent2": BROKEN CHANNEL,
 	"ac2.actuatorCurrent3": "nosLineVentCurrent",
 	"ac2.actuatorCurrent4": "nosEmergencyVentCurrent",
 	"ac2.actuatorCurrent5": "nosDrainCurrent",
@@ -217,6 +224,8 @@
 
 	"ac2.autoventPressure": "nosAutoventPressure",
 	"ac2.automationState": "nosAutomationState",
+
+	"ac2.gemsDutyCycle": "nosGemsDutyCycle",
 
 	// AC Board 3
 
@@ -264,6 +273,8 @@
 	// "ac3.potentiometer7": "",
 
 	"ac3.autoventPressure": "ipaAutoventPressure",
+
+	"ac3.gemsDutyCycle": "ipaGemsDutyCycle",
 
 	// IPA E-Reg
 

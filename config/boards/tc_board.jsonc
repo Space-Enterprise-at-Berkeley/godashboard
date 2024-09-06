@@ -23,6 +23,32 @@
 		["tcValue7", "asFloat"]
 	],
 
+	// Cold Junction Values
+
+	"3": [
+		["tcColdJunction0", "asUInt8"],
+		["tcColdJunction1", "asUInt8"],
+		["tcColdJunction2", "asUInt8"],
+		["tcColdJunction3", "asUInt8"],
+		["tcColdJunction4", "asUInt8"],
+		["tcColdJunction5", "asUInt8"],
+		["tcColdJunction6", "asUInt8"],
+		["tcColdJunction7", "asUInt8"]
+	],
+
+	// Faults
+
+	"4": [
+		["tcFault0", "asUInt8"],
+		["tcFault1", "asUInt8"],
+		["tcFault2", "asUInt8"],
+		["tcFault3", "asUInt8"],
+		["tcFault4", "asUInt8"],
+		["tcFault5", "asUInt8"],
+		["tcFault6", "asUInt8"],
+		["tcFault7", "asUInt8"]
+	],
+
 	// Raw Voltages
 	"5": [
 		["tcRawVoltage0", "asFloat"],

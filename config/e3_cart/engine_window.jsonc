@@ -47,20 +47,20 @@
 				{
 					"field": "engineLC2",
 					"name": "Eng LC1",
-					"units": "lb",
+					"units": "kg",
 					"color": [0, 255, 255]
 				},
 				{
 					"field": "engineLC1",
 					"name": "Eng LC2",
-					"units": "lb",
-					"color": [0, 255, 0]
+					"units": "kg",
+					"color": [30, 144, 255]
 				},
 				{
 					"field": "engineLC3",
 					"name": "Eng LC3",
-					"units": "lb",
-					"color": [0, 0, 255]
+					"units": "kg",
+					"color": [178, 34, 34]
 				}
 			]
 		},
@@ -71,13 +71,13 @@
 					"field": "nosInjectorPT",
 					"name": "NOS Injector PT",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "ipaInjectorPT",
 					"name": "IPA Injector PT",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 			]
 		},
@@ -85,14 +85,14 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "enginePT0",
-					"name": "Eng PT0",
+					"field": "chamberPT0",
+					"name": "ChamberPT0",
 					"units": "PSI",
 					"color": [127, 0, 255]
 				},
 				{
-					"field": "enginePT1",
-					"name": "Eng PT1",
+					"field": "manifoldPT",
+					"name": "Manifold",
 					"units": "",
 					"color": [77, 73, 251]
 				},
@@ -113,43 +113,13 @@
 					"name": "Eng PT4",
 					"units": "",
 					"color": [76, 242, 206]
-				},
-				{
-					"field": "enginePT5",
-					"name": "Eng PT5",
-					"units": "",
-					"color": [128, 254, 206]
-				},
-				{
-					"field": "enginePT6",
-					"name": "Eng PT6",
-					"units": "",
-					"color": [178, 242, 150]
-				},
-				{
-					"field": "enginePT7",
-					"name": "Eng PT7",
-					"units": "",
-					"color": [230, 205, 115]
-				},
-				{
-					"field": "enginePT8",
-					"name": "Eng PT8",
-					"units": "",
-					"color": [255, 150, 79]
-				},
-				{
-					"field": "enginePT9",
-					"name": "Eng PT9",
-					"units": "",
-					"color": [255, 77, 39]
-				},
-				{
-					"field": "enginePT10",
-					"name": "Eng PT10",
-					"units": "",
-					"color": [255, 77, 39]
 				}
+				// {
+				// 	"field": "chamberPT1",
+				// 	"name": "Eng PT5",
+				// 	"units": "",
+				// 	"color": [128, 254, 206]
+				// }
 			]
 		},
 		{
@@ -178,30 +148,6 @@
 					"name": "Eng TC3",
 					"units": "",
 					"color": [63, 255, 183]
-				},
-				{
-					"field": "engineTC4",
-					"name": "Eng TC4",
-					"units": "",
-					"color": [183, 255, 63]
-				},
-				{
-					"field": "engineTC5",
-					"name": "Eng TC5",
-					"units": "",
-					"color": [255, 185, 0]
-				},
-				{
-					"field": "engineTC6",
-					"name": "Eng TC6",
-					"units": "",
-					"color": [255, 48, 0]
-				},
-				{
-					"field": "engineTC7",
-					"name": "Eng TC7",
-					"units": "",
-					"color": [127, 0, 255]
 				}
 			]
 		},
@@ -243,23 +189,41 @@
 		{
 			"type": "graph",
 			"values": [
+				// {
+				// 	"field": "enginePT6",
+				// 	"name": "Eng PT6",
+				// 	"units": "",
+				// 	"color": [178, 242, 150]
+				// },
 				{
-					"field": "nosTankPT",
-					"name": "NOS Tank",
-					"units": "PSI",
-					"color": [255, 0, 0]
+					"field": "chamberPT1",
+					"name": "ChamberPT1",
+					"units": "",
+					"color": [128, 254, 206]
 				},
 				{
-					"field": "nosFillPT",
-					"name": "Fill",
-					"units": "PSI",
-					"color": [0, 255, 0]
+					"field": "enginePT7",
+					"name": "Eng PT7",
+					"units": "",
+					"color": [178, 242, 150]
 				},
 				{
-					"field": "nosAutoventPressure",
-					"name": "AV",
-					"units": "PSI",
-					"color": [0, 0, 255]
+					"field": "enginePT8",
+					"name": "Eng PT8",
+					"units": "",
+					"color": [230, 205, 115]
+				},
+				{
+					"field": "enginePT9",
+					"name": "Eng PT9",
+					"units": "",
+					"color": [255, 150, 79] 
+				},
+				{
+					"field": "enginePT10",
+					"name": "Eng PT10",
+					"units": "",
+					"color": [255, 77, 39]
 				}
 			]
 		},
@@ -267,22 +231,34 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "ipaTankPT",
-					"name": "IPA Tank",
-					"units": "PSI",
-					"color": [255, 0, 0]
+					"field": "engineTC4",
+					"name": "Eng TC4",
+					"units": "",
+					"color": [183, 255, 63]
 				},
 				{
-					"field": "ipaPressPT",
-					"name": "Press",
-					"units": "PSI",
-					"color": [0, 255, 0]
+					"field": "engineTC5",
+					"name": "TC5",
+					"units": "",
+					"color": [255, 185, 0]
 				},
 				{
-					"field": "ipaAutoventPressure",
-					"name": "AV",
-					"units": "PSI",
-					"color": [0, 0, 255]
+					"field": "engineTC6",
+					"name": "TC6",
+					"units": "",
+					"color": [255, 150, 79]
+				},
+				{
+					"field": "engineTC7",
+					"name": "TC7",
+					"units": "",
+					"color": [255, 48, 0]
+				},
+				{
+					"field": "engineTC8",
+					"name": "TC8",
+					"units": "",
+					"color": [255, 0, 255]
 				}
 			]
 		},

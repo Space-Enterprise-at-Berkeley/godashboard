@@ -9,19 +9,19 @@
 					"field": "nosTankPT",
 					"name": "NOS Tank",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "nosFillPT",
 					"name": "Fill",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				},
 				{
 					"field": "nosAutoventPressure",
 					"name": "AV",
 					"units": "PSI",
-					"color": [0, 0, 255]
+					"color": [178, 34, 34]
 				}
 			]
 		},
@@ -32,19 +32,19 @@
 					"field": "ipaTankPT", // formerly had @linear/2.5,10
 					"name": "IPA Tank",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "ipaPressPT",
 					"name": "Press",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				},
 				{
 					"field": "ipaAutoventPressure",
 					"name": "AV",
 					"units": "PSI",
-					"color": [0, 0, 255]
+					"color": [178, 34, 34]
 				}
 			]
 		},
@@ -62,8 +62,9 @@
 					"units": "PSI/s"
 				},
 				{
-					"field": null 
-					
+					"field": "nosGemsDutyCycle", 
+					"name": "NOS Duty Cycle",
+					"units": ""
 				},
 				{
 					"field": "nosTankPT", 
@@ -74,6 +75,11 @@
 					"field": "ipaTankPT", 
 					"name": "IPA Tank PT",
 					"units": "PSI"
+				},
+				{
+					"field": "ipaGemsDutyCycle",
+					"name": "IPA Duty Cycle",
+					"units": ""
 				}
 			]
 		},
@@ -84,13 +90,13 @@
 					"field": "ncapCap",
 					"name": "Nitrous Cap Fill Value",
 					"units": "pF",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "icapCap",
 					"name": "IPA Cap Fill Value",
 					"units": "pF",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 			]
 		},
@@ -101,13 +107,13 @@
 					"field": "iregEncoderAngle",
 					"name": "I-Reg Encoder Angle",
 					"units": "Ticks",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "iregAngleSetpoint",
 					"name": "Setpoint",
 					"units": "Ticks",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 			]
 		},
@@ -149,13 +155,19 @@
 					"field": "nosTankTC",
 					"name": "NOS Tank TC",
 					"units": "C",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
+				// {
+				// 	"field": "ipaTankTC",
+				// 	"name": "IPA Tank TC",
+				// 	"units": "C",
+				// 	"color": [30, 144, 255]
+				// }
 				{
-					"field": "ipaTankTC",
-					"name": "IPA Tank TC",
+					"field": "heaterTC",
+					"name": "Heater TC",
 					"units": "C",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 			]
 		},
@@ -165,14 +177,14 @@
 				{
 					"field": "nosTankLC0",
 					"name": "NOS LC",
-					"units": "lbs",
-					"color": [255, 0, 0]
+					"units": "kg",
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "ipaTankLC0",
 					"name": "IPA LC",
-					"units": "lbs",
-					"color": [0, 255, 0]
+					"units": "kg",
+					"color": [30, 144, 255]
 				}
 			]
 		},

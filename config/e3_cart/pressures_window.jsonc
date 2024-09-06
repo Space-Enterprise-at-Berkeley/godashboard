@@ -1,5 +1,5 @@
 {
-	"name": "Pressures",
+	"name": "Coldflow Pressures",
 	"layout": "9-grid",
 	"slots": [
 		{
@@ -9,13 +9,13 @@
 					"field": "nosTankPT",
 					"name": "NOS Tank PT",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "nosFillPT",
 					"name": "NOS Fill Line PT",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 		
 			]
@@ -27,31 +27,25 @@
 					"field": "ipaTankPT",
 					"name": "IPA Tank PT",
 					"units": "PSI",
-					"color": [255, 0, 0]
-				},
-				{
-					"field": "ipaTankPT@filtered",
-					"name": "IPA Tank PT F",
-					"units": "PSI",
-					"color": [255, 100, 100]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "iregFilteredDownstreamPressure2",
 					"name": "I-Reg Tank PT 2",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				},
-				{
-					"field": "iregFilteredDownstreamPressure",
-					"name": "I-Reg Tank PT 1",
-					"units": "PSI",
-					"color": [0, 255, 255]
-				},
+				// {
+				// 	"field": "iregFilteredDownstreamPressure",
+				// 	"name": "I-Reg Tank PT 1",
+				// 	"units": "PSI",
+				// 	"color": [0, 255, 255]
+				// },
 				{
 					"field": "iregPressureSetpoint",
 					"name": "Setpoint",
 					"units": "PSI",
-					"color": [0, 0, 255]
+					"color": [178, 34, 34]
 				}
 			]
 		},
@@ -69,8 +63,9 @@
 					"units": "PSI/s"
 				},
 				{
-					"field": null 
-					
+					"field": "solenoidPanelPT",
+					"name": "Solenoids PT",
+					"units": "PSI"
 				},
 				{
 					"field": "nosTankPT", 
@@ -81,8 +76,12 @@
 					"field": "ipaTankPT", 
 					"name": "IPA Tank PT",
 					"units": "PSI"
+				},
+				{
+					"field": "mainValvePT",
+					"name": "Main Valve PT",
+					"units": "PSI"
 				}
-				
 			]
 		},
 		{
@@ -92,13 +91,13 @@
 					"field": "nosInjectorPT",
 					"name": "NOS Injector PT",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "ipaInjectorPT",
 					"name": "IPA Injector PT",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 		
 			]
@@ -110,13 +109,13 @@
 					"field": "nosInjectorTC",
 					"name": "NOS Injector TC",
 					"units": "C",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "ipaInjectorTC",
 					"name": "IPA Injector TC",
 					"units": "C",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 		
 			]
@@ -125,14 +124,14 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "enginePT0",
-					"name": "Eng PT0",
+					"field": "chamberPT0",
+					"name": "ChamberPT0",
 					"units": "PSI",
 					"color": [127, 0, 255]
 				},
 				{
-					"field": "enginePT1",
-					"name": "Eng PT1",
+					"field": "manifoldPT",
+					"name": "Manifold",
 					"units": "",
 					"color": [77, 73, 251]
 				},
@@ -153,42 +152,6 @@
 					"name": "Eng PT4",
 					"units": "",
 					"color": [76, 242, 206]
-				},
-				{
-					"field": "enginePT5",
-					"name": "Eng PT5",
-					"units": "",
-					"color": [128, 254, 206]
-				},
-				{
-					"field": "enginePT6",
-					"name": "Eng PT6",
-					"units": "",
-					"color": [178, 242, 150]
-				},
-				{
-					"field": "enginePT7",
-					"name": "Eng PT7",
-					"units": "",
-					"color": [230, 205, 115]
-				},
-				{
-					"field": "enginePT8",
-					"name": "Eng PT8",
-					"units": "",
-					"color": [255, 150, 79]
-				},
-				{
-					"field": "enginePT9",
-					"name": "Eng PT9",
-					"units": "",
-					"color": [255, 77, 39]
-				},
-				{
-					"field": "enginePT10",
-					"name": "Eng PT10",
-					"units": "",
-					"color": [255, 77, 39]
 				}
 			]
 		},
@@ -196,10 +159,10 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "iregFilteredUpstreamPressure",
+					"field": "ipaPressPT",
 					"name": "I-Reg Press PT",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				}
 			]
 		},
@@ -210,13 +173,13 @@
 					"field": "iregEncoderAngle",
 					"name": "I-Reg Encoder Angle",
 					"units": "Ticks",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "iregAngleSetpoint",
 					"name": "Setpoint",
 					"units": "Ticks",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 			]
 		},
@@ -224,22 +187,34 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "manifoldPT",
-					"name": "Manifold",
-					"units": "PSI",
-					"color": [255, 0, 0]
+					"field": "chamberPT1",
+					"name": "ChamberPT1",
+					"units": "",
+					"color": [128, 254, 206]
 				},
 				{
-					"field": "mainValvePT",
-					"name": "Main Valve",
-					"units": "PSI",
-					"color": [0, 255, 0]
+					"field": "enginePT7",
+					"name": "Eng PT7",
+					"units": "",
+					"color": [178, 242, 150]
 				},
 				{
-					"field": "solenoidPanelPT",
-					"name": "Solenoids",
-					"units": "PSI",
-					"color": [0, 0, 255]
+					"field": "enginePT8",
+					"name": "Eng PT8",
+					"units": "",
+					"color": [230, 205, 115]
+				},
+				{
+					"field": "enginePT9",
+					"name": "Eng PT9",
+					"units": "",
+					"color": [255, 150, 79] 
+				},
+				{
+					"field": "enginePT10",
+					"name": "Eng PT10",
+					"units": "",
+					"color": [255, 77, 39]
 				}
 			]
 		}

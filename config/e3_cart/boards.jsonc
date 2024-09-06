@@ -19,6 +19,10 @@
 		"type": "tc",
 		"address": "10.0.0.52"
 	},
+	"tc3": {
+		"type": "tc",
+		"address": "10.0.0.53"
+	},
 	"pt1": {
 		"type": "pt",
 		"address": "10.0.0.31"

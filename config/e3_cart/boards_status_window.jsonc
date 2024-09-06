@@ -140,13 +140,13 @@
 					"field": "ncapCap",
 					"name": "Nitrous Cap Fill Value",
 					"units": "pF",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "icapCap",
 					"name": "IPA Cap Fill Value",
 					"units": "pF",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 			]
 		},
