@@ -32,16 +32,51 @@ grow_vertical = 2
 [node name="Header" type="HFlowContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/Control/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(600, 396)
 render_target_update_mode = 4
+
+[node name="UpperLabelMargin" type="MarginContainer" parent="VBoxContainer/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UpperLabel" type="Label" parent="VBoxContainer/Control/UpperLabelMargin"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "0.00"
+
+[node name="LowerLabelMargin" type="MarginContainer" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 43.0
+grow_vertical = 0
+
+[node name="LowerLabel" type="Label" parent="VBoxContainer/Control/LowerLabelMargin"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "0.00"
 
 [node name="FilterTimer" type="Timer" parent="."]
 wait_time = 5.0

@@ -2,7 +2,9 @@ extends Control
 class_name GraphSquare
 
 @onready var header: HFlowContainer = $VBoxContainer/Header
-@onready var viewport: SubViewport = $VBoxContainer/SubViewportContainer/SubViewport
+@onready var viewport: SubViewport = $VBoxContainer/Control/SubViewportContainer/SubViewport
+@onready var upper_label: Label = $VBoxContainer/Control/UpperLabelMargin/UpperLabel
+@onready var lower_label: Label = $VBoxContainer/Control/LowerLabelMargin/LowerLabel
 @onready var filter_timer: Timer = $FilterTimer
 
 static var graph_count: int = 0
@@ -41,6 +43,8 @@ func _process(delta: float) -> void:
 	var y_height_initial: float = y_max - y_min
 	y_min -= maxf(0.1, 0.05 * y_height_initial)
 	y_max += maxf(0.1, 0.05 * y_height_initial)
+	upper_label.text = "%.2f" % y_max
+	lower_label.text = "%.2f" % y_min
 	var y_height: float = y_max - y_min
 	for field in field_names:
 		var vector_points: PackedVector2Array = PackedVector2Array()
