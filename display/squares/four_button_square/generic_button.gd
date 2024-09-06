@@ -110,7 +110,10 @@ func _partial_close() -> void:
 func _switch_safety(enabled: bool) -> void:
 	match type:
 		ButtonType.SWITCH:
-			pass
+			if enabled:
+				_execute_action(actions["enable"])
+			else:
+				_execute_action(actions["disable"])
 		_:
 			if enabled:
 				_enable()

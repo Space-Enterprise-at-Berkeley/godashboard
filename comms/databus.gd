@@ -29,6 +29,7 @@ const TYPE_LENGTHS: Dictionary = {
 	PacketDataType.UINT16: 2,
 	PacketDataType.UINT32: 4,
 }
+
 const TYPE_NAME_LOOKUP: Dictionary = {
 	"asASCIIString": PacketDataType.ASCII_STRING,
 	"asFloat": PacketDataType.FLOAT,
@@ -36,6 +37,35 @@ const TYPE_NAME_LOOKUP: Dictionary = {
 	"asUInt16": PacketDataType.UINT16,
 	"asUInt32": PacketDataType.UINT32,
 }
+
+enum AbortReason {
+	MANUAL = 0,
+	NOS_OVERPRESSURE = 1,
+	IPA_OVERPRESSURE = 2,
+	ENGINE_OVERTEMP = 3,
+	FAILED_IGNITION = 4,
+	IGNITER_NO_CONTINUITY = 5,
+	BREAKWIRE_NO_CONTINUITY = 6,
+	BREAKWIRE_NO_BURNT = 7,
+	NO_DASHBOARD_COMMS = 8,
+	PROPELLANT_RUN_OUT = 9,
+}
+
+const ABORT_DESCRIPTIONS: Dictionary = {
+	AbortReason.MANUAL: "Manual",
+	AbortReason.NOS_OVERPRESSURE: "NOS Overpressure",
+	AbortReason.IPA_OVERPRESSURE: "IPA Overpressure",
+	AbortReason.ENGINE_OVERTEMP: "Engine Overtemp",
+	AbortReason.FAILED_IGNITION: "Failed Ignition",
+	AbortReason.IGNITER_NO_CONTINUITY: "Igniter No Continuity",
+	AbortReason.BREAKWIRE_NO_CONTINUITY: "Breakwire No Continuity",
+	AbortReason.BREAKWIRE_NO_BURNT: "Breakwire No Burnt",
+	AbortReason.NO_DASHBOARD_COMMS: "No Dashboard Comms",
+	AbortReason.PROPELLANT_RUN_OUT: "Propellant Run-Out",
+}
+
+const LAUNCH_ID: int = 200
+const ABORT_ID: int = 133
 
 var ip_cache: Dictionary = {}
 var first_receive_times: Dictionary = {}
@@ -266,3 +296,15 @@ func make_uint32(value: int) -> Array:
 func process_chat(data: PackedByteArray, addr: String) -> void:
 	var msg: Variant = JSON.parse_string(data.get_string_from_utf8())
 	Logger.chat("(%s) %s" % [msg["sender"], msg["message"]])
+
+func launch(ipa_enabled: bool, nos_enabled: bool) -> void:
+	Logger.info("Beginning launch sequence")
+	if ipa_enabled:
+		Logger.info("IPA enabled")
+	if nos_enabled:
+		Logger.info("NOS enabled")
+	send_packet("bcast", LAUNCH_ID, [make_uint8(Config.config["mode"]), make_uint32(Config.config["burnTime"]), make_uint8(int(nos_enabled)), make_uint8(int(ipa_enabled))])
+
+func abort(reason: AbortReason) -> void:
+	Logger.warn("Emitting abort with reason %d: %s" % [reason, ABORT_DESCRIPTIONS[reason]])
+	send_packet("bcast", ABORT_ID, [make_uint8(Config.config["mode"]), make_uint8(reason)])

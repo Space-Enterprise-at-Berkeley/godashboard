@@ -7,6 +7,7 @@ const graph_square_scene: PackedScene = preload("res://display/squares/graph_squ
 const six_value_square_scene: PackedScene = preload("res://display/squares/six_value_square/six_value_square.tscn")
 const logs_square_scene: PackedScene = preload("res://display/squares/logs_square/logs_square.tscn")
 const camera_square_scene: PackedScene = preload("res://display/squares/camera_square/camera_square.tscn")
+const launch_button_square_scene: PackedScene = preload("res://display/squares/launch_button_square/launch_button_square.tscn")
 
 func setup(config: Dictionary) -> void:
 	columns = ceil(sqrt(len(config["slots"])))
@@ -36,6 +37,9 @@ func setup(config: Dictionary) -> void:
 				var camera_square: CameraSquare = camera_square_scene.instantiate()
 				base_square.set_square(camera_square)
 				camera_square.setup(slot)
+			"launch":
+				var launch_button_square: LaunchButtonSquare = launch_button_square_scene.instantiate()
+				base_square.set_square(launch_button_square)
 			_:
 				pass
 
