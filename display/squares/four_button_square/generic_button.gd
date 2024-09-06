@@ -14,7 +14,7 @@ enum ButtonType {
 @onready var button_open: Button = $VBoxContainer/HBoxContainer/ButtonOpen
 @onready var button_close_timed: Button = $VBoxContainer/HBoxContainer2/ButtonCloseTimed
 @onready var button_open_timed: Button = $VBoxContainer/HBoxContainer2/ButtonOpenTimed
-@onready var label: Label = $VBoxContainer/HBoxContainer2/ColorRect/Label
+@onready var label: Label = $VBoxContainer/HBoxContainer2/ColorRect/MarginContainer/ColorRect/Label
 @onready var button_safety: CheckButton = $VBoxContainer/ButtonSafety
 @onready var time: LineEdit = $VBoxContainer/Time
 @onready var color_rect: ColorRect = $VBoxContainer/HBoxContainer2/ColorRect
@@ -27,8 +27,12 @@ const BUTTON_TYPE_LOOKUP: Dictionary = {
 	"ereg": ButtonType.EREG,
 	"ereg-timed": ButtonType.EREG_TIMED,
 }
+
 const BUTTON_ENABLE: String = "buttonΕnable"
 const BUTTON_DISABLE: String = "buttonDisable"
+
+const BUTTON_COLOR_ON: Color = Color(0.0, 1.0, 0.0)
+const BUTTON_COLOR_OFF: Color = Color.TRANSPARENT
 
 var id: String = ""
 var field: String = ""
@@ -38,6 +42,7 @@ var type: ButtonType = ButtonType.NULL
 var actions: Dictionary = {}
 
 func _ready() -> void:
+	color_rect.color = BUTTON_COLOR_OFF
 	button_close.pressed.connect(_close)
 	button_open.pressed.connect(_open)
 	button_close_timed.pressed.connect(_partial_close)
@@ -193,8 +198,16 @@ func _execute_action(action: Dictionary) -> void:
 		"disable-heartbeat":
 			Globals.heartbeat_enabled = false
 
+func update_status_bar(value: Variant) -> void:
+	if green.has(value):
+		color_rect.color = BUTTON_COLOR_ON
+	else:
+		color_rect.color = BUTTON_COLOR_OFF
+
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
 	if fields.get(BUTTON_ENABLE, null) == id:
 		_enable()
 	elif fields.get(BUTTON_DISABLE, null) == id:
 		_disable()
+	if fields.has(field):
+		update_status_bar(fields[field])

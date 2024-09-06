@@ -49,9 +49,25 @@ expand_icon = true
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
 size_flags_horizontal = 6
+color = Color(0, 1, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer2/ColorRect/MarginContainer"]
+layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/ColorRect"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/ColorRect/MarginContainer/ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,6 +105,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="ButtonClose" type="Button" parent="VBoxContainer/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -97,6 +114,7 @@ theme_type_variation = &"ButtonClose"
 text = "Close"
 
 [node name="ButtonOpen" type="Button" parent="VBoxContainer/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 size_flags_horizontal = 4
