@@ -15,6 +15,7 @@ var field_names: Array[String] = []
 var points: Dictionary = {}
 var colors: Dictionary = {}
 var lines: Dictionary = {}
+var last_timestamps: Dictionary = {}
 var graph_id: int = 0
 
 func _ready() -> void:
@@ -78,8 +79,11 @@ func setup(config: Dictionary) -> void:
 		line.width = 1
 		viewport.add_child(line)
 		lines[f] = line
+		last_timestamps[f] = 0
 
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
 	for f: String in fields:
 		if field_names.has(f):
-			points[f].append([fields[f], timestamp])
+			if timestamp > last_timestamps[f] + 100:
+				points[f].append([fields[f], timestamp])
+				last_timestamps[f] = timestamp

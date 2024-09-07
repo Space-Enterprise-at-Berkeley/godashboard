@@ -125,7 +125,7 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 		packet.error = true
 		return packet
 	if not ip_cache.has(addr):
-		Logger.warn("IP %s not recognized" % addr)
+		Logger.debug("IP %s not recognized" % addr)
 		packet.error = true
 		return packet
 	var board: String = ip_cache[addr]
@@ -144,7 +144,7 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 		return packet
 	var board_type: String = Config.config["boards"][board]["type"]
 	if not Config.config["packets"][board_type].has(str(id)):
-		Logger.warn("Unrecognized packet %d on board %s" % [id, board])
+		Logger.debug("Unrecognized packet %d on board %s" % [id, board])
 		packet.error = true
 		return packet
 	var definition: Array = Config.config["packets"][board_type][str(id)]
