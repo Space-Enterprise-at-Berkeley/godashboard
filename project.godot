@@ -43,6 +43,7 @@ gdscript/warnings/integer_division=0
 window/size/viewport_width=600
 window/size/viewport_height=400
 window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
 
 [rendering]
 

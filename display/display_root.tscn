@@ -6,6 +6,8 @@
 
 [node name="DisplayRoot" type="Window"]
 mode = 2
+content_scale_mode = 1
+content_scale_aspect = 1
 script = ExtResource("1_dl7oo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
