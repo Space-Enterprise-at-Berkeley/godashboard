@@ -19,7 +19,8 @@
 		"engine": "$e3_cart/engine_window.jsonc",
 		"boards_status": "$e3_cart/boards_status_window.jsonc",
 		"actuators_status": "$e3_cart/actuators_status_window.jsonc",
-		"cameras": "$e3_cart/cameras_window.jsonc"
+		"cameras": "$e3_cart/cameras_window.jsonc",
+		"influx_test": "$influx_test_window.jsonc"
 	},
 	"burnTime": 45000, // ms
 	// TODO: coldflow modes with ereg pressurization

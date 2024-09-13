@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp001x3jpac0h"]
+
+[ext_resource type="Script" path="res://display/layout/influx_test/influx_test.gd" id="1_j7x44"]
+
+[node name="InfluxTest" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_j7x44")
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start"
+
+[node name="Bitrate" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0"
+placeholder_text = "Bitrate"
+
+[node name="NumberFields" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "1"
+placeholder_text = "# Fields"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true

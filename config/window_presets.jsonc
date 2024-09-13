@@ -5,7 +5,7 @@
 	},
 	"debug": {
 		"name": "Debug",
-		"tabs": ["packet_simulator"]
+		"tabs": ["packet_simulator", "influx_test"]
 	},
 	"empty": {
 		"name": "Empty",

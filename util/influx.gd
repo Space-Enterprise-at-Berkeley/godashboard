@@ -109,27 +109,26 @@ func _response_handler(result: int, response_code: int, headers: PackedStringArr
 		Logger.warn("Influx moment")
 	else:
 		var ascii: String = body.get_string_from_ascii()
-		if ascii.length() == 0:
-			return
-		var json: JSON = JSON.new()
-		if json.parse(ascii) != OK:
-			Logger.warn("JSON parse error")
-			pass
-		else:
-			var res: Variant = json.data
-			match action:
-				InfluxAction.CHECK_HEALTH:
-					if res["status"] != "pass":
-						Logger.warn("Influx health failure")
-					health_check_result.emit(res["status"] == "pass")
-				InfluxAction.LIST_DATABASES:
-					var databases: Array = res["results"][0]["series"][0]["values"].map(func (d: Array) -> String: return d[0]).filter(func (d: String) -> bool: return d != "_internal")
-					databases.reverse()
-					#Logger.info("Found databases: " % str(databases))
-					found_databases.emit(databases)
-				InfluxAction.UPLOAD_POINTS:
-					pass
-					#print(body)
+		if ascii.length() != 0:
+			var json: JSON = JSON.new()
+			if json.parse(ascii) != OK:
+				Logger.warn("JSON parse error")
+				pass
+			else:
+				var res: Variant = json.data
+				match action:
+					InfluxAction.CHECK_HEALTH:
+						if res["status"] != "pass":
+							Logger.warn("Influx health failure")
+						health_check_result.emit(res["status"] == "pass")
+					InfluxAction.LIST_DATABASES:
+						var databases: Array = res["results"][0]["series"][0]["values"].map(func (d: Array) -> String: return d[0]).filter(func (d: String) -> bool: return d != "_internal")
+						databases.reverse()
+						#Logger.info("Found databases: " % str(databases))
+						found_databases.emit(databases)
+					InfluxAction.UPLOAD_POINTS:
+						pass
+						#print(body)
 	action = InfluxAction.NONE
 	if request_buffer.size() > 0:
 		_send_request()
