@@ -25,7 +25,6 @@ func _ready() -> void:
 	filter_timer.timeout.connect(_filter_points)
 
 func _process(delta: float) -> void:
-	_filter_points()
 	if not is_visible_in_tree():
 		return
 	var y_min: float = INF
