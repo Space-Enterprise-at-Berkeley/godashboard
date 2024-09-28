@@ -6,8 +6,9 @@
 
 [node name="DisplayRoot" type="Window"]
 mode = 2
+content_scale_size = Vector2i(1920, 1080)
 content_scale_mode = 1
-content_scale_aspect = 1
+content_scale_aspect = 4
 script = ExtResource("1_dl7oo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
