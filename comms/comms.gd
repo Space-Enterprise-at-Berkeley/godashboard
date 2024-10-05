@@ -21,8 +21,7 @@ func _ready() -> void:
 	chat_server.set_broadcast_enabled(true)
 	chat_server.set_dest_address(BCAST_IP, CHAT_PORT)
 	camera_server.bind(CAMERA_PORT)
-	#if OS.get_name() != "macOS":
-	if false:
+	if OS.get_name() != "macOS":
 		mcast_server.bind(MCAST_PORT)
 		_await_multicast()
 
