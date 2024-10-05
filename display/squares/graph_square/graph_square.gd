@@ -75,7 +75,7 @@ func setup(config: Dictionary) -> void:
 		colors[f] = color
 		var line: Line2D = Line2D.new()
 		line.default_color = color
-		line.width = 1
+		line.width = 2
 		viewport.add_child(line)
 		lines[f] = line
 		last_timestamps[f] = 0

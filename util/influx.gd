@@ -36,6 +36,7 @@ class InfluxRequest:
 
 var action: InfluxAction = InfluxAction.NONE
 var http: HTTPRequest
+var http_points: HTTPRequest
 var request_buffer: Array[InfluxRequest] = []
 var host: String = "localhost"
 var port: int = 8086
@@ -47,12 +48,15 @@ var timer: Timer
 
 func _ready() -> void:
 	http = HTTPRequest.new()
+	http_points = HTTPRequest.new()
 	add_child(http)
+	add_child(http_points)
 	http.timeout = 1.0
+	http_points.timeout = 1.0
 	http.request_completed.connect(_response_handler)
 	timer = Timer.new()
 	timer.one_shot = false
-	timer.wait_time = 1
+	timer.wait_time = 0.05
 	add_child(timer)
 	timer.timeout.connect(_upload_points)
 
@@ -102,7 +106,8 @@ func _upload_points() -> void:
 				Logger.warn("Unknown data type for Influx: %d" % typeof(point.value))
 		body.append(" ")
 		body.append(str(point.timestamp * 1000000))
-	_push_request(InfluxRequest.new(InfluxAction.UPLOAD_POINTS, "http://%s:%d/write?db=%s" % [host, port, database], [], HTTPClient.METHOD_POST, "".join(body)))
+	http_points.request("http://%s:%d/write?db=%s" % [host, port, database], [], HTTPClient.METHOD_POST, "".join(body))
+	#_push_request(InfluxRequest.new(InfluxAction.UPLOAD_POINTS, , [], HTTPClient.METHOD_POST, "".join(body)))
 
 func _response_handler(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS:
@@ -126,6 +131,7 @@ func _response_handler(result: int, response_code: int, headers: PackedStringArr
 						databases.reverse()
 						#Logger.info("Found databases: " % str(databases))
 						found_databases.emit(databases)
+						action = InfluxAction.NONE
 					InfluxAction.UPLOAD_POINTS:
 						pass
 						#print(body)

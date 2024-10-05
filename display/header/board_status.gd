@@ -17,6 +17,8 @@ func setup(b: String) -> void:
 	connectedField = board + "Connected"
 	text = board.to_upper() + " - %d"
 	update_kbps(0)
+	if Databus.boards_connected[b]:
+		theme_type_variation = "BoardStatusConnected"
 
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
 	if fields.has(kbpsField):

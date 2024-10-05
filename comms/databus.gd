@@ -201,6 +201,8 @@ func get_current_time() -> int:
 
 func _board_poll_kbps() -> void:
 	while true:
+		if not Config.exists:
+			return
 		var update_data: Dictionary = {}
 		for board: String in boards_connected:
 			var kbps: float = boards_kbps[board]
