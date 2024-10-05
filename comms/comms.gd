@@ -15,14 +15,16 @@ var chat_server: PacketPeerUDP = PacketPeerUDP.new()
 var camera_server: PacketPeerUDP = PacketPeerUDP.new()
 
 func _ready() -> void:
-	mcast_server.bind(MCAST_PORT)
 	bcast_server.bind(BCAST_PORT)
 	bcast_server.set_broadcast_enabled(true)
 	chat_server.bind(CHAT_PORT)
 	chat_server.set_broadcast_enabled(true)
 	chat_server.set_dest_address(BCAST_IP, CHAT_PORT)
 	camera_server.bind(CAMERA_PORT)
-	_await_multicast()
+	#if OS.get_name() != "macOS":
+	if false:
+		mcast_server.bind(MCAST_PORT)
+		_await_multicast()
 
 func _process(delta: float) -> void:
 	while mcast_server.get_available_packet_count() > 0:
@@ -46,6 +48,7 @@ func _process(delta: float) -> void:
 func _await_multicast() -> void:
 	while true:
 		var enet_interfaces: Array[Dictionary] = IP.get_local_interfaces().filter(func (i: Dictionary) -> bool: return i["addresses"].any(func (s: String) -> bool: return s.begins_with("10.0.0.")))
+		print(enet_interfaces)
 		if enet_interfaces.size() > 0:
 			mcast_server.join_multicast_group(MCAST_IP, enet_interfaces[0]["name"])
 			return

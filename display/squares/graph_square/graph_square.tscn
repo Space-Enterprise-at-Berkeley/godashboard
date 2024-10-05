@@ -49,7 +49,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/Control/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(600, 396)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="UpperLabelMargin" type="MarginContainer" parent="VBoxContainer/Control"]
