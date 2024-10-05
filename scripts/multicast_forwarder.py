@@ -12,7 +12,7 @@ sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, group + host)
 sock.setblocking(0)
 
 sock_localhost = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
-sock_localhost.bind(("127.0.0.1", 42081))
+# sock_localhost.bind(("127.0.0.1", 42099))
 sock_localhost.setblocking(0)
 
 while True:
