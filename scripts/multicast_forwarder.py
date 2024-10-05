@@ -9,11 +9,11 @@ host = socket.inet_aton(socket.gethostbyname(socket.gethostname()))
 # sock.setsockopt(socket.SOL_IP, socket.IP_MULTICAST_IF, host)
 mreq = struct.pack("4sL", group, socket.INADDR_ANY)
 sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, group + host)
-sock.setblocking(0)
+# sock.setblocking(0)
 
 sock_localhost = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
 # sock_localhost.bind(("127.0.0.1", 42099))
-sock_localhost.setblocking(0)
+# sock_localhost.setblocking(0)
 
 while True:
 	try:
