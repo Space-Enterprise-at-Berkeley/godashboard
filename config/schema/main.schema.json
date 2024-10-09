@@ -1,0 +1,43 @@
+{
+	"type": "object",
+	"properties": {
+		"windows": {
+			"type": "object",
+			"additionalProperties": {
+				"anyOf": [
+					{
+						"$ref": "./import.schema.json"
+					}
+				]
+			}
+		},
+		"burnTime": {
+			"type": "integer",
+			"exclusiveMinimum": 0
+		},
+		"mode": {
+			"enum": ["LAUNCH", "HOTFIRE", "COLDFLOW", "COLDFLOW_WITH_IGNITER", "GASFLOW", "WATERFLOW"]
+		},
+		"windowPresets": {
+			"anyOf": [
+				{
+					"$ref": "./import.schema.json"
+				}
+			]
+		},
+		"quickWindowPresets": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"cameras": {
+			"type": "array",
+			"items": {
+				"$ref": "./camera.schema.json"
+			}
+		}
+	},
+	"required": ["windows", "burnTime", "mode", "windowPresets", "quickWindowPresets", "cameras"],
+	"additionalProperties": false
+}

@@ -1,0 +1,16 @@
+{
+	"json.schemas": [
+		{
+			"fileMatch": ["/main.jsonc"],
+			"url": "./config/schema/main.schema.json"
+		},
+		{
+			"fileMatch": ["/window_presets.jsonc"],
+			"url": "./config/schema/window_presets.schema.json"
+		},
+		{
+			"fileMatch": ["*window.jsonc"],
+			"url": "./config/schema/window.schema.json"
+		}
+	]
+}

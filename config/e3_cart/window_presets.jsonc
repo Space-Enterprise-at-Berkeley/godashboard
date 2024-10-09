@@ -1,6 +1,6 @@
 {
 	"main": {
-		"name": "E3 Cart",
+		"name": "E3 Vertical",
 		"tabs": ["controls", "pressures", "propellant_fill", "engine", "boards_status", "actuators_status", "cameras"]
 	},
 	"debug": {

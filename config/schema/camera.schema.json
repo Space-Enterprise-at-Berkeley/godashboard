@@ -1,0 +1,17 @@
+{
+	"type": "object",
+	"properties": {
+		"id": {
+			"type": "integer"
+		},
+		"name": {
+			"type": "string"
+		},
+		"ip": {
+			"type": "string",
+			"format": "ipv4"
+		}
+	},
+	"required": ["id", "name", "ip"],
+	"additionalProperties": false
+}

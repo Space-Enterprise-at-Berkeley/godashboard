@@ -1,0 +1,17 @@
+{
+	"type": "object",
+	"additionalProperties": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string"
+			},
+			"tabs": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

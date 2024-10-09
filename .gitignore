@@ -3,4 +3,3 @@
 *.tmp
 logs/*
 !*.gitkeep
-.vscode/
