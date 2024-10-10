@@ -9,6 +9,9 @@
 		// "actuators_status": "$e3_cart/actuators_status_window.jsonc",
 		// "cameras": "$e3_cart/cameras_window.jsonc"
 	},
+	"protoConfig": "$../universalproto/config.jsonc",
+	"protoPackets": "$../universalproto/packets.jsonc",
+	"protoTypes": "$../universalproto/types.jsonc",
 	"burnTime": 45000, // ms
 	"mode": "COLDFLOW",
 	"windowPresets": "$e3_cart/window_presets.jsonc",

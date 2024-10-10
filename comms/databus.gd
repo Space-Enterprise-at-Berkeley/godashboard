@@ -67,7 +67,6 @@ const ABORT_DESCRIPTIONS: Dictionary = {
 const LAUNCH_ID: int = 200
 const ABORT_ID: int = 133
 
-var ip_cache: Dictionary = {}
 var first_receive_times: Dictionary = {}
 var first_receive_offsets: Dictionary = {}
 var has_config: bool = false
@@ -82,11 +81,9 @@ func _ready() -> void:
 	_board_poll_kbps()
 
 func _config_update() -> void:
-	ip_cache = {}
 	for child in get_children():
 		child.queue_free()
-	for board_name: String in Config.config["boards"]:
-		ip_cache[Config.config["boards"][board_name]["address"]] = board_name
+	for board_name: String in Config.config["boards"].values():
 		first_receive_times[board_name] = -1
 		first_receive_offsets[board_name] = -1
 		boards_kbps[board_name] = 0.0
@@ -124,11 +121,11 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 		Logger.warn("Config not ready to parse packet")
 		packet.error = true
 		return packet
-	if not ip_cache.has(addr):
+	if not Config.config["boards"].has(addr):
 		Logger.debug("IP %s not recognized" % addr)
 		packet.error = true
 		return packet
-	var board: String = ip_cache[addr]
+	var board: String = Config.config["boards"][addr]
 	boards_kbps[board] += data.size() / 125.0
 	var id: int = data.decode_u8(0)
 	var length: int = data.decode_u8(1)
@@ -152,7 +149,7 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 	var influx_map: Dictionary = Config.config["influxMap"]
 	var offset: int = 0
 	for field: Array in definition:
-		var full_name: String = "%s.%s" %[board, field[0]]
+		var full_name: String = field[0]
 		var type: PacketDataType = TYPE_NAME_LOOKUP[field[1]]
 		var val: Variant = _read_value(field_data, offset, type)
 		offset += TYPE_LENGTHS[type]

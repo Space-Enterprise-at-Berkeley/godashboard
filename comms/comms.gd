@@ -47,7 +47,6 @@ func _process(delta: float) -> void:
 func _await_multicast() -> void:
 	while true:
 		var enet_interfaces: Array[Dictionary] = IP.get_local_interfaces().filter(func (i: Dictionary) -> bool: return i["addresses"].any(func (s: String) -> bool: return s.begins_with("10.0.0.")))
-		print(enet_interfaces)
 		if enet_interfaces.size() > 0:
 			mcast_server.join_multicast_group(MCAST_IP, enet_interfaces[0]["name"])
 			return

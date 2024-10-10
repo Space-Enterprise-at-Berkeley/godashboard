@@ -63,6 +63,7 @@ func _ready() -> void:
 	var file: FileAccess = FileAccess.open("res://config/config.jsonc", FileAccess.READ)
 	var text: String = file.get_as_text()
 	var res: Variant = parse_config(text)
+	expand_config(res)
 	config = res
 	exists = true
 	config_update.emit()
@@ -73,6 +74,50 @@ func parse_config(text: String) -> Variant:
 		return ParseError.new()
 	var parsed: Variant = _parse(tokens)
 	return parsed;
+
+func expand_config(conf: Variant) -> void:
+	var device_ids: Dictionary = conf["protoConfig"]["deviceIds"]
+	var packet_defs: Array = conf["protoPackets"]
+	var types: Dictionary = conf["protoTypes"]
+	
+	var boards: Dictionary = {}
+	var packets: Dictionary = {}
+	
+	for board_name: String in device_ids:
+		var ip: String = "10.0.0.%d" % device_ids[board_name]
+		boards[ip] = board_name
+		packets[board_name] = {}
+		
+	for packet_def: Dictionary in packet_defs:
+		for reader: String in packet_def["reads"]:
+			if match_wildcard("GD", reader):
+				for board_name: String in device_ids:
+					for writer: String in packet_def["writes"]:
+						if match_wildcard(board_name, writer):
+							var fields: Array[Array] = []
+							if packet_def.get("payload") != null:
+								generate_packet_reader("%s.%s" % [board_name, packet_def["name"]], packet_def["payload"], types, fields)
+							packets[board_name][str(packet_def["id"])] = fields
+				break
+	
+	conf["boards"] = boards
+	conf["packets"] = packets
+
+func generate_packet_reader(name_prefix: String, packet_type: String, types: Dictionary, fields: Array[Array]) -> void:
+	for f: Dictionary in types[packet_type]:
+		if f.has("array"):
+			for i: int in f["array"]:
+				generate_packet_reader_field("%s.%s.%d" % [name_prefix, f["symbol"], i], f["type"], types, fields)
+		else:
+			generate_packet_reader_field("%s.%s" % [name_prefix, f["symbol"]], f["type"], types, fields)
+
+func generate_packet_reader_field(name_prefix: String, field_type: String, types: Dictionary, fields: Array[Array]) -> void:
+	match field_type:
+		"u8": fields.append([name_prefix, "asUInt8"])
+		"u16": fields.append([name_prefix, "asUInt16"])
+		"u32": fields.append([name_prefix, "asUInt32"])
+		"f32": fields.append([name_prefix, "asFloat"])
+		_: generate_packet_reader(name_prefix, field_type, types, fields)
 
 func _regex(pattern: String) -> RegEx:
 	var re: RegEx = RegEx.new()
@@ -197,3 +242,8 @@ func _parse_string(string: String) -> Variant:
 				_:
 					out += chr
 	return out
+
+func match_wildcard(matched: String, pattern: String) -> bool:
+	var regex: RegEx = RegEx.new()
+	regex.compile(pattern.replace("*", ".*"))
+	return regex.search(matched) != null

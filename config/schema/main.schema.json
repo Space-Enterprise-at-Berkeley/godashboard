@@ -11,6 +11,15 @@
 				]
 			}
 		},
+		"protoConfig": {
+			"$ref": "./import.schema.json"
+		},
+		"protoPackets": {
+			"$ref": "./import.schema.json"
+		},
+		"protoTypes": {
+			"$ref": "./import.schema.json"
+		},
 		"burnTime": {
 			"type": "integer",
 			"exclusiveMinimum": 0
@@ -38,6 +47,6 @@
 			}
 		}
 	},
-	"required": ["windows", "burnTime", "mode", "windowPresets", "quickWindowPresets", "cameras"],
+	"required": ["windows", "protoConfig", "protoPackets", "protoTypes", "burnTime", "mode", "windowPresets", "quickWindowPresets", "cameras"],
 	"additionalProperties": false
 }
