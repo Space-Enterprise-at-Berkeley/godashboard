@@ -1,4 +1,27 @@
 {
-	"type": "object",
-	"properties": {}
+	"anyOf": [
+		{
+			"type": "object",
+			"properties": {
+				"type": {"const": "four-button"},
+				"buttons": {
+					"type": "array",
+					"items": {
+						"$ref": "./button.schema.json"
+					},
+					"maxItems": 4,
+					"minItems": 4
+				}
+			}
+		},
+		{
+			"type": "object",
+			"properties": {
+				"type": {"const": "six-value"},
+				"values": {
+					"type": "null"
+				}
+			}
+		}
+	]
 }

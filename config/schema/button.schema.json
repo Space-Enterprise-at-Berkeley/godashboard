@@ -1,0 +1,45 @@
+{
+	"anyOf": [
+		{
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"field": {
+					"type": "string"
+				},
+				"actions": {
+					"type": "object",
+					"properties": {
+						"open": {
+							"$ref": "./action.schema.json"
+						},
+						"close": {
+							"$ref": "./action.schema.json"
+						},
+						"open-partial": {
+							"$ref": "./action.schema.json"
+						},
+						"close-partial": {
+							"$ref": "./action.schema.json"
+						}
+					}
+				},
+				"green": {
+					"type": "array",
+					"items": {
+						"enum": ["retracting", "extending", "off", "on"]
+					}
+				}
+			},
+			"required": ["id", "name", "actions"]
+		},
+		{
+			"type": "null"
+		}
+	]
+}

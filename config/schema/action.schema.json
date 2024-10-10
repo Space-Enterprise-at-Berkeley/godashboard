@@ -1,0 +1,64 @@
+{
+	"type": "object",
+	"properties": {
+		"type": {
+			"anyOf": [
+				{
+					"type": "null"
+				},
+				{
+					"enum": [
+						"retract-full",
+						"extend-full",
+						"retract-timed",
+						"extend-timed",
+						"on",
+						"off",
+						"enable",
+						"disable",
+						"signal",
+						"signal-value",
+						"targeted-abort"
+					]
+				}
+			]
+		},
+		"packet": {
+			"type": "string"
+		},
+		"board": {
+			"type": "string"
+		},
+		"channel": {
+			"anyOf": [
+				{
+					"type": "integer"
+				},
+				{
+					"const": "<input>"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"value": {
+			"anyOf": [
+				{
+					"type": "integer"
+				},
+				{
+					"const": "<input>"
+				}
+			]
+		},
+		"shortcut": {
+			"type": "integer",
+			"exclusiveMinimum": 0
+		},
+		"safe": {
+			"type": "boolean"
+		}
+	},
+	"additionalProperties": false
+}

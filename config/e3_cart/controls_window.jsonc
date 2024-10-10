@@ -1,0 +1,119 @@
+{
+	"name": "Controls",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "arm",
+					"name": "Arm",
+					"field": "armState",
+					"actions": {
+						"open": {
+							"type": "on",
+							"packet": "ActuateActuator",
+							"channel": "AC_ARM"
+						},
+						"close": {
+							"type": "off",
+							"packet": "ActuateActuator",
+							"channel": "AC_ARM"
+						}
+					}
+				},
+				{
+					"id": "ipaMain",
+					"name": "IPA Main Valve",
+					"field": "ipaMainState",
+					"actions": {
+						"open": {
+							"type": "on",
+							"packet": "ActuateActuator",
+							"channel": "AC_IPA_MAIN"
+						},
+						"close": {
+							"type": "off",
+							"packet": "ActuateActuator",
+							"channel": "AC_IPA_MAIN"
+						}
+					}
+				},
+				{
+					"id": "resetEreg",
+					"name": "Reset E-Reg",
+					"actions": {
+						"open": {
+							"type": "targeted-abort",
+							"board": "ER_IPA"
+						}
+					}
+				},
+				{
+					"id": "nosMain",
+					"name": "NOS Main Valve",
+					"field": "nosMainState",
+					"actions": {
+						"open": {
+							"type": "on",
+							"packet": "ActuateActuator",
+							"channel": "AC_NOS_MAIN"
+						},
+						"close": {
+							"type": "off",
+							"packet": "ActuateActuator",
+							"channel": "AC_NOS_MAIN"
+						}
+					}
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "ipaPressFlow",
+					"name": "IPA Press Flow",
+					"field": "ipaPressFlowState",
+					"actions": {
+						"close": {
+							"type": "retract-full",
+							"packet": "ActuateActuator",
+							"channel": "AC_IPA_PRESS_FLOW"
+						},
+						"open-partial": {
+							"type": "extend-timed",
+							"packet": "ActuateActuator",
+							"channel": "AC_IPA_PRESS_FLOW",
+							"value": "<input>",
+							"safe": true,
+							"shortcut": 87 // w
+						},
+						"close-partial": {
+							"type": "retract-timed",
+							"packet": "ActuateActuator",
+							"channel": "AC_IPA_PRESS_FLOW",
+							"value": "<input>",
+							"shortcut": 81 // q
+						}
+					},
+					"green": ["on"]
+				},
+				{
+					"id": "eregPartialOpen",
+					"name": "E-Reg Partial Open",
+					"actions": {
+						"open": {
+							"type": "signal-value",
+							"packet": "PartialOpen",
+							"board": "ER_IPA",
+							"value": "<input>"
+						}
+					}
+				},
+				null,
+				null
+			]
+		}
+	]
+}

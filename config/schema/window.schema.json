@@ -3,32 +3,28 @@
 	"properties": {
 		"name": {
 			"type": "string"
-		},
-		"layout": {
-			"enum": ["9-grid", "packet-simulator"]
-		},
-		"slots": {}
+		}
 	},
-	"allOf": [
+	"anyOf": [
 		{
-			"if": {
-				"properties": {
-					"layout": {"const": "9-grid"}
+			"type": "object",
+			"properties": {
+				"layout": {"const": "9-grid"},
+				"slots": {
+					"type": "array",
+					"items": {
+						"$ref": "./square.schema.json"
+					}
 				}
 			},
-			"then": {
-				"properties": {
-					"slots": {
-						"type": "array"
-					}
-				},
-				"required": ["slots"]
+			"required": ["slots"]
+		},
+		{
+			"type": "object",
+			"properties": {
+				"layout": {"const": "packet-simulator"}
 			}
 		}
 	],
-	"required": ["name", "layout"],
-	"not": {
-		"required": ["slots"]
-	},
-	"additionalProperties": false
+	"required": ["name", "type"]
 }
