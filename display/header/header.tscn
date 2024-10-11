@@ -18,10 +18,43 @@ grow_vertical = 2
 alignment = 1
 script = ExtResource("1_x6xkv")
 
+[node name="FrameRateContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="FrameRateContainer"]
+layout_mode = 2
+
+[node name="FrameRate" type="Label" parent="FrameRateContainer/MarginContainer"]
+layout_mode = 2
+text = "0 FPS"
+
+[node name="FlowTimeContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="FlowTimeContainer"]
+layout_mode = 2
+
+[node name="FlowTime" type="Label" parent="FlowTimeContainer/MarginContainer"]
+layout_mode = 2
+text = "0 ms"
+
 [node name="Boards" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
+
+[node name="InfluxContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="InfluxContainer"]
+layout_mode = 2
+
+[node name="Influx" type="Label" parent="InfluxContainer/MarginContainer"]
+layout_mode = 2
+text = "Influx Not Connected"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
