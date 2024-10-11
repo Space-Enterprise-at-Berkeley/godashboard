@@ -1,4 +1,4 @@
-extends Node
+extends Control
 class_name GenericButton
 
 enum ButtonType {
@@ -16,8 +16,10 @@ enum ButtonType {
 @onready var button_open_timed: Button = $VBoxContainer/HBoxContainer2/ButtonOpenTimed
 @onready var label: Label = $VBoxContainer/HBoxContainer2/ColorRect/MarginContainer/ColorRect/Label
 @onready var button_safety: CheckButton = $VBoxContainer/ButtonSafety
-@onready var time: LineEdit = $VBoxContainer/Time
+@onready var time: LineEdit = $VBoxContainer/HBoxContainer3/Time
 @onready var color_rect: ColorRect = $VBoxContainer/HBoxContainer2/ColorRect
+@onready var disable_key: Label = $VBoxContainer/HBoxContainer3/DisableContainer/DisableKey
+@onready var enable_key: Label = $VBoxContainer/HBoxContainer3/EnableContainer/EnableKey
 
 const BUTTON_TYPE_LOOKUP: Dictionary = {
 	null: ButtonType.NULL,
@@ -40,6 +42,8 @@ var safe: bool = false
 var green: Array = []
 var type: ButtonType = ButtonType.NULL
 var actions: Dictionary = {}
+var key_enable: int = -2
+var key_disable: int = -2
 
 func _ready() -> void:
 	color_rect.color = BUTTON_COLOR_OFF
@@ -49,6 +53,18 @@ func _ready() -> void:
 	button_open_timed.pressed.connect(_partial_open)
 	button_safety.toggled.connect(_switch_safety)
 	Databus.update.connect(_handle_packet)
+
+func _input(event: InputEvent) -> void:
+	if not is_visible_in_tree():
+		return
+	if event is InputEventKey:
+		if not event.pressed:
+			return
+		if event.shift_pressed:
+			if event.keycode == key_enable and button_open_timed.visible and not button_open_timed.disabled:
+				_partial_open()
+			elif event.keycode == key_disable and button_close_timed.visible and not button_close_timed.disabled:
+				_partial_close()
 
 func setup(config: Dictionary) -> void:
 	type = BUTTON_TYPE_LOOKUP[config["type"]]
@@ -61,6 +77,12 @@ func setup(config: Dictionary) -> void:
 	safe = config.get("safe", false)
 	green = config.get("green", [])
 	actions = config.get("actions", {})
+	if config.has("keyEnable"):
+		key_enable = config["keyEnable"]
+		enable_key.text = OS.get_keycode_string(key_enable)
+	if config.has("keyDisable"):
+		key_disable = config["keyDisable"]
+		disable_key.text = OS.get_keycode_string(key_disable)
 	if safe:
 		button_safety.show()
 		_disable()

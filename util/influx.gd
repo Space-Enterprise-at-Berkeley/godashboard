@@ -2,6 +2,8 @@ extends Node
 
 signal found_databases(databases: Array)
 signal health_check_result(result: bool)
+signal database_change(database: String)
+signal influx_error(message: String)
 
 enum InfluxAction {
 	NONE,
@@ -62,6 +64,7 @@ func _ready() -> void:
 
 func init(db_name: String) -> void:
 	database = db_name
+	database_change.emit(db_name)
 	if not enabled:
 		enabled = true
 		Databus.update.connect(_handle_packet)
@@ -106,11 +109,16 @@ func _upload_points() -> void:
 				Logger.warn("Unknown data type for Influx: %d" % typeof(point.value))
 		body.append(" ")
 		body.append(str(point.timestamp * 1000000))
-	http_points.request("http://%s:%d/write?db=%s" % [host, port, database], [], HTTPClient.METHOD_POST, "".join(body))
+	var http_request: HTTPRequest = HTTPRequest.new()
+	http_request.request_completed.connect(func (r: int, c: int, h: PackedStringArray, b: PackedByteArray) -> void: http_request.queue_free())
+	http_request.timeout = 1.0
+	add_child(http_request)
+	http_request.request("http://%s:%d/write?db=%s" % [host, port, database], [], HTTPClient.METHOD_POST, "".join(body))
 	#_push_request(InfluxRequest.new(InfluxAction.UPLOAD_POINTS, , [], HTTPClient.METHOD_POST, "".join(body)))
 
 func _response_handler(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS:
+		influx_error.emit("Bad HTTP Response")
 		Logger.warn("Influx moment")
 	else:
 		var ascii: String = body.get_string_from_ascii()
@@ -124,6 +132,7 @@ func _response_handler(result: int, response_code: int, headers: PackedStringArr
 				match action:
 					InfluxAction.CHECK_HEALTH:
 						if res["status"] != "pass":
+							influx_error.emit("Health Failure")
 							Logger.warn("Influx health failure")
 						health_check_result.emit(res["status"] == "pass")
 					InfluxAction.LIST_DATABASES:

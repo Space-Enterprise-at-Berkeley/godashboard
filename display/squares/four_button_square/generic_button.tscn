@@ -94,10 +94,27 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Time" type="LineEdit" parent="VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="DisableContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="DisableKey" type="Label" parent="VBoxContainer/HBoxContainer3/DisableContainer"]
+layout_mode = 2
+
+[node name="Time" type="LineEdit" parent="VBoxContainer/HBoxContainer3"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
+
+[node name="EnableContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="EnableKey" type="Label" parent="VBoxContainer/HBoxContainer3/EnableContainer"]
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
