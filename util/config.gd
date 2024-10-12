@@ -67,6 +67,8 @@ func _ready() -> void:
 	config = res
 	exists = true
 	config_update.emit()
+	if true:
+		generate_influx_map("res://config/e3_cart/influx_map.jsonc")
 
 func parse_config(text: String) -> Variant:
 	var tokens: Array[Token] = _lex(text)
@@ -159,6 +161,20 @@ func generate_packet_reader_field(name_prefix: String, field: Dictionary, types:
 		"u32": fields.append([name_prefix, "asUInt32", enum_type, channel])
 		"f32": fields.append([name_prefix, "asFloat", enum_type, channel])
 		_: generate_packet_reader(name_prefix, field_type, types, fields, channel_mappings, board_name)
+
+func generate_influx_map(path: String) -> void:
+	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
+	file.store_line("{")
+	for board: String in config["packets"]:
+		if board.begins_with("GD"):
+			continue
+		file.store_line("\n\t// *** %s ***\n" % board)
+		for packet: String in config["packets"][board]:
+			for field: Array in config["packets"][board][packet]:
+				file.store_line("\t// \"%s\": \"\"" % field[0])
+			file.store_line("")
+	file.store_line("}")
+	file.close()
 
 func _regex(pattern: String) -> RegEx:
 	var re: RegEx = RegEx.new()

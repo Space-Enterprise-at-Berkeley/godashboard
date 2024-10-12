@@ -12,6 +12,7 @@
 	"protoConfig": "$../universalproto/config.jsonc",
 	"protoPackets": "$../universalproto/packets.jsonc",
 	"protoTypes": "$../universalproto/types.jsonc",
+	"influxMap": "$e3_cart/influx_map.jsonc",
 	"burnTime": 45000, // ms
 	"mode": "COLDFLOW",
 	"windowPresets": "$e3_cart/window_presets.jsonc",

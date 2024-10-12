@@ -20,6 +20,9 @@
 		"protoTypes": {
 			"$ref": "./import.schema.json"
 		},
+		"influxMap": {
+			"$ref": "./import.schema.json"
+		},
 		"burnTime": {
 			"type": "integer",
 			"exclusiveMinimum": 0
@@ -47,6 +50,6 @@
 			}
 		}
 	},
-	"required": ["windows", "protoConfig", "protoPackets", "protoTypes", "burnTime", "mode", "windowPresets", "quickWindowPresets", "cameras"],
+	"required": ["windows", "protoConfig", "protoPackets", "protoTypes", "influxMap", "burnTime", "mode", "windowPresets", "quickWindowPresets", "cameras"],
 	"additionalProperties": false
 }
