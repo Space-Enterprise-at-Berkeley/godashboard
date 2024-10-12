@@ -6,7 +6,10 @@ class_name SixValueSquare
 const six_value_square_field_scene: PackedScene = preload("res://display/squares/six_value_square/six_value_square_field.tscn")
 
 func setup(config: Dictionary) -> void:
-	for field: Dictionary in config["values"]:
+	for field: Variant in config["values"]:
 		var six_value_square_field: SixValueSquareField = six_value_square_field_scene.instantiate()
 		grid.add_child(six_value_square_field)
-		six_value_square_field.setup(field)
+		if field == null:
+			six_value_square_field.setup({}, true)
+		else:
+			six_value_square_field.setup(field, false)

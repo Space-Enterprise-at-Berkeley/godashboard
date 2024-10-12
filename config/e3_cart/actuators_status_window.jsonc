@@ -1,0 +1,245 @@
+{
+	"name": "Actuators Status",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosFillContinuity",
+					"name": "NOS Fill V",
+					"units": "V"
+				},
+				{
+					"field": "nosFillCurrent",
+					"name": "NOS Fill I",
+					"units": "mA"
+				},
+				null,
+				{
+					"field": "ipaPressFlowContinuity",
+					"name": "IPA Press V",
+					"units": "V"
+				},
+				{
+					"field": "ipaPressFlowCurrent",
+					"name": "IPA Press I",
+					"units": "mA"
+				},
+				null
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosMainContinuity",
+					"name": "NOS Main V",
+					"units": "V"
+				},
+				{
+					"field": "ipaMainContinuity",
+					"name": "IPA Main V",
+					"units": "V"
+				},
+				{
+					"field": "armContinuity",
+					"name": "Arm V",
+					"units": "V"
+				},
+				{
+					"field": "nosMainCurrent",
+					"name": "Nitrous Main I",
+					"units": "mA"
+				},
+				{
+					"field": "ipaMainCurrent",
+					"name": "IPA Main I",
+					"units": "mA"
+				},
+				{
+					"field": "armCurrent",
+					"name": "Arm I",
+					"units": "mA"
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosLineVentContinuity",
+					"name": "NOS LV V",
+					"units": "V"
+				},
+				{
+					"field": "nosLineVentCurrent",
+					"name": "NOS LV I",
+					"units": "mA"
+				},
+				null,
+				null,
+				null,
+				null
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosGemsContinuity",
+					"name": "NOS GEMS V",
+					"units": "V"
+				},
+				{
+					"field": "ipaGemsContinuity",
+					"name": "IPA GEMS V",
+					"units": "V"
+				},
+				null,
+				{
+					"field": "nosGemsCurrent",
+					"name": "NOS GEMS I",
+					"units": "mA"
+				},
+				{
+					"field": "ipaGemsCurrent",
+					"name": "IPA GEMS I",
+					"units": "mA"
+				},
+				null
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "igniterContinuity",
+					"name": "Igniter V",
+					"units": "V"
+				},
+				{
+					"field": "breakwireContinuity",
+					"name": "Breakwire V",
+					"units": "V"
+				},
+				null,
+				{
+					"field": "igniterCurrent",
+					"name": "Igniter I",
+					"units": "mA"
+				},
+				{
+					"field": "breakwireCurrent",
+					"name": "Breakwire I",
+					"units": "mA"
+				},
+				null
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosSlowVentContinuity",
+					"name": "NOS Vent V",
+					"units": "V"
+				},
+				{
+					"field": "nosSlowVentCurrent",
+					"name": "NOS Vent I",
+					"units": "mA"
+				},
+				null,
+				{
+					"field": "ipaSlowVentContinuity",
+					"name": "IPA Vent V",
+					"units": "V"
+				},
+				{
+					"field": "ipaSlowVentCurrent",
+					"name": "IPA Vent I",
+					"units": "mA"
+				},
+				null
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "iregCurrentA",
+					"name": "IPAreg Current A",
+					"units": "mA",
+					"color": [0, 255, 255]
+				},
+				{
+					"field": "iregCurrentB",
+					"name": "Current B",
+					"units": "mA",
+					"color": [30, 144, 255]
+				},
+				{
+					"field": "iregCurrentC",
+					"name": "Current C",
+					"units": "mA",
+					"color": [178, 34, 34]
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosEmergencyVentContinuity",
+					"name": "NOS E-V V",
+					"units": "V"
+				},
+				{
+					"field": "nosEmergencyVentCurrent",
+					"name": "NOS E-V I",
+					"units": "mA"
+				},
+				null,
+				{
+					"field": "ipaEmergencyVentContinuity",
+					"name": "IPA E-V V",
+					"units": "V"
+				},
+				{
+					"field": "ipaEmergencyVentCurrent",
+					"name": "IPA E-V I",
+					"units": "mA"
+				},
+				null
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosDrainContinuity",
+					"name": "NOS Drain V",
+					"units": "V"
+				},
+				{
+					"field": "nosDrainCurrent",
+					"name": "NOS Drain I",
+					"units": "mA"
+				},
+				null,
+				{
+					"field": "ipaDrainContinuity",
+					"name": "IPA Drain V",
+					"units": "V"
+				},
+				{
+					"field": "ipaDrainCurrent",
+					"name": "IPA Drain I",
+					"units": "mA"
+				},
+				null
+			]
+		}
+	]
+}

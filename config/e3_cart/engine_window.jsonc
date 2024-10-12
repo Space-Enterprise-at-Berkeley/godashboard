@@ -1,0 +1,306 @@
+{
+	"name": "Engine",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosInjectorPT",
+					"name": "NOS Injector PT",
+					"units": "PSI"
+				},
+				{
+					"field": "ipaInjectorPT",
+					"name": "IPA Injector PT",
+					"units": "PSI"
+				},
+				null,
+				{
+					"field": "nosTankPT",
+					"name": "NOS Tank Pressure",
+					"units": "PSI"
+				},
+				{
+					"field": "ipaTankPT",
+					"name": "IPA Tank Pressure",
+					"units": "PSI"
+				},
+				null
+			]
+		}, 
+		{
+			"type": "graph",
+			"values": [
+		    // THESE ARE SHUFFLED FOR A REASON
+			// THE LABEL NUMBER IS WHAT THE CHANNEL IS NUMBERED ON THE CASE
+			// THE FIELD NUMBER IS WHAT THE CHANNEL IS NUMBERED IN THE CODE
+				{
+					"field": "engineLC2",
+					"name": "Eng LC1",
+					"units": "kg",
+					"color": [0, 255, 255]
+				},
+				{
+					"field": "engineLC1",
+					"name": "Eng LC2",
+					"units": "kg",
+					"color": [30, 144, 255]
+				},
+				{
+					"field": "engineLC3",
+					"name": "Eng LC3",
+					"units": "kg",
+					"color": [178, 34, 34]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "nosInjectorPT",
+					"name": "NOS Injector PT",
+					"units": "PSI",
+					"color": [218, 165, 32]
+				},
+				{
+					"field": "ipaInjectorPT",
+					"name": "IPA Injector PT",
+					"units": "PSI",
+					"color": [30, 144, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "chamberPT0",
+					"name": "ChamberPT0",
+					"units": "PSI",
+					"color": [127, 0, 255]
+				},
+				{
+					"field": "manifoldPT",
+					"name": "Manifold",
+					"units": "",
+					"color": [77, 73, 251]
+				},
+				{
+					"field": "enginePT2",
+					"name": "Eng PT2",
+					"units": "",
+					"color": [25, 149, 242]
+				},
+				{
+					"field": "enginePT3",
+					"name": "Eng PT3",
+					"units": "",
+					"color": [24, 205, 227]
+				},
+				{
+					"field": "enginePT4",
+					"name": "Eng PT4",
+					"units": "",
+					"color": [76, 242, 206]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "engineTC0",
+					"name": "Eng TC0",
+					"units": "C",
+					"color": [123, 0, 255]
+				},
+				{
+					"field": "engineTC1",
+					"name": "Eng TC1",
+					"units": "",
+					"color": [0, 16, 255]
+				},
+				{
+					"field": "engineTC2",
+					"name": "Eng TC2",
+					"units": "",
+					"color": [0, 164, 255]
+				},
+				{
+					"field": "engineTC3",
+					"name": "Eng TC3",
+					"units": "",
+					"color": [63, 255, 183]
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "breakwireContinuity",
+					"name": "Breakwire",
+					"units": "V"
+				},
+				{
+					"field": "igniterContinuity",
+					"name": "Igniter",
+					"units": "V"
+				},
+				{
+					"field": "iregEncoderAngle",
+					"name": "IReg Encoder",
+					"units": "ticks"
+				},
+				{
+					"field": "nosMainState",
+					"name": "NOS Main State",
+					"units": ""
+				},
+				{
+					"field": "ipaMainState",
+					"name": "IPA Main State",
+					"units": ""
+				},
+				{
+					"field": "iregAngleSetpoint",
+					"name": "IReg Setpoint",
+					"units": "ticks"
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "chamberPT1",
+					"name": "ChamberPT1",
+					"units": "",
+					"color": [128, 254, 206]
+				},
+				{
+					"field": "enginePT7",
+					"name": "Eng PT7",
+					"units": "",
+					"color": [178, 242, 150]
+				},
+				{
+					"field": "enginePT8",
+					"name": "Eng PT8",
+					"units": "",
+					"color": [230, 205, 115]
+				},
+				{
+					"field": "enginePT9",
+					"name": "Eng PT9",
+					"units": "",
+					"color": [255, 150, 79] 
+				},
+				{
+					"field": "enginePT10",
+					"name": "Eng PT10",
+					"units": "",
+					"color": [255, 77, 39]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "engineTC4",
+					"name": "Eng TC4",
+					"units": "",
+					"color": [183, 255, 63]
+				},
+				{
+					"field": "engineTC5",
+					"name": "TC5",
+					"units": "",
+					"color": [255, 185, 0]
+				},
+				{
+					"field": "engineTC6",
+					"name": "TC6",
+					"units": "",
+					"color": [255, 150, 79]
+				},
+				{
+					"field": "engineTC7",
+					"name": "TC7",
+					"units": "",
+					"color": [255, 48, 0]
+				},
+				{
+					"field": "engineTC8",
+					"name": "TC8",
+					"units": "",
+					"color": [255, 0, 255]
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "nosEmergencyVent",
+					"name": "NOS E-Vent",
+					"field": "nosEmergencyVentState",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ActuateActuator",
+							"args": {
+								"action": "ON",
+								"<channel>": "AC_NOS_EMERGENCY_VENT",
+								"actuateTime": 0
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "ActuateActuator",
+							"args": {
+								"action": "OFF",
+								"<channel>": "AC_NOS_EMERGENCY_VENT",
+								"actuateTime": 0
+							}
+						}
+					},
+					"green": ["EXTENDING", "RETRACTING"]
+				},
+				{
+					"id": "ipaEmergencyVent",
+					"name": "IPA E-Vent",
+					"field": "ipaEmergencyVentState",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ActuateActuator",
+							"args": {
+								"action": "ON",
+								"<channel>": "AC_IPA_EMERGENCY_VENT",
+								"actuateTime": 0
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "ActuateActuator",
+							"args": {
+								"action": "OFF",
+								"<channel>": "AC_IPA_EMERGENCY_VENT",
+								"actuateTime": 0
+							}
+						}
+					},
+					"green": ["EXTENDING", "RETRACTING"]
+				},
+				null,
+				null
+			]
+		}
+	]
+}

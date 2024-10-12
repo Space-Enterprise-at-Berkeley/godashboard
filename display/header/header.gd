@@ -25,6 +25,8 @@ func _config_update() -> void:
 	for child in boards.get_children():
 		child.queue_free()
 	for board: String in Config.config["boards"].values():
+		if board.begins_with("GD"):
+			continue
 		var board_status: BoardStatus = board_status_scene.instantiate()
 		boards.add_child(board_status)
 		board_status.setup(board)

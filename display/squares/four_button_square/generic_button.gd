@@ -1,15 +1,6 @@
 extends Control
 class_name GenericButton
 
-enum ButtonType {
-	NULL,
-	VALVE,
-	TIMED,
-	SWITCH,
-	EREG,
-	EREG_TIMED,
-}
-
 @onready var button_close: Button = $VBoxContainer/HBoxContainer/ButtonClose
 @onready var button_open: Button = $VBoxContainer/HBoxContainer/ButtonOpen
 @onready var button_close_timed: Button = $VBoxContainer/HBoxContainer2/ButtonCloseTimed
@@ -20,15 +11,8 @@ enum ButtonType {
 @onready var color_rect: ColorRect = $VBoxContainer/HBoxContainer2/ColorRect
 @onready var disable_key: Label = $VBoxContainer/HBoxContainer3/DisableContainer/DisableKey
 @onready var enable_key: Label = $VBoxContainer/HBoxContainer3/EnableContainer/EnableKey
-
-const BUTTON_TYPE_LOOKUP: Dictionary = {
-	null: ButtonType.NULL,
-	"valve": ButtonType.VALVE,
-	"timed": ButtonType.TIMED,
-	"switch": ButtonType.SWITCH,
-	"ereg": ButtonType.EREG,
-	"ereg-timed": ButtonType.EREG_TIMED,
-}
+@onready var disable_container: MarginContainer = $VBoxContainer/HBoxContainer3/DisableContainer
+@onready var enable_container: MarginContainer = $VBoxContainer/HBoxContainer3/EnableContainer
 
 const BUTTON_ENABLE: String = "buttonΕnable"
 const BUTTON_DISABLE: String = "buttonDisable"
@@ -38,9 +22,9 @@ const BUTTON_COLOR_OFF: Color = Color.TRANSPARENT
 
 var id: String = ""
 var field: String = ""
-var safe: bool = false
+var safe: Array[Button] = []
+var shortcuts: Dictionary = {}
 var green: Array = []
-var type: ButtonType = ButtonType.NULL
 var actions: Dictionary = {}
 var key_enable: int = -2
 var key_disable: int = -2
@@ -66,103 +50,74 @@ func _input(event: InputEvent) -> void:
 			elif event.keycode == key_disable and button_close_timed.visible and not button_close_timed.disabled:
 				_partial_close()
 
-func setup(config: Dictionary) -> void:
-	type = BUTTON_TYPE_LOOKUP[config["type"]]
-	if type == ButtonType.NULL:
+func setup(config: Dictionary, is_null: bool) -> void:
+	if is_null:
 		color_rect.hide()
 		return
 	label.text = config.get("name", "")
 	id = config.get("id", "")
-	field = config.get("field", false)
-	safe = config.get("safe", false)
+	field = config.get("field", "")
 	green = config.get("green", [])
 	actions = config.get("actions", {})
-	if config.has("keyEnable"):
-		key_enable = config["keyEnable"]
-		enable_key.text = OS.get_keycode_string(key_enable)
-	if config.has("keyDisable"):
-		key_disable = config["keyDisable"]
-		disable_key.text = OS.get_keycode_string(key_disable)
-	if safe:
-		button_safety.show()
-		_disable()
-	match type:
-		ButtonType.VALVE:
-			button_close.show()
-			button_open.show()
-		ButtonType.TIMED:
-			button_close.show()
-			button_open.show()
-			button_close_timed.show()
-			button_open_timed.show()
-			time.show()
-		ButtonType.SWITCH:
+	for action_type: String in actions:
+		var action: Dictionary = actions[action_type]
+		var current_button: Button = null
+		match action_type:
+			"open": current_button = button_open
+			"close": current_button = button_close
+			"open-partial": current_button = button_open_timed
+			"close-partial": current_button = button_close_timed
+			"switch-enable": current_button = button_safety
+			"switch-disable": current_button = button_safety
+			_: continue
+		current_button.show()
+		if action.get("safe", false):
+			safe.append(current_button)
 			button_safety.show()
-		ButtonType.EREG:
-			button_close.show()
-			button_open.show()
-		ButtonType.EREG_TIMED:
-			button_close_timed.show()
-			button_open_timed.show()
+		if action.has("shortcut"):
+			shortcuts[current_button] = action["shortcut"]
+		if _requires_input(action):
 			time.show()
+	_disable()
+
+func _requires_input(action: Variant) -> bool:
+	if typeof(action) == TYPE_STRING:
+		return action == "<input>"
+	elif typeof(action) == TYPE_DICTIONARY:
+		return (action as Dictionary).values().any(_requires_input)
+	elif typeof(action) == TYPE_ARRAY:
+		return (action as Array).any(_requires_input)
+	return false
 
 func _open() -> void:
-	match type:
-		ButtonType.VALVE, ButtonType.TIMED:
-			_execute_action(actions["enable"])
-		ButtonType.EREG:
-			_execute_action(actions["fuel"])
+	_execute_action(actions["open"])
 
 func _close() -> void:
-	match type:
-		ButtonType.VALVE, ButtonType.TIMED:
-			_execute_action(actions["disable"])
-		ButtonType.EREG:
-			_execute_action(actions["lox"])
+	_execute_action(actions["close"])
 
 func _partial_open() -> void:
-	match type:
-		ButtonType.TIMED:
-			_execute_action(actions["enable-timed"])
-		ButtonType.EREG_TIMED:
-			_execute_action(actions["fuel-timed"])
+	_execute_action(actions["open-partial"])
 
 func _partial_close() -> void:
-	match type:
-		ButtonType.TIMED:
-			_execute_action(actions["disable-timed"])
-		ButtonType.EREG_TIMED:
-			_execute_action(actions["lox-timed"])
+	_execute_action(actions["close-partial"])
 
 func _switch_safety(enabled: bool) -> void:
-	match type:
-		ButtonType.SWITCH:
-			if enabled:
-				_execute_action(actions["enable"])
-			else:
-				_execute_action(actions["disable"])
-		_:
-			if enabled:
-				_enable()
-			else:
-				_disable()
+	if enabled:
+		if actions.has("switch-enable"):
+			_execute_action(actions["switch-enable"])
+		_enable()
+	else:
+		if actions.has("switch-disable"):
+			_execute_action(actions["switch-disable"])
+		_disable()
 
 func _enable() -> void:
-	button_open.disabled = false
-	button_close.disabled = false
-	button_open_timed.disabled = false
-	button_close_timed.disabled = false
+	for button in safe:
+		button.disabled = false
 
 func _disable() -> void:
-	match type:
-		ButtonType.VALVE, ButtonType.TIMED:
-			button_open.disabled = true
-			button_open_timed.disabled = true
-		ButtonType.EREG, ButtonType.EREG_TIMED:
-			button_open.disabled = true
-			button_close.disabled = true
-			button_open_timed.disabled = true
-			button_close_timed.disabled = true
+	for button in safe:
+		button.disabled = true
 
 func _get_time_int() -> int:
 	var t: int = 0
@@ -177,48 +132,80 @@ func _get_time_float() -> float:
 	return t
 
 func _execute_action(action: Dictionary) -> void:
-	if action.get("type", null) == null:
+	if not action.has("type"):
+		Logger.error("No action type specified")
 		return
-	var target: Array
-	var board: String
-	var packet: int
-	var number: Variant
-	if action.has("target"):
-		target = Config.config["commandMap"][action["target"]]
-		board = target[0]
-		packet = target[1]
-		number = target[2]
-	match action["type"]:
-		"retract-full":
-			Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(0), Databus.make_uint32(0)])
-		"extend-full":
-			Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(1), Databus.make_uint32(0)])
-		"retract-timed":
-			Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(2), Databus.make_uint32(_get_time_int())])
-		"extend-timed":
-			Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(3), Databus.make_uint32(_get_time_int())])
-		"on":
-			Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(4), Databus.make_uint32(0)])
-		"off":
-			Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(5), Databus.make_uint32(0)])
+	match action.get("type"):
+		"packet":
+			Databus.validate_and_send(_replace_input(action.get("board", "?")), _replace_input(action["packet"]), _replace_input(action["args"]))
+		"targeted-abort":
+			Databus.validate_and_send(_replace_input(action["board"]), "Abort", _replace_input({
+				"systemMode": Config.config["mode"],
+				"abortReason": action.get("reason", "MANUAL")
+			}))
 		"enable":
 			Databus.send_update({BUTTON_ENABLE: action["id"]}, Databus.get_current_time())
 		"disable":
 			Databus.send_update({BUTTON_DISABLE: action["id"]}, Databus.get_current_time())
-		"signal":
-			Databus.send_packet(board, packet, [])
-		"signal-timed":
-			Databus.send_packet(board, packet, [Databus.make_float(_get_time_float())])
-		"start-pings":
-			Pings.add_ping(action["pingId"], func () -> void: Databus.send_packet(board, packet, []), action["delay"])
-		"stop-pings":
-			Pings.remove_ping(action["pingId"])
-		"zero":
-			Databus.send_packet(board, packet, [Databus.make_uint8(_get_time_int())])
-		"enable-heartbeat":
-			Globals.heartbeat_enabled = true
-		"disable-heartbeat":
-			Globals.heartbeat_enabled = false
+
+func _replace_input(value: Variant) -> Variant:
+	match typeof(value):
+		TYPE_STRING:
+			return _get_time_float() if value == "<input>" else value
+		TYPE_DICTIONARY:
+			var out: Dictionary = {}
+			for key: String in value:
+				out[key] = _replace_input(value[key])
+			return out
+		TYPE_ARRAY:
+			return (value as Array).map(_replace_input)
+	return value
+
+# Old button system. Some functions can probably be salvaged
+#func _execute_action(action: Dictionary) -> void:
+	#Logger.info(action)
+	#if action.get("type", null) == null:
+		#return
+	#var target: Array
+	#var board: String
+	#var packet: int
+	#var number: Variant
+	#if action.has("target"):
+		#target = Config.config["commandMap"][action["target"]]
+		#board = target[0]
+		#packet = target[1]
+		#number = target[2]
+	#match action["type"]:
+		#"retract-full":
+			#Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(0), Databus.make_uint32(0)])
+		#"extend-full":
+			#Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(1), Databus.make_uint32(0)])
+		#"retract-timed":
+			#Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(2), Databus.make_uint32(_get_time_int())])
+		#"extend-timed":
+			#Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(3), Databus.make_uint32(_get_time_int())])
+		#"on":
+			#Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(4), Databus.make_uint32(0)])
+		#"off":
+			#Databus.send_packet(board, packet, [Databus.make_uint8(number), Databus.make_uint8(5), Databus.make_uint32(0)])
+		#"enable":
+			#Databus.send_update({BUTTON_ENABLE: action["id"]}, Databus.get_current_time())
+		#"disable":
+			#Databus.send_update({BUTTON_DISABLE: action["id"]}, Databus.get_current_time())
+		#"signal":
+			#Databus.send_packet(board, packet, [])
+		#"signal-timed":
+			#Databus.send_packet(board, packet, [Databus.make_float(_get_time_float())])
+		#"start-pings":
+			#Pings.add_ping(action["pingId"], func () -> void: Databus.send_packet(board, packet, []), action["delay"])
+		#"stop-pings":
+			#Pings.remove_ping(action["pingId"])
+		#"zero":
+			#Databus.send_packet(board, packet, [Databus.make_uint8(_get_time_int())])
+		#"enable-heartbeat":
+			#Globals.heartbeat_enabled = true
+		#"disable-heartbeat":
+			#Globals.heartbeat_enabled = false
 
 func update_status_bar(value: Variant) -> void:
 	if green.has(value):

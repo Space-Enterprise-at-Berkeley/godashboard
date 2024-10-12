@@ -11,6 +11,10 @@
 		{
 			"fileMatch": ["*window.jsonc"],
 			"url": "./config/schema/window.schema.json"
+		},
+		{
+			"fileMatch": ["influx_map.jsonc"],
+			"url": "./config/schema/influx_map.schema.json"
 		}
 	]
 }

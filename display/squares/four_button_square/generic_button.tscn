@@ -100,6 +100,7 @@ size_flags_vertical = 4
 alignment = 1
 
 [node name="DisableContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer3"]
+visible = false
 layout_mode = 2
 
 [node name="DisableKey" type="Label" parent="VBoxContainer/HBoxContainer3/DisableContainer"]
@@ -111,6 +112,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="EnableContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer3"]
+visible = false
 layout_mode = 2
 
 [node name="EnableKey" type="Label" parent="VBoxContainer/HBoxContainer3/EnableContainer"]

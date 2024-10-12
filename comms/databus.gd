@@ -240,9 +240,9 @@ func _get_ip(ip: String) -> Array:
 		return [AddressType.BROADCAST, null]
 	if ip.is_valid_int():
 		return [AddressType.MONOCAST, "10.0.0.%d" %ip.to_int()]
-	var board: Variant = Config.config["boards"].get(ip, null)
+	var board: Variant = Config.config["ip_lookup"].get(ip, null)
 	if board != null:
-		return [AddressType.MONOCAST, board["address"]]
+		return [AddressType.MONOCAST, board]
 	return [AddressType.MONOCAST, ip]
 
 func send_packet(ip: String, id: int, args: Array) -> void:
@@ -279,6 +279,62 @@ func send_packet(ip: String, id: int, args: Array) -> void:
 		AddressType.LOCALHOST:
 			Comms.bcast_server.set_dest_address(Comms.LOCALHOST_IP, Comms.BCAST_PORT)
 			Comms.bcast_server.put_packet(output_buffer)
+
+func validate_and_send(destination: String, packet_name: String, payload: Dictionary) -> bool:
+	var channel_data: Array = []
+	if payload.has("<channel>"):
+		var channel: String = payload["<channel>"]
+		if not Config.config["reverse_channel_mappings"].has(channel):
+			Logger.error("Unrecognized channel %s" % channel)
+			return false
+		channel_data = Config.config["reverse_channel_mappings"][channel]
+	if destination == "?": # Channel
+		destination = channel_data[0]
+	elif len(channel_data) > 0 and destination != channel_data[0]:
+		Logger.error("Board %s does not match channel board %s" % [destination, channel_data[0]])
+	var outgoing_packets: Dictionary = Config.config["outgoing_packets"]
+	if not outgoing_packets.has(destination):
+		Logger.error("Board %s cannot receive packet %s" % [destination, packet_name])
+		return false
+	var destination_packets: Dictionary = outgoing_packets[destination]
+	if not destination_packets.has(packet_name):
+		Logger.error("Board %s cannot receive packet %s" % [destination, packet_name])
+		return false
+	var packet_definition: Array = destination_packets[packet_name]
+	var packet_id: int = packet_definition[0]
+	var packet_fields: Array[Array] = packet_definition[1]
+	var args: Array[Array] = []
+	Logger.info(Time.get_datetime_string_from_system())
+	for field in packet_fields:
+		if not payload.has(field[0]) and not field[3]:
+			Logger.error("Board %s, packet %s requires field %s" % [destination, packet_name, field[0]])
+			return false
+		var value: Variant = payload.get(field[0], 0)
+		if not _write_field(args, value, field, channel_data):
+			return false
+	Logger.info("%s %d %s" % [destination, packet_id, str(args)])
+	send_packet(destination, packet_id, args)
+	return true
+
+func _write_field(args: Array[Array], value: Variant, field: Array, channel_data: Array) -> bool:
+	if field[2] != "": # Enum
+		var proto_types: Dictionary = Config.config["protoTypes"]
+		if not proto_types.has(field[2]):
+			Logger.error("No enum called %s" % field[2])
+			return false
+		var enum_values: Dictionary = proto_types[field[2]]
+		if not enum_values.has(value):
+			Logger.error("Enum %s doesn't have key %s" % [field[2], value])
+			return false
+		value = enum_values[value]
+	elif field[3]: # Channel
+		value = channel_data[1]
+	match field[1]:
+		"asUInt8": args.append(make_uint8(value))
+		"asUInt16": args.append(make_uint16(value))
+		"asUInt32": args.append(make_uint32(value))
+		"asFloat": args.append(make_float(value))
+	return true
 
 func make_float(value: float) -> Array:
 	return [value, PacketDataType.FLOAT]

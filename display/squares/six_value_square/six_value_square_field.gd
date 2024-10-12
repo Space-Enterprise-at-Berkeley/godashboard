@@ -11,8 +11,8 @@ var name_text: String = ""
 func _ready() -> void:
 	Databus.update.connect(_handle_packet)
 
-func setup(config: Dictionary) -> void:
-	if config["field"] == null:
+func setup(config: Dictionary, is_null: bool) -> void:
+	if is_null:
 		name_label.hide()
 		value_label.hide()
 		return

@@ -1,0 +1,10 @@
+{
+	"type": "array",
+	"items": {
+		"type": "integer",
+		"minimum": 0,
+		"exclusiveMaximum": 256
+	},
+	"minLength": 3,
+	"maxLength": 3
+}

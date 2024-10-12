@@ -17,10 +17,73 @@
 		{
 			"type": "object",
 			"properties": {
-				"type": {"const": "six-value"},
+				"type": {"const": "six-square"},
 				"values": {
-					"type": "null"
+					"type": "array",
+					"items": {
+						"anyOf": [
+							{
+								"type": "null"
+							},
+							{
+								"type": "object",
+								"properties": {
+									"field": {
+										"type": "string"
+									},
+									"name": {
+										"type": "string"
+									},
+									"units": {
+										"type": "string"
+									}
+								},
+								"required": ["field", "name", "units"]
+							}
+						]
+					},
+					"minItems": 6,
+					"maxItems": 6
 				}
+			}
+		},
+		{
+			"type": "object",
+			"properties": {
+				"type": {"const": "graph"},
+				"values": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"field": {
+								"type": "string"
+							},
+							"name": {
+								"type": "string"
+							},
+							"units": {
+								"type": "string"
+							},
+							"color": {
+								"$ref": "./color.schema.json"
+							}
+						},
+						"required": ["field", "name", "units", "color"]
+					}
+				}
+			}
+		},
+		{
+			"type": "object",
+			"properties": {
+				"type": {"const": "logs"}
+			}
+		},
+		{
+			"type": "object",
+			"properties": {
+				"type": {"const": "launch"}
 			}
 		}
 	]

@@ -1,0 +1,277 @@
+{
+	"name": "Boards Status",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac1Supply24Voltage",
+					"name": "AC1 Voltage",
+					"units": "V"
+				},
+				{
+					"field": "ac2Supply24Voltage",
+					"name": "AC2 Voltage",
+					"units": "V"
+				},
+				{
+					"field": "ac3Supply24Voltage",
+					"name": "AC3 Voltage",
+					"units": "V"
+				},
+				{
+					"field": "ac1Supply24Current",
+					"name": "AC1 Current",
+					"units": "mA"
+				},
+				{
+					"field": "ac2Supply24Current",
+					"name": "AC2 Current",
+					"units": "mA"
+				},
+				{
+					"field": "ac3Supply24Current",
+					"name": "AC3 Current",
+					"units": "mA"
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "pt1Supply24Voltage",
+					"name": "PT1 Voltage",
+					"units": "V"
+				},
+				{
+					"field": "pt2Supply24Voltage",
+					"name": "PT2 Voltage",
+					"units": "V"
+				},
+				null,
+				{
+					"field": "pt1Supply24Current",
+					"name": "PT1 Current",
+					"units": "mA"
+				},
+				{
+					"field": "pt2Supply24Current",
+					"name": "PT2 Current",
+					"units": "mA"
+				},
+				null
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "lc1Supply24Voltage",
+					"name": "LC1 Voltage",
+					"units": "V"
+				},
+				{
+					"field": "lc2Supply24Voltage",
+					"name": "LC2 Voltage",
+					"units": "V"
+				},
+				null,
+				{
+					"field": "lc1Supply24Current",
+					"name": "LC1 Current",
+					"units": "mA"
+				},
+				{
+					"field": "lc2Supply24Current",
+					"name": "LC2 Current",
+					"units": "mA"
+				},
+				null
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "tc1Supply24Voltage",
+					"name": "TC1 Voltage",
+					"units": "V"
+				},
+				{
+					"field": "tc1Supply24Current",
+					"name": "TC1 Current",
+					"units": "mA"
+				},
+				null,
+				{
+					"field": "tc2Supply24Voltage",
+					"name": "TC2 Voltage",
+					"units": "V"
+				},
+				{
+					"field": "tc2Supply24Current",
+					"name": "TC2 Current",
+					"units": "mA"
+				},
+				null
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "ncapCap",
+					"name": "Nitrous Cap Fill Value",
+					"units": "pF",
+					"color": [218, 165, 32]
+				},
+				{
+					"field": "icapCap",
+					"name": "IPA Cap Fill Value",
+					"units": "pF",
+					"color": [30, 144, 255]
+				}
+			]
+		},
+		{
+			"type": "logs"
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "zeroPT1",
+					"name": "Zero PT1",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ZeroChannel",
+							"board": "PT_1",
+							"args": {
+								"channel": "<input>"
+							},
+							"safe": true
+						}
+					}
+				},
+				{
+					"id": "zeroPT2",
+					"name": "Zero PT2",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ZeroChannel",
+							"board": "PT_2",
+							"args": {
+								"channel": "<input>"
+							},
+							"safe": true
+						}
+					}
+				},
+				null,
+				null
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "zeroLC1",
+					"name": "Zero LC1",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ZeroChannel",
+							"board": "LC_1",
+							"args": {
+								"channel": "<input>"
+							},
+							"safe": true
+						}
+					}
+				},
+				{
+					"id": "zeroLC2",
+					"name": "Zero LC2",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ZeroChannel",
+							"board": "LC_2",
+							"args": {
+								"channel": "<input>"
+							},
+							"safe": true
+						}
+					}
+				},
+				null,
+				null
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "nosEmergencyVent",
+					"name": "NOS E-Vent",
+					"field": "nosEmergencyVentState",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ActuateActuator",
+							"args": {
+								"action": "ON",
+								"<channel>": "AC_NOS_EMERGENCY_VENT",
+								"actuateTime": 0
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "ActuateActuator",
+							"args": {
+								"action": "OFF",
+								"<channel>": "AC_NOS_EMERGENCY_VENT",
+								"actuateTime": 0
+							}
+						}
+					},
+					"green": ["EXTENDING", "RETRACTING"]
+				},
+				{
+					"id": "ipaEmergencyVent",
+					"name": "IPA E-Vent",
+					"field": "ipaEmergencyVentState",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ActuateActuator",
+							"args": {
+								"action": "ON",
+								"<channel>": "AC_IPA_EMERGENCY_VENT",
+								"actuateTime": 0
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "ActuateActuator",
+							"args": {
+								"action": "OFF",
+								"<channel>": "AC_IPA_EMERGENCY_VENT",
+								"actuateTime": 0
+							}
+						}
+					},
+					"green": ["EXTENDING", "RETRACTING"]
+				},
+				null,
+				null
+			]
+		}
+	]
+}

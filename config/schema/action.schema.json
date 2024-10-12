@@ -1,64 +1,73 @@
 {
 	"type": "object",
 	"properties": {
-		"type": {
-			"anyOf": [
-				{
-					"type": "null"
-				},
-				{
-					"enum": [
-						"retract-full",
-						"extend-full",
-						"retract-timed",
-						"extend-timed",
-						"on",
-						"off",
-						"enable",
-						"disable",
-						"signal",
-						"signal-value",
-						"targeted-abort"
-					]
-				}
-			]
-		},
-		"packet": {
-			"type": "string"
-		},
-		"board": {
-			"type": "string"
-		},
-		"channel": {
-			"anyOf": [
-				{
-					"type": "integer"
-				},
-				{
-					"const": "<input>"
-				},
-				{
-					"type": "string"
-				}
-			]
-		},
-		"value": {
-			"anyOf": [
-				{
-					"type": "integer"
-				},
-				{
-					"const": "<input>"
-				}
-			]
+		"safe": {
+			"type": "boolean"
 		},
 		"shortcut": {
 			"type": "integer",
 			"exclusiveMinimum": 0
-		},
-		"safe": {
-			"type": "boolean"
 		}
 	},
-	"additionalProperties": false
+	"anyOf": [
+		{
+			"properties": {
+				"type": {
+					"const": "packet"
+				},
+				"packet": {
+					"type": "string"
+				},
+				"board": {
+					"type": "string"
+				},
+				"args": {
+					"type": "object",
+					"properties": {
+						"<channel>": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"required": ["packet", "args"]
+		},
+		{
+			"properties": {
+				"type": {
+					"const": "targeted-abort"
+				},
+				"board": {
+					"type": "string"
+				},
+				"reason": {
+					"type": "string"
+				}
+			},
+			"required": ["board"]
+		},
+		{
+			"properties": {
+				"type": {
+					"const": "enable"
+				},
+				"id": {
+					"type": "string"
+				}
+			},
+			"required": ["id"]
+		},
+		{
+			"properties": {
+				"type": {
+					"const": "disable"
+				},
+				"id": {
+					"type": "string"
+				}
+			},
+			"required": ["id"]
+		}
+	],
+	"required": ["type"]
 }

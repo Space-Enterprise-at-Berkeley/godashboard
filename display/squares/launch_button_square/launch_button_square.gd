@@ -1,22 +1,13 @@
 extends Control
 class_name LaunchButtonSquare
 
-enum SystemMode {
-	LAUNCH = 0,
-	HOTFIRE = 1,
-	COLDFLOW = 2,
-	COLDFLOW_WITH_IGNITER = 3,
-	GASFLOW = 4,
-	WATERFLOW = 5,
-}
-
 const SYSTEM_MODE_TEXTS: Dictionary = {
-	SystemMode.LAUNCH: "Launch",
-	SystemMode.HOTFIRE: "Burn",
-	SystemMode.COLDFLOW: "Flow",
-	SystemMode.COLDFLOW_WITH_IGNITER: "Flow (With Igniter)",
-	SystemMode.GASFLOW: "Gas Flow",
-	SystemMode.WATERFLOW: "Water Flow",
+	"LAUNCH": "Launch",
+	"HOTFIRE": "Burn",
+	"COLDFLOW": "Flow",
+	"COLDFLOW_WITH_IGNITER": "Flow (With Igniter)",
+	"GASFLOW": "Gas Flow",
+	"WATERFLOW": "Water Flow",
 }
 
 @onready var launch_button: Button = $VBoxContainer/LaunchMargin/LaunchButton

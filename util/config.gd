@@ -81,12 +81,24 @@ func expand_config(conf: Variant) -> void:
 	var types: Dictionary = conf["protoTypes"]
 	
 	var boards: Dictionary = {}
+	var ip_lookup: Dictionary = {}
 	var packets: Dictionary = {}
+	var channel_mappings: Dictionary = {}
+	var reverse_channel_mappings: Dictionary = {}
+	var outgoing_packets: Dictionary = {}
 	
 	for board_name: String in device_ids:
 		var ip: String = "10.0.0.%d" % device_ids[board_name]
 		boards[ip] = board_name
+		ip_lookup[board_name] = ip
 		packets[board_name] = {}
+		outgoing_packets[board_name] = {}
+		var channel_mapping: Dictionary = {}
+		if conf["protoConfig"].has(board_name):
+			for c: Dictionary in conf["protoConfig"][board_name]:
+				channel_mapping[c["channel"]] = c["measure"]
+				reverse_channel_mappings[c["measure"]] = [board_name, c["channel"]]
+		channel_mappings[board_name] = channel_mapping
 		
 	for packet_def: Dictionary in packet_defs:
 		for reader: String in packet_def["reads"]:
@@ -96,28 +108,57 @@ func expand_config(conf: Variant) -> void:
 						if match_wildcard(board_name, writer):
 							var fields: Array[Array] = []
 							if packet_def.get("payload") != null:
-								generate_packet_reader("%s.%s" % [board_name, packet_def["name"]], packet_def["payload"], types, fields)
+								var inital_prefix: String = "%s.%s" % [board_name, packet_def["name"]]
+								generate_packet_reader(inital_prefix, packet_def["payload"], types, fields, channel_mappings, board_name)
 							packets[board_name][str(packet_def["id"])] = fields
+				break
+		for writer: String in packet_def["writes"]:
+			if match_wildcard("GD", writer):
+				for board_name: String in device_ids:
+					for reader: String in packet_def["reads"]:
+						if match_wildcard(board_name, reader):
+							var fields: Array[Array] = []
+							if packet_def.get("payload") != null:
+								generate_packet_reader("", packet_def["payload"], types, fields, channel_mappings, board_name)
+							outgoing_packets[board_name][packet_def["name"]] = [packet_def["id"], fields]
+						break
 				break
 	
 	conf["boards"] = boards
+	conf["ip_lookup"] = ip_lookup
 	conf["packets"] = packets
+	conf["outgoing_packets"] = outgoing_packets
+	conf["reverse_channel_mappings"] = reverse_channel_mappings
 
-func generate_packet_reader(name_prefix: String, packet_type: String, types: Dictionary, fields: Array[Array]) -> void:
+func generate_packet_reader(name_prefix: String, packet_type: String, types: Dictionary, fields: Array[Array], channel_mappings: Dictionary, board_name: String) -> void:
 	for f: Dictionary in types[packet_type]:
 		if f.has("array"):
-			for i: int in f["array"]:
-				generate_packet_reader_field("%s.%s.%d" % [name_prefix, f["symbol"], i], f["type"], types, fields)
+			if f.get("channel", false):
+				var segments: PackedStringArray = name_prefix.split(".", 1)
+				var short_name_prefix: String = "%s.%s" % [board_name.substr(0, 2), segments[1]]
+				for i: int in f["array"]:
+					if channel_mappings[board_name].has(i):
+						generate_packet_reader_field("%s.%s.%s" % [short_name_prefix, f["symbol"], channel_mappings[board_name][i]], f, types, fields, channel_mappings, board_name)
+					else:
+						generate_packet_reader_field("%s.%s.%d" % [name_prefix, f["symbol"], i], f, types, fields, channel_mappings, board_name)
+			else:
+				for i: int in f["array"]:
+					generate_packet_reader_field("%s.%s.%d" % [name_prefix, f["symbol"], i], f, types, fields, channel_mappings, board_name)
 		else:
-			generate_packet_reader_field("%s.%s" % [name_prefix, f["symbol"]], f["type"], types, fields)
+			generate_packet_reader_field("%s.%s" % [name_prefix, f["symbol"]], f, types, fields, channel_mappings, board_name)
 
-func generate_packet_reader_field(name_prefix: String, field_type: String, types: Dictionary, fields: Array[Array]) -> void:
+func generate_packet_reader_field(name_prefix: String, field: Dictionary, types: Dictionary, fields: Array[Array], channel_mappings: Dictionary, board_name: String) -> void:
+	if name_prefix.begins_with("."):
+		name_prefix = name_prefix.substr(1)
+	var field_type: String = field["type"]
+	var enum_type: String = field.get("enum", "")
+	var channel: bool = field.get("channel", false)
 	match field_type:
-		"u8": fields.append([name_prefix, "asUInt8"])
-		"u16": fields.append([name_prefix, "asUInt16"])
-		"u32": fields.append([name_prefix, "asUInt32"])
-		"f32": fields.append([name_prefix, "asFloat"])
-		_: generate_packet_reader(name_prefix, field_type, types, fields)
+		"u8": fields.append([name_prefix, "asUInt8", enum_type, channel])
+		"u16": fields.append([name_prefix, "asUInt16", enum_type, channel])
+		"u32": fields.append([name_prefix, "asUInt32", enum_type, channel])
+		"f32": fields.append([name_prefix, "asFloat", enum_type, channel])
+		_: generate_packet_reader(name_prefix, field_type, types, fields, channel_mappings, board_name)
 
 func _regex(pattern: String) -> RegEx:
 	var re: RegEx = RegEx.new()

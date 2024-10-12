@@ -1,11 +1,12 @@
 {
 	"main": {
 		"name": "E3 Vertical",
-		"tabs": ["controls", "pressures", "propellant_fill", "engine", "boards_status", "actuators_status", "cameras"]
+		"tabs": ["controls", "pressures", "propellant_fill", "engine", "boards_status", "actuators_status"]
 	},
 	"debug": {
 		"name": "Debug",
-		"tabs": ["packet_simulator", "influx_test"]
+		"tabs": [] // Temporarily broken
+		// "tabs": ["packet_simulator", "influx_test"]
 	},
 	"empty": {
 		"name": "Empty",

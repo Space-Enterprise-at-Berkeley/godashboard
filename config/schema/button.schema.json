@@ -26,13 +26,19 @@
 						},
 						"close-partial": {
 							"$ref": "./action.schema.json"
+						},
+						"switch-enable": {
+							"$ref": "./action.schema.json"
+						},
+						"switch-disable": {
+							"$ref": "./action.schema.json"
 						}
 					}
 				},
 				"green": {
 					"type": "array",
 					"items": {
-						"enum": ["retracting", "extending", "off", "on"]
+						"enum": ["RETRACTING", "EXTENDING", "OFF"]
 					}
 				}
 			},
