@@ -68,7 +68,10 @@ func _ready() -> void:
 	exists = true
 	config_update.emit()
 	if true:
-		generate_influx_map("res://config/e3_cart/influx_map.jsonc")
+		var generator_file: FileAccess = FileAccess.open("res://config/e3_cart/influx_map_generator.jsonc", FileAccess.READ)
+		var generator_text: String = generator_file.get_as_text()
+		var generator: Variant = parse_config(generator_text)
+		generate_influx_map("res://config/e3_cart/influx_map.jsonc", generator)
 
 func parse_config(text: String) -> Variant:
 	var tokens: Array[Token] = _lex(text)
@@ -162,7 +165,7 @@ func generate_packet_reader_field(name_prefix: String, field: Dictionary, types:
 		"f32": fields.append([name_prefix, "asFloat", enum_type, channel])
 		_: generate_packet_reader(name_prefix, field_type, types, fields, channel_mappings, board_name)
 
-func generate_influx_map(path: String) -> void:
+func generate_influx_map(path: String, generator: Array) -> void:
 	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
 	file.store_line("{")
 	for board: String in config["packets"]:
@@ -171,8 +174,13 @@ func generate_influx_map(path: String) -> void:
 		file.store_line("\n\t// *** %s ***\n" % board)
 		for packet: String in config["packets"][board]:
 			for field: Array in config["packets"][board][packet]:
-				file.store_line("\t// \"%s\": \"\"" % field[0])
+				var mapped_name: String = _influx_map_generate_value(field[0], generator)
+				if mapped_name == "":
+					file.store_line("\t// \"%s\": \"\"," % field[0])
+				else:
+					file.store_line("\t\"%s\": \"%s\"," % [field[0], mapped_name])
 			file.store_line("")
+	file.store_line("\t\"\": \"\"")
 	file.store_line("}")
 	file.close()
 
@@ -304,3 +312,50 @@ func match_wildcard(matched: String, pattern: String) -> bool:
 	var regex: RegEx = RegEx.new()
 	regex.compile(pattern.replace("*", ".*"))
 	return regex.search(matched) != null
+
+func _influx_map_generate_value(key: String, generator: Array) -> String:
+	for g: Dictionary in generator:
+		var search: RegExMatch = _regex(g["pattern"]).search(key)
+		if search != null and search.get_string() == key:
+			return _influx_map_apply_generator(key, g)
+	return ""
+
+func _influx_map_apply_generator(key: String, generator: Dictionary) -> String:
+	var state: Dictionary = {}
+	var key_segments: PackedStringArray = key.split(".")
+	for i in key_segments.size():
+		state[str(i)] = key_segments[i]
+	var transforms: Array = generator.get("transforms", [])
+	for transform: Dictionary in transforms:
+		var out: String = transform["out"]
+		var execute: bool = true
+		if transform.has("if"):
+			var conditional: Dictionary = transform["if"]
+			match conditional["cond"]:
+				"eq":
+					if _influx_map_generator_parse_string(conditional["a"], state) != _influx_map_generator_parse_string(conditional["b"], state):
+						execute = false
+		if not execute:
+			continue
+		match transform["type"]:
+			"substr":
+				state[out] = state[transform["in"]].substr(transform["start"], transform["len"])
+			"func":
+				match transform["func"]:
+					"camel": state[out] = state[transform["in"]].to_camel_case()
+					"pascal": state[out] = state[transform["in"]].to_pascal_case()
+			"const":
+				state[out] = _influx_map_generator_parse_string(transform["value"], state)
+	return _influx_map_generator_parse_string(generator["output"], state)
+
+func _influx_map_generator_parse_string(string: String, state: Dictionary) -> String:
+	var builder: PackedStringArray = PackedStringArray()
+	var i: int = 0
+	while i < string.length():
+		if string[i] == "@":
+			i += 1
+			builder.append(state[string[i]])
+		else:
+			builder.append(string[i])
+		i += 1
+	return "".join(builder)

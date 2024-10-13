@@ -1,0 +1,123 @@
+[
+	{
+		"pattern": "AC\\.(Actuator|Potentiometers).+",
+		"transforms": [
+			{
+				"type": "substr",
+				"start": 3,
+				"len": -1,
+				"in": "3",
+				"out": "a"
+			},
+			{
+				"type": "func",
+				"func": "camel",
+				"in": "a",
+				"out": "b"
+			},
+			{
+				"if": {
+					"cond": "eq",
+					"a": "@2",
+					"b": "states"
+				},
+				"type": "const",
+				"value": "State",
+				"out": "c"
+			},
+			{
+				"if": {
+					"cond": "eq",
+					"a": "@2",
+					"b": "currents"
+				},
+				"type": "const",
+				"value": "Current",
+				"out": "c"
+			},
+			{
+				"if": {
+					"cond": "eq",
+					"a": "@2",
+					"b": "potentiometers"
+				},
+				"type": "const",
+				"value": "Pot",
+				"out": "c"
+			},
+			{
+				"if": {
+					"cond": "eq",
+					"a": "@2",
+					"b": "continuities"
+				},
+				"type": "const",
+				"value": "Continuity",
+				"out": "c"
+			}
+		],
+		"output": "@b@c"
+	},
+	{
+		"pattern": "[^\\.]+\\.Abort\\.systemMode",
+		"output": "abortSystemMode"
+	},
+	{
+		"pattern": "[^\\.]+\\.Abort\\.abortReason",
+		"output": "abortReason"
+	},
+	{
+		"pattern": "[^\\.]+\\.24VSupplyStats\\..+",
+		"transforms": [
+			{
+				"type": "func",
+				"func": "camel",
+				"in": "0",
+				"out": "a"
+			},
+			{
+				"type": "func",
+				"func": "pascal",
+				"in": "2",
+				"out": "b"
+			}
+		],
+		"output": "@a@b"
+	},
+	{
+		"pattern": "AC_[^\\.]+\\.AutoventPressures\\.autoventPressure",
+		"transforms": [
+			{
+				"type": "func",
+				"func": "camel",
+				"in": "0",
+				"out": "a"
+			}
+		],
+		"output": "@aAutoventPressure"
+	},
+	{
+		"pattern": "AC_[^\\.]+\\.AutomationInfo\\.automationState",
+		"transforms": [
+			{
+				"type": "func",
+				"func": "camel",
+				"in": "0",
+				"out": "a"
+			}
+		],
+		"output": "@aAutomationState"
+	},
+	{
+		"pattern": "AC_[^\\.]+\\.AutomationInfo\\.fillDp",
+		"transforms": [
+			{
+				"type": "func",
+				"func": "camel",
+				"in": "0",
+				"out": "a"
+			}
+		],
+		"output": "@aFillDp"
+	}
+]

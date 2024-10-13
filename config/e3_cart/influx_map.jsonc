@@ -2,556 +2,584 @@
 
 	// *** AC_1 ***
 
-	// "AC_1.24VSupplyStats.supply24Voltage": ""
-	// "AC_1.24VSupplyStats.supply24Current": ""
-	// "AC_1.24VSupplyStats.supply24Power": ""
+	"AC_1.24VSupplyStats.supply24Voltage": "ac1Supply24Voltage",
+	"AC_1.24VSupplyStats.supply24Current": "ac1Supply24Current",
+	"AC_1.24VSupplyStats.supply24Power": "ac1Supply24Power",
 
-	// "AC_1.ActuatorStates.states.0": ""
-	// "AC.ActuatorStates.states.AC_BREAKWIRE": ""
-	// "AC_1.ActuatorStates.states.2": ""
-	// "AC.ActuatorStates.states.AC_ARM": ""
-	// "AC.ActuatorStates.states.AC_NOS_MAIN": ""
-	// "AC.ActuatorStates.states.AC_IPA_MAIN": ""
-	// "AC_1.ActuatorStates.states.6": ""
-	// "AC.ActuatorStates.states.AC_IGNITER": ""
+	// "AC_1.ActuatorStates.states.0": "",
+	"AC.ActuatorStates.states.AC_BREAKWIRE": "breakwireState",
+	// "AC_1.ActuatorStates.states.2": "",
+	"AC.ActuatorStates.states.AC_ARM": "armState",
+	"AC.ActuatorStates.states.AC_NOS_MAIN": "nosMainState",
+	"AC.ActuatorStates.states.AC_IPA_MAIN": "ipaMainState",
+	// "AC_1.ActuatorStates.states.6": "",
+	"AC.ActuatorStates.states.AC_IGNITER": "igniterState",
 
-	// "AC_1.ActuatorCurrents.currents.0": ""
-	// "AC.ActuatorCurrents.currents.AC_BREAKWIRE": ""
-	// "AC_1.ActuatorCurrents.currents.2": ""
-	// "AC.ActuatorCurrents.currents.AC_ARM": ""
-	// "AC.ActuatorCurrents.currents.AC_NOS_MAIN": ""
-	// "AC.ActuatorCurrents.currents.AC_IPA_MAIN": ""
-	// "AC_1.ActuatorCurrents.currents.6": ""
-	// "AC.ActuatorCurrents.currents.AC_IGNITER": ""
+	// "AC_1.ActuatorContinuities.continuities.0": "",
+	"AC.ActuatorContinuities.continuities.AC_BREAKWIRE": "breakwireContinuity",
+	// "AC_1.ActuatorContinuities.continuities.2": "",
+	"AC.ActuatorContinuities.continuities.AC_ARM": "armContinuity",
+	"AC.ActuatorContinuities.continuities.AC_NOS_MAIN": "nosMainContinuity",
+	"AC.ActuatorContinuities.continuities.AC_IPA_MAIN": "ipaMainContinuity",
+	// "AC_1.ActuatorContinuities.continuities.6": "",
+	"AC.ActuatorContinuities.continuities.AC_IGNITER": "igniterContinuity",
 
-	// "AC_1.AutoventPressures.autoventPressure": ""
+	// "AC_1.ActuatorCurrents.currents.0": "",
+	"AC.ActuatorCurrents.currents.AC_BREAKWIRE": "breakwireCurrent",
+	// "AC_1.ActuatorCurrents.currents.2": "",
+	"AC.ActuatorCurrents.currents.AC_ARM": "armCurrent",
+	"AC.ActuatorCurrents.currents.AC_NOS_MAIN": "nosMainCurrent",
+	"AC.ActuatorCurrents.currents.AC_IPA_MAIN": "ipaMainCurrent",
+	// "AC_1.ActuatorCurrents.currents.6": "",
+	"AC.ActuatorCurrents.currents.AC_IGNITER": "igniterCurrent",
 
-	// "AC_1.Potentiometers.potentiometers.0": ""
-	// "AC.Potentiometers.potentiometers.AC_BREAKWIRE": ""
-	// "AC_1.Potentiometers.potentiometers.2": ""
-	// "AC.Potentiometers.potentiometers.AC_ARM": ""
-	// "AC.Potentiometers.potentiometers.AC_NOS_MAIN": ""
-	// "AC.Potentiometers.potentiometers.AC_IPA_MAIN": ""
-	// "AC_1.Potentiometers.potentiometers.6": ""
-	// "AC.Potentiometers.potentiometers.AC_IGNITER": ""
+	"AC_1.AutoventPressures.autoventPressure": "ac1AutoventPressure",
 
-	// "AC_1.AutomationInfo.automationState": ""
-	// "AC_1.AutomationInfo.fillDp": ""
+	// "AC_1.Potentiometers.potentiometers.0": "",
+	"AC.Potentiometers.potentiometers.AC_BREAKWIRE": "breakwirePot",
+	// "AC_1.Potentiometers.potentiometers.2": "",
+	"AC.Potentiometers.potentiometers.AC_ARM": "armPot",
+	"AC.Potentiometers.potentiometers.AC_NOS_MAIN": "nosMainPot",
+	"AC.Potentiometers.potentiometers.AC_IPA_MAIN": "ipaMainPot",
+	// "AC_1.Potentiometers.potentiometers.6": "",
+	"AC.Potentiometers.potentiometers.AC_IGNITER": "igniterPot",
+
+	"AC_1.AutomationInfo.automationState": "ac1AutomationState",
+	"AC_1.AutomationInfo.fillDp": "ac1FillDp",
 
 
-	// "AC_1.Abort.systemMode": ""
-	// "AC_1.Abort.abortReason": ""
+	"AC_1.Abort.systemMode": "abortSystemMode",
+	"AC_1.Abort.abortReason": "abortReason",
 
 
 	// *** AC_2 ***
 
-	// "AC_2.24VSupplyStats.supply24Voltage": ""
-	// "AC_2.24VSupplyStats.supply24Current": ""
-	// "AC_2.24VSupplyStats.supply24Power": ""
+	"AC_2.24VSupplyStats.supply24Voltage": "ac2Supply24Voltage",
+	"AC_2.24VSupplyStats.supply24Current": "ac2Supply24Current",
+	"AC_2.24VSupplyStats.supply24Power": "ac2Supply24Power",
 
-	// "AC.ActuatorStates.states.AC_NOS_GEMS": ""
-	// "AC.ActuatorStates.states.AC_NOS_FILL": ""
-	// "AC_2.ActuatorStates.states.2": ""
-	// "AC.ActuatorStates.states.AC_NOS_LINE_VENT": ""
-	// "AC.ActuatorStates.states.AC_NOS_EMERGENCY_VENT": ""
-	// "AC.ActuatorStates.states.AC_NOS_DRAIN": ""
-	// "AC.ActuatorStates.states.AC_NOS_SLOW_VENT": ""
-	// "AC.ActuatorStates.states.???": ""
+	"AC.ActuatorStates.states.AC_NOS_GEMS": "nosGemsState",
+	"AC.ActuatorStates.states.AC_NOS_FILL": "nosFillState",
+	// "AC_2.ActuatorStates.states.2": "",
+	"AC.ActuatorStates.states.AC_NOS_LINE_VENT": "nosLineVentState",
+	"AC.ActuatorStates.states.AC_NOS_EMERGENCY_VENT": "nosEmergencyVentState",
+	"AC.ActuatorStates.states.AC_NOS_DRAIN": "nosDrainState",
+	"AC.ActuatorStates.states.AC_NOS_SLOW_VENT": "nosSlowVentState",
+	// "AC_2.ActuatorStates.states.7": "",
 
-	// "AC.ActuatorCurrents.currents.AC_NOS_GEMS": ""
-	// "AC.ActuatorCurrents.currents.AC_NOS_FILL": ""
-	// "AC_2.ActuatorCurrents.currents.2": ""
-	// "AC.ActuatorCurrents.currents.AC_NOS_LINE_VENT": ""
-	// "AC.ActuatorCurrents.currents.AC_NOS_EMERGENCY_VENT": ""
-	// "AC.ActuatorCurrents.currents.AC_NOS_DRAIN": ""
-	// "AC.ActuatorCurrents.currents.AC_NOS_SLOW_VENT": ""
-	// "AC.ActuatorCurrents.currents.???": ""
+	"AC.ActuatorContinuities.continuities.AC_NOS_GEMS": "nosGemsContinuity",
+	"AC.ActuatorContinuities.continuities.AC_NOS_FILL": "nosFillContinuity",
+	// "AC_2.ActuatorContinuities.continuities.2": "",
+	"AC.ActuatorContinuities.continuities.AC_NOS_LINE_VENT": "nosLineVentContinuity",
+	"AC.ActuatorContinuities.continuities.AC_NOS_EMERGENCY_VENT": "nosEmergencyVentContinuity",
+	"AC.ActuatorContinuities.continuities.AC_NOS_DRAIN": "nosDrainContinuity",
+	"AC.ActuatorContinuities.continuities.AC_NOS_SLOW_VENT": "nosSlowVentContinuity",
+	// "AC_2.ActuatorContinuities.continuities.7": "",
 
-	// "AC_2.AutoventPressures.autoventPressure": ""
+	"AC.ActuatorCurrents.currents.AC_NOS_GEMS": "nosGemsCurrent",
+	"AC.ActuatorCurrents.currents.AC_NOS_FILL": "nosFillCurrent",
+	// "AC_2.ActuatorCurrents.currents.2": "",
+	"AC.ActuatorCurrents.currents.AC_NOS_LINE_VENT": "nosLineVentCurrent",
+	"AC.ActuatorCurrents.currents.AC_NOS_EMERGENCY_VENT": "nosEmergencyVentCurrent",
+	"AC.ActuatorCurrents.currents.AC_NOS_DRAIN": "nosDrainCurrent",
+	"AC.ActuatorCurrents.currents.AC_NOS_SLOW_VENT": "nosSlowVentCurrent",
+	// "AC_2.ActuatorCurrents.currents.7": "",
 
-	// "AC.Potentiometers.potentiometers.AC_NOS_GEMS": ""
-	// "AC.Potentiometers.potentiometers.AC_NOS_FILL": ""
-	// "AC_2.Potentiometers.potentiometers.2": ""
-	// "AC.Potentiometers.potentiometers.AC_NOS_LINE_VENT": ""
-	// "AC.Potentiometers.potentiometers.AC_NOS_EMERGENCY_VENT": ""
-	// "AC.Potentiometers.potentiometers.AC_NOS_DRAIN": ""
-	// "AC.Potentiometers.potentiometers.AC_NOS_SLOW_VENT": ""
-	// "AC.Potentiometers.potentiometers.???": ""
+	"AC_2.AutoventPressures.autoventPressure": "ac2AutoventPressure",
 
-	// "AC_2.AutomationInfo.automationState": ""
-	// "AC_2.AutomationInfo.fillDp": ""
+	"AC.Potentiometers.potentiometers.AC_NOS_GEMS": "nosGemsPot",
+	"AC.Potentiometers.potentiometers.AC_NOS_FILL": "nosFillPot",
+	// "AC_2.Potentiometers.potentiometers.2": "",
+	"AC.Potentiometers.potentiometers.AC_NOS_LINE_VENT": "nosLineVentPot",
+	"AC.Potentiometers.potentiometers.AC_NOS_EMERGENCY_VENT": "nosEmergencyVentPot",
+	"AC.Potentiometers.potentiometers.AC_NOS_DRAIN": "nosDrainPot",
+	"AC.Potentiometers.potentiometers.AC_NOS_SLOW_VENT": "nosSlowVentPot",
+	// "AC_2.Potentiometers.potentiometers.7": "",
+
+	"AC_2.AutomationInfo.automationState": "ac2AutomationState",
+	"AC_2.AutomationInfo.fillDp": "ac2FillDp",
 
 
-	// "AC_2.Abort.systemMode": ""
-	// "AC_2.Abort.abortReason": ""
+	"AC_2.Abort.systemMode": "abortSystemMode",
+	"AC_2.Abort.abortReason": "abortReason",
 
 
 	// *** AC_3 ***
 
-	// "AC_3.24VSupplyStats.supply24Voltage": ""
-	// "AC_3.24VSupplyStats.supply24Current": ""
-	// "AC_3.24VSupplyStats.supply24Power": ""
+	"AC_3.24VSupplyStats.supply24Voltage": "ac3Supply24Voltage",
+	"AC_3.24VSupplyStats.supply24Current": "ac3Supply24Current",
+	"AC_3.24VSupplyStats.supply24Power": "ac3Supply24Power",
 
-	// "AC.ActuatorStates.states.AC_IPA_GEMS": ""
-	// "AC_3.ActuatorStates.states.1": ""
-	// "AC.ActuatorStates.states.AC_IPA_SLOW_VENT": ""
-	// "AC_3.ActuatorStates.states.3": ""
-	// "AC.ActuatorStates.states.AC_IPA_EMERGENCY_VENT": ""
-	// "AC.ActuatorStates.states.AC_IPA_DRAIN": ""
-	// "AC.ActuatorStates.states.AC_IPA_PRESS_FLOW": ""
-	// "AC_3.ActuatorStates.states.7": ""
+	"AC.ActuatorStates.states.AC_IPA_GEMS": "ipaGemsState",
+	// "AC_3.ActuatorStates.states.1": "",
+	"AC.ActuatorStates.states.AC_IPA_SLOW_VENT": "ipaSlowVentState",
+	// "AC_3.ActuatorStates.states.3": "",
+	"AC.ActuatorStates.states.AC_IPA_EMERGENCY_VENT": "ipaEmergencyVentState",
+	"AC.ActuatorStates.states.AC_IPA_DRAIN": "ipaDrainState",
+	"AC.ActuatorStates.states.AC_IPA_PRESS_FLOW": "ipaPressFlowState",
+	// "AC_3.ActuatorStates.states.7": "",
 
-	// "AC.ActuatorCurrents.currents.AC_IPA_GEMS": ""
-	// "AC_3.ActuatorCurrents.currents.1": ""
-	// "AC.ActuatorCurrents.currents.AC_IPA_SLOW_VENT": ""
-	// "AC_3.ActuatorCurrents.currents.3": ""
-	// "AC.ActuatorCurrents.currents.AC_IPA_EMERGENCY_VENT": ""
-	// "AC.ActuatorCurrents.currents.AC_IPA_DRAIN": ""
-	// "AC.ActuatorCurrents.currents.AC_IPA_PRESS_FLOW": ""
-	// "AC_3.ActuatorCurrents.currents.7": ""
+	"AC.ActuatorContinuities.continuities.AC_IPA_GEMS": "ipaGemsContinuity",
+	// "AC_3.ActuatorContinuities.continuities.1": "",
+	"AC.ActuatorContinuities.continuities.AC_IPA_SLOW_VENT": "ipaSlowVentContinuity",
+	// "AC_3.ActuatorContinuities.continuities.3": "",
+	"AC.ActuatorContinuities.continuities.AC_IPA_EMERGENCY_VENT": "ipaEmergencyVentContinuity",
+	"AC.ActuatorContinuities.continuities.AC_IPA_DRAIN": "ipaDrainContinuity",
+	"AC.ActuatorContinuities.continuities.AC_IPA_PRESS_FLOW": "ipaPressFlowContinuity",
+	// "AC_3.ActuatorContinuities.continuities.7": "",
 
-	// "AC_3.AutoventPressures.autoventPressure": ""
+	"AC.ActuatorCurrents.currents.AC_IPA_GEMS": "ipaGemsCurrent",
+	// "AC_3.ActuatorCurrents.currents.1": "",
+	"AC.ActuatorCurrents.currents.AC_IPA_SLOW_VENT": "ipaSlowVentCurrent",
+	// "AC_3.ActuatorCurrents.currents.3": "",
+	"AC.ActuatorCurrents.currents.AC_IPA_EMERGENCY_VENT": "ipaEmergencyVentCurrent",
+	"AC.ActuatorCurrents.currents.AC_IPA_DRAIN": "ipaDrainCurrent",
+	"AC.ActuatorCurrents.currents.AC_IPA_PRESS_FLOW": "ipaPressFlowCurrent",
+	// "AC_3.ActuatorCurrents.currents.7": "",
 
-	// "AC.Potentiometers.potentiometers.AC_IPA_GEMS": ""
-	// "AC_3.Potentiometers.potentiometers.1": ""
-	// "AC.Potentiometers.potentiometers.AC_IPA_SLOW_VENT": ""
-	// "AC_3.Potentiometers.potentiometers.3": ""
-	// "AC.Potentiometers.potentiometers.AC_IPA_EMERGENCY_VENT": ""
-	// "AC.Potentiometers.potentiometers.AC_IPA_DRAIN": ""
-	// "AC.Potentiometers.potentiometers.AC_IPA_PRESS_FLOW": ""
-	// "AC_3.Potentiometers.potentiometers.7": ""
+	"AC_3.AutoventPressures.autoventPressure": "ac3AutoventPressure",
 
-	// "AC_3.AutomationInfo.automationState": ""
-	// "AC_3.AutomationInfo.fillDp": ""
+	"AC.Potentiometers.potentiometers.AC_IPA_GEMS": "ipaGemsPot",
+	// "AC_3.Potentiometers.potentiometers.1": "",
+	"AC.Potentiometers.potentiometers.AC_IPA_SLOW_VENT": "ipaSlowVentPot",
+	// "AC_3.Potentiometers.potentiometers.3": "",
+	"AC.Potentiometers.potentiometers.AC_IPA_EMERGENCY_VENT": "ipaEmergencyVentPot",
+	"AC.Potentiometers.potentiometers.AC_IPA_DRAIN": "ipaDrainPot",
+	"AC.Potentiometers.potentiometers.AC_IPA_PRESS_FLOW": "ipaPressFlowPot",
+	// "AC_3.Potentiometers.potentiometers.7": "",
+
+	"AC_3.AutomationInfo.automationState": "ac3AutomationState",
+	"AC_3.AutomationInfo.fillDp": "ac3FillDp",
 
 
-	// "AC_3.Abort.systemMode": ""
-	// "AC_3.Abort.abortReason": ""
+	"AC_3.Abort.systemMode": "abortSystemMode",
+	"AC_3.Abort.abortReason": "abortReason",
 
 
 	// *** LC_1 ***
 
-	// "LC_1.24VSupplyStats.supply24Voltage": ""
-	// "LC_1.24VSupplyStats.supply24Current": ""
-	// "LC_1.24VSupplyStats.supply24Power": ""
+	"LC_1.24VSupplyStats.supply24Voltage": "lc1Supply24Voltage",
+	"LC_1.24VSupplyStats.supply24Current": "lc1Supply24Current",
+	"LC_1.24VSupplyStats.supply24Power": "lc1Supply24Power",
 
-	// "LC_1.Values.nos": ""
-	// "LC_1.Values._reserved0": ""
-	// "LC_1.Values.ipa": ""
-	// "LC_1.Values._reserved1": ""
-	// "LC_1.Values.summedValues1": ""
-	// "LC_1.Values.summedValues2": ""
+	// "LC_1.Values.nos": "",
+	// "LC_1.Values._reserved0": "",
+	// "LC_1.Values.ipa": "",
+	// "LC_1.Values._reserved1": "",
+	// "LC_1.Values.summedValues1": "",
+	// "LC_1.Values.summedValues2": "",
 
-	// "LC.CalibrationSettings.channelInfo.TC_NOS.offset": ""
-	// "LC.CalibrationSettings.channelInfo.TC_NOS.multiplier": ""
-	// "LC_1.CalibrationSettings.channelInfo.1.offset": ""
-	// "LC_1.CalibrationSettings.channelInfo.1.multiplier": ""
-	// "LC.CalibrationSettings.channelInfo.TC_IPA.offset": ""
-	// "LC.CalibrationSettings.channelInfo.TC_IPA.multiplier": ""
-	// "LC_1.CalibrationSettings.channelInfo.3.offset": ""
-	// "LC_1.CalibrationSettings.channelInfo.3.multiplier": ""
-	// "LC_1.CalibrationSettings.channelInfo.4.offset": ""
-	// "LC_1.CalibrationSettings.channelInfo.4.multiplier": ""
-	// "LC_1.CalibrationSettings.channelInfo.5.offset": ""
-	// "LC_1.CalibrationSettings.channelInfo.5.multiplier": ""
-	// "LC_1.CalibrationSettings.channelInfo.6.offset": ""
-	// "LC_1.CalibrationSettings.channelInfo.6.multiplier": ""
-	// "LC_1.CalibrationSettings.channelInfo.7.offset": ""
-	// "LC_1.CalibrationSettings.channelInfo.7.multiplier": ""
+	// "LC.CalibrationSettings.channelInfo.TC_NOS.offset": "",
+	// "LC.CalibrationSettings.channelInfo.TC_NOS.multiplier": "",
+	// "LC_1.CalibrationSettings.channelInfo.1.offset": "",
+	// "LC_1.CalibrationSettings.channelInfo.1.multiplier": "",
+	// "LC.CalibrationSettings.channelInfo.TC_IPA.offset": "",
+	// "LC.CalibrationSettings.channelInfo.TC_IPA.multiplier": "",
+	// "LC_1.CalibrationSettings.channelInfo.3.offset": "",
+	// "LC_1.CalibrationSettings.channelInfo.3.multiplier": "",
+	// "LC_1.CalibrationSettings.channelInfo.4.offset": "",
+	// "LC_1.CalibrationSettings.channelInfo.4.multiplier": "",
+	// "LC_1.CalibrationSettings.channelInfo.5.offset": "",
+	// "LC_1.CalibrationSettings.channelInfo.5.multiplier": "",
+	// "LC_1.CalibrationSettings.channelInfo.6.offset": "",
+	// "LC_1.CalibrationSettings.channelInfo.6.multiplier": "",
+	// "LC_1.CalibrationSettings.channelInfo.7.offset": "",
+	// "LC_1.CalibrationSettings.channelInfo.7.multiplier": "",
 
-	// "LC_1.Abort.systemMode": ""
-	// "LC_1.Abort.abortReason": ""
+	"LC_1.Abort.systemMode": "abortSystemMode",
+	"LC_1.Abort.abortReason": "abortReason",
 
 
 	// *** LC_2 ***
 
-	// "LC_2.24VSupplyStats.supply24Voltage": ""
-	// "LC_2.24VSupplyStats.supply24Current": ""
-	// "LC_2.24VSupplyStats.supply24Power": ""
+	"LC_2.24VSupplyStats.supply24Voltage": "lc2Supply24Voltage",
+	"LC_2.24VSupplyStats.supply24Current": "lc2Supply24Current",
+	"LC_2.24VSupplyStats.supply24Power": "lc2Supply24Power",
 
-	// "LC_2.Values.nos": ""
-	// "LC_2.Values._reserved0": ""
-	// "LC_2.Values.ipa": ""
-	// "LC_2.Values._reserved1": ""
-	// "LC_2.Values.summedValues1": ""
-	// "LC_2.Values.summedValues2": ""
+	// "LC_2.Values.nos": "",
+	// "LC_2.Values._reserved0": "",
+	// "LC_2.Values.ipa": "",
+	// "LC_2.Values._reserved1": "",
+	// "LC_2.Values.summedValues1": "",
+	// "LC_2.Values.summedValues2": "",
 
-	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_0.offset": ""
-	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_0.multiplier": ""
-	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_1.offset": ""
-	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_1.multiplier": ""
-	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_2.offset": ""
-	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_2.multiplier": ""
-	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_3.offset": ""
-	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_3.multiplier": ""
-	// "LC_2.CalibrationSettings.channelInfo.4.offset": ""
-	// "LC_2.CalibrationSettings.channelInfo.4.multiplier": ""
-	// "LC_2.CalibrationSettings.channelInfo.5.offset": ""
-	// "LC_2.CalibrationSettings.channelInfo.5.multiplier": ""
-	// "LC_2.CalibrationSettings.channelInfo.6.offset": ""
-	// "LC_2.CalibrationSettings.channelInfo.6.multiplier": ""
-	// "LC_2.CalibrationSettings.channelInfo.7.offset": ""
-	// "LC_2.CalibrationSettings.channelInfo.7.multiplier": ""
+	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_0.offset": "",
+	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_0.multiplier": "",
+	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_1.offset": "",
+	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_1.multiplier": "",
+	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_2.offset": "",
+	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_2.multiplier": "",
+	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_3.offset": "",
+	// "LC.CalibrationSettings.channelInfo.TC_ENGINE_3.multiplier": "",
+	// "LC_2.CalibrationSettings.channelInfo.4.offset": "",
+	// "LC_2.CalibrationSettings.channelInfo.4.multiplier": "",
+	// "LC_2.CalibrationSettings.channelInfo.5.offset": "",
+	// "LC_2.CalibrationSettings.channelInfo.5.multiplier": "",
+	// "LC_2.CalibrationSettings.channelInfo.6.offset": "",
+	// "LC_2.CalibrationSettings.channelInfo.6.multiplier": "",
+	// "LC_2.CalibrationSettings.channelInfo.7.offset": "",
+	// "LC_2.CalibrationSettings.channelInfo.7.multiplier": "",
 
-	// "LC_2.Abort.systemMode": ""
-	// "LC_2.Abort.abortReason": ""
+	"LC_2.Abort.systemMode": "abortSystemMode",
+	"LC_2.Abort.abortReason": "abortReason",
 
 
 	// *** PT_1 ***
 
-	// "PT_1.24VSupplyStats.supply24Voltage": ""
-	// "PT_1.24VSupplyStats.supply24Current": ""
-	// "PT_1.24VSupplyStats.supply24Power": ""
+	"PT_1.24VSupplyStats.supply24Voltage": "pt1Supply24Voltage",
+	"PT_1.24VSupplyStats.supply24Current": "pt1Supply24Current",
+	"PT_1.24VSupplyStats.supply24Power": "pt1Supply24Power",
 
-	// "PT.Values.values.PT_NOS_TANK": ""
-	// "PT.Values.values.PT_NOS_FILL_LINE": ""
-	// "PT.Values.values.PT_MAIN_VALVE": ""
-	// "PT.Values.values.PT_SOLENOID_PANEL": ""
-	// "PT.Values.values.PT_IPA_TANK": ""
-	// "PT_1.Values.values.5": ""
-	// "PT.Values.values.PT_NOS_FILL_LINE_NEW": ""
-	// "PT_1.Values.values.7": ""
+	// "PT.Values.values.PT_NOS_TANK": "",
+	// "PT.Values.values.PT_NOS_FILL_LINE": "",
+	// "PT.Values.values.PT_MAIN_VALVE": "",
+	// "PT.Values.values.PT_SOLENOID_PANEL": "",
+	// "PT.Values.values.PT_IPA_TANK": "",
+	// "PT_1.Values.values.5": "",
+	// "PT.Values.values.PT_NOS_FILL_LINE_NEW": "",
+	// "PT_1.Values.values.7": "",
 
-	// "PT.CalibrationSettings.channelInfo.PT_NOS_TANK.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_NOS_TANK.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_NOS_FILL_LINE.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_NOS_FILL_LINE.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_MAIN_VALVE.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_MAIN_VALVE.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_SOLENOID_PANEL.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_SOLENOID_PANEL.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_IPA_TANK.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_IPA_TANK.multiplier": ""
-	// "PT_1.CalibrationSettings.channelInfo.5.offset": ""
-	// "PT_1.CalibrationSettings.channelInfo.5.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_NOS_FILL_LINE_NEW.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_NOS_FILL_LINE_NEW.multiplier": ""
-	// "PT_1.CalibrationSettings.channelInfo.7.offset": ""
-	// "PT_1.CalibrationSettings.channelInfo.7.multiplier": ""
+	// "PT.CalibrationSettings.channelInfo.PT_NOS_TANK.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_NOS_TANK.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_NOS_FILL_LINE.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_NOS_FILL_LINE.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_MAIN_VALVE.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_MAIN_VALVE.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_SOLENOID_PANEL.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_SOLENOID_PANEL.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_IPA_TANK.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_IPA_TANK.multiplier": "",
+	// "PT_1.CalibrationSettings.channelInfo.5.offset": "",
+	// "PT_1.CalibrationSettings.channelInfo.5.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_NOS_FILL_LINE_NEW.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_NOS_FILL_LINE_NEW.multiplier": "",
+	// "PT_1.CalibrationSettings.channelInfo.7.offset": "",
+	// "PT_1.CalibrationSettings.channelInfo.7.multiplier": "",
 
-	// "PT_1.AutomationData.nosTank": ""
-	// "PT_1.AutomationData.nosSource": ""
-	// "PT_1.AutomationData.ipaTank": ""
-	// "PT_1.AutomationData.ipaPress": ""
+	// "PT_1.AutomationData.nosTank": "",
+	// "PT_1.AutomationData.nosSource": "",
+	// "PT_1.AutomationData.ipaTank": "",
+	// "PT_1.AutomationData.ipaPress": "",
 
-	// "PT_1.Abort.systemMode": ""
-	// "PT_1.Abort.abortReason": ""
+	"PT_1.Abort.systemMode": "abortSystemMode",
+	"PT_1.Abort.abortReason": "abortReason",
 
 
 	// *** PT_2 ***
 
-	// "PT_2.24VSupplyStats.supply24Voltage": ""
-	// "PT_2.24VSupplyStats.supply24Current": ""
-	// "PT_2.24VSupplyStats.supply24Power": ""
+	"PT_2.24VSupplyStats.supply24Voltage": "pt2Supply24Voltage",
+	"PT_2.24VSupplyStats.supply24Current": "pt2Supply24Current",
+	"PT_2.24VSupplyStats.supply24Power": "pt2Supply24Power",
 
-	// "PT.Values.values.PT_NOS_INJECTOR": ""
-	// "PT_2.Values.values.1": ""
-	// "PT.Values.values.PT_ENGINE_0": ""
-	// "PT.Values.values.PT_ENGINE_1": ""
-	// "PT.Values.values.PT_ENGINE_2": ""
-	// "PT.Values.values.PT_ENGINE_3": ""
-	// "PT.Values.values.PT_ENGINE_4": ""
-	// "PT.Values.values.PT_ENGINE_5": ""
+	// "PT.Values.values.PT_NOS_INJECTOR": "",
+	// "PT_2.Values.values.1": "",
+	// "PT.Values.values.PT_ENGINE_0": "",
+	// "PT.Values.values.PT_ENGINE_1": "",
+	// "PT.Values.values.PT_ENGINE_2": "",
+	// "PT.Values.values.PT_ENGINE_3": "",
+	// "PT.Values.values.PT_ENGINE_4": "",
+	// "PT.Values.values.PT_ENGINE_5": "",
 
-	// "PT.CalibrationSettings.channelInfo.PT_NOS_INJECTOR.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_NOS_INJECTOR.multiplier": ""
-	// "PT_2.CalibrationSettings.channelInfo.1.offset": ""
-	// "PT_2.CalibrationSettings.channelInfo.1.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_0.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_0.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_1.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_1.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_2.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_2.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_3.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_3.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_4.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_4.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_5.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_5.multiplier": ""
+	// "PT.CalibrationSettings.channelInfo.PT_NOS_INJECTOR.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_NOS_INJECTOR.multiplier": "",
+	// "PT_2.CalibrationSettings.channelInfo.1.offset": "",
+	// "PT_2.CalibrationSettings.channelInfo.1.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_0.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_0.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_1.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_1.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_2.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_2.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_3.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_3.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_4.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_4.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_5.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_5.multiplier": "",
 
-	// "PT_2.AutomationData.nosTank": ""
-	// "PT_2.AutomationData.nosSource": ""
-	// "PT_2.AutomationData.ipaTank": ""
-	// "PT_2.AutomationData.ipaPress": ""
+	// "PT_2.AutomationData.nosTank": "",
+	// "PT_2.AutomationData.nosSource": "",
+	// "PT_2.AutomationData.ipaTank": "",
+	// "PT_2.AutomationData.ipaPress": "",
 
-	// "PT_2.Abort.systemMode": ""
-	// "PT_2.Abort.abortReason": ""
+	"PT_2.Abort.systemMode": "abortSystemMode",
+	"PT_2.Abort.abortReason": "abortReason",
 
 
 	// *** PT_3 ***
 
-	// "PT_3.24VSupplyStats.supply24Voltage": ""
-	// "PT_3.24VSupplyStats.supply24Current": ""
-	// "PT_3.24VSupplyStats.supply24Power": ""
+	"PT_3.24VSupplyStats.supply24Voltage": "pt3Supply24Voltage",
+	"PT_3.24VSupplyStats.supply24Current": "pt3Supply24Current",
+	"PT_3.24VSupplyStats.supply24Power": "pt3Supply24Power",
 
-	// "PT.Values.values.PT_IPA_INJECTOR": ""
-	// "PT.Values.values.PT_ENGINE_7": ""
-	// "PT.Values.values.PT_ENGINE_8": ""
-	// "PT.Values.values.PT_ENGINE_9": ""
-	// "PT.Values.values.PT_ENGINE_6": ""
-	// "PT_3.Values.values.5": ""
-	// "PT_3.Values.values.6": ""
-	// "PT_3.Values.values.7": ""
+	// "PT.Values.values.PT_IPA_INJECTOR": "",
+	// "PT.Values.values.PT_ENGINE_7": "",
+	// "PT.Values.values.PT_ENGINE_8": "",
+	// "PT.Values.values.PT_ENGINE_9": "",
+	// "PT.Values.values.PT_ENGINE_6": "",
+	// "PT_3.Values.values.5": "",
+	// "PT_3.Values.values.6": "",
+	// "PT_3.Values.values.7": "",
 
-	// "PT.CalibrationSettings.channelInfo.PT_IPA_INJECTOR.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_IPA_INJECTOR.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_7.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_7.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_8.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_8.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_9.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_9.multiplier": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_6.offset": ""
-	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_6.multiplier": ""
-	// "PT_3.CalibrationSettings.channelInfo.5.offset": ""
-	// "PT_3.CalibrationSettings.channelInfo.5.multiplier": ""
-	// "PT_3.CalibrationSettings.channelInfo.6.offset": ""
-	// "PT_3.CalibrationSettings.channelInfo.6.multiplier": ""
-	// "PT_3.CalibrationSettings.channelInfo.7.offset": ""
-	// "PT_3.CalibrationSettings.channelInfo.7.multiplier": ""
+	// "PT.CalibrationSettings.channelInfo.PT_IPA_INJECTOR.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_IPA_INJECTOR.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_7.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_7.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_8.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_8.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_9.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_9.multiplier": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_6.offset": "",
+	// "PT.CalibrationSettings.channelInfo.PT_ENGINE_6.multiplier": "",
+	// "PT_3.CalibrationSettings.channelInfo.5.offset": "",
+	// "PT_3.CalibrationSettings.channelInfo.5.multiplier": "",
+	// "PT_3.CalibrationSettings.channelInfo.6.offset": "",
+	// "PT_3.CalibrationSettings.channelInfo.6.multiplier": "",
+	// "PT_3.CalibrationSettings.channelInfo.7.offset": "",
+	// "PT_3.CalibrationSettings.channelInfo.7.multiplier": "",
 
-	// "PT_3.AutomationData.nosTank": ""
-	// "PT_3.AutomationData.nosSource": ""
-	// "PT_3.AutomationData.ipaTank": ""
-	// "PT_3.AutomationData.ipaPress": ""
+	// "PT_3.AutomationData.nosTank": "",
+	// "PT_3.AutomationData.nosSource": "",
+	// "PT_3.AutomationData.ipaTank": "",
+	// "PT_3.AutomationData.ipaPress": "",
 
-	// "PT_3.Abort.systemMode": ""
-	// "PT_3.Abort.abortReason": ""
+	"PT_3.Abort.systemMode": "abortSystemMode",
+	"PT_3.Abort.abortReason": "abortReason",
 
 
 	// *** PT_HAD ***
 
-	// "PT_HAD.24VSupplyStats.supply24Voltage": ""
-	// "PT_HAD.24VSupplyStats.supply24Current": ""
-	// "PT_HAD.24VSupplyStats.supply24Power": ""
+	"PT_HAD.24VSupplyStats.supply24Voltage": "ptHadSupply24Voltage",
+	"PT_HAD.24VSupplyStats.supply24Current": "ptHadSupply24Current",
+	"PT_HAD.24VSupplyStats.supply24Power": "ptHadSupply24Power",
 
-	// "PT_HAD.Values.values.0": ""
-	// "PT_HAD.Values.values.1": ""
-	// "PT_HAD.Values.values.2": ""
-	// "PT_HAD.Values.values.3": ""
-	// "PT_HAD.Values.values.4": ""
-	// "PT_HAD.Values.values.5": ""
-	// "PT_HAD.Values.values.6": ""
-	// "PT_HAD.Values.values.7": ""
+	// "PT_HAD.Values.values.0": "",
+	// "PT_HAD.Values.values.1": "",
+	// "PT_HAD.Values.values.2": "",
+	// "PT_HAD.Values.values.3": "",
+	// "PT_HAD.Values.values.4": "",
+	// "PT_HAD.Values.values.5": "",
+	// "PT_HAD.Values.values.6": "",
+	// "PT_HAD.Values.values.7": "",
 
-	// "PT_HAD.CalibrationSettings.channelInfo.0.offset": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.0.multiplier": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.1.offset": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.1.multiplier": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.2.offset": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.2.multiplier": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.3.offset": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.3.multiplier": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.4.offset": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.4.multiplier": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.5.offset": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.5.multiplier": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.6.offset": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.6.multiplier": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.7.offset": ""
-	// "PT_HAD.CalibrationSettings.channelInfo.7.multiplier": ""
+	// "PT_HAD.CalibrationSettings.channelInfo.0.offset": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.0.multiplier": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.1.offset": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.1.multiplier": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.2.offset": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.2.multiplier": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.3.offset": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.3.multiplier": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.4.offset": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.4.multiplier": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.5.offset": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.5.multiplier": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.6.offset": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.6.multiplier": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.7.offset": "",
+	// "PT_HAD.CalibrationSettings.channelInfo.7.multiplier": "",
 
-	// "PT_HAD.AutomationData.nosTank": ""
-	// "PT_HAD.AutomationData.nosSource": ""
-	// "PT_HAD.AutomationData.ipaTank": ""
-	// "PT_HAD.AutomationData.ipaPress": ""
+	// "PT_HAD.AutomationData.nosTank": "",
+	// "PT_HAD.AutomationData.nosSource": "",
+	// "PT_HAD.AutomationData.ipaTank": "",
+	// "PT_HAD.AutomationData.ipaPress": "",
 
-	// "PT_HAD.Abort.systemMode": ""
-	// "PT_HAD.Abort.abortReason": ""
+	"PT_HAD.Abort.systemMode": "abortSystemMode",
+	"PT_HAD.Abort.abortReason": "abortReason",
 
 
 	// *** CF_NOS ***
 
-	// "CF_NOS.Capacitance.cap": ""
-	// "CF_NOS.Capacitance.ref": ""
-	// "CF_NOS.Capacitance.temperature": ""
+	// "CF_NOS.Capacitance.cap": "",
+	// "CF_NOS.Capacitance.ref": "",
+	// "CF_NOS.Capacitance.temperature": "",
 
-	// "CF_NOS.Abort.systemMode": ""
-	// "CF_NOS.Abort.abortReason": ""
+	"CF_NOS.Abort.systemMode": "abortSystemMode",
+	"CF_NOS.Abort.abortReason": "abortReason",
 
 
 	// *** CF_IPA ***
 
-	// "CF_IPA.Capacitance.cap": ""
-	// "CF_IPA.Capacitance.ref": ""
-	// "CF_IPA.Capacitance.temperature": ""
+	// "CF_IPA.Capacitance.cap": "",
+	// "CF_IPA.Capacitance.ref": "",
+	// "CF_IPA.Capacitance.temperature": "",
 
-	// "CF_IPA.Abort.systemMode": ""
-	// "CF_IPA.Abort.abortReason": ""
+	"CF_IPA.Abort.systemMode": "abortSystemMode",
+	"CF_IPA.Abort.abortReason": "abortReason",
 
 
 	// *** TC_1 ***
 
-	// "TC_1.24VSupplyStats.supply24Voltage": ""
-	// "TC_1.24VSupplyStats.supply24Current": ""
-	// "TC_1.24VSupplyStats.supply24Power": ""
+	"TC_1.24VSupplyStats.supply24Voltage": "tc1Supply24Voltage",
+	"TC_1.24VSupplyStats.supply24Current": "tc1Supply24Current",
+	"TC_1.24VSupplyStats.supply24Power": "tc1Supply24Power",
 
-	// "TC_1.Values.values.0": ""
-	// "TC.Values.values.TC_NOS_TANK": ""
-	// "TC.Values.values.TC_NOS_INJECTOR": ""
-	// "TC.Values.values.TC_IPA_INJECTOR": ""
-	// "TC.Values.values.TC_IPA_TANK": ""
-	// "TC.Values.values.TC_HEATER": ""
-	// "TC.Values.values.TC_ENGINE_0": ""
-	// "TC.Values.values.TC_ENGINE_8": ""
+	// "TC_1.Values.values.0": "",
+	// "TC.Values.values.TC_NOS_TANK": "",
+	// "TC.Values.values.TC_NOS_INJECTOR": "",
+	// "TC.Values.values.TC_IPA_INJECTOR": "",
+	// "TC.Values.values.TC_IPA_TANK": "",
+	// "TC.Values.values.TC_HEATER": "",
+	// "TC.Values.values.TC_ENGINE_0": "",
+	// "TC.Values.values.TC_ENGINE_8": "",
 
-	// "TC_1.ActuatorContinuities.continuities.0": ""
-	// "TC.ActuatorContinuities.continuities.TC_NOS_TANK": ""
-	// "TC.ActuatorContinuities.continuities.TC_NOS_INJECTOR": ""
-	// "TC.ActuatorContinuities.continuities.TC_IPA_INJECTOR": ""
-	// "TC.ActuatorContinuities.continuities.TC_IPA_TANK": ""
-	// "TC.ActuatorContinuities.continuities.TC_HEATER": ""
-	// "TC.ActuatorContinuities.continuities.TC_ENGINE_0": ""
-	// "TC.ActuatorContinuities.continuities.TC_ENGINE_8": ""
+	// "TC_1.ColdJunctionTemperatures.values.0": "",
+	// "TC.ColdJunctionTemperatures.values.TC_NOS_TANK": "",
+	// "TC.ColdJunctionTemperatures.values.TC_NOS_INJECTOR": "",
+	// "TC.ColdJunctionTemperatures.values.TC_IPA_INJECTOR": "",
+	// "TC.ColdJunctionTemperatures.values.TC_IPA_TANK": "",
+	// "TC.ColdJunctionTemperatures.values.TC_HEATER": "",
+	// "TC.ColdJunctionTemperatures.values.TC_ENGINE_0": "",
+	// "TC.ColdJunctionTemperatures.values.TC_ENGINE_8": "",
 
-	// "TC_1.Faults.faults.0": ""
-	// "TC.Faults.faults.TC_NOS_TANK": ""
-	// "TC.Faults.faults.TC_NOS_INJECTOR": ""
-	// "TC.Faults.faults.TC_IPA_INJECTOR": ""
-	// "TC.Faults.faults.TC_IPA_TANK": ""
-	// "TC.Faults.faults.TC_HEATER": ""
-	// "TC.Faults.faults.TC_ENGINE_0": ""
-	// "TC.Faults.faults.TC_ENGINE_8": ""
+	// "TC_1.Faults.faults.0": "",
+	// "TC.Faults.faults.TC_NOS_TANK": "",
+	// "TC.Faults.faults.TC_NOS_INJECTOR": "",
+	// "TC.Faults.faults.TC_IPA_INJECTOR": "",
+	// "TC.Faults.faults.TC_IPA_TANK": "",
+	// "TC.Faults.faults.TC_HEATER": "",
+	// "TC.Faults.faults.TC_ENGINE_0": "",
+	// "TC.Faults.faults.TC_ENGINE_8": "",
 
-	// "TC_1.Abort.systemMode": ""
-	// "TC_1.Abort.abortReason": ""
+	"TC_1.Abort.systemMode": "abortSystemMode",
+	"TC_1.Abort.abortReason": "abortReason",
 
 
 	// *** TC_2 ***
 
-	// "TC_2.24VSupplyStats.supply24Voltage": ""
-	// "TC_2.24VSupplyStats.supply24Current": ""
-	// "TC_2.24VSupplyStats.supply24Power": ""
+	"TC_2.24VSupplyStats.supply24Voltage": "tc2Supply24Voltage",
+	"TC_2.24VSupplyStats.supply24Current": "tc2Supply24Current",
+	"TC_2.24VSupplyStats.supply24Power": "tc2Supply24Power",
 
-	// "TC_2.Values.values.0": ""
-	// "TC.Values.values.TC_ENGINE_1": ""
-	// "TC.Values.values.TC_ENGINE_2": ""
-	// "TC.Values.values.TC_ENGINE_3": ""
-	// "TC.Values.values.TC_ENGINE_4": ""
-	// "TC.Values.values.TC_ENGINE_5": ""
-	// "TC.Values.values.TC_ENGINE_6": ""
-	// "TC.Values.values.TC_ENGINE_7": ""
+	// "TC_2.Values.values.0": "",
+	// "TC.Values.values.TC_ENGINE_1": "",
+	// "TC.Values.values.TC_ENGINE_2": "",
+	// "TC.Values.values.TC_ENGINE_3": "",
+	// "TC.Values.values.TC_ENGINE_4": "",
+	// "TC.Values.values.TC_ENGINE_5": "",
+	// "TC.Values.values.TC_ENGINE_6": "",
+	// "TC.Values.values.TC_ENGINE_7": "",
 
-	// "TC_2.ActuatorContinuities.continuities.0": ""
-	// "TC.ActuatorContinuities.continuities.TC_ENGINE_1": ""
-	// "TC.ActuatorContinuities.continuities.TC_ENGINE_2": ""
-	// "TC.ActuatorContinuities.continuities.TC_ENGINE_3": ""
-	// "TC.ActuatorContinuities.continuities.TC_ENGINE_4": ""
-	// "TC.ActuatorContinuities.continuities.TC_ENGINE_5": ""
-	// "TC.ActuatorContinuities.continuities.TC_ENGINE_6": ""
-	// "TC.ActuatorContinuities.continuities.TC_ENGINE_7": ""
+	// "TC_2.ColdJunctionTemperatures.values.0": "",
+	// "TC.ColdJunctionTemperatures.values.TC_ENGINE_1": "",
+	// "TC.ColdJunctionTemperatures.values.TC_ENGINE_2": "",
+	// "TC.ColdJunctionTemperatures.values.TC_ENGINE_3": "",
+	// "TC.ColdJunctionTemperatures.values.TC_ENGINE_4": "",
+	// "TC.ColdJunctionTemperatures.values.TC_ENGINE_5": "",
+	// "TC.ColdJunctionTemperatures.values.TC_ENGINE_6": "",
+	// "TC.ColdJunctionTemperatures.values.TC_ENGINE_7": "",
 
-	// "TC_2.Faults.faults.0": ""
-	// "TC.Faults.faults.TC_ENGINE_1": ""
-	// "TC.Faults.faults.TC_ENGINE_2": ""
-	// "TC.Faults.faults.TC_ENGINE_3": ""
-	// "TC.Faults.faults.TC_ENGINE_4": ""
-	// "TC.Faults.faults.TC_ENGINE_5": ""
-	// "TC.Faults.faults.TC_ENGINE_6": ""
-	// "TC.Faults.faults.TC_ENGINE_7": ""
+	// "TC_2.Faults.faults.0": "",
+	// "TC.Faults.faults.TC_ENGINE_1": "",
+	// "TC.Faults.faults.TC_ENGINE_2": "",
+	// "TC.Faults.faults.TC_ENGINE_3": "",
+	// "TC.Faults.faults.TC_ENGINE_4": "",
+	// "TC.Faults.faults.TC_ENGINE_5": "",
+	// "TC.Faults.faults.TC_ENGINE_6": "",
+	// "TC.Faults.faults.TC_ENGINE_7": "",
 
-	// "TC_2.Abort.systemMode": ""
-	// "TC_2.Abort.abortReason": ""
+	"TC_2.Abort.systemMode": "abortSystemMode",
+	"TC_2.Abort.abortReason": "abortReason",
 
 
 	// *** TC_3 ***
 
-	// "TC_3.24VSupplyStats.supply24Voltage": ""
-	// "TC_3.24VSupplyStats.supply24Current": ""
-	// "TC_3.24VSupplyStats.supply24Power": ""
+	"TC_3.24VSupplyStats.supply24Voltage": "tc3Supply24Voltage",
+	"TC_3.24VSupplyStats.supply24Current": "tc3Supply24Current",
+	"TC_3.24VSupplyStats.supply24Power": "tc3Supply24Power",
 
-	// "TC_3.Values.values.0": ""
-	// "TC_3.Values.values.1": ""
-	// "TC_3.Values.values.2": ""
-	// "TC_3.Values.values.3": ""
-	// "TC_3.Values.values.4": ""
-	// "TC_3.Values.values.5": ""
-	// "TC_3.Values.values.6": ""
-	// "TC_3.Values.values.7": ""
+	// "TC_3.Values.values.0": "",
+	// "TC_3.Values.values.1": "",
+	// "TC_3.Values.values.2": "",
+	// "TC_3.Values.values.3": "",
+	// "TC_3.Values.values.4": "",
+	// "TC_3.Values.values.5": "",
+	// "TC_3.Values.values.6": "",
+	// "TC_3.Values.values.7": "",
 
-	// "TC_3.ActuatorContinuities.continuities.0": ""
-	// "TC_3.ActuatorContinuities.continuities.1": ""
-	// "TC_3.ActuatorContinuities.continuities.2": ""
-	// "TC_3.ActuatorContinuities.continuities.3": ""
-	// "TC_3.ActuatorContinuities.continuities.4": ""
-	// "TC_3.ActuatorContinuities.continuities.5": ""
-	// "TC_3.ActuatorContinuities.continuities.6": ""
-	// "TC_3.ActuatorContinuities.continuities.7": ""
+	// "TC_3.ColdJunctionTemperatures.values.0": "",
+	// "TC_3.ColdJunctionTemperatures.values.1": "",
+	// "TC_3.ColdJunctionTemperatures.values.2": "",
+	// "TC_3.ColdJunctionTemperatures.values.3": "",
+	// "TC_3.ColdJunctionTemperatures.values.4": "",
+	// "TC_3.ColdJunctionTemperatures.values.5": "",
+	// "TC_3.ColdJunctionTemperatures.values.6": "",
+	// "TC_3.ColdJunctionTemperatures.values.7": "",
 
-	// "TC_3.Faults.faults.0": ""
-	// "TC_3.Faults.faults.1": ""
-	// "TC_3.Faults.faults.2": ""
-	// "TC_3.Faults.faults.3": ""
-	// "TC_3.Faults.faults.4": ""
-	// "TC_3.Faults.faults.5": ""
-	// "TC_3.Faults.faults.6": ""
-	// "TC_3.Faults.faults.7": ""
+	// "TC_3.Faults.faults.0": "",
+	// "TC_3.Faults.faults.1": "",
+	// "TC_3.Faults.faults.2": "",
+	// "TC_3.Faults.faults.3": "",
+	// "TC_3.Faults.faults.4": "",
+	// "TC_3.Faults.faults.5": "",
+	// "TC_3.Faults.faults.6": "",
+	// "TC_3.Faults.faults.7": "",
 
-	// "TC_3.Abort.systemMode": ""
-	// "TC_3.Abort.abortReason": ""
+	"TC_3.Abort.systemMode": "abortSystemMode",
+	"TC_3.Abort.abortReason": "abortReason",
 
 
 	// *** ER_IPA ***
 
-	// "ER_IPA.PressureTelemetry.filteredUpstreamPressure1": ""
-	// "ER_IPA.PressureTelemetry.filteredUpstreamPressure2": ""
-	// "ER_IPA.PressureTelemetry.filteredDownstreamPressure1": ""
-	// "ER_IPA.PressureTelemetry.filteredDownstreamPressure2": ""
-	// "ER_IPA.PressureTelemetry.rawUpstreamPressure1": ""
-	// "ER_IPA.PressureTelemetry.rawUpstreamPressure2": ""
-	// "ER_IPA.PressureTelemetry.rawDownstreamPressure1": ""
-	// "ER_IPA.PressureTelemetry.rawDownstreamPressure2": ""
+	// "ER_IPA.PressureTelemetry.filteredUpstreamPressure1": "",
+	// "ER_IPA.PressureTelemetry.filteredUpstreamPressure2": "",
+	// "ER_IPA.PressureTelemetry.filteredDownstreamPressure1": "",
+	// "ER_IPA.PressureTelemetry.filteredDownstreamPressure2": "",
+	// "ER_IPA.PressureTelemetry.rawUpstreamPressure1": "",
+	// "ER_IPA.PressureTelemetry.rawUpstreamPressure2": "",
+	// "ER_IPA.PressureTelemetry.rawDownstreamPressure1": "",
+	// "ER_IPA.PressureTelemetry.rawDownstreamPressure2": "",
 
-	// "ER_IPA.MotorTelemetry.encoderAngle": ""
-	// "ER_IPA.MotorTelemetry.angleSetpoint": ""
-	// "ER_IPA.MotorTelemetry.pressureSetpoint": ""
-	// "ER_IPA.MotorTelemetry.motorPower": ""
-	// "ER_IPA.MotorTelemetry.pressureControlIP": ""
-	// "ER_IPA.MotorTelemetry.pressureControl": ""
-	// "ER_IPA.MotorTelemetry.pressureControlID": ""
-	// "ER_IPA.MotorTelemetry._reserved0": ""
+	// "ER_IPA.MotorTelemetry.encoderAngle": "",
+	// "ER_IPA.MotorTelemetry.angleSetpoint": "",
+	// "ER_IPA.MotorTelemetry.pressureSetpoint": "",
+	// "ER_IPA.MotorTelemetry.motorPower": "",
+	// "ER_IPA.MotorTelemetry.pressureControlIP": "",
+	// "ER_IPA.MotorTelemetry.pressureControl": "",
+	// "ER_IPA.MotorTelemetry.pressureControlID": "",
+	// "ER_IPA.MotorTelemetry._reserved0": "",
 
-	// "ER_IPA.Config.pressureSetpointConfig": ""
-	// "ER_IPA.Config.pOuterNominal": ""
-	// "ER_IPA.Config.iOuterNominal": ""
-	// "ER_IPA.Config.dOuterNominal": ""
-	// "ER_IPA.Config.pInner": ""
-	// "ER_IPA.Config.iInner": ""
-	// "ER_IPA.Config.dInner": ""
-	// "ER_IPA.Config.flowDurationSeconds": ""
+	// "ER_IPA.Config.pressureSetpointConfig": "",
+	// "ER_IPA.Config.pOuterNominal": "",
+	// "ER_IPA.Config.iOuterNominal": "",
+	// "ER_IPA.Config.dOuterNominal": "",
+	// "ER_IPA.Config.pInner": "",
+	// "ER_IPA.Config.iInner": "",
+	// "ER_IPA.Config.dInner": "",
+	// "ER_IPA.Config.flowDurationSeconds": "",
 
-	// "ER_IPA.Diagnostic.motorDirPass": ""
-	// "ER_IPA.Diagnostic.servoDirPass": ""
+	// "ER_IPA.Diagnostic.motorDirPass": "",
+	// "ER_IPA.Diagnostic.servoDirPass": "",
 
-	// "ER_IPA.StateTransitionError.errorCode": ""
+	// "ER_IPA.StateTransitionError.errorCode": "",
 
-	// "ER_IPA.FlowState.flowState": ""
+	// "ER_IPA.FlowState.flowState": "",
 
-	// "ER_IPA.LimitSwitch.fullyClosedSwitch": ""
-	// "ER_IPA.LimitSwitch.fullyOpenSwitch": ""
+	// "ER_IPA.LimitSwitch.fullyClosedSwitch": "",
+	// "ER_IPA.LimitSwitch.fullyOpenSwitch": "",
 
-	// "ER_IPA.PhaseCurrents.currentA": ""
-	// "ER_IPA.PhaseCurrents.currentB": ""
-	// "ER_IPA.PhaseCurrents.currentC": ""
+	// "ER_IPA.PhaseCurrents.currentA": "",
+	// "ER_IPA.PhaseCurrents.currentB": "",
+	// "ER_IPA.PhaseCurrents.currentC": "",
 
-	// "ER_IPA.Temperatures.boardTemp1": ""
-	// "ER_IPA.Temperatures.boardTemp2": ""
-	// "ER_IPA.Temperatures.motorTemp": ""
+	// "ER_IPA.Temperatures.boardTemp1": "",
+	// "ER_IPA.Temperatures.boardTemp2": "",
+	// "ER_IPA.Temperatures.motorTemp": "",
 
-	// "ER_IPA.OvercurrentTrigger.avgCurrent": ""
-	// "ER_IPA.OvercurrentTrigger.bufferSize": ""
+	// "ER_IPA.OvercurrentTrigger.avgCurrent": "",
+	// "ER_IPA.OvercurrentTrigger.bufferSize": "",
 
-	// "ER_IPA.CalibrationSettings.upstreamPt1.offset": ""
-	// "ER_IPA.CalibrationSettings.upstreamPt1.multiplier": ""
-	// "ER_IPA.CalibrationSettings.upstreamPt2.offset": ""
-	// "ER_IPA.CalibrationSettings.upstreamPt2.multiplier": ""
-	// "ER_IPA.CalibrationSettings.downstreamPt1.offset": ""
-	// "ER_IPA.CalibrationSettings.downstreamPt1.multiplier": ""
-	// "ER_IPA.CalibrationSettings.downstreamPt2.offset": ""
-	// "ER_IPA.CalibrationSettings.downstreamPt2.multiplier": ""
+	// "ER_IPA.CalibrationSettings.upstreamPt1.offset": "",
+	// "ER_IPA.CalibrationSettings.upstreamPt1.multiplier": "",
+	// "ER_IPA.CalibrationSettings.upstreamPt2.offset": "",
+	// "ER_IPA.CalibrationSettings.upstreamPt2.multiplier": "",
+	// "ER_IPA.CalibrationSettings.downstreamPt1.offset": "",
+	// "ER_IPA.CalibrationSettings.downstreamPt1.multiplier": "",
+	// "ER_IPA.CalibrationSettings.downstreamPt2.offset": "",
+	// "ER_IPA.CalibrationSettings.downstreamPt2.multiplier": "",
 
-	// "ER_IPA.Abort.systemMode": ""
-	// "ER_IPA.Abort.abortReason": ""
+	"ER_IPA.Abort.systemMode": "abortSystemMode",
+	"ER_IPA.Abort.abortReason": "abortReason",
 
+	"": ""
 }

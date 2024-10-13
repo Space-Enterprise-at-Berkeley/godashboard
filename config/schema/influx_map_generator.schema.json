@@ -1,0 +1,83 @@
+{
+	"type": "array",
+	"items": {
+		"type": "object",
+		"properties": {
+			"pattern": {
+				"type": "string",
+				"format": "regex"
+			},
+			"transforms": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"out": {
+							"type": "string",
+							"pattern": "[A-Za-z0-9]"
+						},
+						"if": {
+							"type": "object",
+							"anyOf": [
+								{
+									"properties": {
+										"cond": {
+											"enum": ["eq"]
+										},
+										"a": {
+											"type": "string"
+										},
+										"b": {
+											"type": "string"
+										}
+									}
+								}
+							]
+						}
+					},
+					"anyOf": [
+						{
+							"properties": {
+								"type": {"const": "func"},
+								"func": {
+									"enum": ["camel", "pascal"]
+								},
+								"in": {
+									"type": "string",
+									"pattern": "[A-Za-z0-9]"
+								}
+							}
+						},
+						{
+							"properties": {
+								"type": {"const": "substr"},
+								"start": {
+									"type": "integer"
+								},
+								"len": {
+									"type": "integer"
+								},
+								"in": {
+									"type": "string",
+									"pattern": "[A-Za-z0-9]"
+								}
+							}
+						},
+						{
+							"properties": {
+								"type": {"const": "const"},
+								"value": {
+									"type": "string"
+								}
+							}
+						}
+					]
+				}
+			},
+			"output": {
+				"type": "string"
+			}
+		},
+		"required": ["pattern", "output"]
+	}
+}

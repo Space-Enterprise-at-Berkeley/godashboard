@@ -13,8 +13,12 @@
 			"url": "./config/schema/window.schema.json"
 		},
 		{
-			"fileMatch": ["influx_map.jsonc"],
+			"fileMatch": ["/influx_map.jsonc"],
 			"url": "./config/schema/influx_map.schema.json"
+		},
+		{
+			"fileMatch": ["/influx_map_generator.jsonc"],
+			"url": "./config/schema/influx_map_generator.schema.json"
 		}
 	]
 }
