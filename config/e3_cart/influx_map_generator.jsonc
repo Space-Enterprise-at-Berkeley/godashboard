@@ -119,5 +119,112 @@
 			}
 		],
 		"output": "@aFillDp"
+	},
+	{
+		"pattern": "LC\\.Values\\.values\\..+",
+		"transforms": [
+			{
+				"type": "substr",
+				"start": 3,
+				"len": -1,
+				"in": "3",
+				"out": "a"
+			},
+			{
+				"type": "func",
+				"func": "camel",
+				"in": "a",
+				"out": "b"
+			}
+		],
+		"output": "@bLC"
+	},
+	{
+		"pattern": "PT\\.Values\\.values\\..+",
+		"transforms": [
+			{
+				"type": "substr",
+				"start": 3,
+				"len": -1,
+				"in": "3",
+				"out": "a"
+			},
+			{
+				"type": "func",
+				"func": "camel",
+				"in": "a",
+				"out": "b"
+			}
+		],
+		"output": "@bPT"
+	},
+	{
+		"pattern": "TC\\.Values\\.values\\..+",
+		"transforms": [
+			{
+				"type": "substr",
+				"start": 3,
+				"len": -1,
+				"in": "3",
+				"out": "a"
+			},
+			{
+				"type": "func",
+				"func": "camel",
+				"in": "a",
+				"out": "b"
+			}
+		],
+		"output": "@bTC"
+	},
+	{
+		"pattern": "CF_[^\\.]+\\.Capacitance\\..+",
+		"transforms": [
+			{
+				"type": "substr",
+				"start": 3,
+				"len": -1,
+				"in": "0",
+				"out": "a"
+			},
+			{
+				"type": "func",
+				"func": "camel",
+				"in": "a",
+				"out": "b"
+			},
+			{
+				"type": "func",
+				"func": "pascal",
+				"in": "2",
+				"out": "c"
+			}
+		],
+		"output": "@bCap@c"
+	},
+	{
+		"pattern": "ER_[^\\.]+\\.(PressureTelemetry|MotorTelemetry|Config|Diagnostic|StateTransitionError|FlowState|LimitSwitch|PhaseCurrents|Temperatures|OvercurrentTrigger)\\..+",
+		"transforms": [
+			{
+				"type": "substr",
+				"start": 3,
+				"len": -1,
+				"in": "0",
+				"out": "a"
+			},
+			{
+				"type": "func",
+				"func": "camel",
+				"in": "a",
+				"out": "b"
+			},
+			{
+				"type": "func",
+				"func": "pascal",
+				"in": "2",
+				"out": "c"
+			}
+		],
+		"output": "@bEreg@c"
 	}
 ]
