@@ -67,7 +67,7 @@ func _ready() -> void:
 	config = res
 	exists = true
 	config_update.emit()
-	if true:
+	if false:
 		var generator_file: FileAccess = FileAccess.open("res://config/e3_cart/influx_map_generator.jsonc", FileAccess.READ)
 		var generator_text: String = generator_file.get_as_text()
 		var generator: Variant = parse_config(generator_text)

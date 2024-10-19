@@ -121,6 +121,18 @@
 		"output": "@aFillDp"
 	},
 	{
+		"pattern": "AC_[^\\.]+\\.GemDutyCycle\\.gemsDutyCycle",
+		"transforms": [
+			{
+				"type": "func",
+				"func": "camel",
+				"in": "0",
+				"out": "a"
+			}
+		],
+		"output": "@aGemsDutyCycle"
+	},
+	{
 		"pattern": "LC\\.Values\\.values\\..+",
 		"transforms": [
 			{

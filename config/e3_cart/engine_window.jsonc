@@ -36,19 +36,19 @@
 			// THE LABEL NUMBER IS WHAT THE CHANNEL IS NUMBERED ON THE CASE
 			// THE FIELD NUMBER IS WHAT THE CHANNEL IS NUMBERED IN THE CODE
 				{
-					"field": "engineLC2",
+					"field": "engine2LC",
 					"name": "Eng LC1",
 					"units": "kg",
 					"color": [0, 255, 255]
 				},
 				{
-					"field": "engineLC1",
+					"field": "engine1LC",
 					"name": "Eng LC2",
 					"units": "kg",
 					"color": [30, 144, 255]
 				},
 				{
-					"field": "engineLC3",
+					"field": "engine3LC",
 					"name": "Eng LC3",
 					"units": "kg",
 					"color": [178, 34, 34]
@@ -76,7 +76,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "chamberPT0",
+					"field": "chamber0PT",
 					"name": "ChamberPT0",
 					"units": "PSI",
 					"color": [127, 0, 255]
@@ -88,19 +88,19 @@
 					"color": [77, 73, 251]
 				},
 				{
-					"field": "enginePT2",
+					"field": "engine2PT",
 					"name": "Eng PT2",
 					"units": "",
 					"color": [25, 149, 242]
 				},
 				{
-					"field": "enginePT3",
+					"field": "engine3PT",
 					"name": "Eng PT3",
 					"units": "",
 					"color": [24, 205, 227]
 				},
 				{
-					"field": "enginePT4",
+					"field": "engine4PT",
 					"name": "Eng PT4",
 					"units": "",
 					"color": [76, 242, 206]
@@ -111,25 +111,25 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "engineTC0",
+					"field": "engine0TC",
 					"name": "Eng TC0",
 					"units": "C",
 					"color": [123, 0, 255]
 				},
 				{
-					"field": "engineTC1",
+					"field": "engine1TC",
 					"name": "Eng TC1",
 					"units": "",
 					"color": [0, 16, 255]
 				},
 				{
-					"field": "engineTC2",
+					"field": "engine2TC",
 					"name": "Eng TC2",
 					"units": "",
 					"color": [0, 164, 255]
 				},
 				{
-					"field": "engineTC3",
+					"field": "engine3TC",
 					"name": "Eng TC3",
 					"units": "",
 					"color": [63, 255, 183]
@@ -150,7 +150,7 @@
 					"units": "V"
 				},
 				{
-					"field": "iregEncoderAngle",
+					"field": "ipaEregEncoderAngle",
 					"name": "IReg Encoder",
 					"units": "ticks"
 				},
@@ -165,7 +165,7 @@
 					"units": ""
 				},
 				{
-					"field": "iregAngleSetpoint",
+					"field": "ipaEregAngleSetpoint",
 					"name": "IReg Setpoint",
 					"units": "ticks"
 				}
@@ -175,31 +175,31 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "chamberPT1",
+					"field": "chamber1PT",
 					"name": "ChamberPT1",
 					"units": "",
 					"color": [128, 254, 206]
 				},
 				{
-					"field": "enginePT7",
+					"field": "engine7PT",
 					"name": "Eng PT7",
 					"units": "",
 					"color": [178, 242, 150]
 				},
 				{
-					"field": "enginePT8",
+					"field": "engine8PT",
 					"name": "Eng PT8",
 					"units": "",
 					"color": [230, 205, 115]
 				},
 				{
-					"field": "enginePT9",
+					"field": "engine9PT",
 					"name": "Eng PT9",
 					"units": "",
 					"color": [255, 150, 79] 
 				},
 				{
-					"field": "enginePT10",
+					"field": "engine10PT",
 					"name": "Eng PT10",
 					"units": "",
 					"color": [255, 77, 39]
@@ -210,31 +210,31 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "engineTC4",
+					"field": "engine4TC",
 					"name": "Eng TC4",
 					"units": "",
 					"color": [183, 255, 63]
 				},
 				{
-					"field": "engineTC5",
+					"field": "engine5TC",
 					"name": "TC5",
 					"units": "",
 					"color": [255, 185, 0]
 				},
 				{
-					"field": "engineTC6",
+					"field": "engine6TC",
 					"name": "TC6",
 					"units": "",
 					"color": [255, 150, 79]
 				},
 				{
-					"field": "engineTC7",
+					"field": "engine7TC",
 					"name": "TC7",
 					"units": "",
 					"color": [255, 48, 0]
 				},
 				{
-					"field": "engineTC8",
+					"field": "engine8TC",
 					"name": "TC8",
 					"units": "",
 					"color": [255, 0, 255]

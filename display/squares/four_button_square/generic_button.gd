@@ -59,6 +59,8 @@ func setup(config: Dictionary, is_null: bool) -> void:
 	field = config.get("field", "")
 	green = config.get("green", [])
 	actions = config.get("actions", {})
+	if field != "" and field.split("@")[0] not in Config.config["influxMap"].values():
+		print("Field %s not in Influx map. This data may not work" % field)
 	for action_type: String in actions:
 		var action: Dictionary = actions[action_type]
 		var current_button: Button = null

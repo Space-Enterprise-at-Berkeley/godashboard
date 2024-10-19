@@ -12,13 +12,13 @@
 					"color": [218, 165, 32]
 				},
 				{
-					"field": "nosFillPT",
+					"field": "nosFillLinePT",
 					"name": "Fill",
 					"units": "PSI",
 					"color": [30, 144, 255]
 				},
 				{
-					"field": "nosAutoventPressure",
+					"field": "ac2AutoventPressure",
 					"name": "AV",
 					"units": "PSI",
 					"color": [178, 34, 34]
@@ -35,13 +35,13 @@
 					"color": [218, 165, 32]
 				},
 				{
-					"field": "ipaPressPT",
+					"field": "ipaEregFilteredUpstreamPressure1",
 					"name": "Press",
 					"units": "PSI",
 					"color": [30, 144, 255]
 				},
 				{
-					"field": "ipaAutoventPressure",
+					"field": "ac3AutoventPressure",
 					"name": "AV",
 					"units": "PSI",
 					"color": [178, 34, 34]
@@ -62,7 +62,7 @@
 					"units": "PSI/s"
 				},
 				{
-					"field": "nosGemsDutyCycle", 
+					"field": "ac2GemsDutyCycle", 
 					"name": "NOS Duty Cycle",
 					"units": ""
 				},
@@ -77,7 +77,7 @@
 					"units": "PSI"
 				},
 				{
-					"field": "ipaGemsDutyCycle",
+					"field": "ac3GemsDutyCycle",
 					"name": "IPA Duty Cycle",
 					"units": ""
 				}
@@ -87,13 +87,13 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "ncapCap",
+					"field": "nosCapCap",
 					"name": "Nitrous Cap Fill Value",
 					"units": "pF",
 					"color": [218, 165, 32]
 				},
 				{
-					"field": "icapCap",
+					"field": "ipaCapCap",
 					"name": "IPA Cap Fill Value",
 					"units": "pF",
 					"color": [30, 144, 255]
@@ -104,13 +104,13 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "iregEncoderAngle",
+					"field": "ipaEregEncoderAngle",
 					"name": "I-Reg Encoder Angle",
 					"units": "Ticks",
 					"color": [218, 165, 32]
 				},
 				{
-					"field": "iregAngleSetpoint",
+					"field": "ipaEregAngleSetpoint",
 					"name": "Setpoint",
 					"units": "Ticks",
 					"color": [30, 144, 255]
@@ -175,13 +175,13 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "nosTankLC0",
+					"field": "nosLC",
 					"name": "NOS LC",
 					"units": "kg",
 					"color": [218, 165, 32]
 				},
 				{
-					"field": "ipaTankLC0",
+					"field": "ipaLC",
 					"name": "IPA LC",
 					"units": "kg",
 					"color": [30, 144, 255]

@@ -139,12 +139,11 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 		Logger.warn("Invalid checksum from board %s (packet id %d)" % [board, id])
 		packet.error = true
 		return packet
-	var board_type: String = Config.config["boards"][board]["type"]
-	if not Config.config["packets"][board_type].has(str(id)):
+	if not Config.config["packets"][board].has(str(id)):
 		Logger.debug("Unrecognized packet %d on board %s" % [id, board])
 		packet.error = true
 		return packet
-	var definition: Array = Config.config["packets"][board_type][str(id)]
+	var definition: Array = Config.config["packets"][board][str(id)]
 	var mapped_update: Dictionary = {}
 	var influx_map: Dictionary = Config.config["influxMap"]
 	var offset: int = 0
