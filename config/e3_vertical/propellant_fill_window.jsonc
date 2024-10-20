@@ -1,0 +1,226 @@
+{
+	"name": "Propellant Fill",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "nosTankPT",
+					"name": "NOS Tank",
+					"units": "PSI",
+					"color": [218, 165, 32]
+				},
+				{
+					"field": "nosFillPT",
+					"name": "Fill",
+					"units": "PSI",
+					"color": [30, 144, 255]
+				},
+				{
+					"field": "nosAutoventPressure",
+					"name": "AV",
+					"units": "PSI",
+					"color": [178, 34, 34]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "ipaTankPT",
+					"name": "IPA Tank",
+					"units": "PSI",
+					"color": [218, 165, 32]
+				},
+				{
+					"field": "ipaUpstreamPT",
+					"name": "Press",
+					"units": "PSI",
+					"color": [30, 144, 255]
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosTankPT@roc",
+					"name": "NOS Tank RoC",
+					"units": "PSI/s"
+				},
+				{
+					"field": "ipaTankPT@roc",
+					"name": "IPA Tank RoC",
+					"units": "PSI/s"
+				},
+				{
+					"field": "gemsDutyCycle", 
+					"name": "GEMS Duty Cycle",
+					"units": ""
+				},
+				{
+					"field": "nosTankPT", 
+					"name": "NOS Tank PT",
+					"units": "PSI"
+				},
+				{
+					"field": "ipaTankPT", 
+					"name": "IPA Tank PT",
+					"units": "PSI"
+				},
+				{
+					"field": "heaterTC",
+					"name": "Heater TC",
+					"units": "C"
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "ncapCap",
+					"name": "Nitrous Cap Fill Value",
+					"units": "pF",
+					"color": [218, 165, 32]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "eregEncoderAngle",
+					"name": "E-Reg Encoder Angle",
+					"units": "Ticks",
+					"color": [218, 165, 32]
+				},
+				{
+					"field": "eregAngleSetpoint",
+					"name": "Setpoint",
+					"units": "Ticks",
+					"color": [30, 144, 255]
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "autoventThreshold",
+					"type": "ereg-timed",
+					"name": "Autovent Threshold",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"target": "nosAutoventThreshold"
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"target": "nosAutoventThreshold"
+						}
+					},
+					"safe": true
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "empty"
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "tankLC0",
+					"name": "Tank LC 0",
+					"units": "kg",
+					"color": [218, 165, 32]
+				},
+				{
+					"field": "tankLC1",
+					"name": "Tank LC 1",
+					"units": "kg",
+					"color": [30, 144, 255]
+				},
+				{
+					"field": "tankLC2",
+					"name": "Tank LC 2",
+					"units": "kg",
+					"color": [178, 34, 34]
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "nosDrain",
+					"type": "valve",
+					"name": "NOS Drain",
+					"field": "nosDrainState",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"target": "nosDrain"
+						},
+						"disable": {
+							"type": "off",
+							"target": "nosDrain"
+						}
+					},
+					"green": [0, 1],
+					"safe": true
+				},
+				{
+					"id": "emergencyVent",
+					"type": "valve",
+					"name": "E-Vent",
+					"field": "emergencyVentState",
+					"actions": {
+						"enable": {
+							"type": "off",
+							"target": "emergencyVent"
+						},
+						"disable": {
+							"type": "on",
+							"target": "emergencyVent"
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"id": "gems",
+					"type": "valve",
+					"name": "GEMS",
+					"field": "gemsState",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"target": "gems"
+						},
+						"disable": {
+							"type": "off",
+							"target": "gems"
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"type": null
+				}
+			]
+		}
+	]
+}

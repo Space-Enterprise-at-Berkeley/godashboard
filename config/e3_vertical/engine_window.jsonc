@@ -1,0 +1,146 @@
+{
+	"name": "Engine",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "empty"
+		},
+		{
+			"type": "empty"
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "nosInjectorPT",
+					"name": "NOS Injector PT",
+					"units": "PSI",
+					"color": [218, 165, 32]
+				},
+				{
+					"field": "ipaInjectorPT",
+					"name": "IPA Injector PT",
+					"units": "PSI",
+					"color": [30, 144, 255]
+				}
+		
+			]
+		},
+		{
+			"type": "empty"
+		},
+		{
+			"type": "empty"
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "igniterPT",
+					"name": "Igniter PT",
+					"units": "PSI",
+					"color": [218, 165, 32]
+				},
+				{
+					"field": "chamberPT",
+					"name": "Chamber PT",
+					"units": "PSI",
+					"color": [30, 144, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "engineTC0",
+					"name": "Eng TC0",
+					"units": "",
+					"color": [183, 255, 63]
+				},
+				{
+					"field": "engineTC1",
+					"name": "TC1",
+					"units": "",
+					"color": [255, 185, 0]
+				},
+				{
+					"field": "engineTC2",
+					"name": "TC2",
+					"units": "",
+					"color": [255, 150, 79]
+				},
+				{
+					"field": "engineTC3",
+					"name": "TC3",
+					"units": "",
+					"color": [255, 48, 0]
+				},
+				{
+					"field": "engineTC4",
+					"name": "TC4",
+					"units": "",
+					"color": [255, 0, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "engineTC5",
+					"name": "Eng TC5",
+					"units": "",
+					"color": [183, 255, 63]
+				},
+				{
+					"field": "engineTC6",
+					"name": "TC6",
+					"units": "",
+					"color": [255, 185, 0]
+				},
+				{
+					"field": "engineTC7",
+					"name": "TC7",
+					"units": "",
+					"color": [255, 150, 79]
+				},
+				{
+					"field": "engineTC8",
+					"name": "TC8",
+					"units": "",
+					"color": [255, 48, 0]
+				},
+				{
+					"field": "engineTC9",
+					"name": "TC9",
+					"units": "",
+					"color": [255, 0, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "engineLC0",
+					"name": "Engine LC 0",
+					"units": "kg",
+					"color": [218, 165, 32]
+				},
+				{
+					"field": "engineLC1",
+					"name": "Engine LC 1",
+					"units": "kg",
+					"color": [30, 144, 255]
+				},
+				{
+					"field": "engineLC2",
+					"name": "Engine LC 2",
+					"units": "kg",
+					"color": [178, 34, 34]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,369 @@
+{
+	"name": "Controls",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "arm",
+					"type": "valve",
+					"name": "ARM",
+					"field": "armState",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"target": "arm"
+						},
+						"disable": {
+							"type": "off",
+							"target": "arm"
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"id": "ipaMain",
+					"type": "valve",
+					"name": "IPA Main Valve",
+					"field": "ipaMainState",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"target": "ipaMain"
+						},
+						"disable": {
+							"type": "off",
+							"target": "ipaMain"
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"id": "mainVent",
+					"type": "valve",
+					"name": "Main Vent",
+					"field": "mainVentState",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"target": "mainVent"
+						},
+						"disable": {
+							"type": "off",
+							"target": "mainVent"
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"id": "nosMain",
+					"type": "valve",
+					"name": "NOS Main Valve",
+					"field": "nosMainState",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"target": "nosMain"
+						},
+						"disable": {
+							"type": "off",
+							"target": "nosMain"
+						}
+					},
+					"green": [0, 1]
+				}
+			]
+		},
+		{
+			"type": "empty"
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "heartbeatEnable",
+					"type": "valve",
+					"name": "Heatbeat Enable",
+					"field": "",
+					"actions": {
+						"enable": {
+							"type": "enable-heartbeat"
+						},
+						"disable": {
+							"type": "disable-heartbeat"
+						}
+					}
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "resetEreg",
+					"type": "ereg",
+					"name": "Reset E-Reg",
+					"field": "",
+					"actions": {
+						"lox": {
+							"type": "signal",
+							"target": "eregReset"
+						},
+						"fuel": {
+							"type": "signal",
+							"target": "eregReset"
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "eregPartialOpen",
+					"type": "ereg-timed",
+					"name": "E-Reg Partial Open",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"target": "eregPartialOpen"
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"target": "eregPartialOpen"
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "eregStaticPress",
+					"type": "ereg",
+					"name": "Static Press",
+					"field": "",
+					"actions": {
+						"lox": {
+							"type": "signal",
+							"target": "eregStaticPress"
+						},
+						"fuel": {
+							"type": "signal",
+							"target": "eregStaticPress"
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "eregDiagnostic",
+					"type": "ereg",
+					"name": "Run Diagnostic",
+					"field": "",
+					"actions": {
+						"lox": {
+							"type": "signal",
+							"target": "eregDiagnostic"
+						},
+						"fuel": {
+							"type": "signal",
+							"target": "eregDiagnostic"
+						}
+					},
+					"safe": true
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "nosFill",
+					"type": "timed",
+					"name": "NOS Fill",
+					"field": "nosFillState",
+					"actions": {
+						"enable": {
+							"type": null
+						},
+						"disable": {
+							"type": "retract-full",
+							"target": "nosFill"
+						},
+						"enable-timed": {
+							"type": "extend-timed",
+							"target": "nosFill"
+						},
+						"disable-timed": {
+							"type": "retract-timed",
+							"target": "nosFill"
+						}
+					},
+					"keyEnable": 83, // s
+					"keyDisable": 65, // a
+					"safe": true,
+					"green": [0, 1]
+				},
+				{
+					"id": "nosLineVent",
+					"type": "timed",
+					"name": "NOS Line Vent",
+					"field": "nosLineVentState",
+					"actions": {
+						"enable": {
+							"type": null
+						},
+						"disable": {
+							"type": "retract-full",
+							"target": "nosLineVent"
+						},
+						"enable-timed": {
+							"type": "extend-timed",
+							"target": "nosLineVent"
+						},
+						"disable-timed": {
+							"type": "retract-timed",
+							"target": "nosLineVent"
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "logs"
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "igniter",
+					"type": "valve",
+					"name": "Igniter",
+					"field": "igniterState",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"target": "igniter"
+						},
+						"disable": {
+							"type": "off",
+							"target": "igniter"
+						}
+					},
+					"safe" : true,
+					"green": [0, 1]
+				},
+				{
+					"id": "nitrousLaunchEnable",
+					"type": "switch",
+					"name": "Nitrous Enable",
+					"field": "",
+					"actions": {
+						"enable": {
+							"type": "enable",
+							"id": "nitrousEnable"
+						},
+						"disable": {
+							"type": "disable",
+							"id": "nitrousEnable"
+						}
+					}
+				},
+				{
+					"type": null
+				},
+				{
+					"id": "ipaLaunchEnable",
+					"type": "switch",
+					"name": "IPA Enable",
+					"field": "",
+					"actions": {
+						"enable": {
+							"type": "enable",
+							"id": "ipaEnable"
+						},
+						"disable": {
+							"type": "disable",
+							"id": "ipaEnable"
+						}
+					}
+				}
+			]
+		},
+		{
+			"type": "launch"
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "nosDrain",
+					"type": "valve",
+					"name": "NOS Drain",
+					"field": "nosDrainState",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"target": "nosDrain"
+						},
+						"disable": {
+							"type": "off",
+							"target": "nosDrain"
+						}
+					},
+					"green": [0, 1],
+					"safe": true
+				},
+				{
+					"id": "emergencyVent",
+					"type": "valve",
+					"name": "E-Vent",
+					"field": "emergencyVentState",
+					"actions": {
+						"enable": {
+							"type": "off",
+							"target": "emergencyVent"
+						},
+						"disable": {
+							"type": "on",
+							"target": "emergencyVent"
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"id": "gems",
+					"type": "valve",
+					"name": "GEMS",
+					"field": "gemsState",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"target": "gems"
+						},
+						"disable": {
+							"type": "off",
+							"target": "gems"
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"type": null
+				}
+			]
+		}
+	]
+}

@@ -1,5 +1,5 @@
 {
-	"boards": "$e3_cart/boards.jsonc",
+	"boards": "$e3_vertical/boards.jsonc",
 	"packets": {
 		"ac": "$boards/ac_board.jsonc",
 		"pt": "$boards/pt_board.jsonc",
@@ -9,24 +9,24 @@
 		"flightV4": "$boards/flightV4_board.jsonc",
 		"cap": "$boards/cap_board.jsonc"
 	},
-	"influxMap": "$e3_cart/influx_map.jsonc",
-	"commandMap": "$e3_cart/command_map.jsonc",
+	"influxMap": "$e3_vertical/influx_map.jsonc",
+	"commandMap": "$e3_vertical/command_map.jsonc",
 	"windows": {
 		"packet_simulator": "$packet_simulator_window.jsonc",
-		"controls": "$e3_cart/controls_window.jsonc",
-		"pressures": "$e3_cart/pressures_window.jsonc",
-		"propellant_fill": "$e3_cart/propellant_fill_window.jsonc",
-		"engine": "$e3_cart/engine_window.jsonc",
-		"boards_status": "$e3_cart/boards_status_window.jsonc",
-		"actuators_status": "$e3_cart/actuators_status_window.jsonc",
-		"cameras": "$e3_cart/cameras_window.jsonc",
-		"influx_test": "$influx_test_window.jsonc"
+		"controls": "$e3_vertical/controls_window.jsonc",
+		"pressures": "$e3_vertical/pressures_window.jsonc",
+		"propellant_fill": "$e3_vertical/propellant_fill_window.jsonc",
+		"engine": "$e3_vertical/engine_window.jsonc",
+		"boards_status": "$e3_vertical/boards_status_window.jsonc",
+		"actuators_status": "$e3_vertical/actuators_status_window.jsonc"
+		// "cameras": "$e3_vertical/cameras_window.jsonc",
+		// "influx_test": "$influx_test_window.jsonc"
 	},
 	"burnTime": 45000, // ms
 	// TODO: coldflow modes with ereg pressurization
 	"mode": 2, // 0 = launch, 1 = hotfire, 2 = coldflow, 3 = coldflow with igniter, 4 = gasflow
 	"controller": "ac1",
-	"windowPresets": "$e3_cart/window_presets.jsonc",
+	"windowPresets": "$e3_vertical/window_presets.jsonc",
 	"quickWindowPresets": ["main", "debug", "empty"],
 	"cameras": [{"id": 0, "name": "testcam", "ip": "10.0.0.201"}]
 }

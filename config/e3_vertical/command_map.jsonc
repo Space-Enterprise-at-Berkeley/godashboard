@@ -1,0 +1,73 @@
+{
+
+	// PT Board 1
+
+	"zeroPT1": ["pt1", 100, null],
+
+	// PT Board 2
+
+	"zeroPT2": ["pt2", 100, null],
+
+	// Ereg Board 
+
+	// "zeroPTEreg": ["ireg", 100, 0],
+
+	// "calibratePTEreg": ["ireg", 101, 0],
+	
+	// LC Board 1
+
+	"zeroLC1": ["lc1", 100, null],
+
+	// LC Board 2
+
+	"zeroLC2": ["lc2", 100, null],
+
+	// AC Board 1
+
+	// "": ["ac1", 100, 0],
+	"mainVent": ["ac1", 100, 1],
+	// "": ["ac1", 100, 2],
+	"arm": ["ac1", 100, 3],
+	"nosMain": ["ac1", 100, 4],
+	"ipaMain": ["ac1", 100, 5],
+	// "": ["ac1", 100, 6],
+	"igniter": ["ac1", 100, 7],
+
+	// AC Board 2
+
+	"gems": ["ac2", 100, 0],
+	// "nosFill": ["ac2", 100, 1],
+	// "nosSlowVent": ["ac2", 100, 2],
+	"nosLineVent": ["ac2", 100, 3],
+	"emergencyVent": ["ac2", 100, 4],
+	"nosDrain": ["ac2", 100, 5],
+	// "nosSlowVent": ["ac2", 100, 6],
+	"nosFill": ["ac2", 100, 7],
+
+	"nosAutomation": ["ac2", 123, null],
+	"nosAutoventThreshold": ["ac2", 124, null],
+
+	// AC Board 3
+
+	// "ipaGems": ["ac3", 100, 0],
+	// // "ipaFill": ["ac3", 100, 1],
+	// "ipaSlowVent": ["ac3", 100, 2],
+	// // "ipaLineVent": ["ac3", 100, 3],
+	// "ipaEmergencyVent": ["ac3", 100, 4],
+	// "ipaDrain": ["ac3", 100, 5],
+	// "ipaPressFlow": ["ac3", 100, 6],
+	// // "": ["ac3", 100, 7],
+	
+	// "ipaAutoventThreshold": ["ac3", 124, null],
+
+	// IPA E-Reg
+
+	"eregReset": ["ereg", 133, null],
+	"eregBeginFlow": ["ereg", 200, null],
+	"eregPartialOpen": ["ereg", 202, null],
+	"eregStaticPress": ["ereg", 203, null],
+	"eregDiagnostic": ["ereg", 204, null],
+
+	// To make commas easier
+	"": ""
+}
