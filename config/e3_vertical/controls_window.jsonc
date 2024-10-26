@@ -76,7 +76,45 @@
 			]
 		},
 		{
-			"type": "empty"
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "ipaPressFlow",
+					"type": "timed",
+					"name": "IPA Press Flow",
+					"field": "ipaPressFlowState",
+					"actions": {
+						"enable": {
+							"type": null
+						},
+						"disable": {
+							"type": "retract-full",
+							"target": "ipaPressFlow"
+						},
+						"enable-timed": {
+							"type": "extend-timed",
+							"target": "ipaPressFlow"
+						},
+						"disable-timed": {
+							"type": "retract-timed",
+							"target": "ipaPressFlow"
+						}
+					},
+					"keyEnable": 87, // w
+					"keyDisable": 81, // q
+					"safe": true,
+					"green": [0, 1]
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				}
+			]
 		},
 		{
 			"type": "four-button",

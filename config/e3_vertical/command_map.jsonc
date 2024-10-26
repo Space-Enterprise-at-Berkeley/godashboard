@@ -55,7 +55,7 @@
 	// // "ipaLineVent": ["ac3", 100, 3],
 	// "ipaEmergencyVent": ["ac3", 100, 4],
 	// "ipaDrain": ["ac3", 100, 5],
-	// "ipaPressFlow": ["ac3", 100, 6],
+	"ipaPressFlow": ["ac3", 100, 6],
 	// // "": ["ac3", 100, 7],
 	
 	// "ipaAutoventThreshold": ["ac3", 124, null],
