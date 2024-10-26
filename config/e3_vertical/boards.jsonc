@@ -7,10 +7,10 @@
 		"type": "ac",
 		"address": "10.0.0.12"
 	},
-	// "ac3": {
-	// 	"type": "ac",
-	// 	"address": "10.0.0.13"
-	// },
+	"ac3": {
+		"type": "ac",
+		"address": "10.0.0.13"
+	},
 	"tc1": {
 		"type": "tc",
 		"address": "10.0.0.51"
