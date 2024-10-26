@@ -18,8 +18,8 @@
 		"propellant_fill": "$e3_vertical/propellant_fill_window.jsonc",
 		"engine": "$e3_vertical/engine_window.jsonc",
 		"boards_status": "$e3_vertical/boards_status_window.jsonc",
-		"actuators_status": "$e3_vertical/actuators_status_window.jsonc"
-		// "cameras": "$e3_vertical/cameras_window.jsonc",
+		"actuators_status": "$e3_vertical/actuators_status_window.jsonc",
+		"cameras": "$e3_vertical/cameras_window.jsonc"
 		// "influx_test": "$influx_test_window.jsonc"
 	},
 	"burnTime": 45000, // ms
@@ -28,5 +28,5 @@
 	"controller": "ac1",
 	"windowPresets": "$e3_vertical/window_presets.jsonc",
 	"quickWindowPresets": ["main", "debug", "empty"],
-	"cameras": [{"id": 0, "name": "testcam", "ip": "10.0.0.201"}]
+	"cameras": [{"id": 203, "name": "testcam", "ip": "10.0.0.203"}]
 }
