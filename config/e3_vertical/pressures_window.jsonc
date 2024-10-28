@@ -12,6 +12,12 @@
 					"color": [218, 165, 32]
 				},
 				{
+				"field": "eregNosTankPT",
+				"name": "[EREG] NOS Tank PT",
+				"units": "PSI",
+				"color": [218, 165, 255]
+				},
+				{
 					"field": "nosFillPT",
 					"name": "NOS Fill Line PT",
 					"units": "PSI",
@@ -127,8 +133,8 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "eregPressPT",
-					"name": "E-Reg Press PT",
+					"field": "ipaUpstreamPT",
+					"name": "N2 Press PT",
 					"units": "PSI",
 					"color": [218, 165, 32]
 				}

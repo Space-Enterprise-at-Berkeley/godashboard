@@ -56,7 +56,7 @@
 	"pt1.ptValue2": "mainValvePT",
 	"pt1.ptValue3": "solenoidPanelPT",
 	"pt1.ptValue4": "ipaTankPT",
-	"pt1.ptValue5": "ipaUpstreamPT",
+	// "pt1.ptValue5": "ipaUpstreamPT",
 	"pt1.ptValue6": "nosFillPT",
 	"pt1.ptValue7": "ipaFillPT",
 
@@ -107,9 +107,9 @@
 	"lc1.lcSupply24Current": "lc1Supply24Current",
 	"lc1.lcSupply24Power": "lc1Supply24Power",
 
-	"lc1.lcValue0": "tankLC0",
-	"lc1.lcValue1": "tankLC1",
-	"lc1.lcValue2": "tankLC2",
+	"lc1.lcValue0": "engineLC0",
+	"lc1.lcValue1": "engineLC1",
+	"lc1.lcValue2": "engineLC2",
 	// "lc1.lcValue3": "ipaTankLC1",
 
 	// LC Board 2
@@ -121,9 +121,9 @@
 	"lc2.lcSupply24Current": "lc2Supply24Current",
 	"lc2.lcSupply24Power": "lc2Supply24Power",
 
-	"lc2.lcValue0": "engineLC0",
-	"lc2.lcValue1": "engineLC1",
-	"lc2.lcValue2": "engineLC2",
+	"lc2.lcValue0": "tankLC0",
+	"lc2.lcValue1": "tankLC1",
+	"lc2.lcValue2": "tankLC2",
 	// "lc2.lcValue3": "engineLC3",
 
 	// AC Board 1
@@ -276,10 +276,11 @@
 	"ereg.boardKbps": "eregKbps",
 
 	// "ereg.filteredUpstreamPressure1": "eregFilteredUpstreamPressure",
-	"ereg.filteredUpstreamPressure1": "eregPressPT",
+	// "ereg.filteredUpstreamPressure1": "eregPressPT",
+	"ereg.filteredUpstreamPressure1": "ipaUpstreamPT",
 	"ereg.filteredUpstreamPressure2": "eregFilteredUpstreamPressure2",
 	"ereg.filteredDownstreamPressure1": "eregFilteredDownstreamPressure",
-	"ereg.filteredDownstreamPressure2": "eregFilteredDownstreamPressure2",
+	"ereg.filteredDownstreamPressure2": "eregNosTankPT",
 	"ereg.rawUpstreamPressure1": "eregRawUpstreamPressure",
 	"ereg.rawUpstreamPressure2": "eregRawUpstreamPressure2",
 	"ereg.rawDownstreamPressure1": "eregRawDownstreamPressure",
