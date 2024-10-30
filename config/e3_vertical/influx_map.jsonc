@@ -236,7 +236,7 @@
 	// // "ac3.actuatorState3": "ipaLineVentState",
 	// "ac3.actuatorState4": "ipaEmergencyVentState",
 	// "ac3.actuatorState5": "ipaDrainState",
-	// "ac3.actuatorState6": "ipaPressFlowState",
+	"ac3.actuatorState6": "ipaPressFlowState",
 	// // "ac3.actuatorState7": "",
 
 	// "ac3.actuatorContinuity0": "ipaGemsContinuity",
@@ -245,7 +245,7 @@
 	// // "ac3.actuatorContinuity3": "ipaLineVentContinuity",
 	// "ac3.actuatorContinuity4": "ipaEmergencyVentContinuity",
 	// "ac3.actuatorContinuity5": "ipaDrainContinuity",
-	// "ac3.actuatorContinuity6": "ipaPressFlowContinuity",
+	"ac3.actuatorContinuity6": "ipaPressFlowContinuity",
 	// // "ac3.actuatorContinuity7": "",
 
 	// "ac3.actuatorCurrent0": "ipaGemsCurrent",
@@ -254,7 +254,7 @@
 	// // "ac3.actuatorCurrent3": "ipaLineVentCurrent",
 	// "ac3.actuatorCurrent4": "ipaEmergencyVentCurrent",
 	// "ac3.actuatorCurrent5": "ipaDrainCurrent",
-	// "ac3.actuatorCurrent6": "ipaPressFlowCurrent",
+	"ac3.actuatorCurrent6": "ipaPressFlowCurrent",
 	// // "ac3.actuatorCurrent7": "",
 
 	// "ac3.potentiometer0": "ipaGemsPot",
@@ -263,7 +263,7 @@
 	// // "ac3.potentiometer3": "ipaLineVentPot",
 	// "ac3.potentiometer4": "ipaEmergencyVentPot",
 	// "ac3.potentiometer5": "ipaDrainPot",
-	// "ac3.potentiometer6": "ipaPressFlowPot",
+	"ac3.potentiometer6": "ipaPressFlowPot",
 	// // "ac3.potentiometer7": "",
 
 	// "ac3.autoventPressure": "ipaAutoventPressure",
