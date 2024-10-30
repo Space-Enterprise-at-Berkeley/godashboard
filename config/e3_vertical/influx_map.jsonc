@@ -219,7 +219,7 @@
 	"ac2.autoventPressure": "nosAutoventPressure",
 	"ac2.automationState": "nosAutomationState",
 
-	"ac2.gemsDutyCycle": "nosGemsDutyCycle",
+	"ac2.gemsDutyCycle": "gemsDutyCycle",
 
 	// AC Board 3
 

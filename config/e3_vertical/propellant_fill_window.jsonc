@@ -70,7 +70,7 @@
 				{
 					"field": "gemsDutyCycle", 
 					"name": "GEMS Duty Cycle",
-					"units": ""
+					"units": "%"
 				},
 				{
 					"field": "nosTankPT", 
