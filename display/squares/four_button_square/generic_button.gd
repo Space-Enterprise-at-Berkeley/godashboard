@@ -216,9 +216,9 @@ func _execute_action(action: Dictionary) -> void:
 		"zero":
 			Databus.send_packet(board, packet, [Databus.make_uint8(_get_time_int())])
 		"enable-heartbeat":
-			Globals.heartbeat_enabled = true
+			Databus.send_packet("bcast", 251, [Databus.make_uint8(1)])
 		"disable-heartbeat":
-			Globals.heartbeat_enabled = false
+			Databus.send_packet("bcast", 251, [Databus.make_uint8(0)])
 
 func update_status_bar(value: Variant) -> void:
 	if green.has(value):

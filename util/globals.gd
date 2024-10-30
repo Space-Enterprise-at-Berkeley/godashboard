@@ -2,7 +2,6 @@ extends Node
 
 var heartbeat_timer: Timer
 var theme: Theme
-var heartbeat_enabled: bool = false
 
 func _ready() -> void:
 	heartbeat_timer = Timer.new()
@@ -13,4 +12,4 @@ func _ready() -> void:
 	heartbeat_timer.start()
 
 func _heartbeat() -> void:
-	Databus.send_packet("bcast", 249, [Databus.make_uint8(1 if heartbeat_enabled else 0)])
+	Databus.send_packet("bcast", 250, [])

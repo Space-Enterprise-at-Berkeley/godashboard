@@ -170,6 +170,8 @@
 	"ac1.potentiometer5": "ipaMainPot",
 	// "ac1.potentiometer6": "",
 	"ac1.potentiometer7": "igniterPot",
+	
+	"ac1.noCommsAbortEnabled": "ac1noCommsAbortEnabled",
 
 	// AC Board 2
 
@@ -217,6 +219,7 @@
 	"ac2.potentiometer7": "nosDrainPot",
 
 	"ac2.autoventPressure": "nosAutoventPressure",
+	"ac2.noCommsAbortEnabled": "ac2noCommsAbortEnabled",
 	"ac2.automationState": "nosAutomationState",
 
 	"ac2.gemsDutyCycle": "gemsDutyCycle",
@@ -267,6 +270,7 @@
 	// // "ac3.potentiometer7": "",
 
 	// "ac3.autoventPressure": "ipaAutoventPressure",
+	"ac3.noCommsAbortEnabled": "ac3noCommsAbortEnabled",
 
 	// "ac3.gemsDutyCycle": "ipaGemsDutyCycle",
 

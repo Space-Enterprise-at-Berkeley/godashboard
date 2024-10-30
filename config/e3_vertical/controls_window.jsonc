@@ -123,7 +123,7 @@
 					"id": "heartbeatEnable",
 					"type": "valve",
 					"name": "Heatbeat Enable",
-					"field": "",
+					"field": "ac2noCommsAbortEnabled",
 					"actions": {
 						"enable": {
 							"type": "enable-heartbeat"
@@ -131,7 +131,8 @@
 						"disable": {
 							"type": "disable-heartbeat"
 						}
-					}
+					},
+					"green": [1]
 				},
 				{
 					"type": null
@@ -371,11 +372,11 @@
 					"field": "emergencyVentState",
 					"actions": {
 						"enable": {
-							"type": "off",
+							"type": "on",
 							"target": "emergencyVent"
 						},
 						"disable": {
-							"type": "on",
+							"type": "off",
 							"target": "emergencyVent"
 						}
 					},
