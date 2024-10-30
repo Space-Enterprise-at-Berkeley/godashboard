@@ -12,4 +12,4 @@ func _ready() -> void:
 	heartbeat_timer.start()
 
 func _heartbeat() -> void:
-	Databus.send_packet("bcast", 250, [])
+	Databus.send_packet("bcast", 249, [])
