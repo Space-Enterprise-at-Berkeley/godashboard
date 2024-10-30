@@ -18,6 +18,12 @@
 				"color": [218, 165, 255]
 				},
 				{
+					"field": "eregPressureSetpoint",
+					"name": "[EREG] Pressure Setpoint",
+					"units": "PSI",
+					"color": [34, 255, 255]
+				},
+				{
 					"field": "nosFillPT",
 					"name": "NOS Fill Line PT",
 					"units": "PSI",
