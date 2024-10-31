@@ -372,11 +372,11 @@
 					"field": "emergencyVentState",
 					"actions": {
 						"enable": {
-							"type": "on",
+							"type": "off",
 							"target": "emergencyVent"
 						},
 						"disable": {
-							"type": "off",
+							"type": "on",
 							"target": "emergencyVent"
 						}
 					},

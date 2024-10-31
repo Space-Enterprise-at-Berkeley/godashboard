@@ -22,7 +22,7 @@
 		"cameras": "$e3_vertical/cameras_window.jsonc"
 		// "influx_test": "$influx_test_window.jsonc"
 	},
-	"burnTime": 5000, // ms
+	"burnTime": 15000, // ms
 	// TODO: coldflow modes with ereg pressurization
 	"mode": 2, // 0 = launch, 1 = hotfire, 2 = coldflow, 3 = coldflow with igniter, 4 = gasflow
 	"controller": "ac1",
