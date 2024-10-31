@@ -40,12 +40,12 @@
 					"units": "PSI",
 					"color": [218, 165, 32]
 				},
-				{
-					"field": "ipaFillPT",
-					"name": "IPA Fill Line PT",
-					"units": "PSI",
-					"color": [30, 144, 255]
-				},
+				// {
+				// 	"field": "ipaFillPT",
+				// 	"name": "IPA Fill Line PT",
+				// 	"units": "PSI",
+				// 	"color": [30, 144, 255]
+				// },
 				{
 					"field": "ipaUpstreamPT",
 					"name": "Upstream",
