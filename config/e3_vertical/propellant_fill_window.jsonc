@@ -210,7 +210,7 @@
 							"target": "emergencyVent"
 						}
 					},
-					"green": [0, 1]
+					"green": [2]
 				},
 				{
 					"id": "gems",

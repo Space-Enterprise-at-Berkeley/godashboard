@@ -29,14 +29,15 @@
 
 	// Config
 	"3": [
-		["pressureSetpointConfig", "asFloat"],
+		["pressureSetpointStart", "asFloat"],
 		["pOuterNominal", "asFloat"],
 		["iOuterNominal", "asFloat"],
 		["dOuterNominal", "asFloat"],
 		["pInner", "asFloat"],
 		["iInner", "asFloat"],
 		["dInner", "asFloat"],
-		["flowDuration", "asFloat"]
+		["pressureSetpointDropRate", "asFloat"],
+		["pressureSetpointMinimum", "asFloat"]
 	],
 
 	// Diagnostic

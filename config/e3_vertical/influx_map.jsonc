@@ -298,7 +298,7 @@
 	"ereg.pressureControlI": "eregI",
 	"ereg.pressureControlD": "eregD",
 
-	"ereg.pressureSetpointConfig": "eregPressureSetpointConfig",
+	"ereg.pressureSetpointStart": "eregPressureSetpointStart",
 	"ereg.pOuterNominal": "eregPOuter",
 	"ereg.iOuterNominal": "eregIOuter",
 	"ereg.dOuterNominal": "eregDOuter",
@@ -306,6 +306,8 @@
 	"ereg.iInner": "eregIInner",
 	"ereg.dInner": "eregDInner",
 	"ereg.flowDuration": "eregFlowDuration",
+	"ereg.pressureSetpointDropRate": "eregPressureSetpointDropRate",
+	"ereg.pressureSetpointMinimum": "eregPressureSetpointMinimum",
 
 	"ereg.motorDirPass": "eregMotorDirPass",
 	"ereg.servoDirPass": "eregServoDirPass",

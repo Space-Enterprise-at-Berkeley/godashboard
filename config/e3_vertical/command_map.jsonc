@@ -67,6 +67,15 @@
 	"eregPartialOpen": ["ereg", 202, null],
 	"eregStaticPress": ["ereg", 203, null],
 	"eregDiagnostic": ["ereg", 204, null],
+	"eregSetPInner": ["ereg", 206, null],
+	"eregSetIInner": ["ereg", 207, null],
+	"eregSetDInner": ["ereg", 208, null],
+	"eregSetPOuter": ["ereg", 209, null],
+	"eregSetIOuter": ["ereg", 210, null],
+	"eregSetDOuter": ["ereg", 211, null],
+	"eregSetPressureSetpointStart": ["ereg", 212, null],
+	"eregSetPressureSetpointDropRate": ["ereg", 213, null],
+	"eregSetPressureSetpointMinimum": ["ereg", 214, null],
 
 	// To make commas easier
 	"": ""

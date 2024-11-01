@@ -5,10 +5,10 @@
 	},
 	"debug": {
 		"name": "Debug",
-		"tabs": ["packet_simulator", "cameras"]
+		"tabs": ["packet_simulator", "calibration"]
 	},
 	"empty": {
 		"name": "Empty",
-		"tabs": []
+		"tabs": ["cameras"]
 	}
 }
