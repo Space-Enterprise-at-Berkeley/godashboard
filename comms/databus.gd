@@ -145,6 +145,12 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 	var field_data: PackedByteArray = data.slice(8, 8 + length)
 	var sum_buf: PackedByteArray = data.slice(0, 6) + field_data
 	var expected_checksum: int = fletcher16(sum_buf)
+	
+	# Abort stuff - should be moved elsewhere and done better
+	if id == 133:
+		var abort_reason: int = field_data.decode_u8(1)
+		Logger.warn("Abort reason: %d (%s)" % [abort_reason, ABORT_DESCRIPTIONS[abort_reason]])
+	
 	if expected_checksum != checksum:
 		Logger.warn("Invalid checksum from board %s (packet id %d)" % [board, id])
 		packet.error = true
