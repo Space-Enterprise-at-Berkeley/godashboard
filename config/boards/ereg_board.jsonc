@@ -91,6 +91,6 @@
 		["downstreamPT1Offset", "asFloat"],
 		["downstreamPT1Multiplier", "asFloat"],
 		["downstreamPT2Offset", "asFloat"],
-		["downstreamPT2Multiplier", "asFloat"],
+		["downstreamPT2Multiplier", "asFloat"]
 	]
 }
