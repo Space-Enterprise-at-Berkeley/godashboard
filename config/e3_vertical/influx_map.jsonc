@@ -107,10 +107,10 @@
 	"lc1.lcSupply24Current": "lc1Supply24Current",
 	"lc1.lcSupply24Power": "lc1Supply24Power",
 
-	"lc1.lcValue0": "engineLC0",
-	"lc1.lcValue1": "engineLC1",
-	"lc1.lcValue2": "engineLC2",
-	// "lc1.lcValue3": "ipaTankLC1",
+	// "lc1.lcValue0": "engineLC0",
+	"lc1.lcValue1": "engineLC0",
+	"lc1.lcValue2": "engineLC1",
+	"lc1.lcValue3": "engineLC2",
 
 	// LC Board 2
 
