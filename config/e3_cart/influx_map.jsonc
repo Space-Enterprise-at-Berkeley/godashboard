@@ -9,7 +9,7 @@
 	"tc1.tcSupply24Power": "tc1Supply24Power",
 
 	// "tc1.tcValue0": "BROKEN CHANNEL",
-	// "tc1.tcValue1": "ipaTankTC",
+	"tc1.tcValue1": "ipaTankTC",
 	"tc1.tcValue1": "nosTankTC",
 	"tc1.tcValue2": "nosInjectorTC",
 	"tc1.tcValue3": "ipaInjectorTC",
@@ -34,13 +34,13 @@
 	"tc2.tcSupply24Power": "tc2Supply24Power",
 
 	// "tc2.tcValue0": "BROKEN CHANNEL",
-	"tc2.tcValue1": "engineTC1",
-	"tc2.tcValue2": "engineTC2",
-	"tc2.tcValue3": "engineTC3",
-	"tc2.tcValue4": "engineTC4",
-	"tc2.tcValue5": "engineTC5",
-	"tc2.tcValue6": "engineTC6",
-	"tc2.tcValue7": "engineTC7",
+	// "tc2.tcValue1": "engineTC1",
+	// "tc2.tcValue2": "engineTC2",
+	// "tc2.tcValue3": "engineTC3",
+	// "tc2.tcValue4": "engineTC4",
+	// "tc2.tcValue5": "engineTC5",
+	// "tc2.tcValue6": "engineTC6",
+	// "tc2.tcValue7": "engineTC7",
 
 	// PT Board 1
 

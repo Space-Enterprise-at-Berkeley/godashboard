@@ -104,19 +104,19 @@
 					"name": "TC7",
 					"units": "",
 					"color": [255, 150, 79]
-				},
-				{
-					"field": "engineTC8",
-					"name": "TC8",
-					"units": "",
-					"color": [255, 48, 0]
-				},
-				{
-					"field": "engineTC9",
-					"name": "TC9",
-					"units": "",
-					"color": [255, 0, 255]
 				}
+				// {
+				// 	"field": "engineTC8",
+				// 	"name": "TC8",
+				// 	"units": "",
+				// 	"color": [255, 48, 0]
+				// },
+				// {
+				// 	"field": "engineTC9",
+				// 	"name": "TC9",
+				// 	"units": "",
+				// 	"color": [255, 0, 255]
+				// }
 			]
 		},
 		{

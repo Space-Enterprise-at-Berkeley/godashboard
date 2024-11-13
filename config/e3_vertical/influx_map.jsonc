@@ -8,15 +8,14 @@
 	"tc1.tcSupply24Current": "tc12Supply24Current",
 	"tc1.tcSupply24Power": "tc1Supply24Power",
 
-	// "tc1.tcValue0": "BROKEN CHANNEL",
-	// "tc1.tcValue1": "ipaTankTC",
-	// "tc1.tcValue1": "nosTankTC",
-	// "tc1.tcValue2": "nosInjectorTC",
-	// "tc1.tcValue3": "ipaInjectorTC",
-	"tc1.tcValue4": "engineTC0",
-	"tc1.tcValue5": "heaterTC",
-	"tc1.tcValue6": "engineTC9",
-	"tc1.tcValue7": "engineTC8",
+	"tc1.tcValue0": "engineTC0",
+	"tc1.tcValue1": "engineTC1",
+	"tc1.tcValue2": "engineTC2",
+	"tc1.tcValue3": "engineTC3",
+	"tc1.tcValue4": "engineTC4",
+	"tc1.tcValue5": "engineTC5",
+	"tc1.tcValue6": "engineTC6",
+	"tc1.tcValue7": "engineTC7",
 
 	// "tc1.tcRawVoltage0": "BROKEN CHANNEL",
 	// "tc1.tcRawVoltage1": "ipaTankTCRawVoltage",
@@ -32,15 +31,6 @@
 	"tc2.tcSupply24Voltage": "tc2Supply24Voltage",
 	"tc2.tcSupply24Current": "tc2Supply24Current",
 	"tc2.tcSupply24Power": "tc2Supply24Power",
-
-	// "tc2.tcValue0": "BROKEN CHANNEL",
-	"tc2.tcValue1": "engineTC1",
-	"tc2.tcValue2": "engineTC2",
-	"tc2.tcValue3": "engineTC3",
-	"tc2.tcValue4": "engineTC4",
-	"tc2.tcValue5": "engineTC5",
-	"tc2.tcValue6": "engineTC6",
-	"tc2.tcValue7": "engineTC7",
 
 	// PT Board 1
 
