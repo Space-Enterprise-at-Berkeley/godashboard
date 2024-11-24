@@ -144,7 +144,7 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 	var expected_checksum: int = fletcher16(sum_buf)
 	
 	# Abort stuff - should be moved elsewhere and done better
-	if id == 133:
+	if id == ABORT_ID:
 		var abort_reason: int = field_data.decode_u8(1)
 		Logger.warn("Abort reason: %d (%s)" % [abort_reason, ABORT_DESCRIPTIONS[abort_reason]])
 	
