@@ -1,0 +1,14 @@
+{
+	"main": {
+		"name": "E3 Vertical",
+		"tabs": ["controls", "pressures", "propellant_fill", "engine", "boards_status", "actuators_status"]
+	},
+	"debug": {
+		"name": "Debug",
+		"tabs": ["packet_simulator", "calibration"]
+	},
+	"empty": {
+		"name": "Empty",
+		"tabs": ["cameras"]
+	}
+}

@@ -69,6 +69,7 @@ const ABORT_ID: int = 133
 
 var first_receive_times: Dictionary = {}
 var first_receive_offsets: Dictionary = {}
+var last_packet_times: Dictionary = {}
 var has_config: bool = false
 var connected_timers: Dictionary = {}
 var boards_connected: Dictionary = {}
@@ -86,6 +87,7 @@ func _config_update() -> void:
 	for board_name: String in Config.config["boards"].values():
 		first_receive_times[board_name] = -1
 		first_receive_offsets[board_name] = -1
+		last_packet_times[board_name] = 0
 		boards_kbps[board_name] = 0.0
 		boards_connected[board_name] = false
 	has_config = true
@@ -130,11 +132,22 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 	var id: int = data.decode_u8(0)
 	var length: int = data.decode_u8(1)
 	var run_time: int = data.decode_u32(2)
+	if run_time < 1000 and last_packet_times[board] > 1500 and last_packet_times[board] < 4294966295: # UINT_32_MAX - 1000
+		first_receive_times[board] = -1
+		first_receive_offsets[board] = -1
+		Logger.info("Resetting timestamps for %s" % board)
+	last_packet_times[board] = run_time
 	var timestamp: int = _calculate_timestamp(run_time, board)
 	var checksum: int = data.decode_u16(6)
 	var field_data: PackedByteArray = data.slice(8, 8 + length)
 	var sum_buf: PackedByteArray = data.slice(0, 6) + field_data
 	var expected_checksum: int = fletcher16(sum_buf)
+	
+	# Abort stuff - should be moved elsewhere and done better
+	if id == 133:
+		var abort_reason: int = field_data.decode_u8(1)
+		Logger.warn("Abort reason: %d (%s)" % [abort_reason, ABORT_DESCRIPTIONS[abort_reason]])
+	
 	if expected_checksum != checksum:
 		Logger.warn("Invalid checksum from board %s (packet id %d)" % [board, id])
 		packet.error = true
@@ -211,6 +224,9 @@ func _board_poll_kbps() -> void:
 			elif is_zero_approx(kbps) and boards_connected[board]:
 				boards_connected[board] = false
 				update_data["%sConnected" % board] = false
+				first_receive_times[board] = -1
+				first_receive_offsets[board] = -1
+				Logger.info("Resetting timestamps for %s" % board)
 				Logger.warn("Board disconnected: %s" % board)
 			send_update(update_data, get_current_time())
 		await get_tree().create_timer(1).timeout

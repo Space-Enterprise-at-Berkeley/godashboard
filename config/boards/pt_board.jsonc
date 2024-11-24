@@ -23,6 +23,26 @@
 		["ptValue7", "asFloat"]
 	],
 
+	// PT Calibration Settings
+	"102": [
+		["ptChannel0Offset", "asFloat"],
+		["ptChannel0Multiplier", "asFloat"],
+		["ptChannel1Offset", "asFloat"],
+		["ptChannel1Multiplier", "asFloat"],
+		["ptChannel2Offset", "asFloat"],
+		["ptChannel2Multiplier", "asFloat"],
+		["ptChannel3Offset", "asFloat"],
+		["ptChannel3Multiplier", "asFloat"],
+		["ptChannel4Offset", "asFloat"],
+		["ptChannel4Multiplier", "asFloat"],
+		["ptChannel5Offset", "asFloat"],
+		["ptChannel5Multiplier", "asFloat"],
+		["ptChannel6Offset", "asFloat"],
+		["ptChannel6Multiplier", "asFloat"],
+		["ptChannel7Offset", "asFloat"],
+		["ptChannel7Multiplier", "asFloat"]
+	],
+
 	// PT Automation
 	"160": [
 		["value1", "asFloat"],

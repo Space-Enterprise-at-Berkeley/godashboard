@@ -26,7 +26,7 @@
 	// TODO: coldflow modes with ereg pressurization
 	"mode": 2, // 0 = launch, 1 = hotfire, 2 = coldflow, 3 = coldflow with igniter, 4 = gasflow
 	"controller": "ac1",
-	"windowPresets": "$window_presets.jsonc",
+	"windowPresets": "$e3_cart/window_presets.jsonc",
 	"quickWindowPresets": ["main", "debug", "empty"],
 	"cameras": [{"id": 0, "name": "testcam", "ip": "10.0.0.201"}]
 }

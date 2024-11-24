@@ -208,6 +208,20 @@ func _replace_input(value: Variant) -> Variant:
 			#Globals.heartbeat_enabled = true
 		#"disable-heartbeat":
 			#Globals.heartbeat_enabled = false
+		#"signal":
+			#Databus.send_packet(board, packet, [])
+		#"signal-timed":
+			#Databus.send_packet(board, packet, [Databus.make_float(_get_time_float())])
+		#"start-pings":
+			#Pings.add_ping(action["pingId"], func () -> void: Databus.send_packet(board, packet, []), action["delay"])
+		#"stop-pings":
+			#Pings.remove_ping(action["pingId"])
+		#"zero":
+			#Databus.send_packet(board, packet, [Databus.make_uint8(_get_time_int())])
+		#"enable-heartbeat":
+			#Databus.send_packet("bcast", 251, [Databus.make_uint8(1)])
+		#"disable-heartbeat":
+			#Databus.send_packet("bcast", 251, [Databus.make_uint8(0)])
 
 func update_status_bar(value: Variant) -> void:
 	if green.has(value):

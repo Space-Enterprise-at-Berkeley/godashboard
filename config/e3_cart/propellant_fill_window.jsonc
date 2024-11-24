@@ -62,17 +62,17 @@
 					"units": "PSI/s"
 				},
 				{
-					"field": "ac2GemsDutyCycle", 
+					"field": "ac2GemsDutyCycle",
 					"name": "NOS Duty Cycle",
 					"units": ""
 				},
 				{
-					"field": "nosTankPT", 
+					"field": "nosTankPT",
 					"name": "NOS Tank PT",
 					"units": "PSI"
 				},
 				{
-					"field": "ipaTankPT", 
+					"field": "ipaTankPT",
 					"name": "IPA Tank PT",
 					"units": "PSI"
 				},

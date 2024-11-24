@@ -1,0 +1,334 @@
+{
+	"name": "Calibration",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "zeroPT1",
+					"type": "ereg-timed",
+					"name": "Zero PT1",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "zero",
+							"target": "zeroPT1"
+						},
+						"fuel-timed": {
+							"type": "zero",
+							"target": "zeroPT1"
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "zeroPT2",
+					"type": "ereg-timed",
+					"name": "Zero PT2",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "zero",
+							"target": "zeroPT2"
+						},
+						"fuel-timed": {
+							"type": "zero",
+							"target": "zeroPT2"
+						}
+					},
+					"safe": true
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "zeroLC1",
+					"type": "ereg-timed",
+					"name": "Zero LC1",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "zero",
+							"target": "zeroLC1"
+						},
+						"fuel-timed": {
+							"type": "zero",
+							"target": "zeroLC1"
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "zeroLC2",
+					"type": "ereg-timed",
+					"name": "Zero LC2",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "zero",
+							"target": "zeroLC2"
+						},
+						"fuel-timed": {
+							"type": "zero",
+							"target": "zeroLC2"
+						}
+					},
+					"safe": true
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "eregPOuter",
+					"name": "P Outer",
+					"units": ""
+				},
+				{
+					"field": "eregIOuter",
+					"name": "I Outer",
+					"units": ""
+				},
+				{
+					"field": "eregDOuter",
+					"name": "D Outer",
+					"units": ""
+				},
+				{
+					"field": "eregPInner",
+					"name": "P Inner",
+					"units": ""
+				},
+				{
+					"field": "eregIInner",
+					"name": "I Inner",
+					"units": ""
+				},
+				{
+					"field": "eregDInner",
+					"name": "D Inner",
+					"units": ""
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "eregPressureSetpointStart",
+					"name": "Ereg Setpoint Start",
+					"units": "PSI"
+				},
+				{
+					"field": "eregPressureSetpointDropRate",
+					"name": "Drop Rate",
+					"units": "PSI/s"
+				},
+				{
+					"field": "eregPressureSetpointMinimum",
+					"name": "Minimum",
+					"units": "PSI"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "eregSetPressureSetpointStart",
+					"type": "ereg-timed",
+					"name": "Setpoint Start",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"target": "eregSetPressureSetpointStart"
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"target": "eregSetPressureSetpointStart"
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "eregSetPressureSetpointDropRate",
+					"type": "ereg-timed",
+					"name": "Drop Rate",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"target": "eregSetPressureSetpointDropRate"
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"target": "eregSetPressureSetpointDropRate"
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "eregSetPressureSetpointMinimum",
+					"type": "ereg-timed",
+					"name": "Minimum",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"target": "eregSetPressureSetpointMinimum"
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"target": "eregSetPressureSetpointMinimum"
+						}
+					},
+					"safe": true
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "eregSetPOuter",
+					"type": "ereg-timed",
+					"name": "Outer P",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"target": "eregSetPOuter"
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"target": "eregSetPOuter"
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "eregSetIOuter",
+					"type": "ereg-timed",
+					"name": "Outer I",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"target": "eregSetIOuter"
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"target": "eregSetIOuter"
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "eregSetDOuter",
+					"type": "ereg-timed",
+					"name": "Outer D",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"target": "eregSetDOuter"
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"target": "eregSetDOuter"
+						}
+					},
+					"safe": true
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "eregSetPInner",
+					"type": "ereg-timed",
+					"name": "Inner P",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"target": "eregSetPInner"
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"target": "eregSetPInner"
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "eregSetIInner",
+					"type": "ereg-timed",
+					"name": "Inner I",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"target": "eregSetIInner"
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"target": "eregSetIInner"
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "eregSetDInner",
+					"type": "ereg-timed",
+					"name": "Inner D",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"target": "eregSetDInner"
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"target": "eregSetDInner"
+						}
+					},
+					"safe": true
+				},
+				{
+					"type": null
+				}
+			]
+		}
+	]
+}

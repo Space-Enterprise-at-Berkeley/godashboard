@@ -1,0 +1,22 @@
+{
+	"name": "Cameras",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "camera",
+			"camera": "testcam"
+		},
+		{
+			"type": "camera",
+			"camera": "testcam"
+		},
+		{
+			"type": "camera",
+			"camera": "testcam"
+		},
+		{
+			"type": "camera",
+			"camera": "testcam"
+		}
+	]
+}

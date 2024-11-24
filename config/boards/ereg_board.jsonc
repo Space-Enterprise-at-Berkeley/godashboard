@@ -29,14 +29,15 @@
 
 	// Config
 	"3": [
-		["pressureSetpointConfig", "asFloat"],
+		["pressureSetpointStart", "asFloat"],
 		["pOuterNominal", "asFloat"],
 		["iOuterNominal", "asFloat"],
 		["dOuterNominal", "asFloat"],
 		["pInner", "asFloat"],
 		["iInner", "asFloat"],
 		["dInner", "asFloat"],
-		["flowDuration", "asFloat"]
+		["pressureSetpointDropRate", "asFloat"],
+		["pressureSetpointMinimum", "asFloat"]
 	],
 
 	// Diagnostic
@@ -79,5 +80,17 @@
 	"10": [
 		["avgCurrent", "asFloat"],
 		["bufferSize", "asFloat"]
+	],
+
+	// PT Calibration Settings
+	"102": [
+		["upstreamPT1Offset", "asFloat"],
+		["upstreamPT1Multiplier", "asFloat"],
+		["upstreamPT2Offset", "asFloat"],
+		["upstreamPT2Multiplier", "asFloat"],
+		["downstreamPT1Offset", "asFloat"],
+		["downstreamPT1Multiplier", "asFloat"],
+		["downstreamPT2Offset", "asFloat"],
+		["downstreamPT2Multiplier", "asFloat"]
 	]
 }

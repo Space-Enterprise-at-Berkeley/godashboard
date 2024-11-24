@@ -17,5 +17,25 @@
 		["lcValue1", "asFloat"],
 		["lcValue2", "asFloat"],
 		["lcValue3", "asFloat"]
+	],
+
+	// LC Calibration Settings
+	"102": [
+		["lcChannel0Offset", "asFloat"],
+		["lcChannel0Multiplier", "asFloat"],
+		["lcChannel1Offset", "asFloat"],
+		["lcChannel1Multiplier", "asFloat"],
+		["lcChannel2Offset", "asFloat"],
+		["lcChannel2Multiplier", "asFloat"],
+		["lcChannel3Offset", "asFloat"],
+		["lcChannel3Multiplier", "asFloat"],
+		["lcChannel4Offset", "asFloat"],
+		["lcChannel4Multiplier", "asFloat"],
+		["lcChannel5Offset", "asFloat"],
+		["lcChannel5Multiplier", "asFloat"],
+		["lcChannel6Offset", "asFloat"],
+		["lcChannel6Multiplier", "asFloat"],
+		["lcChannel7Offset", "asFloat"],
+		["lcChannel7Multiplier", "asFloat"]
 	]
 }
