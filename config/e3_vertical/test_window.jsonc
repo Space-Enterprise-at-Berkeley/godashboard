@@ -1,0 +1,13 @@
+{
+	"name": "Test",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "orientation",
+			"qw": "nosInjectorPT",
+			"qx": "chamberPT",
+			"qy": "igniterPT",
+			"qz": "ipaInjectorPT"
+		}
+	]
+}
