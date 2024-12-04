@@ -41,8 +41,8 @@
 	"pt1.ptSupply24Current": "pt1Supply24Current",
 	"pt1.ptSupply24Power": "pt1Supply24Power",
 
-	"pt1.ptValue0": "nosTankPT",
-	// "pt1.ptValue1": "nosFillPT",
+	//"pt1.ptValue0": "nosTankPT",
+	"pt1.ptValue1": "nosTankPT",
 	"pt1.ptValue2": "mainValvePT",
 	"pt1.ptValue3": "solenoidPanelPT",
 	"pt1.ptValue4": "ipaTankPT",
