@@ -20,8 +20,7 @@
 		"boards_status": "$e3_vertical/boards_status_window.jsonc",
 		"actuators_status": "$e3_vertical/actuators_status_window.jsonc",
 		"cameras": "$e3_vertical/cameras_window.jsonc",
-		"calibration": "$e3_vertical/calibration_window.jsonc",
-		"test": "$e3_vertical/test_window.jsonc"
+		"calibration": "$e3_vertical/calibration_window.jsonc"
 		// "influx_test": "$influx_test_window.jsonc"
 	},
 	"burnTime": 15000, // ms

@@ -9,6 +9,6 @@
 	},
 	"empty": {
 		"name": "Empty",
-		"tabs": ["test", "cameras"]
+		"tabs": ["cameras"]
 	}
 }
