@@ -2,12 +2,81 @@
 	"name": "Test",
 	"layout": "9-grid",
 	"slots": [
+		// {
+		// 	"type": "orientation",
+		// 	"qw": "nosInjectorPT",
+		// 	"qx": "chamberPT",
+		// 	"qy": "igniterPT",
+		// 	"qz": "ipaInjectorPT"
+		// }
 		{
-			"type": "orientation",
-			"qw": "nosInjectorPT",
-			"qx": "chamberPT",
-			"qy": "igniterPT",
-			"qz": "ipaInjectorPT"
+			"type": "pid",
+			"gridStart": [0, 0],
+			"gridEnd": [60, 40],
+			"nodes": [
+				{
+					"type": "tank",
+					"name": "nosTank",
+					"pos": [20, 20],
+					"color": [0, 255, 0]
+				},
+				{
+					"type": "tank",
+					"name": "ipaTank",
+					"pos": [40, 20],
+					"color": [0, 0, 255]
+				},
+				{
+					"type": "t",
+					"name": "t1",
+					"pos": [30, 15],
+					"direction": "south"
+				},
+				{
+					"type": "t",
+					"name": "t2",
+					"pos": [40, 17],
+					"direction": "plus"
+				}
+			],
+			"pipes": [
+				{
+					"points": [
+						"nosTank/top",
+						[20, 15],
+						"t1/west"
+					]
+				},
+				{
+					"points": [
+						"t1/east",
+						[40, 15],
+						"t2/north"
+					]
+				},
+				{
+					"points": [
+						"t1/south",
+						[30, 17],
+						"t2/west"
+					]
+				},
+				{
+					"points": [
+						"t2/south",
+						"ipaTank/top"
+					]
+				},
+				{
+					"points": [
+						"t2/east",
+						[45, 17],
+						[45, 23],
+						[40, 23],
+						"ipaTank/bottom"
+					]
+				}
+			]
 		}
 	]
 }

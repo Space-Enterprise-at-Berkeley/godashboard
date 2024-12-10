@@ -9,6 +9,7 @@ const logs_square_scene: PackedScene = preload("res://display/squares/logs_squar
 const camera_square_scene: PackedScene = preload("res://display/squares/camera_square/camera_square.tscn")
 const launch_button_square_scene: PackedScene = preload("res://display/squares/launch_button_square/launch_button_square.tscn")
 const orientation_square_scene: PackedScene = preload("res://display/squares/orientation_square/orientation_square.tscn")
+const pid_square_scene: PackedScene = preload("res://display/squares/pid/pid_square.tscn")
 const empty_square_scene: PackedScene = preload("res://display/squares/empty_square.gd/empty_square.tscn")
 
 func setup(config: Dictionary) -> void:
@@ -46,6 +47,10 @@ func setup(config: Dictionary) -> void:
 				var orientation_square: OrientationSquare = orientation_square_scene.instantiate()
 				base_square.set_square(orientation_square)
 				orientation_square.setup(slot)
+			"pid":
+				var pid_square: PidSquare = pid_square_scene.instantiate()
+				base_square.set_square(pid_square)
+				pid_square.setup(slot)
 			"empty":
 				var empty_square: Control = empty_square_scene.instantiate()
 				base_square.set_square(empty_square)

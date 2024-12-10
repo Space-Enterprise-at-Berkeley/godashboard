@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjlg2nl55q8vj"]
+
+[ext_resource type="Script" path="res://display/squares/pid/shapes/pipe/pid_shape_pipe.gd" id="1_5tx4x"]
+[ext_resource type="Shader" path="res://display/squares/pid/shapes/pipe/pid_shape_pipe_shader.gdshader" id="1_4556g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sevee"]
+resource_local_to_scene = true
+shader = ExtResource("1_4556g")
+shader_parameter/pressure_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_y5j2l"]
+
+[node name="PidShapePipe" type="Node2D"]
+script = ExtResource("1_5tx4x")
+
+[node name="Line2D" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_sevee")
+gradient = SubResource("Gradient_y5j2l")
+texture_mode = 2

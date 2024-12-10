@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3b8qlgwmt4ed"]
+
+[ext_resource type="Shader" path="res://display/squares/pid/shapes/tank/pid_shape_tank_shader.gdshader" id="1_6xjwx"]
+[ext_resource type="Script" path="res://display/squares/pid/shapes/tank/pid_shape_tank.gd" id="1_joll4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsmc2"]
+resource_local_to_scene = true
+shader = ExtResource("1_6xjwx")
+shader_parameter/fill_level = 0.5
+shader_parameter/fill_color = Color(0, 1, 0, 1)
+shader_parameter/empty_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+shader_parameter/pressure_color = Color(1, 0, 0, 1)
+
+[node name="Tank" type="Node2D"]
+script = ExtResource("1_joll4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wsmc2")
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://t6khlh3dq407"]
+
+[ext_resource type="Script" path="res://display/squares/pid/pid_square.gd" id="1_how8w"]
+
+[sub_resource type="Environment" id="Environment_guwse"]
+background_mode = 1
+background_color = Color(1, 0, 0, 1)
+
+[sub_resource type="World3D" id="World3D_mw8ke"]
+environment = SubResource("Environment_guwse")
+
+[node name="PidSquare" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_how8w")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+world_3d = SubResource("World3D_mw8ke")
+handle_input_locally = false
+size = Vector2i(600, 400)
+render_target_update_mode = 4
+
+[node name="Node2D" type="Node2D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Pipes" type="Node2D" parent="SubViewportContainer/SubViewport/Node2D"]
+
+[node name="Nodes" type="Node2D" parent="SubViewportContainer/SubViewport/Node2D"]
