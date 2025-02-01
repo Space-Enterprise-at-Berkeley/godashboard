@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://clihw4my7octl"]
+
+[ext_resource type="Script" path="res://display/squares/pid/shapes/t/pid_shape_t.gd" id="1_fl1lj"]
+[ext_resource type="Texture2D" uid="uid://csvv23yl53rga" path="res://display/squares/pid/shapes/t/pid_shape_t.png" id="1_g8g70"]
+[ext_resource type="Shader" path="res://display/squares/pid/shapes/t/pid_shape_t.gdshader" id="1_xx5kf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68mk4"]
+shader = ExtResource("1_xx5kf")
+
+[node name="PidShapeT" type="Node2D"]
+script = ExtResource("1_fl1lj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_68mk4")
+texture = ExtResource("1_g8g70")

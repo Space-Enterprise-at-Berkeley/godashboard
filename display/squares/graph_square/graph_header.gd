@@ -16,7 +16,7 @@ func setup(config: Dictionary) -> void:
 	field = config["field"]
 	units = config["units"]
 	name_text = config["name"]
-	color_rect.color = Color(config["color"][0] / 255.0, config["color"][1] / 255.0, config["color"][2] / 255.0)
+	color_rect.color = Util.parse_color(config["color"])
 	text.text = "%s (%s %s)" %[config["name"], "0.0", units]
 
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
