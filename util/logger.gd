@@ -25,7 +25,7 @@ var file: FileAccess = null
 func _ready() -> void:
 	var dir: DirAccess = DirAccess.open("res://logs")
 	var files: PackedStringArray = dir.get_files()
-	for i in len(files) - 5:
+	for i in range(1, len(files) - 5):
 		dir.remove(files[i])
 	if file == null:
 		file = FileAccess.open("res://logs/%s.txt" % Time.get_datetime_string_from_system().replace(":", "-"), FileAccess.WRITE)
