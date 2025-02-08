@@ -7,7 +7,8 @@
 		"propellant_fill": "$e3_cart/propellant_fill_window.jsonc",
 		"engine": "$e3_cart/engine_window.jsonc",
 		"boards_status": "$e3_cart/boards_status_window.jsonc",
-		"actuators_status": "$e3_cart/actuators_status_window.jsonc"
+		"actuators_status": "$e3_cart/actuators_status_window.jsonc",
+		"calibration": "$e3_cart/calibration_window.jsonc"
 		// "cameras": "$e3_cart/cameras_window.jsonc"
 	},
 	"protoConfig": "$../universalproto/config.jsonc",

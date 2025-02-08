@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmcwrbkcaewow"]
+
+[ext_resource type="Script" path="res://display/layout/calibration_window/calibration_entry.gd" id="1_chohu"]
+[ext_resource type="PackedScene" uid="uid://rje0kfb87oh7" path="res://display/squares/six_value_square/six_value_square_field.tscn" id="2_asq0p"]
+[ext_resource type="PackedScene" uid="uid://cc0x0mdlj2aro" path="res://display/squares/graph_square/graph_square.tscn" id="2_g3ick"]
+
+[node name="CalibrationEntry" type="PanelContainer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -87.5
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_chohu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UpdatingField" parent="HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_asq0p")]
+layout_mode = 2
+
+[node name="EnableButton" type="CheckButton" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ChannelInput" type="LineEdit" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "Channel"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FirstPointButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"ButtonOpen"
+text = "1st Point"
+
+[node name="SecondPointButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"ButtonOpen"
+text = "2nd Point"
+
+[node name="ValueInput" type="LineEdit" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "Value"
+
+[node name="GraphSquare" parent="HBoxContainer" instance=ExtResource("2_g3ick")]
+layout_mode = 2

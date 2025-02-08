@@ -1,0 +1,56 @@
+{
+	"$schema": "../schema/window.schema.json",
+	"name": "Calibration",
+	"layout": "calibration",
+	"slots": [
+		{
+			"name": "PT 1",
+			"units": "PSI",
+			"board": "PT_1",
+			"packet1": "FirstPointCalibration",
+			"packet2": "SecondPointCalibration"
+		},
+		{
+			"name": "PT 2",
+			"units": "PSI",
+			"board": "PT_2",
+			"packet1": "FirstPointCalibration",
+			"packet2": "SecondPointCalibration"
+		},
+		{
+			"name": "PT 3",
+			"units": "PSI",
+			"board": "PT_3",
+			"packet1": "FirstPointCalibration",
+			"packet2": "SecondPointCalibration"
+		},
+		{
+			"name": "LC 1",
+			"units": "kg",
+			"board": "LC_1",
+			"packet1": "FirstPointCalibration",
+			"packet2": "SecondPointCalibration"
+		},
+		{
+			"name": "TC 1",
+			"units": "PSI",
+			"board": "TC_1",
+			"packet1": "FirstPointCalibration",
+			"packet2": "SecondPointCalibration"
+		},
+		{
+			"name": "TC 2",
+			"units": "PSI",
+			"board": "TC_2",
+			"packet1": "FirstPointCalibration",
+			"packet2": "SecondPointCalibration"
+		},
+		{
+			"name": "TC 3",
+			"units": "PSI",
+			"board": "TC_3",
+			"packet1": "FirstPointCalibration",
+			"packet2": "SecondPointCalibration"
+		}
+	]
+}

@@ -6,7 +6,7 @@
 	},
 	"debug": {
 		"name": "Debug",
-		"tabs": [] // Temporarily broken
+		"tabs": ["calibration"] // Temporarily broken
 		// "tabs": ["packet_simulator", "influx_test"]
 	},
 	"empty": {

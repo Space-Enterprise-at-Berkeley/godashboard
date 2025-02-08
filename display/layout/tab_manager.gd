@@ -4,6 +4,7 @@ class_name TabManager
 const nine_grid_scene: PackedScene = preload("res://display/layout/nine_grid/nine_grid.tscn")
 const packet_simulator_scene: PackedScene = preload("res://display/layout/packet_simulator/packet_simulator.tscn")
 const influx_test_scene: PackedScene = preload("res://display/layout/influx_test/influx_test.tscn")
+const calibration_window_scene: PackedScene = preload("res://display/layout/calibration_window/calibration_window.tscn")
 
 func _ready() -> void:
 	pass
@@ -24,5 +25,9 @@ func add_tab(tab: String) -> void:
 			var influx_test: InfluxTest = influx_test_scene.instantiate()
 			add_child(influx_test)
 			influx_test.setup(window)
+		"calibration":
+			var calibration_window: CalibrationWindow = calibration_window_scene.instantiate()
+			add_child(calibration_window)
+			calibration_window.setup(window)
 		_:
 			pass

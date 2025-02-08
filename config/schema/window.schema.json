@@ -27,6 +27,37 @@
 			"properties": {
 				"layout": {"const": "packet-simulator"}
 			}
+		},
+		{
+			"type": "object",
+			"properties": {
+				"layout": {"const": "calibration"},
+				"slots": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"units": {
+								"type": "string"
+							},
+							"board": {
+								"type": "string"
+							},
+							"packet1": {
+								"type": "string"
+							},
+							"packet2": {
+								"type": "string"
+							}
+						},
+						"required": ["name", "units", "board", "packet1", "packet2"]
+					}
+				}
+			},
+			"required": ["slots"]
 		}
 	],
 	"required": ["name", "layout"]
