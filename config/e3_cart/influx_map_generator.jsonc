@@ -1,242 +1,245 @@
-[
-	{
-		"pattern": "AC\\.(Actuator|Potentiometers).+",
-		"transforms": [
-			{
-				"type": "substr",
-				"start": 3,
-				"len": -1,
-				"in": "3",
-				"out": "a"
-			},
-			{
-				"type": "func",
-				"func": "camel",
-				"in": "a",
-				"out": "b"
-			},
-			{
-				"if": {
-					"cond": "eq",
-					"a": "@2",
-					"b": "states"
+{
+	"$schema": "../schema/influx_map_generator.schema.json",
+	"mapping": [
+		{
+			"pattern": "AC\\.AC(Actuator|Potentiometers).+",
+			"transforms": [
+				{
+					"type": "substr",
+					"start": 3,
+					"len": -1,
+					"in": "3",
+					"out": "a"
 				},
-				"type": "const",
-				"value": "State",
-				"out": "c"
-			},
-			{
-				"if": {
-					"cond": "eq",
-					"a": "@2",
-					"b": "currents"
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "a",
+					"out": "b"
 				},
-				"type": "const",
-				"value": "Current",
-				"out": "c"
-			},
-			{
-				"if": {
-					"cond": "eq",
-					"a": "@2",
-					"b": "potentiometers"
+				{
+					"if": {
+						"cond": "eq",
+						"a": "@2",
+						"b": "states"
+					},
+					"type": "const",
+					"value": "State",
+					"out": "c"
 				},
-				"type": "const",
-				"value": "Pot",
-				"out": "c"
-			},
-			{
-				"if": {
-					"cond": "eq",
-					"a": "@2",
-					"b": "continuities"
+				{
+					"if": {
+						"cond": "eq",
+						"a": "@2",
+						"b": "currents"
+					},
+					"type": "const",
+					"value": "Current",
+					"out": "c"
 				},
-				"type": "const",
-				"value": "Continuity",
-				"out": "c"
-			}
-		],
-		"output": "@b@c"
-	},
-	{
-		"pattern": "[^\\.]+\\.Abort\\.systemMode",
-		"output": "abortSystemMode"
-	},
-	{
-		"pattern": "[^\\.]+\\.Abort\\.abortReason",
-		"output": "abortReason"
-	},
-	{
-		"pattern": "[^\\.]+\\.24VSupplyStats\\..+",
-		"transforms": [
-			{
-				"type": "func",
-				"func": "camel",
-				"in": "0",
-				"out": "a"
-			},
-			{
-				"type": "func",
-				"func": "pascal",
-				"in": "2",
-				"out": "b"
-			}
-		],
-		"output": "@a@b"
-	},
-	{
-		"pattern": "AC_[^\\.]+\\.AutoventPressures\\.autoventPressure",
-		"transforms": [
-			{
-				"type": "func",
-				"func": "camel",
-				"in": "0",
-				"out": "a"
-			}
-		],
-		"output": "@aAutoventPressure"
-	},
-	{
-		"pattern": "AC_[^\\.]+\\.AutomationInfo\\.automationState",
-		"transforms": [
-			{
-				"type": "func",
-				"func": "camel",
-				"in": "0",
-				"out": "a"
-			}
-		],
-		"output": "@aAutomationState"
-	},
-	{
-		"pattern": "AC_[^\\.]+\\.AutomationInfo\\.fillDp",
-		"transforms": [
-			{
-				"type": "func",
-				"func": "camel",
-				"in": "0",
-				"out": "a"
-			}
-		],
-		"output": "@aFillDp"
-	},
-	{
-		"pattern": "AC_[^\\.]+\\.GemDutyCycle\\.gemsDutyCycle",
-		"transforms": [
-			{
-				"type": "func",
-				"func": "camel",
-				"in": "0",
-				"out": "a"
-			}
-		],
-		"output": "@aGemsDutyCycle"
-	},
-	{
-		"pattern": "LC\\.Values\\.values\\..+",
-		"transforms": [
-			{
-				"type": "substr",
-				"start": 3,
-				"len": -1,
-				"in": "3",
-				"out": "a"
-			},
-			{
-				"type": "func",
-				"func": "camel",
-				"in": "a",
-				"out": "b"
-			}
-		],
-		"output": "@bLC"
-	},
-	{
-		"pattern": "PT\\.Values\\.values\\..+",
-		"transforms": [
-			{
-				"type": "substr",
-				"start": 3,
-				"len": -1,
-				"in": "3",
-				"out": "a"
-			},
-			{
-				"type": "func",
-				"func": "camel",
-				"in": "a",
-				"out": "b"
-			}
-		],
-		"output": "@bPT"
-	},
-	{
-		"pattern": "TC\\.Values\\.values\\..+",
-		"transforms": [
-			{
-				"type": "substr",
-				"start": 3,
-				"len": -1,
-				"in": "3",
-				"out": "a"
-			},
-			{
-				"type": "func",
-				"func": "camel",
-				"in": "a",
-				"out": "b"
-			}
-		],
-		"output": "@bTC"
-	},
-	{
-		"pattern": "CF_[^\\.]+\\.Capacitance\\..+",
-		"transforms": [
-			{
-				"type": "substr",
-				"start": 3,
-				"len": -1,
-				"in": "0",
-				"out": "a"
-			},
-			{
-				"type": "func",
-				"func": "camel",
-				"in": "a",
-				"out": "b"
-			},
-			{
-				"type": "func",
-				"func": "pascal",
-				"in": "2",
-				"out": "c"
-			}
-		],
-		"output": "@bCap@c"
-	},
-	{
-		"pattern": "ER_[^\\.]+\\.(PressureTelemetry|MotorTelemetry|Config|Diagnostic|StateTransitionError|FlowState|LimitSwitch|PhaseCurrents|Temperatures|OvercurrentTrigger)\\..+",
-		"transforms": [
-			{
-				"type": "substr",
-				"start": 3,
-				"len": -1,
-				"in": "0",
-				"out": "a"
-			},
-			{
-				"type": "func",
-				"func": "camel",
-				"in": "a",
-				"out": "b"
-			},
-			{
-				"type": "func",
-				"func": "pascal",
-				"in": "2",
-				"out": "c"
-			}
-		],
-		"output": "@bEreg@c"
-	}
-]
+				{
+					"if": {
+						"cond": "eq",
+						"a": "@2",
+						"b": "potentiometers"
+					},
+					"type": "const",
+					"value": "Pot",
+					"out": "c"
+				},
+				{
+					"if": {
+						"cond": "eq",
+						"a": "@2",
+						"b": "continuities"
+					},
+					"type": "const",
+					"value": "Continuity",
+					"out": "c"
+				}
+			],
+			"output": "@b@c"
+		},
+		{
+			"pattern": "[^\\.]+\\.Abort\\.systemMode",
+			"output": "abortSystemMode"
+		},
+		{
+			"pattern": "[^\\.]+\\.Abort\\.abortReason",
+			"output": "abortReason"
+		},
+		{
+			"pattern": "[^\\.]+\\.24VSupplyStats\\..+",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "0",
+					"out": "a"
+				},
+				{
+					"type": "func",
+					"func": "pascal",
+					"in": "2",
+					"out": "b"
+				}
+			],
+			"output": "@a@b"
+		},
+		{
+			"pattern": "AC_[^\\.]+\\.ACAutoventPressures\\.(nos|ipa)AutoventPressure",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "0",
+					"out": "a"
+				}
+			],
+			"output": "@a@2"
+		},
+		{
+			"pattern": "AC_[^\\.]+\\.ACAutomationInfo\\.automationState",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "0",
+					"out": "a"
+				}
+			],
+			"output": "@aAutomationState"
+		},
+		{
+			"pattern": "AC_[^\\.]+\\.ACAutomationInfo\\.fillDp",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "0",
+					"out": "a"
+				}
+			],
+			"output": "@aFillDp"
+		},
+		{
+			"pattern": "AC_[^\\.]+\\.GemsDutyCycle\\.gemsDutyCycle",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "0",
+					"out": "a"
+				}
+			],
+			"output": "@aGemsDutyCycle"
+		},
+		{
+			"pattern": "LC\\.LCValues\\.values\\..+",
+			"transforms": [
+				{
+					"type": "substr",
+					"start": 3,
+					"len": -1,
+					"in": "3",
+					"out": "a"
+				},
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "a",
+					"out": "b"
+				}
+			],
+			"output": "@bLC"
+		},
+		{
+			"pattern": "PT\\.PTValues\\.values\\..+",
+			"transforms": [
+				{
+					"type": "substr",
+					"start": 3,
+					"len": -1,
+					"in": "3",
+					"out": "a"
+				},
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "a",
+					"out": "b"
+				}
+			],
+			"output": "@bPT"
+		},
+		{
+			"pattern": "TC\\.TCValues\\.values\\..+",
+			"transforms": [
+				{
+					"type": "substr",
+					"start": 3,
+					"len": -1,
+					"in": "3",
+					"out": "a"
+				},
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "a",
+					"out": "b"
+				}
+			],
+			"output": "@bTC"
+		},
+		{
+			"pattern": "CF_[^\\.]+\\.CFCapacitance\\..+",
+			"transforms": [
+				{
+					"type": "substr",
+					"start": 3,
+					"len": -1,
+					"in": "0",
+					"out": "a"
+				},
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "a",
+					"out": "b"
+				},
+				{
+					"type": "func",
+					"func": "pascal",
+					"in": "2",
+					"out": "c"
+				}
+			],
+			"output": "@bCap@c"
+		},
+		{
+			"pattern": "ER_[^\\.]+\\.ER(PressureTelemetry|MotorTelemetry|Config|Diagnostic|StateTransitionError|FlowState|LimitSwitch|PhaseCurrents|Temperatures|OvercurrentTrigger)\\..+",
+			"transforms": [
+				{
+					"type": "substr",
+					"start": 3,
+					"len": -1,
+					"in": "0",
+					"out": "a"
+				},
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "a",
+					"out": "b"
+				},
+				{
+					"type": "func",
+					"func": "pascal",
+					"in": "2",
+					"out": "c"
+				}
+			],
+			"output": "@bEreg@c"
+		}
+	]
+}

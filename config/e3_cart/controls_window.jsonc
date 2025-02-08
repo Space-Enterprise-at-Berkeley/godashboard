@@ -1,4 +1,5 @@
 {
+	"$schema": "../schema/window.schema.json",
 	"name": "Controls",
 	"layout": "9-grid",
 	"slots": [
@@ -12,7 +13,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
 								"<channel>": "AC_ARM",
@@ -21,7 +22,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
 								"<channel>": "AC_ARM",
@@ -38,7 +39,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
 								"<channel>": "AC_IPA_MAIN",
@@ -47,7 +48,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
 								"<channel>": "AC_IPA_MAIN",
@@ -74,7 +75,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
 								"<channel>": "AC_NOS_MAIN",
@@ -83,7 +84,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
 								"<channel>": "AC_NOS_MAIN",
@@ -105,7 +106,7 @@
 					"actions": {
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "RETRACT_FULL",
 								"<channel>": "AC_IPA_PRESS_FLOW",
@@ -114,7 +115,7 @@
 						},
 						"open-partial": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "EXTEND_TIMED",
 								"<channel>": "AC_IPA_PRESS_FLOW",
@@ -125,7 +126,7 @@
 						},
 						"close-partial": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "RETRACT_TIMED",
 								"<channel>": "AC_IPA_PRESS_FLOW",
@@ -142,7 +143,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "PartialOpen",
+							"packet": "ERPartialOpen",
 							"board": "ER_IPA",
 							"args": {
 								"encoderTicks": "<input>"
@@ -164,7 +165,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "EXTEND_FULL",
 								"<channel>": "AC_NOS_SLOW_VENT",
@@ -173,7 +174,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "RETRACT_FULL",
 								"<channel>": "AC_NOS_SLOW_VENT",
@@ -182,7 +183,7 @@
 						},
 						"open-partial": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "EXTEND_TIMED",
 								"<channel>": "AC_NOS_SLOW_VENT",
@@ -193,7 +194,7 @@
 						},
 						"close-partial": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "RETRACT_TIMED",
 								"<channel>": "AC_NOS_SLOW_VENT",
@@ -211,7 +212,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "EXTEND_FULL",
 								"<channel>": "AC_IPA_SLOW_VENT",
@@ -220,7 +221,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "RETRACT_FULL",
 								"<channel>": "AC_IPA_SLOW_VENT",
@@ -229,7 +230,7 @@
 						},
 						"open-partial": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "EXTEND_TIMED",
 								"<channel>": "AC_IPA_SLOW_VENT",
@@ -240,7 +241,7 @@
 						},
 						"close-partial": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "RETRACT_TIMED",
 								"<channel>": "AC_IPA_SLOW_VENT",
@@ -265,7 +266,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
 								"<channel>": "AC_NOS_GEMS",
@@ -274,7 +275,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
 								"<channel>": "AC_NOS_GEMS",
@@ -291,7 +292,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
 								"<channel>": "AC_IPA_GEMS",
@@ -300,7 +301,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
 								"<channel>": "AC_IPA_GEMS",
@@ -316,7 +317,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "RunCheckoutSequence",
+							"packet": "ERRunCheckoutSequence",
 							"board": "ER_IPA",
 							"args": {}
 						}
@@ -335,7 +336,7 @@
 					"actions": {
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "RETRACT_FULL",
 								"<channel>": "AC_NOS_FILL",
@@ -344,7 +345,7 @@
 						},
 						"open-partial": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "EXTEND_TIMED",
 								"<channel>": "AC_NOS_FILL",
@@ -355,7 +356,7 @@
 						},
 						"close-partial": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "RETRACT_TIMED",
 								"<channel>": "AC_NOS_FILL",
@@ -373,7 +374,7 @@
 					"actions": {
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "RETRACT_FULL",
 								"<channel>": "AC_NOS_LINE_VENT",
@@ -382,7 +383,7 @@
 						},
 						"open-partial": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "EXTEND_TIMED",
 								"<channel>": "AC_NOS_LINE_VENT",
@@ -393,7 +394,7 @@
 						},
 						"close-partial": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "RETRACT_TIMED",
 								"<channel>": "AC_NOS_LINE_VENT",
@@ -421,7 +422,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
 								"<channel>": "AC_IGNITER",
@@ -431,7 +432,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
 								"<channel>": "AC_IGNITER",
@@ -461,7 +462,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "StaticPress",
+							"packet": "ERStaticPress",
 							"board": "ER_IPA",
 							"args": {}
 						}
@@ -496,7 +497,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
 								"<channel>": "AC_NOS_DRAIN",
@@ -506,7 +507,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
 								"<channel>": "AC_NOS_DRAIN",
@@ -523,7 +524,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
 								"<channel>": "AC_NOS_EMERGENCY_VENT",
@@ -533,7 +534,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
 								"<channel>": "AC_NOS_EMERGENCY_VENT",
@@ -551,7 +552,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
 								"<channel>": "AC_IPA_EMERGENCY_VENT",
@@ -561,7 +562,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
 								"<channel>": "AC_IPA_EMERGENCY_VENT",

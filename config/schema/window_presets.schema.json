@@ -1,5 +1,10 @@
 {
 	"type": "object",
+	"properties": {
+		"$schema": {
+			"type": "string"
+		}
+	},
 	"additionalProperties": {
 		"type": "object",
 		"properties": {

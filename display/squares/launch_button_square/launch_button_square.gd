@@ -41,7 +41,7 @@ func _launch() -> void:
 		Databus.launch(ipa_enabled, nos_enabled)
 
 func _abort() -> void:
-	Databus.abort(Databus.AbortReason.MANUAL)
+	Databus.abort("MANUAL")
 
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
 	var enable_field: Variant = fields.get(BUTTON_ENABLE, null)

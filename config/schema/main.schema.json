@@ -1,6 +1,9 @@
 {
 	"type": "object",
 	"properties": {
+		"$schema": {
+			"type": "string"
+		},
 		"windows": {
 			"type": "object",
 			"additionalProperties": {
@@ -20,7 +23,7 @@
 		"protoTypes": {
 			"$ref": "./import.schema.json"
 		},
-		"influxMap": {
+		"influxMapGenerator": {
 			"$ref": "./import.schema.json"
 		},
 		"burnTime": {
@@ -50,6 +53,6 @@
 			}
 		}
 	},
-	"required": ["windows", "protoConfig", "protoPackets", "protoTypes", "influxMap", "burnTime", "mode", "windowPresets", "quickWindowPresets", "cameras"],
+	"required": ["windows", "protoConfig", "protoPackets", "protoTypes", "influxMapGenerator", "burnTime", "mode", "windowPresets", "quickWindowPresets", "cameras"],
 	"additionalProperties": false
 }

@@ -1,4 +1,5 @@
 {
+	"$schema": "../schema/window.schema.json",
 	"name": "Pressures",
 	"layout": "9-grid",
 	"slots": [

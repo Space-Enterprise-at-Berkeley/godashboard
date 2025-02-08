@@ -1,4 +1,5 @@
 {
+	"$schema": "../schema/window.schema.json",
 	"name": "Propellant Fill",
 	"layout": "9-grid",
 	"slots": [
@@ -18,7 +19,7 @@
 					"color": [30, 144, 255]
 				},
 				{
-					"field": "ac2AutoventPressure",
+					"field": "ac2nosAutoventPressure",
 					"name": "AV",
 					"units": "PSI",
 					"color": [178, 34, 34]
@@ -41,7 +42,7 @@
 					"color": [30, 144, 255]
 				},
 				{
-					"field": "ac3AutoventPressure",
+					"field": "ac3ipaAutoventPressure",
 					"name": "AV",
 					"units": "PSI",
 					"color": [178, 34, 34]
@@ -129,7 +130,9 @@
 							"packet": "SetAutoventThreshold",
 							"board": "AC_2",
 							"args": {
-								"autoventPressure": "<input>"
+								"nosAutoventPressure": "<input>",
+								"ipaAutoventPressure": "<input>",
+								"noCommsAbortEnabled": 0 // Ignored
 							},
 							"safe": true
 						}
@@ -144,7 +147,9 @@
 							"packet": "SetAutoventThreshold",
 							"board": "AC_3",
 							"args": {
-								"autoventPressure": "<input>"
+								"nosAutoventPressure": "<input>",
+								"ipaAutoventPressure": "<input>",
+								"noCommsAbortEnabled": 0 // Ignored
 							},
 							"safe": true
 						}
@@ -198,7 +203,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
 								"<channel>": "AC_NOS_EMERGENCY_VENT",
@@ -208,7 +213,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
 								"<channel>": "AC_NOS_EMERGENCY_VENT",
@@ -225,7 +230,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
 								"<channel>": "AC_IPA_EMERGENCY_VENT",
@@ -235,7 +240,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
 								"<channel>": "AC_IPA_EMERGENCY_VENT",

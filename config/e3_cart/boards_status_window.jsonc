@@ -1,4 +1,5 @@
 {
+	"$schema": "../schema/window.schema.json",
 	"name": "Boards Status",
 	"layout": "9-grid",
 	"slots": [
@@ -147,10 +148,11 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ZeroChannel",
+							"packet": "FirstPointCalibration",
 							"board": "PT_1",
 							"args": {
-								"channel": "<input>"
+								"channel": "<input>",
+								"value": 0.0
 							},
 							"safe": true
 						}
@@ -162,10 +164,11 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ZeroChannel",
+							"packet": "FirstPointCalibration",
 							"board": "PT_2",
 							"args": {
-								"channel": "<input>"
+								"channel": "<input>",
+								"value": 0.0
 							},
 							"safe": true
 						}
@@ -184,10 +187,11 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ZeroChannel",
+							"packet": "FirstPointCalibration",
 							"board": "LC_1",
 							"args": {
-								"channel": "<input>"
+								"channel": "<input>",
+								"value": 0.0
 							},
 							"safe": true
 						}
@@ -199,10 +203,11 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ZeroChannel",
+							"packet": "FirstPointCalibration",
 							"board": "LC_2",
 							"args": {
-								"channel": "<input>"
+								"channel": "<input>",
+								"value": 0.0
 							},
 							"safe": true
 						}
@@ -222,7 +227,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
 								"<channel>": "AC_NOS_EMERGENCY_VENT",
@@ -232,7 +237,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
 								"<channel>": "AC_NOS_EMERGENCY_VENT",
@@ -249,7 +254,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
 								"<channel>": "AC_IPA_EMERGENCY_VENT",
@@ -259,7 +264,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "ActuateActuator",
+							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
 								"<channel>": "AC_IPA_EMERGENCY_VENT",

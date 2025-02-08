@@ -38,35 +38,6 @@ const TYPE_NAME_LOOKUP: Dictionary = {
 	"asUInt32": PacketDataType.UINT32,
 }
 
-enum AbortReason {
-	MANUAL = 0,
-	NOS_OVERPRESSURE = 1,
-	IPA_OVERPRESSURE = 2,
-	ENGINE_OVERTEMP = 3,
-	FAILED_IGNITION = 4,
-	IGNITER_NO_CONTINUITY = 5,
-	BREAKWIRE_NO_CONTINUITY = 6,
-	BREAKWIRE_NO_BURNT = 7,
-	NO_DASHBOARD_COMMS = 8,
-	PROPELLANT_RUN_OUT = 9,
-}
-
-const ABORT_DESCRIPTIONS: Dictionary = {
-	AbortReason.MANUAL: "Manual",
-	AbortReason.NOS_OVERPRESSURE: "NOS Overpressure",
-	AbortReason.IPA_OVERPRESSURE: "IPA Overpressure",
-	AbortReason.ENGINE_OVERTEMP: "Engine Overtemp",
-	AbortReason.FAILED_IGNITION: "Failed Ignition",
-	AbortReason.IGNITER_NO_CONTINUITY: "Igniter No Continuity",
-	AbortReason.BREAKWIRE_NO_CONTINUITY: "Breakwire No Continuity",
-	AbortReason.BREAKWIRE_NO_BURNT: "Breakwire No Burnt",
-	AbortReason.NO_DASHBOARD_COMMS: "No Dashboard Comms",
-	AbortReason.PROPELLANT_RUN_OUT: "Propellant Run-Out",
-}
-
-const LAUNCH_ID: int = 200
-const ABORT_ID: int = 133
-
 var first_receive_times: Dictionary = {}
 var first_receive_offsets: Dictionary = {}
 var last_packet_times: Dictionary = {}
@@ -127,26 +98,24 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 		Logger.debug("IP %s not recognized" % addr)
 		packet.error = true
 		return packet
-	var board: String = Config.config["boards"][addr]
-	boards_kbps[board] += data.size() / 125.0
+	var board: String = "Dashboard"
+	if len(addr) == 10 and addr.begins_with("10.0.0.1"):
+		board = Config.config["boards"][addr]
+		boards_kbps[board] += data.size() / 125.0
 	var id: int = data.decode_u8(0)
 	var length: int = data.decode_u8(1)
 	var run_time: int = data.decode_u32(2)
-	if run_time < 1000 and last_packet_times[board] > 1500 and last_packet_times[board] < 4294966295: # UINT_32_MAX - 1000
-		first_receive_times[board] = -1
-		first_receive_offsets[board] = -1
-		Logger.info("Resetting timestamps for %s" % board)
+	if board != "Dashboard":
+		if run_time < 1000 and last_packet_times[board] > 1500 and last_packet_times[board] < 4294966295: # UINT_32_MAX - 1000
+			first_receive_times[board] = -1
+			first_receive_offsets[board] = -1
+			Logger.info("Resetting timestamps for %s" % board)
 	last_packet_times[board] = run_time
 	var timestamp: int = _calculate_timestamp(run_time, board)
 	var checksum: int = data.decode_u16(6)
 	var field_data: PackedByteArray = data.slice(8, 8 + length)
 	var sum_buf: PackedByteArray = data.slice(0, 6) + field_data
 	var expected_checksum: int = fletcher16(sum_buf)
-	
-	# Abort stuff - should be moved elsewhere and done better
-	if id == ABORT_ID:
-		var abort_reason: int = field_data.decode_u8(1)
-		Logger.warn("Abort reason: %d (%s)" % [abort_reason, ABORT_DESCRIPTIONS[abort_reason]])
 	
 	if expected_checksum != checksum:
 		Logger.warn("Invalid checksum from board %s (packet id %d)" % [board, id])
@@ -295,7 +264,7 @@ func send_packet(ip: String, id: int, args: Array) -> void:
 			Comms.bcast_server.set_dest_address(Comms.LOCALHOST_IP, Comms.BCAST_PORT)
 			Comms.bcast_server.put_packet(output_buffer)
 
-func validate_and_send(destination: String, packet_name: String, payload: Dictionary) -> bool:
+func validate_and_send(destination: String, packet_name: String, payload: Dictionary, hide_log: bool = false) -> bool:
 	var channel_data: Array = []
 	if payload.has("<channel>"):
 		var channel: String = payload["<channel>"]
@@ -319,7 +288,6 @@ func validate_and_send(destination: String, packet_name: String, payload: Dictio
 	var packet_id: int = packet_definition[0]
 	var packet_fields: Array[Array] = packet_definition[1]
 	var args: Array[Array] = []
-	Logger.info(Time.get_datetime_string_from_system())
 	for field in packet_fields:
 		if not payload.has(field[0]) and not field[3]:
 			Logger.error("Board %s, packet %s requires field %s" % [destination, packet_name, field[0]])
@@ -327,7 +295,8 @@ func validate_and_send(destination: String, packet_name: String, payload: Dictio
 		var value: Variant = payload.get(field[0], 0)
 		if not _write_field(args, value, field, channel_data):
 			return false
-	Logger.info("%s %d %s" % [destination, packet_id, str(args)])
+	if not hide_log:
+		Logger.info("Sent packet %s %d %s" % [destination, packet_id, str(args)])
 	send_packet(destination, packet_id, args)
 	return true
 
@@ -373,8 +342,16 @@ func launch(ipa_enabled: bool, nos_enabled: bool) -> void:
 		Logger.info("IPA enabled")
 	if nos_enabled:
 		Logger.info("NOS enabled")
-	send_packet("bcast", LAUNCH_ID, [make_uint8(Config.config["mode"]), make_uint32(Config.config["burnTime"]), make_uint8(int(nos_enabled)), make_uint8(int(ipa_enabled))])
+	validate_and_send("bcast", "BeginFlow", {
+		"systemMode": Config.config["mode"],
+		"burnTime": Config.config["burnTime"],
+		"nitrousEnable": int(nos_enabled),
+		"ipaEnable": int(ipa_enabled)
+	})
 
-func abort(reason: AbortReason) -> void:
-	Logger.warn("Emitting abort with reason %d: %s" % [reason, ABORT_DESCRIPTIONS[reason]])
-	send_packet("bcast", ABORT_ID, [make_uint8(Config.config["mode"]), make_uint8(reason)])
+func abort(reason: String) -> void:
+	Logger.warn("Emitting abort with reason %s" % reason)
+	validate_and_send("bcast", "Abort", {
+		"systemMode": Config.config["mode"],
+		"abortReason": reason
+	})

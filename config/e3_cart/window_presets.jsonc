@@ -1,4 +1,5 @@
 {
+	"$schema": "../schema/window_presets.schema.json",
 	"main": {
 		"name": "E3 Vertical",
 		"tabs": ["controls", "pressures", "propellant_fill", "engine", "boards_status", "actuators_status"]

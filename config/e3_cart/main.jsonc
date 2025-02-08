@@ -1,4 +1,5 @@
 {
+	"$schema": "../schema/main.schema.json",
 	"windows": {
 		// "packet_simulator": "$generic/packet_simulator_window.jsonc",
 		"controls": "$e3_cart/controls_window.jsonc",
@@ -12,7 +13,7 @@
 	"protoConfig": "$../universalproto/config.jsonc",
 	"protoPackets": "$../universalproto/packets.jsonc",
 	"protoTypes": "$../universalproto/types.jsonc",
-	"influxMap": "$e3_cart/influx_map.jsonc",
+	"influxMapGenerator": "$e3_cart/influx_map_generator.jsonc",
 	"burnTime": 45000, // ms
 	"mode": "COLDFLOW",
 	"windowPresets": "$e3_cart/window_presets.jsonc",

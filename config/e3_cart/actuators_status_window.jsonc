@@ -1,4 +1,5 @@
 {
+	"$schema": "../schema/window.schema.json",
 	"name": "Actuators Status",
 	"layout": "9-grid",
 	"slots": [
