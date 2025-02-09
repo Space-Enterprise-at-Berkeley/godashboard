@@ -77,14 +77,14 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "chamber0PT",
-					"name": "ChamberPT0",
+					"field": "chamberPT",
+					"name": "ChamberPT",
 					"units": "PSI",
 					"color": [127, 0, 255]
 				},
 				{
-					"field": "manifoldPT",
-					"name": "Manifold",
+					"field": "manifold0PT",
+					"name": "Manifold0PT",
 					"units": "",
 					"color": [77, 73, 251]
 				},
@@ -176,8 +176,8 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "chamber1PT",
-					"name": "ChamberPT1",
+					"field": "chamberPT",
+					"name": "ChamberPT",
 					"units": "",
 					"color": [128, 254, 206]
 				},

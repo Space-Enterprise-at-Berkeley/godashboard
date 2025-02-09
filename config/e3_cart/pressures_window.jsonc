@@ -97,35 +97,21 @@
 			]
 		},
 		{
-			"type": "graph",
-			"values": [
-				{
-					"field": "nosInjectorTC",
-					"name": "NOS Injector TC",
-					"units": "C",
-					"color": [218, 165, 32]
-				},
-				{
-					"field": "ipaInjectorTC",
-					"name": "IPA Injector TC",
-					"units": "C",
-					"color": [30, 144, 255]
-				}
-		
-			]
+			"type": "six-square",
+			"values": [null, null, null, null, null, null]
 		},
 		{
 			"type": "graph",
 			"values": [
 				{
-					"field": "chamber0PT",
-					"name": "ChamberPT0",
+					"field": "chamberPT",
+					"name": "Chamber",
 					"units": "PSI",
 					"color": [127, 0, 255]
 				},
 				{
-					"field": "manifoldPT",
-					"name": "Manifold",
+					"field": "manifold0PT",
+					"name": "Manifold 0",
 					"units": "",
 					"color": [77, 73, 251]
 				},
@@ -181,8 +167,8 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "chamber1PT",
-					"name": "ChamberPT1",
+					"field": "chamberPT",
+					"name": "ChamberPT",
 					"units": "",
 					"color": [128, 254, 206]
 				},

@@ -160,21 +160,8 @@
 			]
 		},
 		{
-			"type": "graph",
-			"values": [
-				{
-					"field": "nosTankTC",
-					"name": "NOS Tank TC",
-					"units": "C",
-					"color": [218, 165, 32]
-				},
-				{
-					"field": "heaterTC",
-					"name": "Heater TC",
-					"units": "C",
-					"color": [30, 144, 255]
-				}
-			]
+			"type": "six-square",
+			"values": [null, null, null, null, null, null]
 		},
 		{
 			"type": "graph",
