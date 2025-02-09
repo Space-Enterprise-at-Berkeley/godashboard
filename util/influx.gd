@@ -67,7 +67,7 @@ func init(db_name: String) -> void:
 	database_change.emit(db_name)
 	if not enabled:
 		enabled = true
-		Databus.update.connect(_handle_packet)
+		#Databus.update.connect(_handle_packet)
 		timer.start()
 
 func _push_request(request: InfluxRequest) -> void:

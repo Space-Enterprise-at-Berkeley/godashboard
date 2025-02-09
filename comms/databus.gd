@@ -21,6 +21,8 @@ class Packet:
 	var fields: Dictionary
 	var timestamp: int
 	var error: bool
+	var board: String
+	var id: int
 
 const TYPE_LENGTHS: Dictionary = {
 	PacketDataType.ASCII_STRING: 0,
@@ -45,6 +47,7 @@ var has_config: bool = false
 var connected_timers: Dictionary = {}
 var boards_connected: Dictionary = {}
 var boards_kbps: Dictionary = {}
+var last_pt_timestamp: int = 0
 
 func _ready() -> void:
 	Config.config_update.connect(_config_update)
@@ -78,6 +81,8 @@ func process_packet(data: PackedByteArray, addr: String) -> void:
 				for pre: String in Config.preprocessors[field]:
 					packet.fields[pre] = Config.preprocessors[field][pre].process_data(packet.fields[field], packet.timestamp)
 		update.emit(packet.fields, packet.timestamp)
+		if Influx.enabled:
+			Influx._handle_packet(packet.fields, packet.timestamp)
 
 func register_field(field: String) -> void:
 	if not field.contains("@"):
@@ -101,8 +106,10 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 	#var board: String = "Dashboard"
 	#if not (len(addr) == 10 and addr.begins_with("10.0.0.1")):
 	var board: String = Config.config["boards"][addr]
+	packet.board = board
 	boards_kbps[board] += data.size() / 125.0
 	var id: int = data.decode_u8(0)
+	packet.id = id
 	var length: int = data.decode_u8(1)
 	var run_time: int = data.decode_u32(2)
 	if run_time < 1000 and last_packet_times[board] > 1500 and last_packet_times[board] < 4294966295: # UINT_32_MAX - 1000
