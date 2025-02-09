@@ -85,6 +85,6 @@ func setup(config: Dictionary) -> void:
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
 	for f: String in fields:
 		if field_names.has(f):
-			if timestamp > last_timestamps[f] + 100:
+			if abs(timestamp - last_timestamps[f]) > 100:
 				points[f].append([fields[f], timestamp])
 				last_timestamps[f] = timestamp

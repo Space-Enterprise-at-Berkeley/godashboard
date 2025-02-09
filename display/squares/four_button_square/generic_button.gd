@@ -28,6 +28,7 @@ var green: Array = []
 var actions: Dictionary = {}
 var key_enable: int = -2
 var key_disable: int = -2
+var last_timestamp: int = 0
 
 func _ready() -> void:
 	color_rect.color = BUTTON_COLOR_OFF
@@ -230,9 +231,12 @@ func update_status_bar(value: Variant) -> void:
 		color_rect.color = BUTTON_COLOR_OFF
 
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
+	if abs(timestamp - last_timestamp) <= 100:
+		return
 	if fields.get(BUTTON_ENABLE, null) == id:
 		_enable()
 	elif fields.get(BUTTON_DISABLE, null) == id:
 		_disable()
 	if fields.has(field):
 		update_status_bar(fields[field])
+		last_timestamp = timestamp

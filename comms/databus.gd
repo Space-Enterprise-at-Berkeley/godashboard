@@ -98,20 +98,21 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 		Logger.debug("IP %s not recognized" % addr)
 		packet.error = true
 		return packet
-	var board: String = "Dashboard"
-	if len(addr) == 10 and addr.begins_with("10.0.0.1"):
-		board = Config.config["boards"][addr]
-		boards_kbps[board] += data.size() / 125.0
+	#var board: String = "Dashboard"
+	#if not (len(addr) == 10 and addr.begins_with("10.0.0.1")):
+	var board: String = Config.config["boards"][addr]
+	boards_kbps[board] += data.size() / 125.0
 	var id: int = data.decode_u8(0)
 	var length: int = data.decode_u8(1)
 	var run_time: int = data.decode_u32(2)
-	if board != "Dashboard":
-		if run_time < 1000 and last_packet_times[board] > 1500 and last_packet_times[board] < 4294966295: # UINT_32_MAX - 1000
-			first_receive_times[board] = -1
-			first_receive_offsets[board] = -1
-			Logger.info("Resetting timestamps for %s" % board)
+	if run_time < 1000 and last_packet_times[board] > 1500 and last_packet_times[board] < 4294966295: # UINT_32_MAX - 1000
+		first_receive_times[board] = -1
+		first_receive_offsets[board] = -1
+		Logger.info("Resetting timestamps for %s" % board)
 	last_packet_times[board] = run_time
-	var timestamp: int = _calculate_timestamp(run_time, board)
+	var timestamp: int = get_current_time()
+	if board != "Dashboard":
+		timestamp = _calculate_timestamp(run_time, board)
 	var checksum: int = data.decode_u16(6)
 	var field_data: PackedByteArray = data.slice(8, 8 + length)
 	var sum_buf: PackedByteArray = data.slice(0, 6) + field_data
@@ -132,7 +133,12 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 	for field: Array in definition:
 		var full_name: String = field[0]
 		var type: PacketDataType = TYPE_NAME_LOOKUP[field[1]]
-		var val: Variant = _read_value(field_data, offset, type)
+		var val: Variant = 0
+		if offset >= len(field_data):
+			#Logger.warn("Packet too short: %s" % str(definition))
+			pass
+		else:
+			val = _read_value(field_data, offset, type)
 		offset += TYPE_LENGTHS[type]
 		if not influx_map.has(full_name):
 			influx_map[full_name] = full_name

@@ -280,9 +280,9 @@
 				}
 			]
 		},
-		{
-			"type": "logs"
-		},
+		// {
+		// 	"type": "logs"
+		// },
 		{
 			"type": "four-button",
 			"buttons": [
@@ -341,9 +341,9 @@
 				}
 			]
 		},
-		{
-			"type": "launch"
-		},
+		// {
+		// 	"type": "launch"
+		// },
 		{
 			"type": "four-button",
 			"buttons": [

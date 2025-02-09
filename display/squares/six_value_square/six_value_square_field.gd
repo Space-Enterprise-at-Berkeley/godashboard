@@ -7,6 +7,7 @@ class_name SixValueSquareField
 var field: String = ""
 var units: String = ""
 var name_text: String = ""
+var last_timestamp: int = 0
 
 func _ready() -> void:
 	Databus.update.connect(_handle_packet)
@@ -25,8 +26,11 @@ func setup(config: Dictionary, is_null: bool) -> void:
 	name_label.text = config["name"]
 
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
+	if abs(timestamp - last_timestamp) <= 100:
+		return
 	if fields.has(field):
 		update_field(fields[field])
+		last_timestamp = timestamp
 
 func update_field(value: float) -> void:
 	value_label.text = str(value).pad_decimals(1) + " " + units
