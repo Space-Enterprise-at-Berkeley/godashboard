@@ -1,7 +1,7 @@
 {
 	"$schema": "../schema/main.schema.json",
 	"windows": {
-		// "packet_simulator": "$generic/packet_simulator_window.jsonc",
+		"packet_simulator": "$generic/packet_simulator_window.jsonc",
 		"controls": "$e3_cart/controls_window.jsonc",
 		"pressures": "$e3_cart/pressures_window.jsonc",
 		"propellant_fill": "$e3_cart/propellant_fill_window.jsonc",

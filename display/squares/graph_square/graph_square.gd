@@ -69,7 +69,7 @@ func setup(config: Dictionary) -> void:
 		graph_header.setup(field)
 		var f: String = field["field"]
 		if f.split("@")[0] not in Config.config["influxMap"].values():
-			print("Field %s not in Influx map. This data may not work" % f)
+			Logger.warn("Field %s not in Influx map. This data may not work" % f)
 		field_names.append(f)
 		Databus.register_field(f)
 		points[f] = []

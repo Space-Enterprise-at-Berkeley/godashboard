@@ -138,6 +138,16 @@ func expand_config(conf: Variant) -> void:
 	
 	device_ids.erase("bcast")
 	
+	var reverse_enum_lookup: Dictionary = {}
+	for type: String in types:
+		var type_def: Variant = types[type]
+		if type_def is Dictionary:
+			var enum_map: Dictionary = {}
+			for key: String in type_def:
+				enum_map[type_def[key]] = key
+			reverse_enum_lookup[type] = enum_map
+	
+	conf["reverse_enum_lookup"] = reverse_enum_lookup
 	conf["boards"] = boards
 	conf["ip_lookup"] = ip_lookup
 	conf["packets"] = packets

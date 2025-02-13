@@ -7,7 +7,7 @@
 	},
 	"debug": {
 		"name": "Debug",
-		"tabs": ["calibration"] // Temporarily broken
+		"tabs": ["packet_simulator", "calibration"] // Temporarily broken
 		// "tabs": ["packet_simulator", "influx_test"]
 	},
 	"empty": {

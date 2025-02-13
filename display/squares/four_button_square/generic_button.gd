@@ -24,10 +24,10 @@ var id: String = ""
 var field: String = ""
 var safe: Array[Button] = []
 var shortcuts: Dictionary = {}
+var reverse_shortcuts: Dictionary = {}
 var green: Array = []
 var actions: Dictionary = {}
-var key_enable: int = -2
-var key_disable: int = -2
+var shortcut_labels: Dictionary = {}
 
 func _ready() -> void:
 	color_rect.color = BUTTON_COLOR_OFF
@@ -45,10 +45,13 @@ func _input(event: InputEvent) -> void:
 		if not event.pressed:
 			return
 		if event.shift_pressed:
-			if event.keycode == key_enable and button_open_timed.visible and not button_open_timed.disabled:
-				_partial_open()
-			elif event.keycode == key_disable and button_close_timed.visible and not button_close_timed.disabled:
-				_partial_close()
+			if shortcuts.has(event.keycode):
+				var button: Button = shortcuts[event.keycode]
+				if button.visible and not button.disabled:
+					var focus: Control = get_viewport().gui_get_focus_owner()
+					if focus is TextEdit or focus is LineEdit or focus is GraphEdit:
+						return
+					button.pressed.emit()
 
 func setup(config: Dictionary, is_null: bool) -> void:
 	if is_null:
@@ -60,7 +63,11 @@ func setup(config: Dictionary, is_null: bool) -> void:
 	green = config.get("green", [])
 	actions = config.get("actions", {})
 	if field != "" and field.split("@")[0] not in Config.config["influxMap"].values():
-		print("Field %s not in Influx map. This data may not work" % field)
+		Logger.warn("Field %s not in Influx map. This data may not work" % field)
+	shortcut_labels = {
+		button_close_timed: [disable_key, disable_container],
+		button_open_timed: [enable_key, enable_container],
+	}
 	for action_type: String in actions:
 		var action: Dictionary = actions[action_type]
 		var current_button: Button = null
@@ -77,7 +84,11 @@ func setup(config: Dictionary, is_null: bool) -> void:
 			safe.append(current_button)
 			button_safety.show()
 		if action.has("shortcut"):
-			shortcuts[current_button] = action["shortcut"]
+			shortcuts[action["shortcut"]] = current_button
+			reverse_shortcuts[current_button] = action["shortcut"]
+			if shortcut_labels.has(current_button):
+				shortcut_labels[current_button][0].text = OS.get_keycode_string(action["shortcut"]).to_upper()
+				shortcut_labels[current_button][1].show()
 		if _requires_input(action):
 			time.show()
 	_disable()
@@ -224,6 +235,7 @@ func _replace_input(value: Variant) -> Variant:
 			#Databus.send_packet("bcast", 251, [Databus.make_uint8(0)])
 
 func update_status_bar(value: Variant) -> void:
+	value = Config.config["reverse_enum_lookup"]["ACActuatorStatesType"][value]
 	if green.has(value):
 		color_rect.color = BUTTON_COLOR_ON
 	else:

@@ -389,8 +389,7 @@
 								"<channel>": "AC_NOS_LINE_VENT",
 								"actuateTime": "<input>"
 							},
-							"safe": true,
-							"shortcut": 83 // s
+							"safe": true
 						},
 						"close-partial": {
 							"type": "packet",
@@ -399,8 +398,7 @@
 								"action": "RETRACT_TIMED",
 								"<channel>": "AC_NOS_LINE_VENT",
 								"actuateTime": "<input>"
-							},
-							"shortcut": 65 // a
+							}
 						}
 					},
 					"green": ["EXTENDING", "RETRACTING"]

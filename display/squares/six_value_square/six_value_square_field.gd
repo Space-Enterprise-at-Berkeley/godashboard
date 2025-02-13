@@ -19,7 +19,7 @@ func setup(config: Dictionary, is_null: bool) -> void:
 		return
 	field = config["field"]
 	if field.split("@")[0] not in Config.config["influxMap"].values():
-		print("Field %s not in Influx map. This data may not work" % field)
+		Logger.warn("Field %s not in Influx map. This data may not work" % field)
 	Databus.register_field(field)
 	units = config["units"]
 	name_text = name
