@@ -1,7 +1,7 @@
 {
 	"$schema": "../schema/window_presets.schema.json",
 	"main": {
-		"name": "E3 Vertical",
+		"name": "E3 Cart",
 		// "tabs": ["controls", "propellant_fill"]
 		"tabs": ["controls", "pressures", "propellant_fill", "engine", "boards_status", "actuators_status"]
 	},
