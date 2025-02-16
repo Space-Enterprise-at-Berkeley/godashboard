@@ -497,7 +497,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "ON",
+								"action": "OFF",
 								"<channel>": "AC_NOS_DRAIN",
 								"actuateTime": 0
 							},
@@ -507,7 +507,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "OFF",
+								"action": "ON",
 								"<channel>": "AC_NOS_DRAIN",
 								"actuateTime": 0
 							}
@@ -524,7 +524,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "ON",
+								"action": "OFF",
 								"<channel>": "AC_NOS_EMERGENCY_VENT",
 								"actuateTime": 0
 							},
@@ -534,7 +534,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "OFF",
+								"action": "ON",
 								"<channel>": "AC_NOS_EMERGENCY_VENT",
 								"actuateTime": 0
 							}
@@ -552,7 +552,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "ON",
+								"action": "OFF",
 								"<channel>": "AC_IPA_EMERGENCY_VENT",
 								"actuateTime": 0
 							},
@@ -562,7 +562,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "OFF",
+								"action": "ON",
 								"<channel>": "AC_IPA_EMERGENCY_VENT",
 								"actuateTime": 0
 							}
