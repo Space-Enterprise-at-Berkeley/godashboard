@@ -1,11 +1,11 @@
 extends Control
 class_name PidSquare
 
-@onready var root: Node2D = $SubViewportContainer/SubViewport/Node2D
-@onready var sub_viewport: SubViewport = $SubViewportContainer/SubViewport
-@onready var background_grid: Sprite2D = $SubViewportContainer/SubViewport/Node2D/BackgroundGrid
-@onready var pipes: Node2D = $SubViewportContainer/SubViewport/Node2D/Pipes
-@onready var nodes: Node2D = $SubViewportContainer/SubViewport/Node2D/Nodes
+@onready var root: Node2D = $HBoxContainer/SubViewportContainer/SubViewport/Node2D
+@onready var sub_viewport: SubViewport = $HBoxContainer/SubViewportContainer/SubViewport
+@onready var background_grid: Sprite2D = $HBoxContainer/SubViewportContainer/SubViewport/Node2D/BackgroundGrid
+@onready var pipes: Node2D = $HBoxContainer/SubViewportContainer/SubViewport/Node2D/Pipes
+@onready var nodes: Node2D = $HBoxContainer/SubViewportContainer/SubViewport/Node2D/Nodes
 
 const tank_scene = preload("res://display/squares/pid/shapes/tank/pid_shape_tank.tscn")
 const t_scene = preload("res://display/squares/pid/shapes/t/pid_shape_t.tscn")
@@ -18,6 +18,13 @@ var positions: Dictionary = {}
 var start_coord: Vector2 = Vector2.ZERO
 var scale_factor: float = 0.0
 var debug: bool = false
+
+var tool_none: PidEditorTool = PidEditorTool.new()
+var tool_select: PidEditorTool = PidEditorToolSelect.new()
+var current_tool: PidEditorTool = tool_none
+
+func _ready() -> void:
+	_set_current_tool(tool_select)
 
 func setup(config: Dictionary) -> void:
 	if !is_node_ready():
@@ -72,3 +79,11 @@ func _enable_debug() -> void:
 func _disable_debug() -> void:
 	debug = false
 	background_grid.hide()
+
+func _set_current_tool(tool: PidEditorTool) -> void:
+	var different: bool = tool != current_tool
+	if different:
+		current_tool.on_exit(self)
+	current_tool = tool
+	if different:
+		tool.on_enter(self)

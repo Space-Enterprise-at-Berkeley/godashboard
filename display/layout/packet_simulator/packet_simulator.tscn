@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://1uu0p2dip6t7"]
+[gd_scene load_steps=5 format=3 uid="uid://1uu0p2dip6t7"]
 
 [ext_resource type="Script" path="res://display/layout/packet_simulator/packet_simulator.gd" id="1_bbc2e"]
 [ext_resource type="PackedScene" uid="uid://du5kp44a8j6uf" path="res://display/layout/packet_simulator/packet_editor.tscn" id="2_r62qc"]
+[ext_resource type="PackedScene" uid="uid://drcw3tp7jggbr" path="res://display/generic/icon_button.tscn" id="3_odvj5"]
+[ext_resource type="Texture2D" uid="uid://deuod5glek4is" path="res://resources/icon/plus.svg" id="4_3ay1f"]
 
 [node name="PacketSimulator" type="HBoxContainer"]
 anchors_preset = 15
@@ -31,7 +33,6 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AddFunction" type="Button" parent="FunctionGenerator"]
+[node name="AddFunction" parent="FunctionGenerator" instance=ExtResource("3_odvj5")]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "+"
+icon = ExtResource("4_3ay1f")

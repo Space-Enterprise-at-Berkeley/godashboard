@@ -1,13 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://rdicnqvoq18r"]
 
 [ext_resource type="Script" path="res://display/layout/packet_simulator/function_generator_entry.gd" id="1_s0ugc"]
-[ext_resource type="Shader" path="res://resources/shader/recolor_icon.gdshader" id="2_k0yc7"]
+[ext_resource type="PackedScene" uid="uid://drcw3tp7jggbr" path="res://display/generic/icon_button.tscn" id="2_chv1t"]
 [ext_resource type="Texture2D" uid="uid://bnrh66gjee452" path="res://resources/icon/reload.svg" id="2_ugulc"]
+[ext_resource type="Texture2D" uid="uid://d20c78tn2sid6" path="res://resources/icon/x.svg" id="3_7fmar"]
 [ext_resource type="PackedScene" uid="uid://du5kp44a8j6uf" path="res://display/layout/packet_simulator/packet_editor.tscn" id="4_r6evt"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pvges"]
-shader = ExtResource("2_k0yc7")
-shader_parameter/color = Color(0.792157, 0.792157, 0.792157, 1)
 
 [node name="Control" type="PanelContainer"]
 anchors_preset = 14
@@ -27,9 +24,9 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/FunctionGeneratorEntry"]
 layout_mode = 2
 
-[node name="Delete" type="Button" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
+[node name="Delete" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer" instance=ExtResource("2_chv1t")]
 layout_mode = 2
-text = "X"
+icon = ExtResource("3_7fmar")
 
 [node name="Name" type="LineEdit" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
 layout_mode = 2
@@ -46,12 +43,9 @@ placeholder_text = "Delay (ms)"
 layout_mode = 2
 button_pressed = true
 
-[node name="Update" type="Button" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer"]
-material = SubResource("ShaderMaterial_pvges")
-custom_minimum_size = Vector2(30, 30)
+[node name="Update" parent="MarginContainer/FunctionGeneratorEntry/HBoxContainer" instance=ExtResource("2_chv1t")]
 layout_mode = 2
 icon = ExtResource("2_ugulc")
-expand_icon = true
 
 [node name="FunctionText" type="LineEdit" parent="MarginContainer/FunctionGeneratorEntry"]
 layout_mode = 2

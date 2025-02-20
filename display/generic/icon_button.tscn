@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://drcw3tp7jggbr"]
+
+[ext_resource type="Shader" path="res://resources/shader/recolor_icon.gdshader" id="1_4k0ot"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3s85q"]
+shader = ExtResource("1_4k0ot")
+shader_parameter/color = Color(0.792157, 0.792157, 0.792157, 1)
+
+[node name="IconButton" type="Button"]
+material = SubResource("ShaderMaterial_3s85q")
+custom_minimum_size = Vector2(30, 30)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = -270.0
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon_alignment = 1
+expand_icon = true
