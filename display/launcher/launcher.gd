@@ -53,6 +53,7 @@ func _create_window(title: String, tabs: Array) -> void:
 
 func _close_window(window: String) -> void:
 	var w: Window = windows[window]
+	Databus.close_window(w)
 	w.queue_free()
 	windows.erase(window)
 	if windows.size() == 0:

@@ -9,28 +9,22 @@ var units: String = ""
 var name_text: String = ""
 var last_timestamp: int = 0
 
-func _ready() -> void:
-	Databus.update.connect(_handle_packet)
-
 func setup(config: Dictionary, is_null: bool) -> void:
 	if is_null:
 		name_label.hide()
 		value_label.hide()
 		return
 	field = config["field"]
-	if field.split("@")[0] not in Config.config["influxMap"].values():
-		Logger.warn("Field %s not in Influx map. This data may not work" % field)
-	Databus.register_field(field)
 	units = config["units"]
 	name_text = name
 	name_label.text = config["name"]
+	Databus.register_callback(field, get_window(), _handle_packet)
 
-func _handle_packet(fields: Dictionary, timestamp: int) -> void:
+func _handle_packet(value: Variant, timestamp: int) -> void:
 	if abs(timestamp - last_timestamp) <= 100:
 		return
-	if fields.has(field):
-		update_field(fields[field])
-		last_timestamp = timestamp
+	update_field(value)
+	last_timestamp = timestamp
 
 func update_field(value: float) -> void:
 	value_label.text = str(value).pad_decimals(1) + " " + units

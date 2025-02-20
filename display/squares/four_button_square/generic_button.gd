@@ -36,7 +36,6 @@ func _ready() -> void:
 	button_close_timed.pressed.connect(_partial_close)
 	button_open_timed.pressed.connect(_partial_open)
 	button_safety.toggled.connect(_switch_safety)
-	Databus.update.connect(_handle_packet)
 
 func _input(event: InputEvent) -> void:
 	if not is_visible_in_tree():
@@ -62,8 +61,9 @@ func setup(config: Dictionary, is_null: bool) -> void:
 	field = config.get("field", "")
 	green = config.get("green", [])
 	actions = config.get("actions", {})
-	if field != "" and field.split("@")[0] not in Config.config["influxMap"].values():
-		Logger.warn("Field %s not in Influx map. This data may not work" % field)
+	Databus.register_callback(BUTTON_ENABLE, get_window(), _handle_packet_enable, true)
+	Databus.register_callback(BUTTON_DISABLE, get_window(), _handle_packet_disable, true)
+	Databus.register_callback(field, get_window(), _handle_packet_value)
 	shortcut_labels = {
 		button_close_timed: [disable_key, disable_container],
 		button_open_timed: [enable_key, enable_container],
@@ -241,10 +241,13 @@ func update_status_bar(value: Variant) -> void:
 	else:
 		color_rect.color = BUTTON_COLOR_OFF
 
-func _handle_packet(fields: Dictionary, timestamp: int) -> void:
-	if fields.get(BUTTON_ENABLE, null) == id:
+func _handle_packet_enable(value: String, timestamp: int) -> void:
+	if value == id:
 		_enable()
-	elif fields.get(BUTTON_DISABLE, null) == id:
+
+func _handle_packet_disable(value: String, timestamp: int) -> void:
+	if value == id:
 		_disable()
-	if fields.has(field):
-		update_status_bar(fields[field])
+
+func _handle_packet_value(value: Variant, timestamp: int) -> void:
+	update_status_bar(value)

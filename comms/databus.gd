@@ -48,6 +48,7 @@ var connected_timers: Dictionary = {}
 var boards_connected: Dictionary = {}
 var boards_kbps: Dictionary = {}
 var last_pt_timestamp: int = 0
+var packet_callbacks: Dictionary = {}
 
 func _ready() -> void:
 	Config.config_update.connect(_config_update)
@@ -80,9 +81,24 @@ func process_packet(data: PackedByteArray, addr: String) -> void:
 			if Config.preprocessors.has(field):
 				for pre: String in Config.preprocessors[field]:
 					packet.fields[pre] = Config.preprocessors[field][pre].process_data(packet.fields[field], packet.timestamp)
+		for field: String in packet.fields:
+			var callbacks: Array = packet_callbacks.get(field, [])
+			for callback: Array in callbacks:
+				callback[0].call(packet.fields[field], packet.timestamp)
 		update.emit(packet.fields, packet.timestamp)
 		if Influx.enabled:
 			Influx._handle_packet(packet.fields, packet.timestamp)
+
+func register_callback(field: String, window: Window, callback: Callable, no_validate: bool = false) -> void:
+	if not no_validate:
+		if field.split("@")[0] not in Config.config["influxMap"].values():
+			Logger.warn("Field %s not in Influx map. This data may not work" % field)
+	register_field(field)
+	packet_callbacks.get_or_add(field, []).append([callback, window])
+
+func close_window(window: Window) -> void:
+	for field: String in packet_callbacks:
+		packet_callbacks[field] = packet_callbacks[field].filter(func (e: Array) -> bool: return window != e[1])
 
 func register_field(field: String) -> void:
 	if not field.contains("@"):
@@ -177,6 +193,10 @@ func _read_value(buf: PackedByteArray, offset: int, type: PacketDataType) -> Var
 	return null
 
 func send_update(fields: Dictionary, timestamp: int) -> void:
+	for field: String in fields:
+		var callbacks: Array = packet_callbacks.get(field, [])
+		for callback: Array in callbacks:
+			callback[0].call(fields[field], timestamp)
 	update.emit(fields, timestamp)
 
 func fletcher16(data: PackedByteArray) -> int:

@@ -19,7 +19,6 @@ var last_timestamps: Dictionary = {}
 var graph_id: int = 0
 
 func _ready() -> void:
-	Databus.update.connect(_handle_packet)
 	graph_id = graph_count
 	graph_count += 1
 	filter_timer.timeout.connect(_filter_points)
@@ -68,10 +67,8 @@ func setup(config: Dictionary) -> void:
 		header.add_child(graph_header)
 		graph_header.setup(field)
 		var f: String = field["field"]
-		if f.split("@")[0] not in Config.config["influxMap"].values():
-			Logger.warn("Field %s not in Influx map. This data may not work" % f)
 		field_names.append(f)
-		Databus.register_field(f)
+		Databus.register_callback(f, get_window(), _handle_packet.bind(f))
 		points[f] = []
 		var color: Color = Util.parse_color(field["color"])
 		colors[f] = color
@@ -82,9 +79,7 @@ func setup(config: Dictionary) -> void:
 		lines[f] = line
 		last_timestamps[f] = 0
 
-func _handle_packet(fields: Dictionary, timestamp: int) -> void:
-	for f: String in fields:
-		if field_names.has(f):
-			if abs(timestamp - last_timestamps[f]) > 100:
-				points[f].append([fields[f], timestamp])
-				last_timestamps[f] = timestamp
+func _handle_packet(value: Variant, timestamp: int, f: String) -> void:
+	if abs(timestamp - last_timestamps[f]) > 100:
+		points[f].append([value, timestamp])
+		last_timestamps[f] = timestamp

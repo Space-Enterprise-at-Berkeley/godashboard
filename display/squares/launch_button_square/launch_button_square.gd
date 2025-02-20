@@ -26,7 +26,8 @@ func _ready() -> void:
 	launch_button.text = SYSTEM_MODE_TEXTS[Config.config["mode"]]
 	launch_button.pressed.connect(_launch)
 	abort_button.pressed.connect(_abort)
-	Databus.update.connect(_handle_packet)
+	Databus.register_callback(BUTTON_ENABLE, get_window(), _handle_packet_enable, true)
+	Databus.register_callback(BUTTON_DISABLE, get_window(), _handle_packet_disable, true)
 
 func _enable_launch() -> void:
 	launch_enabled = true
@@ -43,20 +44,26 @@ func _launch() -> void:
 func _abort() -> void:
 	Databus.abort("MANUAL")
 
-func _handle_packet(fields: Dictionary, timestamp: int) -> void:
-	var enable_field: Variant = fields.get(BUTTON_ENABLE, null)
-	var disable_field: Variant = fields.get(BUTTON_DISABLE, null)
+func _handle_packet_enable(value: String, timestamp: int) -> void:
 	var update: bool = false
-	if enable_field == IPA_ENABLE:
+	if value == IPA_ENABLE:
 		ipa_enabled = true
 		update = true
-	if enable_field == NOS_ENABLE:
+	if value == NOS_ENABLE:
 		nos_enabled = true
 		update = true
-	if disable_field == IPA_ENABLE:
+	if update:
+		if ipa_enabled or nos_enabled:
+			_enable_launch()
+		else:
+			_disable_launch()
+
+func _handle_packet_disable(value: String, timestamp: int) -> void:
+	var update: bool = false
+	if value == IPA_ENABLE:
 		ipa_enabled = false
 		update = true
-	if disable_field == NOS_ENABLE:
+	if value == NOS_ENABLE:
 		nos_enabled = false
 		update = true
 	if update:

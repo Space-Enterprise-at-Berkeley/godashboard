@@ -8,23 +8,22 @@ class_name BoardStatus
 @onready var connectedField: String = board + "Connected"
 @onready var text: String = board.to_upper() + " - %d"
 
-func _ready() -> void:
-	Databus.update.connect(_handle_packet)
-
 func setup(b: String) -> void:
 	board = b
 	kbpsField = board + "Kbps"
 	connectedField = board + "Connected"
+	Databus.register_callback(kbpsField, get_window(), _handle_packet_kbps)
+	Databus.register_callback(connectedField, get_window(), _handle_packet_connected)
 	text = board.to_upper() + " - %d"
 	update_kbps(0)
 	if Databus.boards_connected[b]:
 		theme_type_variation = "BoardStatusConnected"
 
-func _handle_packet(fields: Dictionary, timestamp: int) -> void:
-	if fields.has(kbpsField):
-		update_kbps(fields[kbpsField])
-	if fields.has(connectedField):
-		theme_type_variation = "BoardStatusConnected" if fields[connectedField] else "BoardStatusDisconnected"
+func _handle_packet_kbps(value: int, timestamp: int) -> void:
+	update_kbps(value)
+
+func _handle_packet_connected(value: bool, timestamp: int) -> void:
+	theme_type_variation = "BoardStatusConnected" if value else "BoardStatusDisconnected"
 
 func update_kbps(value: float) -> void:
 	kbps_label.text = text %int(value)
