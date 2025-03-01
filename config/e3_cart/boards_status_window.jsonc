@@ -120,20 +120,54 @@
 			]
 		},
 		{
-			"type": "graph",
-			"values": [
+			"type": "four-button",
+			"buttons": [
 				{
-					"field": "nosCapCap",
-					"name": "Nitrous Cap Fill Value",
-					"units": "pF",
-					"color": [218, 165, 32]
-				},
+					"id": "eregSetPressureSetpointStart",
+					"name": "Setpoint Start",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ERSetPressureSetpointStart",
+							"board": "ER_IPA",
+							"args": {
+								"value": "<input>"
+							},
+							"safe": true
+						}
+					}
+				}, 
 				{
-					"field": "ipaCapCap",
-					"name": "IPA Cap Fill Value",
-					"units": "pF",
-					"color": [30, 144, 255]
-				}
+					"id": "eregSetPressureSetpointDropRate",
+					"name": "DropRate",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ERSetPressureSetpointDropRate",
+							"board": "ER_IPA",
+							"args": {
+								"value": "<input>"
+							},
+							"safe": true
+						}
+					}
+				}, 
+				{
+					"id": "eregSetPressureSetpointMinimum",
+					"name": "Setpoint Minimum",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ERSetPressureSetpointMinimum",
+							"board": "ER_IPA",
+							"args": {
+								"value": "<input>"
+							},
+							"safe": true
+						}
+					}
+				}, 
+				null
 			]
 		},
 		{
