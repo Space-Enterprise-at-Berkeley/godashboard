@@ -36,12 +36,6 @@
 					"color": [218, 165, 32]
 				},
 				{
-					"field": "ipaEregFilteredUpstreamPressure1",
-					"name": "Press",
-					"units": "PSI",
-					"color": [30, 144, 255]
-				},
-				{
 					"field": "ac3ipaAutoventPressure",
 					"name": "AV",
 					"units": "PSI",
@@ -92,12 +86,6 @@
 					"name": "Nitrous Cap Fill Value",
 					"units": "pF",
 					"color": [218, 165, 32]
-				},
-				{
-					"field": "ipaCapCap",
-					"name": "IPA Cap Fill Value",
-					"units": "pF",
-					"color": [30, 144, 255]
 				}
 			]
 		},
@@ -114,6 +102,45 @@
 					"field": "ipaEregAngleSetpoint",
 					"name": "Setpoint",
 					"units": "Ticks",
+					"color": [30, 144, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "ipaEregFilteredUpstreamPressure1",
+					"name": "IPA Press",
+					"units": "PSI",
+					"color": [30, 144, 255]
+				}
+			]
+			},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "ipaCapCap",
+					"name": "IPA Cap Fill Value",
+					"units": "pF",
+					"color": [30, 144, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "nosLC",
+					"name": "NOS LC",
+					"units": "kg",
+					"color": [218, 165, 32]
+				},
+				{
+					"field": "ipaLC",
+					"name": "IPA LC",
+					"units": "kg",
 					"color": [30, 144, 255]
 				}
 			]
@@ -154,88 +181,6 @@
 							"safe": true
 						}
 					}
-				},
-				null,
-				null
-			]
-		},
-		{
-			"type": "six-square",
-			"values": [null, null, null, null, null, null]
-		},
-		{
-			"type": "graph",
-			"values": [
-				{
-					"field": "nosLC",
-					"name": "NOS LC",
-					"units": "kg",
-					"color": [218, 165, 32]
-				},
-				{
-					"field": "ipaLC",
-					"name": "IPA LC",
-					"units": "kg",
-					"color": [30, 144, 255]
-				}
-			]
-		},
-		{
-			"type": "four-button",
-			"buttons": [
-				{
-					"id": "nosEmergencyVent",
-					"name": "NOS E-Vent",
-					"field": "nosEmergencyVentState",
-					"actions": {
-						"open": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "OFF",
-								"<channel>": "AC_NOS_EMERGENCY_VENT",
-								"actuateTime": 0
-							},
-							"safe": true
-						},
-						"close": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "ON",
-								"<channel>": "AC_NOS_EMERGENCY_VENT",
-								"actuateTime": 0
-							}
-						}
-					},
-					"green": ["EXTENDING", "RETRACTING"]
-				},
-				{
-					"id": "ipaEmergencyVent",
-					"name": "IPA E-Vent",
-					"field": "ipaEmergencyVentState",
-					"actions": {
-						"open": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "OFF",
-								"<channel>": "AC_IPA_EMERGENCY_VENT",
-								"actuateTime": 0
-							},
-							"safe": true
-						},
-						"close": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "ON",
-								"<channel>": "AC_IPA_EMERGENCY_VENT",
-								"actuateTime": 0
-							}
-						}
-					},
-					"green": ["EXTENDING", "RETRACTING"]
 				},
 				null,
 				null
