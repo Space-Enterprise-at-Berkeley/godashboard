@@ -24,6 +24,7 @@ func setup(config: Dictionary, is_null: bool) -> void:
 	units = config["units"]
 	name_text = name
 	name_label.text = config["name"]
+	update_field(0.0)
 
 func _handle_packet(fields: Dictionary, timestamp: int) -> void:
 	if abs(timestamp - last_timestamp) <= 100:
