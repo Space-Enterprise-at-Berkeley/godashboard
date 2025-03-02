@@ -139,7 +139,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "ipaEregFilteredDownstreamPressure1",
+					"field": "ipaEregFilteredUpstreamPressure1",
 					"name": "I-Reg Press PT",
 					"units": "PSI",
 					"color": [218, 165, 32]
