@@ -19,6 +19,7 @@ func setup(config: Dictionary, is_null: bool) -> void:
 	name_text = name
 	name_label.text = config["name"]
 	Databus.register_callback(field, get_window(), _handle_packet)
+	update_field(0.0)
 
 func _handle_packet(value: Variant, timestamp: int) -> void:
 	if abs(timestamp - last_timestamp) <= 100:
