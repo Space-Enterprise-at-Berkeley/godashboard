@@ -124,7 +124,11 @@
 					"name": "Breakwire V",
 					"units": "V"
 				},
-				null,
+				{
+					"field": "burnwireContinuity",
+					"name": "Burnwire V",
+					"units": "V"
+				},
 				{
 					"field": "igniterCurrent",
 					"name": "Igniter I",
@@ -135,7 +139,11 @@
 					"name": "Breakwire I",
 					"units": "mA"
 				},
-				null
+				{
+					"field": "burnwireCurrent",
+					"name": "Burnwire I",
+					"units": "mA"
+				}
 			]
 		},
 		{

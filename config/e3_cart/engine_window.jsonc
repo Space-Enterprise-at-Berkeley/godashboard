@@ -16,7 +16,11 @@
 					"name": "IPA Injector PT",
 					"units": "PSI"
 				},
-				null,
+				{
+					"field": "ipaEregEncoderAngle",
+					"name": "IReg Encoder",
+					"units": "ticks"
+				},
 				{
 					"field": "nosTankPT",
 					"name": "NOS Tank Pressure",
@@ -27,7 +31,11 @@
 					"name": "IPA Tank Pressure",
 					"units": "PSI"
 				},
-				null
+				{
+					"field": "ipaEregAngleSetpoint",
+					"name": "IReg Setpoint",
+					"units": "ticks"
+				}
 			]
 		}, 
 		{
@@ -151,9 +159,9 @@
 					"units": "V"
 				},
 				{
-					"field": "ipaEregEncoderAngle",
-					"name": "IReg Encoder",
-					"units": "ticks"
+					"field": "burnwireContinuity",
+					"name": "Burnwire",
+					"units": "V"
 				},
 				{
 					"field": "nosMainState",
@@ -165,11 +173,7 @@
 					"name": "IPA Main State",
 					"units": ""
 				},
-				{
-					"field": "ipaEregAngleSetpoint",
-					"name": "IReg Setpoint",
-					"units": "ticks"
-				}
+				null
 			]
 		},
 		{

@@ -388,7 +388,7 @@ func launch(ipa_enabled: bool, nos_enabled: bool) -> void:
 		Logger.info("IPA enabled")
 	if nos_enabled:
 		Logger.info("NOS enabled")
-	validate_and_send("bcast", "BeginFlow", {
+	validate_and_send("bcast", "Launch", {
 		"systemMode": Config.config["mode"],
 		"burnTime": Config.config["burnTime"],
 		"nitrousEnable": int(nos_enabled),

@@ -16,8 +16,6 @@ func _heartbeat() -> void:
 	Databus.validate_and_send("bcast", "Heartbeat", {
 		"packetSpecVersion": Config.config["protoConfig"]["version"]
 	}, true)
-	if !Databus.packet_locked :
-		Databus.send_packet("bcast", 249, [])
 
 func _handle_packet(value: Variant, timestamp: int) -> void:
 	Logger.warn("Abort reason: %s" % value)
