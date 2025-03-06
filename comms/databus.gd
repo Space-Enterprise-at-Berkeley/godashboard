@@ -266,7 +266,7 @@ func _get_ip(ip: String) -> Array:
 
 func send_packet(ip: String, id: int, args: Array) -> void:
 	if packet_locked :
-		Logger.debug("Packet lock is enabled")
+		Logger.warn("Packet lock is enabled")
 		return
 	var output_buffer: PackedByteArray = PackedByteArray()
 	var parsed_ip: Array = _get_ip(ip)
@@ -305,7 +305,7 @@ func send_packet(ip: String, id: int, args: Array) -> void:
 func validate_and_send(destination: String, packet_name: String, payload: Dictionary, hide_log: bool = false) -> bool:
 	if packet_locked :
 		if !hide_log :
-			Logger.debug("Packet lock is enabled")
+			Logger.warn("Packet lock is enabled")
 		return false
 	var channel_data: Array = []
 	if payload.has("<channel>"):
