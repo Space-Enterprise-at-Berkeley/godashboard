@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://62pvyo6stl1o"]
+[gd_scene load_steps=6 format=3 uid="uid://62pvyo6stl1o"]
 
 [ext_resource type="Script" path="res://display/header/header.gd" id="1_x6xkv"]
 [ext_resource type="PackedScene" uid="uid://dr1x5gtnsig6g" path="res://display/settings/settings_menu.tscn" id="2_f3856"]
 [ext_resource type="Texture2D" uid="uid://dn7ywu0v5h721" path="res://resources/icon/settings.svg" id="3_422nu"]
+[ext_resource type="Texture2D" uid="uid://kpa4x42bldfl" path="res://resources/icon/unlock.svg" id="3_d7o27"]
 [ext_resource type="PackedScene" uid="uid://drcw3tp7jggbr" path="res://display/generic/icon_button.tscn" id="4_4l6ib"]
 
 [node name="Header" type="HBoxContainer"]
@@ -40,6 +41,10 @@ text = "0 ms"
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
+
+[node name="PacketLockButton" parent="." instance=ExtResource("4_4l6ib")]
+layout_mode = 2
+icon = ExtResource("3_d7o27")
 
 [node name="InfluxContainer" type="PanelContainer" parent="."]
 layout_mode = 2
