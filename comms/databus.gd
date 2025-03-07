@@ -1,6 +1,7 @@
 extends Node
 
 signal update(fields: Dictionary, timestamp: int)
+signal lock_update(state: bool)
 
 enum AddressType {
 	MONOCAST,
@@ -49,6 +50,7 @@ var boards_connected: Dictionary = {}
 var boards_kbps: Dictionary = {}
 var last_pt_timestamp: int = 0
 var packet_callbacks: Dictionary = {}
+var packet_locked: bool = false
 
 func _ready() -> void:
 	Config.config_update.connect(_config_update)
@@ -263,6 +265,9 @@ func _get_ip(ip: String) -> Array:
 	return [AddressType.MONOCAST, ip]
 
 func send_packet(ip: String, id: int, args: Array) -> void:
+	if packet_locked :
+		Logger.warn("Packet lock is enabled")
+		return
 	var output_buffer: PackedByteArray = PackedByteArray()
 	var parsed_ip: Array = _get_ip(ip)
 	if parsed_ip[0] == AddressType.LOCALHOST:
@@ -298,6 +303,10 @@ func send_packet(ip: String, id: int, args: Array) -> void:
 			Comms.bcast_server.put_packet(output_buffer)
 
 func validate_and_send(destination: String, packet_name: String, payload: Dictionary, hide_log: bool = false) -> bool:
+	if packet_locked :
+		if !hide_log :
+			Logger.warn("Packet lock is enabled")
+		return false
 	var channel_data: Array = []
 	if payload.has("<channel>"):
 		var channel: String = payload["<channel>"]
@@ -368,6 +377,10 @@ func make_uint32(value: int) -> Array:
 func process_chat(data: PackedByteArray, addr: String) -> void:
 	var msg: Variant = JSON.parse_string(data.get_string_from_utf8())
 	Logger.chat("(%s) %s" % [msg["sender"], msg["message"]])
+	
+func toggle_lock() -> void : 
+	packet_locked = !packet_locked
+	lock_update.emit(packet_locked)
 
 func launch(ipa_enabled: bool, nos_enabled: bool) -> void:
 	Logger.info("Beginning launch sequence")
@@ -375,7 +388,7 @@ func launch(ipa_enabled: bool, nos_enabled: bool) -> void:
 		Logger.info("IPA enabled")
 	if nos_enabled:
 		Logger.info("NOS enabled")
-	validate_and_send("bcast", "BeginFlow", {
+	validate_and_send("bcast", "Launch", {
 		"systemMode": Config.config["mode"],
 		"burnTime": Config.config["burnTime"],
 		"nitrousEnable": int(nos_enabled),
