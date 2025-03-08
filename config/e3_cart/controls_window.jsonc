@@ -152,7 +152,29 @@
 					}
 				},
 				null,
-				null
+				{
+					"id": "noCommsAbortEnable",
+					"name": "No Comms Abort",
+					"field": "AC_1.ACAutoventPressures.noCommsAbortEnabled",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "SetCommsAbort",
+							"board": "bcast",
+							"args": {
+								"enabled": 1
+							}
+						},
+						"close": {
+							"type": "packet",
+							"packet": "SetCommsAbort",
+							"board": "bcast",
+							"args": {
+								"enabled": 0
+							}
+						}
+					}
+				}
 			]
 		},
 		{
