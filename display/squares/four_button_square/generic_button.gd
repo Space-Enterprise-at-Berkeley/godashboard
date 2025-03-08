@@ -235,7 +235,10 @@ func _replace_input(value: Variant) -> Variant:
 			#Databus.send_packet("bcast", 251, [Databus.make_uint8(0)])
 
 func update_status_bar(value: Variant) -> void:
-	value = Config.config["reverse_enum_lookup"]["ACActuatorStatesType"][value]
+	if len(green) == 0:
+		return
+	elif green[0] is String:
+		value = Config.config["reverse_enum_lookup"]["ACActuatorStatesType"][value]
 	if green.has(value):
 		color_rect.color = BUTTON_COLOR_ON
 	else:
