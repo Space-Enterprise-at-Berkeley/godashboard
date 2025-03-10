@@ -155,7 +155,7 @@
 				{
 					"id": "noCommsAbortEnable",
 					"name": "No Comms Abort",
-					"field": "AC_1.ACAutoventPressures.noCommsAbortEnabled",
+					"field": "AC_2.ACAutoventPressures.noCommsAbortEnabled",
 					"actions": {
 						"open": {
 							"type": "packet",
