@@ -1,81 +1,58 @@
 {
-	"name": "Test",
+	"$schema": "../schema/window.schema.json",
+	"name": "Pressures",
 	"layout": "9-grid",
 	"slots": [
 		{
-			"type": "pid",
-			"gridStart": [0, 0],
-			"gridEnd": [70, 40],
-			"nodes": [
+			"type": "six-square",
+			"values": [null, null, null,
 				{
-					"type": "t",
-					"name": "t0",
-					"pos": [1, 1],
-					"direction": "plus"
+					"field": "nosTankPT", 
+					"name": "NOS Tank Pressure",
+					"units": "PSI"
 				},
 				{
-					"type": "tank",
-					"name": "nosTank",
-					"pos": [20, 20],
-					"color": [0, 255, 0]
+					"field": "ipaTankPT", 
+					"name": "IPA Tank Pressure",
+					"units": "PSI"
 				},
 				{
-					"type": "tank",
-					"name": "ipaTank",
-					"pos": [40, 20],
-					"color": [0, 0, 255]
-				},
-				{
-					"type": "t",
-					"name": "t1",
-					"pos": [30, 15],
-					"direction": "south"
-				},
-				{
-					"type": "t",
-					"name": "t2",
-					"pos": [40, 17],
-					"direction": "plus"
-				}
-			],
-			"pipes": [
-				{
-					"points": [
-						"nosTank/top",
-						[20, 15],
-						"t1/west"
-					]
-				},
-				{
-					"points": [
-						"t1/east",
-						[40, 15],
-						"t2/north"
-					]
-				},
-				{
-					"points": [
-						"t1/south",
-						[30, 17],
-						"t2/west"
-					]
-				},
-				{
-					"points": [
-						"t2/south",
-						"ipaTank/top"
-					]
-				},
-				{
-					"points": [
-						"t2/east",
-						[45, 17],
-						[45, 23],
-						[40, 23],
-						"ipaTank/bottom"
-					]
+					"field": "chamberPT",
+					"name": "Chamber Pressure",
+					"units": "PSI"
 				}
 			]
+		},
+		{
+			"type": "six-square",
+			"values": [null, null, null, null, null, null]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "nosTankPT",
+					"name": "NOS Tank Pressure",
+					"units": "PSI",
+					"color": [218, 205, 12]
+				},
+				{
+					"field": "ipaTankPT",
+					"name": "IPA Tank Pressure",
+					"units": "PSI",
+					"color": [30, 144, 255]
+				},
+				{
+					"field": "chamberPT",
+					"name": "Chamber Pressure",
+					"units": "PSI",
+					"color": [255, 77, 39]
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [null, null, null, null, null, null]
 		}
-	]
+			]
 }
