@@ -4,30 +4,6 @@
 	"layout": "9-grid",
 	"slots": [
 		{
-			"type": "six-square",
-			"values": [null, null, null,
-				{
-					"field": "nosTankPT", 
-					"name": "NOS Tank Pressure",
-					"units": "PSI"
-				},
-				{
-					"field": "ipaTankPT", 
-					"name": "IPA Tank Pressure",
-					"units": "PSI"
-				},
-				{
-					"field": "chamberPT",
-					"name": "Chamber Pressure",
-					"units": "PSI"
-				}
-			]
-		},
-		{
-			"type": "six-square",
-			"values": [null, null, null, null, null, null]
-		},
-		{
 			"type": "graph",
 			"values": [
 				{
@@ -35,18 +11,31 @@
 					"name": "NOS Tank Pressure",
 					"units": "PSI",
 					"color": [218, 205, 12]
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosTankPT",
+					"name": "NOS Tank Pressure",
+					"units": "PSI"
 				},
+				{
+					"field": "ipaTankPT",
+					"name": "IPA Tank Pressure",
+					"units": "PSI"
+				}, null, null, null, null]
+		},
+		{
+			"type": "graph",
+			"values": [
 				{
 					"field": "ipaTankPT",
 					"name": "IPA Tank Pressure",
 					"units": "PSI",
 					"color": [30, 144, 255]
-				},
-				{
-					"field": "chamberPT",
-					"name": "Chamber Pressure",
-					"units": "PSI",
-					"color": [255, 77, 39]
 				}
 			]
 		},
