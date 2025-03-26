@@ -32,32 +32,52 @@
 			"type": "object",
 			"properties": {
 				"layout": {"const": "calibration"},
-				"slots": {
-					"type": "array",
-					"items": {
-						"type": "object",
-						"properties": {
-							"name": {
-								"type": "string"
-							},
-							"units": {
-								"type": "string"
-							},
-							"board": {
-								"type": "string"
-							},
-							"packet1": {
-								"type": "string"
-							},
-							"packet2": {
-								"type": "string"
-							}
-						},
-						"required": ["name", "units", "board", "packet1", "packet2"]
+				"board": {
+					"type": "string"
+				},
+				"channels": {
+					"type": "integer",
+					"exclusiveMinimum": 0
+				},
+				"columns": {
+					"type": "integer",
+					"exclusiveMinimum": 0
+				},
+				"units": {
+					"type": "string"
+				},
+				"color": {
+					"$ref": "./color.schema.json"
+				},
+				"firstPoint": {
+					"packet": {
+						"type": "string"
+					},
+					"args": {
+						"type": "object"
 					}
+				},
+				"secondPoint": {
+					"packet": {
+						"type": "string"
+					},
+					"args": {
+						"type": "object"
+					}
+				},
+				"reset": {
+					"packet": {
+						"type": "string"
+					},
+					"args": {
+						"type": "object"
+					}
+				},
+				"fieldUnmapped": {
+					"type": "string"
 				}
 			},
-			"required": ["slots"]
+			"required": ["board", "channels", "columns", "units", "color", "firstPoint", "secondPoint", "reset", "fieldUnmapped"]
 		}
 	],
 	"required": ["name", "layout"]
