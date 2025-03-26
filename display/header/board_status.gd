@@ -12,8 +12,8 @@ func setup(b: String) -> void:
 	board = b
 	kbpsField = board + "Kbps"
 	connectedField = board + "Connected"
-	Databus.register_callback(kbpsField, get_window(), _handle_packet_kbps)
-	Databus.register_callback(connectedField, get_window(), _handle_packet_connected)
+	Databus.register_callback(kbpsField, get_window(), _handle_packet_kbps, true)
+	Databus.register_callback(connectedField, get_window(), _handle_packet_connected, true)
 	text = board.to_upper() + " - %d"
 	update_kbps(0)
 	if Databus.boards_connected[b]:

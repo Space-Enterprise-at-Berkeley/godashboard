@@ -8,7 +8,13 @@
 		"engine": "$e3_cart/engine_window.jsonc",
 		"boards_status": "$e3_cart/boards_status_window.jsonc",
 		"actuators_status": "$e3_cart/actuators_status_window.jsonc",
-		"calibration": "$e3_cart/calibration_window.jsonc",
+		"calibration_pt1": "$e3_cart/calibration/pt1.jsonc",
+		"calibration_pt2": "$e3_cart/calibration/pt2.jsonc",
+		"calibration_pt3": "$e3_cart/calibration/pt3.jsonc",
+		"calibration_lc1": "$e3_cart/calibration/lc1.jsonc",
+		"calibration_lc2": "$e3_cart/calibration/lc2.jsonc",
+		"calibration_tc1": "$e3_cart/calibration/tc1.jsonc",
+		"calibration_tc2": "$e3_cart/calibration/tc2.jsonc",
 		"test": "$e3_cart/test_window.jsonc"
 		// "cameras": "$e3_cart/cameras_window.jsonc"
 	},
@@ -19,6 +25,6 @@
 	"burnTime": 45000, // ms
 	"mode": "COLDFLOW",
 	"windowPresets": "$e3_cart/window_presets.jsonc",
-	"quickWindowPresets": ["main", "debug", "empty"],
+	"quickWindowPresets": ["main", "debug", "calibration", "empty"],
 	"cameras": [{"id": 205, "name": "cam5", "ip": "10.0.0.205"}]
 }

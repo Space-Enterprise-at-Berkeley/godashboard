@@ -152,6 +152,7 @@ func expand_config(conf: Variant) -> void:
 	conf["ip_lookup"] = ip_lookup
 	conf["packets"] = packets
 	conf["outgoing_packets"] = outgoing_packets
+	conf["channel_mappings"] = channel_mappings
 	conf["reverse_channel_mappings"] = reverse_channel_mappings
 
 func generate_packet_reader(name_prefix: String, packet_type: String, types: Dictionary, fields: Array[Array], channel_mappings: Dictionary, board_name: String) -> void:

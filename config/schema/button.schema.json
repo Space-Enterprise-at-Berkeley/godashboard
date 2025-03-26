@@ -38,7 +38,14 @@
 				"green": {
 					"type": "array",
 					"items": {
-						"enum": ["RETRACTING", "EXTENDING", "OFF"]
+						"anyOf": [
+							{
+								"enum": ["RETRACTING", "EXTENDING", "OFF"]
+							},
+							{
+								"type": "integer"
+							}
+						]
 					}
 				}
 			},

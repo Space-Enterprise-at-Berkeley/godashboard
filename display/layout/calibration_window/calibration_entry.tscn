@@ -38,12 +38,6 @@ size_flags_horizontal = 4
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ChannelInput" type="LineEdit" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-placeholder_text = "Channel"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -52,7 +46,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"ButtonOpen"
-text = "1st Point"
+text = "Zero"
 
 [node name="SecondPointButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -65,6 +59,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 placeholder_text = "Value"
+
+[node name="ResetButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_type_variation = &"ButtonClose"
+text = "Reset"
 
 [node name="GraphSquare" parent="HBoxContainer" instance=ExtResource("2_g3ick")]
 layout_mode = 2

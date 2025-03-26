@@ -6,7 +6,11 @@
 	},
 	"debug": {
 		"name": "Debug",
-		"tabs": ["packet_simulator", "calibration"]
+		"tabs": ["packet_simulator"]
+	},
+	"calibration": {
+		"name": "Calibration",
+		"tabs": ["calibration_pt1", "calibration_pt2", "calibration_pt3", "calibration_lc1", "calibration_lc2", "calibration_tc1", "calibration_tc2"]
 	},
 	"empty": {
 		"name": "Empty",

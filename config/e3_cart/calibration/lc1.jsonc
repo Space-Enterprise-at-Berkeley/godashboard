@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/window.schema.json",
+	"name": "LC1 Calibration",
+	"layout": "calibration",
+	"board": "LC_1",
+	"channels": 4,
+	"columns": 2,
+	"units": "lbs",
+	"color": [218, 165, 32],
+	"firstPoint": {
+		"packet": "FirstPointCalibration",
+		"args": {
+			"channel": "<channel>",
+			"value": 0.0
+		}
+	},
+	"secondPoint": {
+		"packet": "SecondPointCalibration",
+		"args": {
+			"channel": "<channel>",
+			"value": "<input>"
+		}
+	},
+	"reset": {
+		"packet": "ResetCalibration",
+		"args": {
+			"channel": "<channel>"
+		}
+	},
+	"fieldUnmapped": "LC_1.LCValues.values.#"
+}
