@@ -96,26 +96,26 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "tc1Supply24Voltage",
-					"name": "TC1 Voltage",
-					"units": "V"
+					"field": "ipaEregPressureSetpointStart",
+					"name": "Setpoint Start",
+					"units": "psi"
 				},
 				{
-					"field": "tc1Supply24Current",
-					"name": "TC1 Current",
-					"units": "mA"
+					"field": "ipaEregPressureSetpointMinimum",
+					"name": "Setpoint Minimum",
+					"units": "psi"
+				},
+				{
+					"field": "ipaEregPressureSetpointDropRate",
+					"name": "Drop Rate",
+					"units": "psi/s"
+				},
+				{
+					"field": "ipaEregStaticPressureSetpoint",
+					"name": "Static Pressure Setpoint",
+					"units": "psi"
 				},
 				null,
-				{
-					"field": "tc2Supply24Voltage",
-					"name": "TC2 Voltage",
-					"units": "V"
-				},
-				{
-					"field": "tc2Supply24Current",
-					"name": "TC2 Current",
-					"units": "mA"
-				},
 				null
 			]
 		},
@@ -167,7 +167,21 @@
 						}
 					}
 				}, 
-				null
+				{
+					"id": "eregSetStaticPressureSetpoint",
+					"name": "Static Pressure Setpoint",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ERSetStaticPressureSetpoint",
+							"board": "ER_IPA",
+							"args": {
+								"value": "<input>"
+							},
+							"safe": true
+						}
+					}
+				}, 
 			]
 		},
 		{
