@@ -45,7 +45,7 @@
 			// THE LABEL NUMBER IS WHAT THE CHANNEL IS NUMBERED ON THE CASE
 			// THE FIELD NUMBER IS WHAT THE CHANNEL IS NUMBERED IN THE CODE
 				{
-					"field": "engine",
+					"field": "engine2LC",
 					"name": "Eng LC1",
 					"units": "kg",
 					"color": [0, 255, 255]
