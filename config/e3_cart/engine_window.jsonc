@@ -78,41 +78,30 @@
 					"name": "IPA Injector PT",
 					"units": "PSI",
 					"color": [30, 144, 255]
-				}
-			]
-		},
-		{
-			"type": "graph",
-			"values": [
+				},
 				{
 					"field": "chamberPT",
-					"name": "ChamberPT",
+					"name": "Chamber PT",
 					"units": "PSI",
 					"color": [127, 0, 255]
 				},
 				{
 					"field": "manifold0PT",
 					"name": "Manifold0PT",
-					"units": "",
-					"color": [77, 73, 251]
+					"units": "PSI",
+					"color": [183, 255, 63]
 				},
 				{
-					"field": "engine2PT",
-					"name": "Eng PT2",
-					"units": "",
-					"color": [25, 149, 242]
+					"field": "manifold1PT",
+					"name": "Manifold1PT",
+					"units": "PSI",
+					"color": [128, 254, 206]
 				},
 				{
-					"field": "engine3PT",
-					"name": "Eng PT3",
-					"units": "",
-					"color": [24, 205, 227]
-				},
-				{
-					"field": "engine4PT",
-					"name": "Eng PT4",
-					"units": "",
-					"color": [76, 242, 206]
+					"field": "manifold2PT",
+					"name": "Manifold2PT",
+					"units": "PSI",
+					"color": [255, 48, 0]
 				}
 			]
 		},
@@ -120,28 +109,81 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "engine0TC",
-					"name": "Eng TC0",
-					"units": "C",
-					"color": [123, 0, 255]
+					"field": "engine1-1PT",
+					"name": "Eng PT1-1",
+					"units": "PSI",
+					"color": [127, 0, 255]
 				},
 				{
-					"field": "engine1TC",
-					"name": "Eng TC1",
-					"units": "",
-					"color": [0, 16, 255]
+					"field": "engine1-2PT",
+					"name": "Eng PT1-2",
+					"units": "PSI",
+					"color": [77, 73, 251]
 				},
 				{
-					"field": "engine2TC",
-					"name": "Eng TC2",
-					"units": "",
-					"color": [0, 164, 255]
+					"field": "engine1-3PT",
+					"name": "Eng PT1-3",
+					"units": "PSI",
+					"color": [25, 149, 242]
 				},
 				{
-					"field": "engine3TC",
-					"name": "Eng TC3",
-					"units": "",
+					"field": "engine1-4PT",
+					"name": "Eng PT1-4",
+					"units": "PSI",
+					"color": [24, 205, 227]
+				},
+				{
+					"field": "engine2-1PT",
+					"name": "Eng PT2-1",
+					"units": "PSI",
+					"color": [76, 242, 206]
+				},
+				{
+					"field": "engine2-2PT",
+					"name": "Eng PT2-2",
+					"units": "PSI",
 					"color": [63, 255, 183]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "engine2-3PT",
+					"name": "Eng PT2-3",
+					"units": "PSI",
+					"color": [183, 255, 63]
+				},
+				{
+					"field": "engine2-4PT",
+					"name": "Eng PT2-4",
+					"units": "PSI",
+					"color": [255, 185, 0]
+				},
+				{
+					"field": "engine3-1PT",
+					"name": "Eng PT3-1",
+					"units": "PSI",
+					"color": [255, 150, 79]
+				},
+				{
+					"field": "engine3-2PT",
+					"name": "Eng PT3-2",
+					"units": "PSI",
+					"color": [255, 48, 0]
+				},
+				{
+					"field": "engine3-3PT",
+					"name": "Eng PT3-3",
+					"units": "PSI",
+					"color": [255, 0, 255]
+				},
+				{
+					"field": "engine3-4PT",
+					"name": "Eng PT3-4",
+					"units": "PSI",
+					"color": [128, 254, 206]
 				}
 			]
 		},
@@ -180,34 +222,40 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "chamberPT",
-					"name": "ChamberPT",
-					"units": "",
-					"color": [128, 254, 206]
+					"field": "engine1-1TC",
+					"name": "Eng TC1-1",
+					"units": "C",
+					"color": [127, 0, 255]
 				},
 				{
-					"field": "engine7PT",
-					"name": "Eng PT7",
-					"units": "",
-					"color": [178, 242, 150]
+					"field": "engine1-2TC",
+					"name": "Eng TC1-2",
+					"units": "C",
+					"color": [77, 73, 251]
 				},
 				{
-					"field": "engine8PT",
-					"name": "Eng PT8",
-					"units": "",
-					"color": [230, 205, 115]
+					"field": "engine1-3TC",
+					"name": "Eng TC1-3",
+					"units": "C",
+					"color": [25, 149, 242]
 				},
 				{
-					"field": "engine9PT",
-					"name": "Eng PT9",
-					"units": "",
-					"color": [255, 150, 79] 
+					"field": "engine1-4TC",
+					"name": "Eng TC1-4",
+					"units": "C",
+					"color": [24, 205, 227]
 				},
 				{
-					"field": "engine10PT",
-					"name": "Eng PT10",
-					"units": "",
-					"color": [255, 77, 39]
+					"field": "engine2-1TC",
+					"name": "Eng TC2-1",
+					"units": "C",
+					"color": [76, 242, 206]
+				},
+				{
+					"field": "engine2-2TC",
+					"name": "Eng TC2-2",
+					"units": "C",
+					"color": [63, 255, 183]
 				}
 			]
 		},
@@ -215,34 +263,40 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "engine4TC",
-					"name": "Eng TC4",
-					"units": "",
+					"field": "engine2-3TC",
+					"name": "Eng TC2-3",
+					"units": "C",
 					"color": [183, 255, 63]
 				},
 				{
-					"field": "engine5TC",
-					"name": "TC5",
-					"units": "",
+					"field": "engine2-4TC",
+					"name": "Eng TC2-4",
+					"units": "C",
 					"color": [255, 185, 0]
 				},
 				{
-					"field": "engine6TC",
-					"name": "TC6",
-					"units": "",
+					"field": "engine3-1TC",
+					"name": "Eng TC3-1",
+					"units": "C",
 					"color": [255, 150, 79]
 				},
 				{
-					"field": "engine7TC",
-					"name": "TC7",
-					"units": "",
+					"field": "engine3-2TC",
+					"name": "Eng TC3-2",
+					"units": "C",
 					"color": [255, 48, 0]
 				},
 				{
-					"field": "engine8TC",
-					"name": "TC8",
-					"units": "",
+					"field": "engine3-3TC",
+					"name": "Eng TC3-3",
+					"units": "C",
 					"color": [255, 0, 255]
+				},
+				{
+					"field": "engine3-4TC",
+					"name": "Eng TC3-4",
+					"units": "C",
+					"color": [128, 254, 206]
 				}
 			]
 		},

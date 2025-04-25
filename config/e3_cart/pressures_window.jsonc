@@ -105,32 +105,32 @@
 			"values": [
 				{
 					"field": "chamberPT",
-					"name": "Chamber",
+					"name": "ChamberPT",
 					"units": "PSI",
 					"color": [127, 0, 255]
 				},
 				{
 					"field": "manifold0PT",
-					"name": "Manifold 0",
-					"units": "",
+					"name": "Manifold0PT",
+					"units": "PSI",
 					"color": [77, 73, 251]
 				},
 				{
-					"field": "engine2PT",
-					"name": "Eng PT2",
-					"units": "",
+					"field": "engine1-2PT",
+					"name": "Eng PT1-2",
+					"units": "PSI",
 					"color": [25, 149, 242]
 				},
 				{
-					"field": "engine3PT",
-					"name": "Eng PT3",
-					"units": "",
+					"field": "engine1-3PT",
+					"name": "Eng PT1-3",
+					"units": "PSI",
 					"color": [24, 205, 227]
 				},
 				{
-					"field": "engine4PT",
-					"name": "Eng PT4",
-					"units": "",
+					"field": "engine1-4PT",
+					"name": "Eng PT1-4",
+					"units": "PSI",
 					"color": [76, 242, 206]
 				}
 			]
@@ -169,31 +169,31 @@
 				{
 					"field": "chamberPT",
 					"name": "ChamberPT",
-					"units": "",
+					"units": "PSI",
 					"color": [128, 254, 206]
 				},
 				{
-					"field": "engine7PT",
-					"name": "Eng PT7",
-					"units": "",
+					"field": "engine3-1PT",
+					"name": "Eng PT3-1",
+					"units": "PSI",
 					"color": [178, 242, 150]
 				},
 				{
-					"field": "engine8PT",
-					"name": "Eng PT8",
-					"units": "",
+					"field": "engine3-2PT",
+					"name": "Eng PT3-2",
+					"units": "PSI",
 					"color": [230, 205, 115]
 				},
 				{
-					"field": "engine9PT",
-					"name": "Eng PT9",
-					"units": "",
+					"field": "engine3-3PT",
+					"name": "Eng PT3-3",
+					"units": "PSI",
 					"color": [255, 150, 79] 
 				},
 				{
-					"field": "engine10PT",
-					"name": "Eng PT10",
-					"units": "",
+					"field": "engine3-4PT",
+					"name": "Eng PT3-4",
+					"units": "PSI",
 					"color": [255, 77, 39]
 				}
 			]
