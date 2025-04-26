@@ -222,6 +222,18 @@
 			"type": "graph",
 			"values": [
 				{
+					"field": "nosInjTC",
+					"name": "NOS INJ TC",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "ipaInjTC",
+					"name": "IPA INJ TC",
+					"units": "C",
+					"color": [255, 0, 255]
+				},
+				{
 					"field": "engine1-1TC",
 					"name": "Eng TC1-1",
 					"units": "C",
