@@ -103,8 +103,16 @@
 			]
 		},
 		{
-			"type": "six-square",
-			"values": [null, null, null, null, null, null]
+			"type": "graph",
+			"values": [
+				{
+					"field": "nosTankTC",
+					"name": "NOS Tank TC",
+					"units": "C",
+					"color": [218, 165, 32]
+				}
+		
+			]
 		},
 		{
 			"type": "graph",
