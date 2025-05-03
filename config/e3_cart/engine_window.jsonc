@@ -232,7 +232,7 @@
 					"name": "IPA INJ TC",
 					"units": "C",
 					"color": [255, 0, 255]
-				},
+				},/*
 				{
 					"field": "engine1-1TC",
 					"name": "Eng TC1-1",
@@ -256,7 +256,7 @@
 					"name": "Eng TC1-4",
 					"units": "C",
 					"color": [24, 205, 227]
-				},
+				},*/
 				{
 					"field": "engine2-1TC",
 					"name": "Eng TC2-1",
@@ -268,18 +268,24 @@
 					"name": "Eng TC2-2",
 					"units": "C",
 					"color": [63, 255, 183]
+				},
+				{
+					"field": "engine2-4TC",
+					"name": "Eng TC2-4",
+					"units": "C",
+					"color": [127, 0, 255]
 				}
 			]
 		},
 		{
 			"type": "graph",
-			"values": [
+			"values": [/*
 				{
 					"field": "engine2-3TC",
 					"name": "Eng TC2-3",
 					"units": "C",
 					"color": [183, 255, 63]
-				},/*
+				},
 				{
 					"field": "engine2-4TC",
 					"name": "Eng TC2-4",
