@@ -105,12 +105,6 @@
 		{
 			"type": "graph",
 			"values": [
-				{
-					"field": "nosTankTC",
-					"name": "NOS Tank TC",
-					"units": "C",
-					"color": [218, 165, 32]
-				}
 		
 			]
 		},
