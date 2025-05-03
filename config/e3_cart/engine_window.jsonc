@@ -224,7 +224,7 @@
 				{
 					"field": "nosInjTC",
 					"name": "NOS INJ TC",
-					"units": "PSI",
+					"units": "C",
 					"color": [255, 0, 0]
 				},
 				{
@@ -279,13 +279,13 @@
 					"name": "Eng TC2-3",
 					"units": "C",
 					"color": [183, 255, 63]
-				},
+				},/*
 				{
 					"field": "engine2-4TC",
 					"name": "Eng TC2-4",
 					"units": "C",
 					"color": [255, 185, 0]
-				},
+				},*/
 				{
 					"field": "engine3-1TC",
 					"name": "Eng TC3-1",
