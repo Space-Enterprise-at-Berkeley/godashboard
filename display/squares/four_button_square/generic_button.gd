@@ -160,6 +160,9 @@ func _execute_action(action: Dictionary) -> void:
 			Databus.send_update({BUTTON_ENABLE: action["id"]}, Databus.get_current_time())
 		"disable":
 			Databus.send_update({BUTTON_DISABLE: action["id"]}, Databus.get_current_time())
+		"multi":
+			for sub_action: Dictionary in action["actions"]:
+				_execute_action(sub_action)
 
 func _replace_input(value: Variant) -> Variant:
 	match typeof(value):
