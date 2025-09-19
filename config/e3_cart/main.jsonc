@@ -18,7 +18,7 @@
 		"test": "$e3_cart/test_window.jsonc"
 		// "cameras": "$e3_cart/cameras_window.jsonc"
 	},
-	"protoConfig": "$../universalproto/config.jsonc",
+	"protoConfig": "$../universalproto/config_cart.jsonc",
 	"protoPackets": "$../universalproto/packets.jsonc",
 	"protoTypes": "$../universalproto/types.jsonc",
 	"influxMapGenerator": "$e3_cart/influx_map_generator.jsonc",
