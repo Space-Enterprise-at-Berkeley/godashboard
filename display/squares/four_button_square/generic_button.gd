@@ -146,7 +146,7 @@ func _get_time_float() -> float:
 
 func _execute_action(action: Dictionary) -> void:
 	if not action.has("type"):
-		Logger.error("No action type specified")
+		GoLogger.error("No action type specified")
 		return
 	match action.get("type"):
 		"packet":
@@ -179,7 +179,7 @@ func _replace_input(value: Variant) -> Variant:
 
 # Old button system. Some functions can probably be salvaged
 #func _execute_action(action: Dictionary) -> void:
-	#Logger.info(action)
+	#GoLogger.info(action)
 	#if action.get("type", null) == null:
 		#return
 	#var target: Array

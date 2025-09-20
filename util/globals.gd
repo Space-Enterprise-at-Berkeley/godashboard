@@ -18,4 +18,4 @@ func _heartbeat() -> void:
 	}, true)
 
 func _handle_packet(value: Variant, timestamp: int) -> void:
-	Logger.warn("Abort reason: %s" % value)
+	GoLogger.warn("Abort reason: %s" % value)

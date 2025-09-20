@@ -106,7 +106,7 @@ func _upload_points() -> void:
 			TYPE_INT, TYPE_FLOAT, TYPE_BOOL:
 				body.append(str(point.value))
 			_:
-				Logger.warn("Unknown data type for Influx: %d" % typeof(point.value))
+				GoLogger.warn("Unknown data type for Influx: %d" % typeof(point.value))
 		body.append(" ")
 		body.append(str(point.timestamp * 1000000))
 	var http_request: HTTPRequest = HTTPRequest.new()
@@ -119,13 +119,13 @@ func _upload_points() -> void:
 func _response_handler(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS:
 		influx_error.emit("Bad HTTP Response")
-		Logger.warn("Influx moment")
+		GoLogger.warn("Influx moment")
 	else:
 		var ascii: String = body.get_string_from_ascii()
 		if ascii.length() != 0:
 			var json: JSON = JSON.new()
 			if json.parse(ascii) != OK:
-				Logger.warn("JSON parse error")
+				GoLogger.warn("JSON parse error")
 				pass
 			else:
 				var res: Variant = json.data
@@ -133,12 +133,12 @@ func _response_handler(result: int, response_code: int, headers: PackedStringArr
 					InfluxAction.CHECK_HEALTH:
 						if res["status"] != "pass":
 							influx_error.emit("Health Failure")
-							Logger.warn("Influx health failure")
+							GoLogger.warn("Influx health failure")
 						health_check_result.emit(res["status"] == "pass")
 					InfluxAction.LIST_DATABASES:
 						var databases: Array = res["results"][0]["series"][0]["values"].map(func (d: Array) -> String: return d[0]).filter(func (d: String) -> bool: return d != "_internal")
 						databases.reverse()
-						#Logger.info("Found databases: " % str(databases))
+						#GoLogger.info("Found databases: " % str(databases))
 						found_databases.emit(databases)
 						action = InfluxAction.NONE
 					InfluxAction.UPLOAD_POINTS:

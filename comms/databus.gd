@@ -94,7 +94,7 @@ func process_packet(data: PackedByteArray, addr: String) -> void:
 func register_callback(field: String, window: Window, callback: Callable, no_validate: bool = false) -> void:
 	if not no_validate:
 		if field.split("@")[0] not in Config.config["influxMap"].values():
-			Logger.warn("Field %s not in Influx map. This data may not work" % field)
+			GoLogger.warn("Field %s not in Influx map. This data may not work" % field)
 	register_field(field)
 	packet_callbacks.get_or_add(field, []).append([callback, window])
 
@@ -114,11 +114,11 @@ func register_field(field: String) -> void:
 func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 	var packet: Packet = Packet.new()
 	if not has_config:
-		Logger.warn("Config not ready to parse packet")
+		GoLogger.warn("Config not ready to parse packet")
 		packet.error = true
 		return packet
 	if not Config.config["boards"].has(addr):
-		Logger.debug("IP %s not recognized" % addr)
+		GoLogger.debug("IP %s not recognized" % addr)
 		packet.error = true
 		return packet
 	#var board: String = "Dashboard"
@@ -133,7 +133,7 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 	if run_time < 1000 and last_packet_times[board] > 1500 and last_packet_times[board] < 4294966295: # UINT_32_MAX - 1000
 		first_receive_times[board] = -1
 		first_receive_offsets[board] = -1
-		Logger.info("Resetting timestamps for %s" % board)
+		GoLogger.info("Resetting timestamps for %s" % board)
 	last_packet_times[board] = run_time
 	var timestamp: int = get_current_time()
 	if board != "Dashboard":
@@ -144,11 +144,11 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 	var expected_checksum: int = fletcher16(sum_buf)
 	
 	if expected_checksum != checksum:
-		Logger.warn("Invalid checksum from board %s (packet id %d)" % [board, id])
+		GoLogger.warn("Invalid checksum from board %s (packet id %d)" % [board, id])
 		packet.error = true
 		return packet
 	if not Config.config["packets"][board].has(str(id)):
-		Logger.debug("Unrecognized packet %d on board %s" % [id, board])
+		GoLogger.debug("Unrecognized packet %d on board %s" % [id, board])
 		packet.error = true
 		return packet
 	var definition: Array = Config.config["packets"][board][str(id)]
@@ -160,7 +160,7 @@ func _parse_packet(data: PackedByteArray, addr: String) -> Packet:
 		var type: PacketDataType = TYPE_NAME_LOOKUP[field[1]]
 		var val: Variant = 0
 		if offset >= len(field_data):
-			#Logger.warn("Packet too short: %s" % str(definition))
+			#GoLogger.warn("Packet too short: %s" % str(definition))
 			pass
 		else:
 			val = _read_value(field_data, offset, type)
@@ -224,14 +224,14 @@ func _board_poll_kbps() -> void:
 			if not is_zero_approx(kbps) and not boards_connected[board]:
 				boards_connected[board] = true
 				update_data["%sConnected" % board] = true
-				Logger.info("Board connected: %s" % board)
+				GoLogger.info("Board connected: %s" % board)
 			elif is_zero_approx(kbps) and boards_connected[board]:
 				boards_connected[board] = false
 				update_data["%sConnected" % board] = false
 				first_receive_times[board] = -1
 				first_receive_offsets[board] = -1
-				Logger.info("Resetting timestamps for %s" % board)
-				Logger.warn("Board disconnected: %s" % board)
+				GoLogger.info("Resetting timestamps for %s" % board)
+				GoLogger.warn("Board disconnected: %s" % board)
 			send_update(update_data, get_current_time())
 		await get_tree().create_timer(1).timeout
 
@@ -266,7 +266,7 @@ func _get_ip(ip: String) -> Array:
 
 func send_packet(ip: String, id: int, args: Array) -> void:
 	if packet_locked :
-		Logger.warn("Packet lock is enabled")
+		GoLogger.warn("Packet lock is enabled")
 		return
 	var output_buffer: PackedByteArray = PackedByteArray()
 	var parsed_ip: Array = _get_ip(ip)
@@ -305,26 +305,26 @@ func send_packet(ip: String, id: int, args: Array) -> void:
 func validate_and_send(destination: String, packet_name: String, payload: Dictionary, hide_log: bool = false) -> bool:
 	if packet_locked :
 		if !hide_log :
-			Logger.warn("Packet lock is enabled")
+			GoLogger.warn("Packet lock is enabled")
 		return false
 	var channel_data: Array = []
 	if payload.has("<channel>"):
 		var channel: String = payload["<channel>"]
 		if not Config.config["reverse_channel_mappings"].has(channel):
-			Logger.error("Unrecognized channel %s" % channel)
+			GoLogger.error("Unrecognized channel %s" % channel)
 			return false
 		channel_data = Config.config["reverse_channel_mappings"][channel]
 	if destination == "?": # Channel
 		destination = channel_data[0]
 	elif len(channel_data) > 0 and destination != channel_data[0]:
-		Logger.error("Board %s does not match channel board %s" % [destination, channel_data[0]])
+		GoLogger.error("Board %s does not match channel board %s" % [destination, channel_data[0]])
 	var outgoing_packets: Dictionary = Config.config["outgoing_packets"]
 	if not outgoing_packets.has(destination):
-		Logger.error("Board %s cannot receive packet %s" % [destination, packet_name])
+		GoLogger.error("Board %s cannot receive packet %s" % [destination, packet_name])
 		return false
 	var destination_packets: Dictionary = outgoing_packets[destination]
 	if not destination_packets.has(packet_name):
-		Logger.error("Board %s cannot receive packet %s" % [destination, packet_name])
+		GoLogger.error("Board %s cannot receive packet %s" % [destination, packet_name])
 		return false
 	var packet_definition: Array = destination_packets[packet_name]
 	var packet_id: int = packet_definition[0]
@@ -332,13 +332,13 @@ func validate_and_send(destination: String, packet_name: String, payload: Dictio
 	var args: Array[Array] = []
 	for field in packet_fields:
 		if not payload.has(field[0]) and not field[3]:
-			Logger.error("Board %s, packet %s requires field %s" % [destination, packet_name, field[0]])
+			GoLogger.error("Board %s, packet %s requires field %s" % [destination, packet_name, field[0]])
 			return false
 		var value: Variant = payload.get(field[0], 0)
 		if not _write_field(args, value, field, channel_data):
 			return false
 	if not hide_log:
-		Logger.info("Sent packet %s %d %s" % [destination, packet_id, str(args)])
+		GoLogger.info("Sent packet %s %d %s" % [destination, packet_id, str(args)])
 	send_packet(destination, packet_id, args)
 	return true
 
@@ -346,11 +346,11 @@ func _write_field(args: Array[Array], value: Variant, field: Array, channel_data
 	if field[2] != "": # Enum
 		var proto_types: Dictionary = Config.config["protoTypes"]
 		if not proto_types.has(field[2]):
-			Logger.error("No enum called %s" % field[2])
+			GoLogger.error("No enum called %s" % field[2])
 			return false
 		var enum_values: Dictionary = proto_types[field[2]]
 		if not enum_values.has(value):
-			Logger.error("Enum %s doesn't have key %s" % [field[2], value])
+			GoLogger.error("Enum %s doesn't have key %s" % [field[2], value])
 			return false
 		value = enum_values[value]
 	elif field[3]: # Channel
@@ -376,18 +376,18 @@ func make_uint32(value: int) -> Array:
 
 func process_chat(data: PackedByteArray, addr: String) -> void:
 	var msg: Variant = JSON.parse_string(data.get_string_from_utf8())
-	Logger.chat("(%s) %s" % [msg["sender"], msg["message"]])
+	GoLogger.chat("(%s) %s" % [msg["sender"], msg["message"]])
 	
 func toggle_lock() -> void : 
 	packet_locked = !packet_locked
 	lock_update.emit(packet_locked)
 
 func launch(ipa_enabled: bool, nos_enabled: bool) -> void:
-	Logger.info("Beginning launch sequence")
+	GoLogger.info("Beginning launch sequence")
 	if ipa_enabled:
-		Logger.info("IPA enabled")
+		GoLogger.info("IPA enabled")
 	if nos_enabled:
-		Logger.info("NOS enabled")
+		GoLogger.info("NOS enabled")
 	validate_and_send("bcast", "Launch", {
 		"systemMode": Config.config["mode"],
 		"burnTime": Config.config["burnTime"],
@@ -396,7 +396,7 @@ func launch(ipa_enabled: bool, nos_enabled: bool) -> void:
 	})
 
 func abort(reason: String) -> void:
-	Logger.warn("Emitting abort with reason %s" % reason)
+	GoLogger.warn("Emitting abort with reason %s" % reason)
 	validate_and_send("bcast", "Abort", {
 		"systemMode": Config.config["mode"],
 		"abortReason": reason

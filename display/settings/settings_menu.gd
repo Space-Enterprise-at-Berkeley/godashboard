@@ -20,7 +20,7 @@ func _influx_connect() -> void:
 	Influx.list_databases()
 
 func _update_influx_databases(databases: Array) -> void:
-	Logger.debug(databases)
+	GoLogger.debug(databases)
 	influx_select_database.clear()
 	var reversed: Array = databases.duplicate()
 	reversed.reverse()

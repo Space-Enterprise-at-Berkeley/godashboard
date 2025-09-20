@@ -226,7 +226,7 @@ func _lex(text: String) -> Array[Token]:
 				text = text.substr(string.length())
 				break
 		if not found:
-			Logger.error("Unlexable token at index %s: %s ..." % [offset, text.substr(15)])
+			GoLogger.error("Unlexable token at index %s: %s ..." % [offset, text.substr(15)])
 			return []
 	return tokens
 
@@ -244,7 +244,7 @@ func _parse(tokens: Array[Token]) -> Variant:
 				if key is ParseError:
 					return ParseError.new()
 				if tokens.pop_front().type != TokenType.COLON:
-					Logger.error("Expected \":\" at index %s" % token.offset)
+					GoLogger.error("Expected \":\" at index %s" % token.offset)
 					return ParseError.new()
 				var val: Variant = _parse(tokens)
 				if val is ParseError:
@@ -252,7 +252,7 @@ func _parse(tokens: Array[Token]) -> Variant:
 				if key != "$schema":
 					ret[key] = val
 				if tokens[0].type != TokenType.BRACE_CLOSE and tokens.pop_front().type != TokenType.COMMA:
-					Logger.error("Expected \",\" or \"}\" at index %s" % token.offset)
+					GoLogger.error("Expected \",\" or \"}\" at index %s" % token.offset)
 					return ParseError.new()
 		TokenType.BRACKET_OPEN:
 			var ret: Array = []
@@ -265,7 +265,7 @@ func _parse(tokens: Array[Token]) -> Variant:
 					return ParseError.new()
 				ret.append(val)
 				if tokens[0].type != TokenType.BRACKET_CLOSE and tokens.pop_front().type != TokenType.COMMA:
-					Logger.error("Expected \",\" or \"]\" at index %s" % token.offset)
+					GoLogger.error("Expected \",\" or \"]\" at index %s" % token.offset)
 					return ParseError.new()
 		TokenType.BOOLEAN:
 			return value == "true"
@@ -285,7 +285,7 @@ func _parse(tokens: Array[Token]) -> Variant:
 			return value.to_int()
 		TokenType.STRING:
 			return _parse_string(value)
-	Logger.error("Unexpected token at index %s: %s" % [token.offset, token.data])
+	GoLogger.error("Unexpected token at index %s: %s" % [token.offset, token.data])
 	return ParseError.new()
 
 func _parse_string(string: String) -> Variant:

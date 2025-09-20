@@ -12,12 +12,12 @@ config_version=5
 
 config/name="Godashboard"
 run/main_scene="res://display/launcher/launcher.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Logger="*res://util/logger.gd"
+GoLogger="*res://util/gologger.gd"
 Config="*res://util/config.gd"
 Databus="*res://comms/databus.gd"
 Comms="*res://comms/comms.gd"

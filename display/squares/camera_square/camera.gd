@@ -30,7 +30,7 @@ func connect_camera() -> bool:
 	thread.start(_spawn_rtsp_process)
 	camera_connected = true
 	camera_connect.emit()
-	Logger.info("Camera %s connected" % camera_name)
+	GoLogger.info("Camera %s connected" % camera_name)
 	return true
 
 func process_frame(data: PackedByteArray) -> void:
