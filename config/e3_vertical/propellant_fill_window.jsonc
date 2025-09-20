@@ -1,4 +1,5 @@
 {
+	"$schema": "../schema/window.schema.json",
 	"name": "Propellant Fill",
 	"layout": "9-grid",
 	"slots": [
@@ -12,25 +13,25 @@
 					"color": [218, 165, 32]
 				},
 				{
-					"field": "eregNosTankPT",
-					"name": "[EREG] NOS Tank PT",
-					"units": "PSI",
-					"color": [218, 165, 255]
-				},
-				{
-					"field": "eregPressureSetpoint",
-					"name": "[EREG] Pressure Setpoint",
-					"units": "PSI",
-					"color": [34, 255, 255]
-				},
-				{
-					"field": "nosFillPT",
+					"field": "nosFillLinePT",
 					"name": "Fill",
 					"units": "PSI",
 					"color": [30, 144, 255]
 				},
 				{
-					"field": "nosAutoventPressure",
+					"field": "ipaEregFilteredDownstreamPressure2",
+					"name": "NOS-Reg Tank PT 2",
+					"units": "PSI",
+					"color": [76, 242, 206]
+				},
+				{
+					"field": "ipaEregPressureSetpoint",
+					"name": "Setpoint",
+					"units": "PSI",
+					"color": [76, 242, 206]
+				},
+				{
+					"field": "ac2nosAutoventPressure",
 					"name": "AV",
 					"units": "PSI",
 					"color": [178, 34, 34]
@@ -42,15 +43,21 @@
 			"values": [
 				{
 					"field": "ipaTankPT",
-					"name": "IPA Tank",
+					"name": "IPA Tank PT",
 					"units": "PSI",
 					"color": [218, 165, 32]
 				},
 				{
-					"field": "ipaUpstreamPT",
-					"name": "Press",
+					"field": "ipaDomePT",
+					"name": "IPA Dome PT",
 					"units": "PSI",
 					"color": [30, 144, 255]
+				},
+				{
+					"field": "ac3ipaAutoventPressure",
+					"name": "AV",
+					"units": "PSI",
+					"color": [178, 34, 34]
 				}
 			]
 		},
@@ -68,24 +75,24 @@
 					"units": "PSI/s"
 				},
 				{
-					"field": "gemsDutyCycle", 
-					"name": "GEMS Duty Cycle",
-					"units": "%"
+					"field": "ac2GemsDutyCycle",
+					"name": "NOS Duty Cycle",
+					"units": ""
 				},
 				{
-					"field": "nosTankPT", 
+					"field": "nosTankPT",
 					"name": "NOS Tank PT",
 					"units": "PSI"
 				},
 				{
-					"field": "ipaTankPT", 
+					"field": "ipaTankPT",
 					"name": "IPA Tank PT",
 					"units": "PSI"
 				},
 				{
-					"field": "heaterTC",
-					"name": "Heater TC",
-					"units": "C"
+					"field": "ac3GemsDutyCycle",
+					"name": "IPA Duty Cycle",
+					"units": ""
 				}
 			]
 		},
@@ -93,7 +100,24 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "ncapCap",
+					"field": "nosLC",
+					"name": "NOS LC",
+					"units": "kg",
+					"color": [218, 165, 32]
+				},
+				{
+					"field": "ipaLC",
+					"name": "IPA LC",
+					"units": "kg",
+					"color": [30, 144, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "nosCapCap",
 					"name": "Nitrous Cap Fill Value",
 					"units": "pF",
 					"color": [218, 165, 32]
@@ -104,13 +128,35 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "eregEncoderAngle",
-					"name": "E-Reg Encoder Angle",
+					"field": "ipaCapCap",
+					"name": "IPA Cap Fill Value",
+					"units": "pF",
+					"color": [30, 144, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "ipaEregFilteredUpstreamPressure1",
+					"name": "NOS Press",
+					"units": "PSI",
+					"color": [218, 165, 32]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "ipaEregEncoderAngle",
+					"name": "NOS-Reg Encoder Angle",
 					"units": "Ticks",
 					"color": [218, 165, 32]
 				},
 				{
-					"field": "eregAngleSetpoint",
+					"field": "ipaEregAngleSetpoint",
 					"name": "Setpoint",
 					"units": "Ticks",
 					"color": [30, 144, 255]
@@ -122,116 +168,40 @@
 			"buttons": [
 				{
 					"id": "autoventThreshold",
-					"type": "ereg-timed",
-					"name": "Autovent Threshold",
-					"field": "",
+					"name": "NOS Autovent Threshold",
 					"actions": {
-						"lox-timed": {
-							"type": "signal-timed",
-							"target": "nosAutoventThreshold"
-						},
-						"fuel-timed": {
-							"type": "signal-timed",
-							"target": "nosAutoventThreshold"
+						"open": {
+							"type": "packet",
+							"packet": "ACSetAutoventThreshold",
+							"board": "AC_2",
+							"args": {
+								"nosAutoventPressure": "<input>",
+								"ipaAutoventPressure": "<input>",
+								"noCommsAbortEnabled": 0 // Ignored
+							},
+							"safe": true
 						}
-					},
-					"safe": true
+					}
 				},
 				{
-					"type": null
-				},
-				{
-					"type": null
-				},
-				{
-					"type": null
-				}
-			]
-		},
-		{
-			"type": "empty"
-		},
-		{
-			"type": "graph",
-			"values": [
-				{
-					"field": "tankLC0",
-					"name": "Tank LC 0",
-					"units": "kg",
-					"color": [218, 165, 32]
-				},
-				{
-					"field": "tankLC1",
-					"name": "Tank LC 1",
-					"units": "kg",
-					"color": [30, 144, 255]
-				},
-				{
-					"field": "tankLC2",
-					"name": "Tank LC 2",
-					"units": "kg",
-					"color": [178, 34, 34]
-				}
-			]
-		},
-		{
-			"type": "four-button",
-			"buttons": [
-				{
-					"id": "nosDrain",
-					"type": "valve",
-					"name": "NOS Drain",
-					"field": "nosDrainState",
+					"id": "autoventThreshold",
+					"name": "IPA Autovent Threshold",
 					"actions": {
-						"enable": {
-							"type": "on",
-							"target": "nosDrain"
-						},
-						"disable": {
-							"type": "off",
-							"target": "nosDrain"
+						"open": {
+							"type": "packet",
+							"packet": "ACSetAutoventThreshold",
+							"board": "AC_3",
+							"args": {
+								"nosAutoventPressure": "<input>",
+								"ipaAutoventPressure": "<input>",
+								"noCommsAbortEnabled": 0 // Ignored
+							},
+							"safe": true
 						}
-					},
-					"green": [0, 1],
-					"safe": true
+					}
 				},
-				{
-					"id": "emergencyVent",
-					"type": "valve",
-					"name": "E-Vent",
-					"field": "emergencyVentState",
-					"actions": {
-						"enable": {
-							"type": "on",
-							"target": "emergencyVent"
-						},
-						"disable": {
-							"type": "off",
-							"target": "emergencyVent"
-						}
-					},
-					"green": [2]
-				},
-				{
-					"id": "gems",
-					"type": "valve",
-					"name": "GEMS",
-					"field": "gemsState",
-					"actions": {
-						"enable": {
-							"type": "on",
-							"target": "gems"
-						},
-						"disable": {
-							"type": "off",
-							"target": "gems"
-						}
-					},
-					"green": [0, 1]
-				},
-				{
-					"type": null
-				}
+				null,
+				null
 			]
 		}
 	]

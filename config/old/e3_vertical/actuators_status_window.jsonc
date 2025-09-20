@@ -1,0 +1,193 @@
+{
+	"name": "Actuators Status",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosFillContinuity",
+					"name": "NOS Fill V",
+					"units": "V"
+				},
+				{
+					"field": "nosLineVentContinuity",
+					"name": "NOS Line Vent V",
+					"units": "V"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": "nosFillCurrent",
+					"name": "NOS Fill I",
+					"units": "mA"
+				},
+				{
+					"field": "nosLineVentCurrent",
+					"name": "NOS Line Vent I",
+					"units": "mA"
+				},
+				{
+					"field": null
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosMainContinuity",
+					"name": "NOS Main V",
+					"units": "V"
+				},
+				{
+					"field": "ipaMainContinuity",
+					"name": "IPA Main V",
+					"units": "V"
+				},
+				{
+					"field": "armContinuity",
+					"name": "Arm V",
+					"units": "V"
+				},
+				{
+					"field": "nosMainCurrent",
+					"name": "Nitrous Main I",
+					"units": "mA"
+				},
+				{
+					"field": "ipaMainCurrent",
+					"name": "IPA Main I",
+					"units": "mA"
+				},
+				{
+					"field": "armCurrent",
+					"name": "Arm I",
+					"units": "mA"
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "emergencyVentContinuity",
+					"name": "E-Vent V",
+					"units": "V"
+				},
+				{
+					"field": "nosDrainContinuity",
+					"name": "NOS Drain V",
+					"units": "V"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": "emergencyVentCurrent",
+					"name": "E-Vent I",
+					"units": "mA"
+				},
+				{
+					"field": "nosDrainCurrent",
+					"name": "NOS Drain I",
+					"units": "mA"
+				},
+				{
+					"field": null
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "gemsContinuity",
+					"name": "GEMS V",
+					"units": "V"
+				},
+				{
+					"field": "mainVentContinuity",
+					"name": "Main Vent V",
+					"units": "V"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": "gemsCurrent",
+					"name": "GEMS I",
+					"units": "mA"
+				},
+				{
+					"field": "mainVentCurrent",
+					"name": "Main Vent I",
+					"units": "mA"
+				},
+				{
+					"field": null
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "igniterContinuity",
+					"name": "Igniter V",
+					"units": "V"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				},
+				{
+					"field": "igniterCurrent",
+					"name": "Igniter I",
+					"units": "mA"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				}
+			]
+		},
+		{
+			"type": "empty"
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "eregCurrentA",
+					"name": "E-Reg Current A",
+					"units": "mA",
+					"color": [0, 255, 255]
+				},
+				{
+					"field": "eregCurrentB",
+					"name": "Current B",
+					"units": "mA",
+					"color": [30, 144, 255]
+				},
+				{
+					"field": "eregCurrentC",
+					"name": "Current C",
+					"units": "mA",
+					"color": [178, 34, 34]
+				}
+			]
+		},
+		{
+			"type": "empty"
+		},
+		{
+			"type": "empty"
+		}
+	]
+}

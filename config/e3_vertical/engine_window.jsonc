@@ -1,12 +1,68 @@
 {
+	"$schema": "../schema/window.schema.json",
 	"name": "Engine",
 	"layout": "9-grid",
 	"slots": [
 		{
-			"type": "empty"
-		},
+			"type": "six-square",
+			"values": [
+				{
+					"field": "nosInjectorPT",
+					"name": "NOS Injector PT",
+					"units": "PSI"
+				},
+				{
+					"field": "ipaInjectorPT",
+					"name": "IPA Injector PT",
+					"units": "PSI"
+				},
+				{
+					"field": "ipaEregEncoderAngle",
+					"name": "IReg Encoder",
+					"units": "ticks"
+				},
+				{
+					"field": "nosTankPT",
+					"name": "NOS Tank Pressure",
+					"units": "PSI"
+				},
+				{
+					"field": "ipaTankPT",
+					"name": "IPA Tank Pressure",
+					"units": "PSI"
+				},
+				{
+					"field": "ipaEregAngleSetpoint",
+					"name": "IReg Setpoint",
+					"units": "ticks"
+				}
+			]
+		}, 
 		{
-			"type": "empty"
+			"type": "graph",
+			"values": [
+		    // THESE ARE SHUFFLED FOR A REASON
+			// THE LABEL NUMBER IS WHAT THE CHANNEL IS NUMBERED ON THE CASE
+			// THE FIELD NUMBER IS WHAT THE CHANNEL IS NUMBERED IN THE CODE
+				{
+					"field": "engine2LC",
+					"name": "Eng LC1",
+					"units": "kg",
+					"color": [0, 255, 255]
+				},
+				{
+					"field": "engine1LC",
+					"name": "Eng LC2",
+					"units": "kg",
+					"color": [30, 144, 255]
+				},
+				{
+					"field": "engine3LC",
+					"name": "Eng LC3",
+					"units": "kg",
+					"color": [178, 34, 34]
+				}
+			]
 		},
 		{
 			"type": "graph",
@@ -22,30 +78,30 @@
 					"name": "IPA Injector PT",
 					"units": "PSI",
 					"color": [30, 144, 255]
-				}
-		
-			]
-		},
-		{
-			"type": "empty"
-		},
-		{
-			"type": "empty"
-		},
-		{
-			"type": "graph",
-			"values": [
-				{
-					"field": "igniterPT",
-					"name": "Igniter PT",
-					"units": "PSI",
-					"color": [218, 165, 32]
 				},
 				{
 					"field": "chamberPT",
 					"name": "Chamber PT",
 					"units": "PSI",
-					"color": [30, 144, 255]
+					"color": [127, 0, 255]
+				},
+				{
+					"field": "manifold0PT",
+					"name": "Manifold0PT",
+					"units": "PSI",
+					"color": [183, 255, 63]
+				},
+				{
+					"field": "manifold1PT",
+					"name": "Manifold1PT",
+					"units": "PSI",
+					"color": [128, 254, 206]
+				},
+				{
+					"field": "manifold2PT",
+					"name": "Manifold2PT",
+					"units": "PSI",
+					"color": [255, 48, 0]
 				}
 			]
 		},
@@ -53,93 +109,274 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "engineTC0",
-					"name": "Eng TC0",
-					"units": "",
+					"field": "engine1-1PT",
+					"name": "Eng PT1-1",
+					"units": "PSI",
+					"color": [127, 0, 255]
+				},
+				{
+					"field": "engine1-2PT",
+					"name": "Eng PT1-2",
+					"units": "PSI",
+					"color": [77, 73, 251]
+				},
+				{
+					"field": "engine1-3PT",
+					"name": "Eng PT1-3",
+					"units": "PSI",
+					"color": [25, 149, 242]
+				},
+				{
+					"field": "engine1-4PT",
+					"name": "Eng PT1-4",
+					"units": "PSI",
+					"color": [24, 205, 227]
+				},
+				{
+					"field": "engine2-1PT",
+					"name": "Eng PT2-1",
+					"units": "PSI",
+					"color": [76, 242, 206]
+				},
+				{
+					"field": "engine2-2PT",
+					"name": "Eng PT2-2",
+					"units": "PSI",
+					"color": [63, 255, 183]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "engine2-3PT",
+					"name": "Eng PT2-3",
+					"units": "PSI",
 					"color": [183, 255, 63]
 				},
 				{
-					"field": "engineTC1",
-					"name": "TC1",
-					"units": "",
+					"field": "engine2-4PT",
+					"name": "Eng PT2-4",
+					"units": "PSI",
 					"color": [255, 185, 0]
 				},
 				{
-					"field": "engineTC2",
-					"name": "TC2",
-					"units": "",
+					"field": "engine3-1PT",
+					"name": "Eng PT3-1",
+					"units": "PSI",
 					"color": [255, 150, 79]
 				},
 				{
-					"field": "engineTC3",
-					"name": "TC3",
-					"units": "",
+					"field": "engine3-2PT",
+					"name": "Eng PT3-2",
+					"units": "PSI",
 					"color": [255, 48, 0]
 				},
 				{
-					"field": "engineTC4",
-					"name": "TC4",
-					"units": "",
+					"field": "engine3-3PT",
+					"name": "Eng PT3-3",
+					"units": "PSI",
 					"color": [255, 0, 255]
+				},
+				{
+					"field": "engine3-4PT",
+					"name": "Eng PT3-4",
+					"units": "PSI",
+					"color": [128, 254, 206]
 				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "breakwireContinuity",
+					"name": "Breakwire",
+					"units": "V"
+				},
+				{
+					"field": "igniterContinuity",
+					"name": "Igniter",
+					"units": "V"
+				},
+				{
+					"field": "burnwireContinuity",
+					"name": "Burnwire",
+					"units": "V"
+				},
+				{
+					"field": "nosMainState",
+					"name": "NOS Main State",
+					"units": ""
+				},
+				{
+					"field": "ipaMainState",
+					"name": "IPA Main State",
+					"units": ""
+				},
+				null
 			]
 		},
 		{
 			"type": "graph",
 			"values": [
 				{
-					"field": "engineTC5",
-					"name": "Eng TC5",
-					"units": "",
+					"field": "nosInjTC",
+					"name": "NOS INJ TC",
+					"units": "C",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "ipaInjTC",
+					"name": "IPA INJ TC",
+					"units": "C",
+					"color": [255, 0, 255]
+				},/*
+				{
+					"field": "engine1-1TC",
+					"name": "Eng TC1-1",
+					"units": "C",
+					"color": [127, 0, 255]
+				},
+				{
+					"field": "engine1-2TC",
+					"name": "Eng TC1-2",
+					"units": "C",
+					"color": [77, 73, 251]
+				},
+				{
+					"field": "engine1-3TC",
+					"name": "Eng TC1-3",
+					"units": "C",
+					"color": [25, 149, 242]
+				},
+				{
+					"field": "engine1-4TC",
+					"name": "Eng TC1-4",
+					"units": "C",
+					"color": [24, 205, 227]
+				},*/
+				{
+					"field": "engine2-1TC",
+					"name": "Eng TC2-1",
+					"units": "C",
+					"color": [76, 242, 206]
+				},
+				{
+					"field": "engine2-2TC",
+					"name": "Eng TC2-2",
+					"units": "C",
+					"color": [63, 255, 183]
+				},
+				{
+					"field": "engine2-4TC",
+					"name": "Eng TC2-4",
+					"units": "C",
+					"color": [127, 0, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [/*
+				{
+					"field": "engine2-3TC",
+					"name": "Eng TC2-3",
+					"units": "C",
 					"color": [183, 255, 63]
 				},
 				{
-					"field": "engineTC6",
-					"name": "TC6",
-					"units": "",
+					"field": "engine2-4TC",
+					"name": "Eng TC2-4",
+					"units": "C",
 					"color": [255, 185, 0]
+				},*/
+				{
+					"field": "engine3-1TC",
+					"name": "Eng TC3-1",
+					"units": "C",
+					"color": [255, 150, 79]
 				},
 				{
-					"field": "engineTC7",
-					"name": "TC7",
-					"units": "",
-					"color": [255, 150, 79]
+					"field": "engine3-2TC",
+					"name": "Eng TC3-2",
+					"units": "C",
+					"color": [255, 48, 0]
+				},
+				{
+					"field": "engine3-3TC",
+					"name": "Eng TC3-3",
+					"units": "C",
+					"color": [255, 0, 255]
+				},
+				{
+					"field": "engine3-4TC",
+					"name": "Eng TC3-4",
+					"units": "C",
+					"color": [128, 254, 206]
 				}
-				// {
-				// 	"field": "engineTC8",
-				// 	"name": "TC8",
-				// 	"units": "",
-				// 	"color": [255, 48, 0]
-				// },
-				// {
-				// 	"field": "engineTC9",
-				// 	"name": "TC9",
-				// 	"units": "",
-				// 	"color": [255, 0, 255]
-				// }
 			]
 		},
 		{
-			"type": "graph",
-			"values": [
+			"type": "four-button",
+			"buttons": [
 				{
-					"field": "engineLC0",
-					"name": "Engine LC 0",
-					"units": "kg",
-					"color": [218, 165, 32]
+					"id": "nosEmergencyVent",
+					"name": "NOS E-Vent",
+					"field": "nosEmergencyVentState",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "OFF",
+								"<channel>": "AC_NOS_EMERGENCY_VENT",
+								"actuateTime": 0
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "ON",
+								"<channel>": "AC_NOS_EMERGENCY_VENT",
+								"actuateTime": 0
+							}
+						}
+					},
+					"green": ["EXTENDING", "RETRACTING"]
 				},
 				{
-					"field": "engineLC1",
-					"name": "Engine LC 1",
-					"units": "kg",
-					"color": [30, 144, 255]
+					"id": "ipaEmergencyVent",
+					"name": "IPA E-Vent",
+					"field": "ipaEmergencyVentState",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "OFF",
+								"<channel>": "AC_IPA_EMERGENCY_VENT",
+								"actuateTime": 0
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "ON",
+								"<channel>": "AC_IPA_EMERGENCY_VENT",
+								"actuateTime": 0
+							}
+						}
+					},
+					"green": ["EXTENDING", "RETRACTING"]
 				},
-				{
-					"field": "engineLC2",
-					"name": "Engine LC 2",
-					"units": "kg",
-					"color": [178, 34, 34]
-				}
+				null,
+				null
 			]
 		}
 	]

@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/window.schema.json",
+	"name": "PT1 Calibration",
+	"layout": "calibration",
+	"board": "PT_1",
+	"channels": 8,
+	"columns": 2,
+	"units": "PSI",
+	"color": [218, 165, 32],
+	"firstPoint": {
+		"packet": "FirstPointCalibration",
+		"args": {
+			"channel": "<channel>",
+			"value": 0.0
+		}
+	},
+	"secondPoint": {
+		"packet": "SecondPointCalibration",
+		"args": {
+			"channel": "<channel>",
+			"value": "<input>"
+		}
+	},
+	"reset": {
+		"packet": "ResetCalibration",
+		"args": {
+			"channel": "<channel>"
+		}
+	},
+	"fieldUnmapped": "PT_1.PTValues.values.#"
+}

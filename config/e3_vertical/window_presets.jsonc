@@ -1,14 +1,19 @@
 {
+	"$schema": "../schema/window_presets.schema.json",
 	"main": {
-		"name": "E3 Vertical",
-		"tabs": ["controls", "pressures", "propellant_fill", "engine", "boards_status", "actuators_status"]
+		"name": "E3 Cart",
+		"tabs": ["controls", "propellant_fill","pressures", "engine", "boards_status", "actuators_status"]
 	},
 	"debug": {
 		"name": "Debug",
-		"tabs": ["packet_simulator", "calibration"]
+		"tabs": ["packet_simulator"]
+	},
+	"calibration": {
+		"name": "Calibration",
+		"tabs": ["calibration_pt1", "calibration_pt2", "calibration_pt3", "calibration_lc1", "calibration_lc2", "calibration_tc1", "calibration_tc2"]
 	},
 	"empty": {
 		"name": "Empty",
-		"tabs": ["test", "cameras"]
+		"tabs": ["test"]
 	}
 }

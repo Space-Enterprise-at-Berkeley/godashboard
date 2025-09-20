@@ -1,4 +1,5 @@
 {
+	"$schema": "../schema/window.schema.json",
 	"name": "Boards Status",
 	"layout": "9-grid",
 	"slots": [
@@ -16,10 +17,9 @@
 					"units": "V"
 				},
 				{
-					"field": null
-					// "field": "ac3Supply24Voltage",
-					// "name": "AC3 Voltage",
-					// "units": "V"
+					"field": "ac3Supply24Voltage",
+					"name": "AC3 Voltage",
+					"units": "V"
 				},
 				{
 					"field": "ac1Supply24Current",
@@ -32,72 +32,9 @@
 					"units": "mA"
 				},
 				{
-					"field": null
-					// "field": "ac3Supply24Current",
-					// "name": "AC3 Current",
-					// "units": "mA"
-				}
-			]
-		},
-		{
-			"type": "six-square",
-			"values": [
-				{
-					"field": "tc1Supply24Voltage",
-					"name": "TC1 Voltage",
-					"units": "V"
-				},
-				{
-					"field": "tc1Supply24Current",
-					"name": "TC1 Current",
+					"field": "ac3Supply24Current",
+					"name": "AC3 Current",
 					"units": "mA"
-				},
-				{
-					"field": null
-				},
-				{
-					"field": "tc2Supply24Voltage",
-					"name": "TC2 Voltage",
-					"units": "V"
-				},
-				{
-					"field": "tc2Supply24Current",
-					"name": "TC2 Current",
-					"units": "mA"
-				},
-				{
-					"field": null
-				}
-			]
-		},
-		{
-			"type": "six-square",
-			"values": [
-				{
-					"field": "lc1Supply24Voltage",
-					"name": "LC1 Voltage",
-					"units": "V"
-				},
-				{
-					"field": "lc2Supply24Voltage",
-					"name": "LC2 Voltage",
-					"units": "V"
-				},
-				{
-					"field": null
-				},
-				{
-					"field": "lc1Supply24Current",
-					"name": "LC1 Current",
-					"units": "mA"
-				},
-				{
-					"field": "lc2Supply24Current",
-					"name": "LC2 Current",
-					"units": "mA"
-				},
-				{
-					"field": null
 				}
 			]
 		},
@@ -114,9 +51,7 @@
 					"name": "PT2 Voltage",
 					"units": "V"
 				},
-				{
-					"field": null
-				},
+				null,
 				{
 					"field": "pt1Supply24Current",
 					"name": "PT1 Current",
@@ -127,25 +62,269 @@
 					"name": "PT2 Current",
 					"units": "mA"
 				},
-				{
-					"field": null
-				}
+				null
 			]
 		},
 		{
-			"type": "empty"
+			"type": "six-square",
+			"values": [
+				{
+					"field": "lc1Supply24Voltage",
+					"name": "LC1 Voltage",
+					"units": "V"
+				},
+				{
+					"field": "lc2Supply24Voltage",
+					"name": "LC2 Voltage",
+					"units": "V"
+				},
+				null,
+				{
+					"field": "lc1Supply24Current",
+					"name": "LC1 Current",
+					"units": "mA"
+				},
+				{
+					"field": "lc2Supply24Current",
+					"name": "LC2 Current",
+					"units": "mA"
+				},
+				null
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ipaEregPressureSetpointStart",
+					"name": "Setpoint Start",
+					"units": "psi"
+				},
+				{
+					"field": "ipaEregPressureSetpointMinimum",
+					"name": "Setpoint Minimum",
+					"units": "psi"
+				},
+				{
+					"field": "ipaEregPressureSetpointDropRate",
+					"name": "Drop Rate",
+					"units": "psi/s"
+				},
+				{
+					"field": "ipaEregStaticPressureSetpoint",
+					"name": "Static Pressure Setpoint",
+					"units": "psi"
+				},
+				null,
+				null
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "eregSetPressureSetpointStart",
+					"name": "Setpoint Start",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ERSetPressureSetpointStart",
+							"board": "ER_IPA",
+							"args": {
+								"value": "<input>"
+							},
+							"safe": true
+						}
+					}
+				}, 
+				{
+					"id": "eregSetPressureSetpointDropRate",
+					"name": "DropRate",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ERSetPressureSetpointDropRate",
+							"board": "ER_IPA",
+							"args": {
+								"value": "<input>"
+							},
+							"safe": true
+						}
+					}
+				}, 
+				{
+					"id": "eregSetPressureSetpointMinimum",
+					"name": "Setpoint Minimum",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ERSetPressureSetpointMinimum",
+							"board": "ER_IPA",
+							"args": {
+								"value": "<input>"
+							},
+							"safe": true
+						}
+					}
+				}, 
+				{
+					"id": "eregSetStaticPressureSetpoint",
+					"name": "Static Pressure Setpoint",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ERSetStaticPressureSetpoint",
+							"board": "ER_IPA",
+							"args": {
+								"value": "<input>"
+							},
+							"safe": true
+						}
+					}
+				}, 
+			]
 		},
 		{
 			"type": "logs"
 		},
 		{
-			"type": "empty"
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "zeroPT1",
+					"name": "Zero PT1",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "FirstPointCalibration",
+							"board": "PT_1",
+							"args": {
+								"channel": "<input>",
+								"value": 0.0
+							},
+							"safe": true
+						}
+					}
+				},
+				{
+					"id": "zeroPT2",
+					"name": "Zero PT2",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "FirstPointCalibration",
+							"board": "PT_2",
+							"args": {
+								"channel": "<input>",
+								"value": 0.0
+							},
+							"safe": true
+						}
+					}
+				},
+				null,
+				null
+			]
 		},
 		{
-			"type": "empty"
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "zeroLC1",
+					"name": "Zero LC1",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "FirstPointCalibration",
+							"board": "LC_1",
+							"args": {
+								"channel": "<input>",
+								"value": 0.0
+							},
+							"safe": true
+						}
+					}
+				},
+				{
+					"id": "zeroLC2",
+					"name": "Zero LC2",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "FirstPointCalibration",
+							"board": "LC_2",
+							"args": {
+								"channel": "<input>",
+								"value": 0.0
+							},
+							"safe": true
+						}
+					}
+				},
+				null,
+				null
+			]
 		},
 		{
-			"type": "empty"
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "nosEmergencyVent",
+					"name": "NOS E-Vent",
+					"field": "nosEmergencyVentState",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "OFF",
+								"<channel>": "AC_NOS_EMERGENCY_VENT",
+								"actuateTime": 0
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "ON",
+								"<channel>": "AC_NOS_EMERGENCY_VENT",
+								"actuateTime": 0
+							}
+						}
+					},
+					"green": ["EXTENDING", "RETRACTING"]
+				},
+				{
+					"id": "ipaEmergencyVent",
+					"name": "IPA E-Vent",
+					"field": "ipaEmergencyVentState",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "OFF",
+								"<channel>": "AC_IPA_EMERGENCY_VENT",
+								"actuateTime": 0
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "ON",
+								"<channel>": "AC_IPA_EMERGENCY_VENT",
+								"actuateTime": 0
+							}
+						}
+					},
+					"green": ["EXTENDING", "RETRACTING"]
+				},
+				null,
+				null
+			]
 		}
 	]
 }

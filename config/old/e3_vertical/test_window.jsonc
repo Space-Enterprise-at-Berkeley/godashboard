@@ -2,17 +2,18 @@
 	"name": "Test",
 	"layout": "9-grid",
 	"slots": [
+		// {
+		// 	"type": "orientation",
+		// 	"qw": "nosInjectorPT",
+		// 	"qx": "chamberPT",
+		// 	"qy": "igniterPT",
+		// 	"qz": "ipaInjectorPT"
+		// }
 		{
 			"type": "pid",
 			"gridStart": [0, 0],
-			"gridEnd": [70, 40],
+			"gridEnd": [60, 40],
 			"nodes": [
-				{
-					"type": "t",
-					"name": "t0",
-					"pos": [1, 1],
-					"direction": "plus"
-				},
 				{
 					"type": "tank",
 					"name": "nosTank",
