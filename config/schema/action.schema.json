@@ -67,6 +67,20 @@
 				}
 			},
 			"required": ["id"]
+		},
+		{
+			"properties": {
+				"type": {
+					"const": "multi"
+				},
+				"actions": {
+					"type": "array",
+					"items": {
+						"$ref": "./action.schema.json"
+					}
+				}
+			},
+			"required": ["actions"]
 		}
 	],
 	"required": ["type"]
