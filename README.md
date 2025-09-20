@@ -2,6 +2,7 @@
 Note: These are temporary instructions that will be updated when things are more complete. This process will be simpler in the future.
 * Clone this repository.
 * Within the repository, run `git config --local include.path ../.gitconfig`. This will add extra git commands for this repo.
+* Run `git submodule update --init --recursive`.
 * Within the repository, run `git pull-all`. This pulls the current branch as well as all submodules (the packet spec). Always use this instead of `git pull`, unless you aren't using the packet spec.
 * Download Godot from [https://godotengine.org/](https://godotengine.org/). It's a single portable executable, so it should be simple to run.
 * Run Godot and click on the import button in the top right. Navigate to the `project.godot` file in the root of this repository and import it.
