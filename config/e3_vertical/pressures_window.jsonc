@@ -40,12 +40,6 @@
 					"name": "IPA Tank PT",
 					"units": "PSI",
 					"color": [218, 165, 32]
-				},
-				{
-					"field": "ipaDomePT",
-					"name": "IPA Dome PT",
-					"units": "PSI",
-					"color": [30, 144, 255]
 				}
 			]
 		},
@@ -63,8 +57,8 @@
 					"units": "PSI/s"
 				},
 				{
-					"field": "ipaDomePT",
-					"name": "IPA Dome PT",
+					"field": "ipaPoppetPT",
+					"name": "IPA Poppet PT",
 					"units": "PSI"
 				},
 				{
@@ -78,8 +72,8 @@
 					"units": "PSI"
 				},
 				{
-					"field": "mainValvePT",
-					"name": "Main Valve PT",
+					"field": "nosPoppetPT",
+					"name": "NOS Poppet PT",
 					"units": "PSI"
 				}
 			]
@@ -103,16 +97,7 @@
 			]
 		},
 		{
-			"type": "graph",
-			"values": [
-				{
-					"field": "nosTankTC",
-					"name": "NOS Tank TC",
-					"units": "C",
-					"color": [218, 165, 32]
-				}
-		
-			]
+			"type": "empty"
 		},
 		{
 			"type": "graph",
@@ -122,30 +107,6 @@
 					"name": "ChamberPT",
 					"units": "PSI",
 					"color": [127, 0, 255]
-				},
-				{
-					"field": "manifold0PT",
-					"name": "Manifold0PT",
-					"units": "PSI",
-					"color": [77, 73, 251]
-				},
-				{
-					"field": "engine1-2PT",
-					"name": "Eng PT1-2",
-					"units": "PSI",
-					"color": [25, 149, 242]
-				},
-				{
-					"field": "engine1-3PT",
-					"name": "Eng PT1-3",
-					"units": "PSI",
-					"color": [24, 205, 227]
-				},
-				{
-					"field": "engine1-4PT",
-					"name": "Eng PT1-4",
-					"units": "PSI",
-					"color": [76, 242, 206]
 				}
 			]
 		},
@@ -181,34 +142,10 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "chamberPT",
-					"name": "ChamberPT",
+					"field": "pneumaticsPT",
+					"name": "Pneumatics PT",
 					"units": "PSI",
 					"color": [128, 254, 206]
-				},
-				{
-					"field": "engine3-1PT",
-					"name": "Eng PT3-1",
-					"units": "PSI",
-					"color": [178, 242, 150]
-				},
-				{
-					"field": "engine3-2PT",
-					"name": "Eng PT3-2",
-					"units": "PSI",
-					"color": [230, 205, 115]
-				},
-				{
-					"field": "engine3-3PT",
-					"name": "Eng PT3-3",
-					"units": "PSI",
-					"color": [255, 150, 79] 
-				},
-				{
-					"field": "engine3-4PT",
-					"name": "Eng PT3-4",
-					"units": "PSI",
-					"color": [255, 77, 39]
 				}
 			]
 		}

@@ -8,6 +8,7 @@
 oversampling_override = 1.0
 mode = 2
 position = Vector2i(0, 36)
+size = Vector2i(500, 500)
 content_scale_size = Vector2i(1920, 1080)
 content_scale_mode = 1
 content_scale_aspect = 4
@@ -16,6 +17,7 @@ script = ExtResource("1_dl7oo")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Theme" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(500, 500)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

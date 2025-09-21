@@ -17,16 +17,8 @@
 					"units": "mA"
 				},
 				null,
-				{
-					"field": "ipaPressFlowContinuity",
-					"name": "IPA Press V",
-					"units": "V"
-				},
-				{
-					"field": "ipaPressFlowCurrent",
-					"name": "IPA Press I",
-					"units": "mA"
-				},
+				null,
+				null,
 				null
 			]
 		},
@@ -43,11 +35,7 @@
 					"name": "IPA Main V",
 					"units": "V"
 				},
-				{
-					"field": "armContinuity",
-					"name": "Arm V",
-					"units": "V"
-				},
+				null,
 				{
 					"field": "nosMainCurrent",
 					"name": "Nitrous Main I",
@@ -58,11 +46,7 @@
 					"name": "IPA Main I",
 					"units": "mA"
 				},
-				{
-					"field": "armCurrent",
-					"name": "Arm I",
-					"units": "mA"
-				}
+				null
 			]
 		},
 		{
@@ -92,22 +76,14 @@
 					"name": "NOS GEMS V",
 					"units": "V"
 				},
-				{
-					"field": "ipaGemsContinuity",
-					"name": "IPA GEMS V",
-					"units": "V"
-				},
+				null,
 				null,
 				{
 					"field": "nosGemsCurrent",
 					"name": "NOS GEMS I",
 					"units": "mA"
 				},
-				{
-					"field": "ipaGemsCurrent",
-					"name": "IPA GEMS I",
-					"units": "mA"
-				},
+				null,
 				null
 			]
 		},
@@ -147,31 +123,7 @@
 			]
 		},
 		{
-			"type": "six-square",
-			"values": [
-				{
-					"field": "nosSlowVentContinuity",
-					"name": "NOS Vent V",
-					"units": "V"
-				},
-				{
-					"field": "nosSlowVentCurrent",
-					"name": "NOS Vent I",
-					"units": "mA"
-				},
-				null,
-				{
-					"field": "ipaSlowVentContinuity",
-					"name": "IPA Vent V",
-					"units": "V"
-				},
-				{
-					"field": "ipaSlowVentCurrent",
-					"name": "IPA Vent I",
-					"units": "mA"
-				},
-				null
-			]
+			"type": "empty"
 		},
 		{
 			"type": "graph",
@@ -210,16 +162,8 @@
 					"units": "mA"
 				},
 				null,
-				{
-					"field": "ipaEmergencyVentContinuity",
-					"name": "IPA E-V V",
-					"units": "V"
-				},
-				{
-					"field": "ipaEmergencyVentCurrent",
-					"name": "IPA E-V I",
-					"units": "mA"
-				},
+				null,
+				null,
 				null
 			]
 		},
@@ -237,16 +181,8 @@
 					"units": "mA"
 				},
 				null,
-				{
-					"field": "ipaDrainContinuity",
-					"name": "IPA Drain V",
-					"units": "V"
-				},
-				{
-					"field": "ipaDrainCurrent",
-					"name": "IPA Drain I",
-					"units": "mA"
-				},
+				null,
+				null,
 				null
 			]
 		}

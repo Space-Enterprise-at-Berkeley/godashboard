@@ -16,11 +16,7 @@
 					"name": "AC2 Voltage",
 					"units": "V"
 				},
-				{
-					"field": "ac3Supply24Voltage",
-					"name": "AC3 Voltage",
-					"units": "V"
-				},
+				null,
 				{
 					"field": "ac1Supply24Current",
 					"name": "AC1 Current",
@@ -31,11 +27,7 @@
 					"name": "AC2 Current",
 					"units": "mA"
 				},
-				{
-					"field": "ac3Supply24Current",
-					"name": "AC3 Current",
-					"units": "mA"
-				}
+				null
 			]
 		},
 		{
@@ -73,22 +65,14 @@
 					"name": "LC1 Voltage",
 					"units": "V"
 				},
-				{
-					"field": "lc2Supply24Voltage",
-					"name": "LC2 Voltage",
-					"units": "V"
-				},
+				null,
 				null,
 				{
 					"field": "lc1Supply24Current",
 					"name": "LC1 Current",
 					"units": "mA"
 				},
-				{
-					"field": "lc2Supply24Current",
-					"name": "LC2 Current",
-					"units": "mA"
-				},
+				null,
 				null
 			]
 		},
@@ -245,22 +229,7 @@
 						}
 					}
 				},
-				{
-					"id": "zeroLC2",
-					"name": "Zero LC2",
-					"actions": {
-						"open": {
-							"type": "packet",
-							"packet": "FirstPointCalibration",
-							"board": "LC_2",
-							"args": {
-								"channel": "<input>",
-								"value": 0.0
-							},
-							"safe": true
-						}
-					}
-				},
+				null,
 				null,
 				null
 			]
@@ -295,33 +264,7 @@
 					},
 					"green": ["EXTENDING", "RETRACTING"]
 				},
-				{
-					"id": "ipaEmergencyVent",
-					"name": "IPA E-Vent",
-					"field": "ipaEmergencyVentState",
-					"actions": {
-						"open": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "OFF",
-								"<channel>": "AC_IPA_EMERGENCY_VENT",
-								"actuateTime": 0
-							},
-							"safe": true
-						},
-						"close": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "ON",
-								"<channel>": "AC_IPA_EMERGENCY_VENT",
-								"actuateTime": 0
-							}
-						}
-					},
-					"green": ["EXTENDING", "RETRACTING"]
-				},
+				null,
 				null,
 				null
 			]

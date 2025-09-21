@@ -48,12 +48,6 @@
 					"color": [218, 165, 32]
 				},
 				{
-					"field": "ipaDomePT",
-					"name": "IPA Dome PT",
-					"units": "PSI",
-					"color": [30, 144, 255]
-				},
-				{
 					"field": "ac3ipaAutoventPressure",
 					"name": "AV",
 					"units": "PSI",
@@ -89,29 +83,11 @@
 					"name": "IPA Tank PT",
 					"units": "PSI"
 				},
-				{
-					"field": "ac3GemsDutyCycle",
-					"name": "IPA Duty Cycle",
-					"units": ""
-				}
+				null
 			]
 		},
 		{
-			"type": "graph",
-			"values": [
-				{
-					"field": "nosLC",
-					"name": "NOS LC",
-					"units": "kg",
-					"color": [218, 165, 32]
-				},
-				{
-					"field": "ipaLC",
-					"name": "IPA LC",
-					"units": "kg",
-					"color": [30, 144, 255]
-				}
-			]
+			"type": "empty"
 		},
 		{
 			"type": "graph",
@@ -125,15 +101,7 @@
 			]
 		},
 		{
-			"type": "graph",
-			"values": [
-				{
-					"field": "ipaCapCap",
-					"name": "IPA Cap Fill Value",
-					"units": "pF",
-					"color": [30, 144, 255]
-				}
-			]
+			"type": "empty"
 		},
 		{
 			"type": "graph",
