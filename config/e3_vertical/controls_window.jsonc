@@ -6,33 +6,10 @@
 		{
 			"type": "four-button",
 			"buttons": [
+				null,
+				
 				{
-					"id": "arm",
-					"name": "Arm",
-					"field": "armState",
-					"actions": {
-						"open": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "ON",
-								"<channel>": "AC_ARM",
-								"actuateTime": 0
-							}
-						},
-						"close": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "OFF",
-								"<channel>": "AC_ARM",
-								"actuateTime": 0
-							}
-						}
-					},
-					"green": ["EXTENDING", "RETRACTING"]
-				},
-				{
+					// New values are normally open, so send power when closed
 					"id": "ipaMain",
 					"name": "IPA Main Valve",
 					"field": "ipaMainState",
@@ -41,7 +18,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "ON",
+								"action": "OFF",
 								"<channel>": "AC_IPA_MAIN",
 								"actuateTime": 0
 							}
@@ -50,7 +27,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "OFF",
+								"action": "ON",
 								"<channel>": "AC_IPA_MAIN",
 								"actuateTime": 0
 							}
@@ -69,6 +46,7 @@
 					}
 				},
 				{
+					// New values are normally open, so send power when closed
 					"id": "nosMain",
 					"name": "NOS Main Valve",
 					"field": "nosMainState",
@@ -77,7 +55,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "ON",
+								"action": "OFF",
 								"<channel>": "AC_NOS_MAIN",
 								"actuateTime": 0
 							}
@@ -86,7 +64,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "OFF",
+								"action": "ON",
 								"<channel>": "AC_NOS_MAIN",
 								"actuateTime": 0
 							}
@@ -99,44 +77,7 @@
 		{
 			"type": "four-button",
 			"buttons": [
-				{
-					"id": "ipaPressFlow",
-					"name": "NOS Press Flow",
-					"field": "ipaPressFlowState",
-					"actions": {
-						"close": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "RETRACT_FULL",
-								"<channel>": "AC_IPA_PRESS_FLOW",
-								"actuateTime": 0
-							}
-						},
-						"open-partial": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "EXTEND_TIMED",
-								"<channel>": "AC_IPA_PRESS_FLOW",
-								"actuateTime": "<input>"
-							},
-							"safe": true,
-							"shortcut": 87 // w
-						},
-						"close-partial": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "RETRACT_TIMED",
-								"<channel>": "AC_IPA_PRESS_FLOW",
-								"actuateTime": "<input>"
-							},
-							"shortcut": 81 // q
-						}
-					},
-					"green": ["EXTENDING", "RETRACTING"]
-				},
+					null,
 				{
 					"id": "eregPartialOpen",
 					"name": "E-Reg Partial Open",
@@ -151,42 +92,7 @@
 						}
 					}
 				},
-				{
-					"id": "ipaDomeRbv",
-					"name": "IPA Dome RBV",
-					"field": "ipaDomeRbvState",
-					"actions": {
-						"close": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "RETRACT_FULL",
-								"<channel>": "AC_IPA_DOME_RBV",
-								"actuateTime": 0
-							}
-						},
-						"open-partial": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "EXTEND_TIMED",
-								"<channel>": "AC_IPA_DOME_RBV",
-								"actuateTime": "<input>"
-							},
-							"safe": true
-						},
-						"close-partial": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "RETRACT_TIMED",
-								"<channel>": "AC_IPA_DOME_RBV",
-								"actuateTime": "<input>"
-							}
-						}
-					},
-					"green": ["EXTENDING", "RETRACTING"]
-				},
+				null,
 				{
 					"id": "noCommsAbortEnable",
 					"name": "No Comms Abort",
@@ -213,107 +119,11 @@
 				}
 			]
 		},
+		
 		{
-			"type": "four-button",
-			"buttons": [
-				{
-					"id": "nosVent",
-					"name": "NOS Slow Vent",
-					"field": "nosSlowVentState",
-					"actions": {
-						"open": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "EXTEND_FULL",
-								"<channel>": "AC_NOS_SLOW_VENT",
-								"actuateTime": 0
-							}
-						},
-						"close": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "RETRACT_FULL",
-								"<channel>": "AC_NOS_SLOW_VENT",
-								"actuateTime": 0
-							}
-						},
-						"open-partial": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "EXTEND_TIMED",
-								"<channel>": "AC_NOS_SLOW_VENT",
-								"actuateTime": "<input>"
-							},
-							"safe": true,
-							"shortcut": 76 // l
-						},
-						"close-partial": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "RETRACT_TIMED",
-								"<channel>": "AC_NOS_SLOW_VENT",
-								"actuateTime": "<input>"
-							},
-							"shortcut": 75 // k
-						}
-					},
-					"green": ["EXTENDING", "RETRACTING"]
-				},
-				{
-					"id": "ipaVent",
-					"name": "IPA Slow Vent",
-					"field": "ipaSlowVentState",
-					"actions": {
-						"open": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "EXTEND_FULL",
-								"<channel>": "AC_IPA_SLOW_VENT",
-								"actuateTime": 0
-							}
-						},
-						"close": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "RETRACT_FULL",
-								"<channel>": "AC_IPA_SLOW_VENT",
-								"actuateTime": 0
-							}
-						},
-						"open-partial": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "EXTEND_TIMED",
-								"<channel>": "AC_IPA_SLOW_VENT",
-								"actuateTime": "<input>"
-							},
-							"safe": true,
-							"shortcut": 80 // p
-						},
-						"close-partial": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "RETRACT_TIMED",
-								"<channel>": "AC_IPA_SLOW_VENT",
-								"actuateTime": "<input>"
-							},
-							"shortcut": 79 // o
-						}
-					},
-					"green": ["EXTENDING", "RETRACTING"]
-				},
-				null,
-				null
-			]
+			"type": "empty"
 		},
+
 		{
 			"type": "four-button",
 			"buttons": [
@@ -343,33 +153,8 @@
 					},
 					"green": ["EXTENDING", "RETRACTING"]
 				},
-				{
-					"id": "ipaGems",
-					"name": "IPA Gems",
-					"field": "ipaGemsState",
-					"actions": {
-						"open": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "ON",
-								"<channel>": "AC_IPA_GEMS",
-								"actuateTime": 0
-							}
-						},
-						"close": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "OFF",
-								"<channel>": "AC_IPA_GEMS",
-								"actuateTime": 0
-							}
-						}
-					},
-					"green": ["EXTENDING", "RETRACTING"]
-				},
-				{
+				null
+				, {
 					"id": "eregDiagnostic",
 					"name": "E-Reg Diagnostic",
 					"actions": {
@@ -601,33 +386,7 @@
 					"green": ["EXTENDING", "RETRACTING"]
 				},
 				null,
-				{
-					"id": "ipaEmergencyVent",
-					"name": "IPA E-Vent",
-					"field": "ipaEmergencyVentState",
-					"actions": {
-						"open": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "OFF",
-								"<channel>": "AC_IPA_EMERGENCY_VENT",
-								"actuateTime": 0
-							},
-							"safe": true
-						},
-						"close": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "ON",
-								"<channel>": "AC_IPA_EMERGENCY_VENT",
-								"actuateTime": 0
-							}
-						}
-					},
-					"green": ["EXTENDING", "RETRACTING"]
-				}
+				null
 			]
 		}
 	]

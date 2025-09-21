@@ -2,29 +2,29 @@
 	"$schema": "../schema/main.schema.json",
 	"windows": {
 		"packet_simulator": "$generic/packet_simulator_window.jsonc",
-		"controls": "$e3_cart/controls_window.jsonc",
-		"pressures": "$e3_cart/pressures_window.jsonc",
-		"propellant_fill": "$e3_cart/propellant_fill_window.jsonc",
-		"engine": "$e3_cart/engine_window.jsonc",
-		"boards_status": "$e3_cart/boards_status_window.jsonc",
-		"actuators_status": "$e3_cart/actuators_status_window.jsonc",
-		"calibration_pt1": "$e3_cart/calibration/pt1.jsonc",
-		"calibration_pt2": "$e3_cart/calibration/pt2.jsonc",
-		"calibration_pt3": "$e3_cart/calibration/pt3.jsonc",
-		"calibration_lc1": "$e3_cart/calibration/lc1.jsonc",
-		"calibration_lc2": "$e3_cart/calibration/lc2.jsonc",
-		"calibration_tc1": "$e3_cart/calibration/tc1.jsonc",
-		"calibration_tc2": "$e3_cart/calibration/tc2.jsonc",
-		"test": "$e3_cart/test_window.jsonc"
-		// "cameras": "$e3_cart/cameras_window.jsonc"
+		"controls": "$e3_vertical/controls_window.jsonc",
+		"pressures": "$e3_vertical/pressures_window.jsonc",
+		"propellant_fill": "$e3_vertical/propellant_fill_window.jsonc",
+		"engine": "$e3_vertical/engine_window.jsonc",
+		"boards_status": "$e3_vertical/boards_status_window.jsonc",
+		"actuators_status": "$e3_vertical/actuators_status_window.jsonc",
+		"calibration_pt1": "$e3_vertical/calibration/pt1.jsonc",
+		"calibration_pt2": "$e3_vertical/calibration/pt2.jsonc",
+		"calibration_pt3": "$e3_vertical/calibration/pt3.jsonc",
+		"calibration_lc1": "$e3_vertical/calibration/lc1.jsonc",
+		"calibration_lc2": "$e3_vertical/calibration/lc2.jsonc",
+		"calibration_tc1": "$e3_vertical/calibration/tc1.jsonc",
+		"calibration_tc2": "$e3_vertical/calibration/tc2.jsonc",
+		"test": "$e3_vertical/test_window.jsonc"
+		// "cameras": "$e3_vertical/cameras_window.jsonc"
 	},
 	"protoConfig": "$../universalproto/config_cart.jsonc",
 	"protoPackets": "$../universalproto/packets.jsonc",
 	"protoTypes": "$../universalproto/types.jsonc",
-	"influxMapGenerator": "$e3_cart/influx_map_generator.jsonc",
+	"influxMapGenerator": "$e3_vertical/influx_map_generator.jsonc",
 	"burnTime": 2200, // ms
 	"mode": "HOTFIRE",
-	"windowPresets": "$e3_cart/window_presets.jsonc",
+	"windowPresets": "$e3_vertical/window_presets.jsonc",
 	"quickWindowPresets": ["main", "debug", "calibration", "empty"],
 	"cameras": [{"id": 205, "name": "cam5", "ip": "10.0.0.205"}]
 }

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfeqes7ogmhvs"]
 
-[ext_resource type="Script" path="res://display/squares/launch_button_square/launch_button_square.gd" id="1_ej5p5"]
+[ext_resource type="Script" uid="uid://d0jw7q40sr4iu" path="res://display/squares/launch_button_square/launch_button_square.gd" id="1_ej5p5"]
 
 [node name="LaunchButtonSquare" type="Control"]
 layout_mode = 3
@@ -29,6 +29,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"ButtonOpen"
+theme_override_font_sizes/font_size = 100
 disabled = true
 text = "???"
 
@@ -40,4 +41,5 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"ButtonClose"
+theme_override_font_sizes/font_size = 100
 text = "ABORT"
