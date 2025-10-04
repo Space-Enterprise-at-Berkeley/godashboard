@@ -10,7 +10,7 @@
 	},
 	"calibration": {
 		"name": "Calibration",
-		"tabs": ["calibration_pt1", "calibration_pt2", "calibration_pt3", "calibration_lc1", "calibration_lc2", "calibration_tc1", "calibration_tc2"]
+		"tabs": ["calibration_pt1", "calibration_pt2", "calibration_lc1", "calibration_tc1"]
 	},
 	"empty": {
 		"name": "Empty",

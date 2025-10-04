@@ -10,11 +10,8 @@
 		"actuators_status": "$e3_vertical/actuators_status_window.jsonc",
 		"calibration_pt1": "$e3_vertical/calibration/pt1.jsonc",
 		"calibration_pt2": "$e3_vertical/calibration/pt2.jsonc",
-		"calibration_pt3": "$e3_vertical/calibration/pt3.jsonc",
 		"calibration_lc1": "$e3_vertical/calibration/lc1.jsonc",
-		"calibration_lc2": "$e3_vertical/calibration/lc2.jsonc",
 		"calibration_tc1": "$e3_vertical/calibration/tc1.jsonc",
-		"calibration_tc2": "$e3_vertical/calibration/tc2.jsonc",
 		"test": "$e3_vertical/test_window.jsonc"
 		// "cameras": "$e3_vertical/cameras_window.jsonc"
 	},
