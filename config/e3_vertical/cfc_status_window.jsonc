@@ -7,19 +7,62 @@
             "type": "six-square",
             "values": [
                 {
-                    "field": "fcSupply24Voltage",
+                    "field": "1msCounterfc1",
+                    "name": "CFC 1ms Counter",
+                    "units": "paggles"
+                },
+                {
+                    "field": "10msCounterfc1",
+                    "name": "CFC 10ms Counter",
+                    "units": "paggles"
+                },
+                {
+                    "field": "100msCounterfc1",
+                    "name": "CFC 100ms Counter",
+                    "units": "paggles"
+                },
+                {
+                    "field": "1sCounterfc1",
+                    "name": "CFC 1s Counter",
+                    "units": "paggles"
+                },
+                {
+                    "field": "fc1Supply24Voltage",
                     "name": "CFC Voltage",
                     "units": "V"
                 },
                 {
-                    "field": "fcSupply24Current",
+                    "field": "fc1Supply24Current",
                     "name": "CFC Current",
                     "units": "mA"
                 },
+            ]
+        },
+        {
+            "type": "six-square",
+            "values": [
+                {
+                    "field": "fc1ByteRate",
+                    "name": "CFC Byte Rate",
+                    "units": "bytes / second"
+                },
                 null,
+                {
+                    "field": "fc1PacketRate",
+                    "name": "CFC Packet Rate",
+                    "units": "packets / second"
+                },
+                {
+                    "field": "fc1ErrorCount",
+                    "name": "CFC Packet Read Errors",
+                    "units": "errors"
+                },
                 null,
-                null,
-                null
+                {
+                    "field": "fc1TimeoutCount",
+                    "name": "CFC Total Timeouts",
+                    "units": "timeouts"
+                }
             ]
         }
     ]

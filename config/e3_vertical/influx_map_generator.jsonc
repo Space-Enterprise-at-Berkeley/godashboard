@@ -240,6 +240,43 @@
 				}
 			],
 			"output": "@bEreg@c"
+		},
+		{
+			"pattern": "FC_[^\\.]+\\.DummyData(1ms|10ms|100ms|1s)\\.counter",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "0",
+					"out": "a"
+				},
+				{
+					"type": "substr",
+					"start": 9,
+					"len": -1,
+					"in": "1",
+					"out": "b"
+				}
+			],
+			"output": "@bCounter@a"
+		},
+		{
+			"pattern": "FC_[^\\.]+\\.DummyRates\\..+",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "0",
+					"out": "a"
+				},
+				{
+					"type": "func",
+					"func": "pascal",
+					"in": "2",
+					"out": "b"
+				}
+			],
+			"output": "@a@b"
 		}
 	]
 }
