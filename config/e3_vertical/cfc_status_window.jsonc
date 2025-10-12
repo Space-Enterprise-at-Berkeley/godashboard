@@ -1,0 +1,26 @@
+{
+    "$schema": "../schema/window.schema.json",
+	"name": "CFC Status",
+	"layout": "9-grid",
+	"slots": [
+        {
+            "type": "six-square",
+            "values": [
+                {
+                    "field": "fcSupply24Voltage",
+                    "name": "CFC Voltage",
+                    "units": "V"
+                },
+                {
+                    "field": "fcSupply24Current",
+                    "name": "CFC Current",
+                    "units": "mA"
+                },
+                null,
+                null,
+                null,
+                null
+            ]
+        }
+    ]
+}

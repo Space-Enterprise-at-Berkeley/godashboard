@@ -85,6 +85,12 @@
 			"properties": {
 				"type": {"const": "launch"}
 			}
+		},
+		{
+			"type": "object",
+			"properties": {
+				"type": {"const": "empty"}
+			}
 		}
 	]
 }
