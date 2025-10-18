@@ -310,8 +310,58 @@
 					},
 					"green": ["EXTENDING", "RETRACTING"]
 				},
-				null,
-				null
+				{
+					"id": "poppet1",
+					"name": "Poppet 1",
+					"field": "poppet1State",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "ON",
+								"<channel>": "AC_POPPET_1",
+								"actuateTime": 0
+							}
+						},
+						"close": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "OFF",
+								"<channel>": "AC_POPPET_1",
+								"actuateTime": 0
+							}
+						}
+					},
+					"green": ["EXTENDING", "RETRACTING"]
+				},
+				{
+					"id": "poppet2",
+					"name": "Poppet 2",
+					"field": "poppet2State",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "ON",
+								"<channel>": "AC_POPPET_2",
+								"actuateTime": 0
+							}
+						},
+						"close": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "OFF",
+								"<channel>": "AC_POPPET_2",
+								"actuateTime": 0
+							}
+						}
+					},
+					"green": ["EXTENDING", "RETRACTING"]
+				}
 			]
 		},
 		{
