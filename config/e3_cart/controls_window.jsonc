@@ -312,33 +312,64 @@
 				},
 				{
 					"id": "poppet1",
-					"name": "Poppet 1",
+					"name": "Poppet Open",
 					"field": "poppet1State",
 					"actions": {
 						"open": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "ON",
-								"<channel>": "AC_POPPET_1",
-								"actuateTime": 0
-							}
+							"type": "multi",
+							"actions": [
+								{
+									"type": "packet",
+									"packet": "ACActuateActuator",
+									"args": {
+										"action": "ON",
+										"<channel>": "AC_POPPET_2",
+										"actuateTime": 0
+									}
+								},
+								{
+									"type": "packet",
+									"packet": "ACActuateActuator",
+									"args": {
+										"action": "OFF",
+										"<channel>": "AC_POPPET_1",
+										"actuateTime": 0
+									}
+								}
+							]
+
+							
 						},
 						"close": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "OFF",
-								"<channel>": "AC_POPPET_1",
-								"actuateTime": 0
-							}
+							"type": "multi",
+							"actions": [
+								{
+									"type": "packet",
+									"packet": "ACActuateActuator",
+									"args": {
+										"action": "OFF",
+										"<channel>": "AC_POPPET_2",
+										"actuateTime": 0
+									}
+								},
+								{
+									"type": "packet",
+									"packet": "ACActuateActuator",
+									"args": {
+										"action": "ON",
+										"<channel>": "AC_POPPET_1",
+										"actuateTime": 0
+									}
+								}
+							]
 						}
 					},
 					"green": ["EXTENDING", "RETRACTING"]
 				},
+				//null
 				{
 					"id": "poppet2",
-					"name": "Poppet 2",
+					"name": "Vent Poppet",
 					"field": "poppet2State",
 					"actions": {
 						"open": {
