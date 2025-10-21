@@ -83,7 +83,11 @@
 					"name": "IPA Tank PT",
 					"units": "PSI"
 				},
-				null
+				{
+					"field": "magFillReadLevel",
+					"name": "Piston Distance",
+					"units": "cm"
+				}
 			]
 		},
 		{
