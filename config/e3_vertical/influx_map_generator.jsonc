@@ -277,6 +277,18 @@
 				}
 			],
 			"output": "@a@b"
+		},
+		{
+			"pattern": "MF\\.MagFillReadLevel\\..+",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "1",
+					"out": "a"
+				}
+			],
+			"output": "@a"
 		}
 	]
 }
