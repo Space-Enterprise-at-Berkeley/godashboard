@@ -91,7 +91,15 @@
 			]
 		},
 		{
-			"type": "empty"
+			"type": "graph",
+			"values": [
+				{
+					"field": "magFillReadLevel",
+					"name": "Magnetic Fill Value",
+					"units": "cm",
+					"color": [218, 165, 32]
+				}
+			]
 		},
 		{
 			"type": "graph",
