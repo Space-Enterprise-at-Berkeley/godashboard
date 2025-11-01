@@ -10,6 +10,7 @@
 		"boards_status": "$e3_vertical/boards_status_window.jsonc",
 		"actuators_status": "$e3_vertical/actuators_status_window.jsonc",
 		"cfc_status": "$e3_vertical/cfc_status_window.jsonc",
+		"rotator_status": "$e3_vertical/rotator_status_window.jsonc",
 		"calibration_pt1": "$e3_vertical/calibration/pt1.jsonc",
 		"calibration_pt2": "$e3_vertical/calibration/pt2.jsonc",
 		"calibration_lc1": "$e3_vertical/calibration/lc1.jsonc",
