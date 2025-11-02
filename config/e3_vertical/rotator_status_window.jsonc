@@ -1,0 +1,172 @@
+{
+    "$schema": "../schema/window.schema.json",
+	"name": "Rotator Status",
+	"layout": "9-grid",
+	"slots": [
+        {
+			"type": "graph",
+			"values": [
+				{
+					"field": "trackingXPos",
+					"name": "X Position Estimate",
+					"units": "m",
+					"color": [218, 165, 32]
+				}
+			]
+		},
+        {
+			"type": "graph",
+			"values": [
+				{
+					"field": "trackingYPos",
+					"name": "Y Position Estimate",
+					"units": "m",
+					"color": [218, 165, 32]
+				}
+			]
+		},
+        {
+			"type": "graph",
+			"values": [
+				{
+					"field": "trackingZPos",
+					"name": "Z Position Estimate",
+					"units": "m",
+					"color": [218, 165, 32]
+				}
+			]
+		},
+        {
+			"type": "graph",
+			"values": [
+				{
+					"field": "rotatorAziPos",
+					"name": "Azimuth Position",
+					"units": "deg",
+					"color": [218, 165, 32]
+				},
+                {
+					"field": "rotatorAziRefPos",
+					"name": "Azimuth Setpoint",
+					"units": "deg",
+					"color": [30, 144, 255]
+				}
+			]
+		},
+        {
+			"type": "graph",
+			"values": [
+				{
+					"field": "rotatorElvPos",
+					"name": "Elevation Position",
+					"units": "deg",
+					"color": [218, 165, 32]
+				},
+                {
+					"field": "rotatorElvRefPos",
+					"name": "Elevation Setpoint",
+					"units": "deg",
+					"color": [30, 144, 255]
+				}
+			]
+		},
+		{
+			"type": "logs"
+		},
+        {
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "enableRotation",
+					"name": "Enable Rotation",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "RTEnableRotation",
+							"args": {
+								"action": "ENABLE"
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "RTEnableRotation",
+							"args": {
+								"action": "DISABLE"
+							}
+						}
+					}
+				},
+				{
+					"id": "runDiagnostic",
+					"name": "Run Diagnostic",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "RTRunDiagnostic",
+                            "args": {}
+						}
+					}
+				},
+				{
+					"id": "enableTracking",
+					"name": "Enable Tracking",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "RTEnableFlightTracking",
+							"args": {
+								"action": "ENABLE"
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "RTEnableFlightTracking",
+							"args": {
+								"action": "DISABLE"
+							}
+						}
+					}
+				},
+				null
+			]
+		},
+        {
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "setElevation",
+					"name": "Set Elevation",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "RTSetElevation",
+							"args": {
+								"Degrees": "<input>"
+							}
+						}
+					}
+				},
+				{
+					"id": "setAzimuth",
+					"name": "Set Azimuth",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "RTSetAzimuth",
+							"args": {
+								"Degrees": "<input>"
+							}
+						}
+					}
+				},
+                null,
+                null
+			]
+		},
+        {
+			"type": "empty"
+		}
+    ]
+}
