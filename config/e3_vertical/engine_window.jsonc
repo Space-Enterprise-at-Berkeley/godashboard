@@ -45,20 +45,20 @@
 			// THE LABEL NUMBER IS WHAT THE CHANNEL IS NUMBERED ON THE CASE
 			// THE FIELD NUMBER IS WHAT THE CHANNEL IS NUMBERED IN THE CODE
 				{
-					"field": "engine2LC",
-					"name": "Eng LC1",
+					"field": "engine0LC",
+					"name": "Eng LC0",
 					"units": "kg",
 					"color": [0, 255, 255]
 				},
 				{
 					"field": "engine1LC",
-					"name": "Eng LC2",
+					"name": "Eng LC1",
 					"units": "kg",
 					"color": [30, 144, 255]
 				},
 				{
-					"field": "engine3LC",
-					"name": "Eng LC3",
+					"field": "engine2LC",
+					"name": "Eng LC2",
 					"units": "kg",
 					"color": [178, 34, 34]
 				}

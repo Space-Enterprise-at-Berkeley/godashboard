@@ -1,0 +1,157 @@
+{
+    "$schema": "../schema/window.schema.json",
+	"name": "Poppet Controls",
+	"layout": "9-grid",
+	"slots": [
+        {
+			"type": "graph",
+			"values": [
+				{
+					"field": "ipaPoppetPT",
+					"name": "IPA Poppet PT",
+					"units": "PSI",
+					"color": [218, 165, 32]
+				},
+				{
+					"field": "nosPoppetPT",
+					"name": "NOS Poppet PT",
+					"units": "PSI",
+					"color": [30, 144, 255]
+				}
+		
+			]
+		},
+        {
+           "type": "four-button",
+           "buttons": [
+                null,
+                {
+                    "id": "poppet",
+                    "name": "Poppet (both solenoids, inverted)",
+                    "field": "ventPoppetState",
+                    "actions": {
+                        "open": {
+                            "type": "multi",
+                            "actions": [
+                                {
+                                    "type": "packet",
+                                    "packet": "ACActuateActuator",
+                                    "args": {
+                                        "action": "ON",
+                                        "<channel>": "AC_VENT_POPPET",
+                                        "actuateTime": 0
+                                    }
+                                },
+                                {
+                                    "type": "packet",
+                                    "packet": "ACActuateActuator",
+                                    "args": {
+                                        "action": "OFF",
+                                        "<channel>": "AC_PRESS_POPPET",
+                                        "actuateTime": 0
+                                    }
+                                }
+                            ]
+                        },
+                        "close": {
+                            "type": "multi",
+                            "actions": [
+                                {
+                                    "type": "packet",
+                                    "packet": "ACActuateActuator",
+                                    "args": {
+                                        "action": "ON",
+                                        "<channel>": "AC_PRESS_POPPET",
+                                        "actuateTime": 0
+                                    }
+                                },
+                                {
+                                    "type": "packet",
+                                    "packet": "ACActuateActuator",
+                                    "args": {
+                                        "action": "OFF",
+                                        "<channel>": "AC_VENT_POPPET",
+                                        "actuateTime": 0
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "presspoppet",
+                    "name": "Press Poppet",
+                    "field": "pressPoppetState",
+                    "actions": {
+                        "open": {
+                            "type": "packet",
+                            "packet": "ACActuateActuator",
+                            "args": {
+                                "action": "ON",
+                                "<channel>": "AC_PRESS_POPPET",
+                                "actuateTime": 0
+                            },
+                            "safe": true
+                        },
+                        "close": {
+                            "type": "packet",
+                            "packet": "ACActuateActuator",
+                            "args": {
+                                "action": "OFF",
+                                "<channel>": "AC_PRESS_POPPET",
+                                "actuateTime": 0
+                            },
+                            "safe": true
+                        }
+                    },
+                    "green": ["EXTENDING", "RETRACTING"]
+                },
+                {
+                    "id": "ventpoppet",
+                    "name": "Vent Poppet",
+                    "field": "ventPoppetState",
+                    "actions": {
+                        "open": {
+                            "type": "packet",
+                            "packet": "ACActuateActuator",
+                            "args": {
+                                "action": "ON",
+                                "<channel>": "AC_VENT_POPPET",
+                                "actuateTime": 0
+                            },
+                            "safe": true
+                        },
+                        "close": {
+                            "type": "packet",
+                            "packet": "ACActuateActuator",
+                            "args": {
+                                "action": "OFF",
+                                "<channel>": "AC_VENT_POPPET",
+                                "actuateTime": 0
+                            },
+                            "safe": true
+                        }
+                    },
+                    "green": ["EXTENDING", "RETRACTING"]
+                }
+           ]
+        },
+        {
+			"type": "graph",
+			"values": [
+				{
+					"field": "pressPoppetState",
+					"name": "Press Poppet State",
+					"units": "",
+					"color": [218, 165, 32]
+				},
+                {
+					"field": "ventPoppetState",
+					"name": "Vent Poppet State",
+					"units": "",
+					"color": [77, 73, 251]
+				}
+			]
+		}
+    ]
+}

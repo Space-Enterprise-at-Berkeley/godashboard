@@ -229,7 +229,21 @@
 						}
 					}
 				},
-				null,
+				{
+					"id": "calibrateMagfill",
+					"name": "Calibrate Magfill",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "MagFillCalibrate",
+							"board": "MF",
+							"args": {
+								"calibration": 0.0 // Dummy value to send packet
+							},
+							"safe": true
+						}
+					}
+				},
 				null,
 				null
 			]

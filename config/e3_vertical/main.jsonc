@@ -3,6 +3,7 @@
 	"windows": {
 		"packet_simulator": "$generic/packet_simulator_window.jsonc",
 		"controls": "$e3_vertical/controls_window.jsonc",
+		"poppet_controls": "$e3_vertical/poppet_controls_window.jsonc",
 		"pressures": "$e3_vertical/pressures_window.jsonc",
 		"propellant_fill": "$e3_vertical/propellant_fill_window.jsonc",
 		"engine": "$e3_vertical/engine_window.jsonc",
