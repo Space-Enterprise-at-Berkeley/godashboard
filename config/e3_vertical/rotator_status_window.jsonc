@@ -83,6 +83,7 @@
 						"open": {
 							"type": "packet",
 							"packet": "RTEnableRotation",
+                            "board": "RT_1",
 							"args": {
 								"action": "ENABLE"
 							},
@@ -91,6 +92,7 @@
 						"close": {
 							"type": "packet",
 							"packet": "RTEnableRotation",
+                            "board": "RT_1",
 							"args": {
 								"action": "DISABLE"
 							}
@@ -103,6 +105,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
+                            "board": "RT_1",
 							"packet": "RTRunDiagnostic",
                             "args": {}
 						}
@@ -115,6 +118,7 @@
 						"open": {
 							"type": "packet",
 							"packet": "RTEnableFlightTracking",
+                            "board": "RT_1",
 							"args": {
 								"action": "ENABLE"
 							},
@@ -123,6 +127,7 @@
 						"close": {
 							"type": "packet",
 							"packet": "RTEnableFlightTracking",
+                            "board": "RT_1",
 							"args": {
 								"action": "DISABLE"
 							}
@@ -142,8 +147,9 @@
 						"open": {
 							"type": "packet",
 							"packet": "RTSetElevation",
+                            "board": "RT_1",
 							"args": {
-								"Degrees": "<input>"
+								"degrees": "<input>"
 							}
 						}
 					}
@@ -155,8 +161,9 @@
 						"open": {
 							"type": "packet",
 							"packet": "RTSetAzimuth",
+                            "board": "RT_1",
 							"args": {
-								"Degrees": "<input>"
+								"degrees": "<input>"
 							}
 						}
 					}
