@@ -16,7 +16,8 @@
 		"calibration_lc2": "$e3_cart/calibration/lc2.jsonc",
 		"calibration_tc1": "$e3_cart/calibration/tc1.jsonc",
 		"calibration_tc2": "$e3_cart/calibration/tc2.jsonc",
-		"test": "$e3_cart/test_window.jsonc"
+		"test": "$e3_cart/test_window.jsonc",
+		"sequence_engine": "$e3_cart/sequence_engine.jsonc"
 		// "cameras": "$e3_cart/cameras_window.jsonc"
 	},
 	"protoConfig": "$../universalproto/config_cart.jsonc",

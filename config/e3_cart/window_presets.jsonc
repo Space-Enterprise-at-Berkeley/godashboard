@@ -15,5 +15,9 @@
 	"empty": {
 		"name": "Empty",
 		"tabs": ["test"]
+	},
+	"sequence-engine": {
+		"name": "Sequence Engine",
+		"tabs": ["sequence_engine"]
 	}
 }
