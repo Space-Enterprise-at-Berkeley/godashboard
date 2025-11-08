@@ -123,116 +123,60 @@
 		{
 			"type": "four-button",
 			"buttons": [
+                {
+                    "id": "nosPoppet",
+                    "name": "NOS Poppet",
+                    "field": "nosPoppetState",
+                    "actions": {
+                        "open": {
+                            "type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "OFF",
+								"<channel>": "AC_NOS_POPPET",
+								"actuateTime": 0
+							}
+                        },
+                        "close": {
+                            "type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "ON",
+								"<channel>": "AC_NOS_POPPET",
+								"actuateTime": 0
+							}
+                        }
+                    },
+					"green": ["OFF"]
+                },
+                {
+                    "id": "ipaPoppet",
+                    "name": "IPA Poppet",
+                    "field": "ipaPoppetState",
+                    "actions": {
+                        "open": {
+                            "type": "packet",
+                            "packet": "ACActuateActuator",
+                            "args": {
+                                "action": "OFF",
+                                "<channel>": "AC_IPA_POPPET",
+                                "actuateTime": 0
+                            }
+                        },
+                        "close": {
+                            "type": "packet",
+                            "packet": "ACActuateActuator",
+                            "args": {
+                                "action": "ON",
+                                "<channel>": "AC_IPA_POPPET",
+                                "actuateTime": 0
+                            }
+                        }
+                    },
+                    "green": ["OFF"]
+                },
 				null,
-                {
-                    "id": "poppet",
-                    "name": "Poppet (both solenoids, inverted)",
-                    "field": "ventPoppetState",
-                    "actions": {
-                        "open": {
-                            "type": "multi",
-                            "actions": [
-                                {
-                                    "type": "packet",
-                                    "packet": "ACActuateActuator",
-                                    "args": {
-                                        "action": "ON",
-                                        "<channel>": "AC_VENT_POPPET",
-                                        "actuateTime": 0
-                                    }
-                                },
-                                {
-                                    "type": "packet",
-                                    "packet": "ACActuateActuator",
-                                    "args": {
-                                        "action": "OFF",
-                                        "<channel>": "AC_PRESS_POPPET",
-                                        "actuateTime": 0
-                                    }
-                                }
-                            ]
-                        },
-                        "close": {
-                            "type": "multi",
-                            "actions": [
-                                {
-                                    "type": "packet",
-                                    "packet": "ACActuateActuator",
-                                    "args": {
-                                        "action": "ON",
-                                        "<channel>": "AC_PRESS_POPPET",
-                                        "actuateTime": 0
-                                    }
-                                },
-                                {
-                                    "type": "packet",
-                                    "packet": "ACActuateActuator",
-                                    "args": {
-                                        "action": "OFF",
-                                        "<channel>": "AC_VENT_POPPET",
-                                        "actuateTime": 0
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "id": "presspoppet",
-                    "name": "Press Poppet",
-                    "field": "pressPoppetState",
-                    "actions": {
-                        "open": {
-                            "type": "packet",
-                            "packet": "ACActuateActuator",
-                            "args": {
-                                "action": "ON",
-                                "<channel>": "AC_PRESS_POPPET",
-                                "actuateTime": 0
-                            },
-                            "safe": true
-                        },
-                        "close": {
-                            "type": "packet",
-                            "packet": "ACActuateActuator",
-                            "args": {
-                                "action": "OFF",
-                                "<channel>": "AC_PRESS_POPPET",
-                                "actuateTime": 0
-                            },
-                            "safe": true
-                        }
-                    },
-                    "green": ["EXTENDING", "RETRACTING"]
-                },
-                {
-                    "id": "ventpoppet",
-                    "name": "Vent Poppet",
-                    "field": "ventPoppetState",
-                    "actions": {
-                        "open": {
-                            "type": "packet",
-                            "packet": "ACActuateActuator",
-                            "args": {
-                                "action": "ON",
-                                "<channel>": "AC_VENT_POPPET",
-                                "actuateTime": 0
-                            },
-                            "safe": true
-                        },
-                        "close": {
-                            "type": "packet",
-                            "packet": "ACActuateActuator",
-                            "args": {
-                                "action": "OFF",
-                                "<channel>": "AC_VENT_POPPET",
-                                "actuateTime": 0
-                            },
-                            "safe": true
-                        }
-                    },
-                    "green": ["EXTENDING", "RETRACTING"]
-                }
+                null
 			]
 		},
 
