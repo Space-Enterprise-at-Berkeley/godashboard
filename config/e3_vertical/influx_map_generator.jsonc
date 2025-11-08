@@ -289,6 +289,30 @@
 				}
 			],
 			"output": "@a"
+		},
+		{
+			"pattern": "RT_[^\\.]+\\.RTRotatorState\\..+",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "pascal",
+					"in": "2",
+					"out": "a"
+				}
+			],
+			"output": "rotator@a"
+		},
+		{
+			"pattern": "RT_[^\\.]+\\.RTTrackingState\\..+",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "pascal",
+					"in": "2",
+					"out": "a"
+				}
+			],
+			"output": "tracking@a"
 		}
 	]
 }

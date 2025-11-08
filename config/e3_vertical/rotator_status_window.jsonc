@@ -4,66 +4,176 @@
 	"layout": "9-grid",
 	"slots": [
         {
-            "type": "six-square",
-            "values": [
-                {
-                    "field": "1msCounterfc1",
-                    "name": "CFC 1ms Counter",
-                    "units": "paggles"
-                },
-                {
-                    "field": "10msCounterfc1",
-                    "name": "CFC 10ms Counter",
-                    "units": "paggles"
-                },
-                {
-                    "field": "100msCounterfc1",
-                    "name": "CFC 100ms Counter",
-                    "units": "paggles"
-                },
-                {
-                    "field": "1sCounterfc1",
-                    "name": "CFC 1s Counter",
-                    "units": "paggles"
-                },
-                {
-                    "field": "fc1Supply24Voltage",
-                    "name": "CFC Voltage",
-                    "units": "V"
-                },
-                {
-                    "field": "fc1Supply24Current",
-                    "name": "CFC Current",
-                    "units": "mA"
-                }
-            ]
-        },
+			"type": "graph",
+			"values": [
+				{
+					"field": "trackingXPos",
+					"name": "X Position Estimate",
+					"units": "m",
+					"color": [218, 165, 32]
+				}
+			]
+		},
         {
-            "type": "six-square",
-            "values": [
+			"type": "graph",
+			"values": [
+				{
+					"field": "trackingYPos",
+					"name": "Y Position Estimate",
+					"units": "m",
+					"color": [218, 165, 32]
+				}
+			]
+		},
+        {
+			"type": "graph",
+			"values": [
+				{
+					"field": "trackingZPos",
+					"name": "Z Position Estimate",
+					"units": "m",
+					"color": [218, 165, 32]
+				}
+			]
+		},
+        {
+			"type": "graph",
+			"values": [
+				{
+					"field": "rotatorAziPos",
+					"name": "Azimuth Position",
+					"units": "deg",
+					"color": [218, 165, 32]
+				},
                 {
-                    "field": "fc1ByteRate",
-                    "name": "CFC Byte Rate",
-                    "units": "bytes / second"
-                },
+					"field": "rotatorAziRefPos",
+					"name": "Azimuth Setpoint",
+					"units": "deg",
+					"color": [30, 144, 255]
+				}
+			]
+		},
+        {
+			"type": "graph",
+			"values": [
+				{
+					"field": "rotatorElvPos",
+					"name": "Elevation Position",
+					"units": "deg",
+					"color": [218, 165, 32]
+				},
+                {
+					"field": "rotatorElvRefPos",
+					"name": "Elevation Setpoint",
+					"units": "deg",
+					"color": [30, 144, 255]
+				}
+			]
+		},
+		{
+			"type": "logs"
+		},
+        {
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "enableRotation",
+					"name": "Enable Rotation",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "RTEnableRotation",
+                            "board": "RT_1",
+							"args": {
+								"action": "ENABLE"
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "RTEnableRotation",
+                            "board": "RT_1",
+							"args": {
+								"action": "DISABLE"
+							}
+						}
+					}
+				},
+				{
+					"id": "runDiagnostic",
+					"name": "Run Diagnostic",
+					"actions": {
+						"open": {
+							"type": "packet",
+                            "board": "RT_1",
+							"packet": "RTRunDiagnostic",
+                            "args": {}
+						}
+					}
+				},
+				{
+					"id": "enableTracking",
+					"name": "Enable Tracking",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "RTEnableFlightTracking",
+                            "board": "RT_1",
+							"args": {
+								"action": "ENABLE"
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "RTEnableFlightTracking",
+                            "board": "RT_1",
+							"args": {
+								"action": "DISABLE"
+							}
+						}
+					}
+				},
+				null
+			]
+		},
+        {
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "setElevation",
+					"name": "Set Elevation",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "RTSetElevation",
+                            "board": "RT_1",
+							"args": {
+								"degrees": "<input>"
+							}
+						}
+					}
+				},
+				{
+					"id": "setAzimuth",
+					"name": "Set Azimuth",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "RTSetAzimuth",
+                            "board": "RT_1",
+							"args": {
+								"degrees": "<input>"
+							}
+						}
+					}
+				},
                 null,
-                {
-                    "field": "fc1PacketRate",
-                    "name": "CFC Packet Rate",
-                    "units": "packets / second"
-                },
-                {
-                    "field": "fc1ErrorCount",
-                    "name": "CFC Packet Read Errors",
-                    "units": "errors"
-                },
-                null,
-                {
-                    "field": "fc1TimeoutCount",
-                    "name": "CFC Total Timeouts",
-                    "units": "timeouts"
-                }
-            ]
-        }
+                null
+			]
+		},
+        {
+			"type": "empty"
+		}
     ]
 }

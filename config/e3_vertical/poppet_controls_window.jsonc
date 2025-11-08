@@ -140,14 +140,14 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pressPoppetState",
-					"name": "Press Poppet State",
+					"field": "ipaPoppetState",
+					"name": "IPA Poppet State",
 					"units": "",
 					"color": [218, 165, 32]
 				},
                 {
-					"field": "ventPoppetState",
-					"name": "Vent Poppet State",
+					"field": "nosPoppetState",
+					"name": "NOS Poppet State",
 					"units": "",
 					"color": [77, 73, 251]
 				}
