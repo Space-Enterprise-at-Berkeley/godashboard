@@ -97,7 +97,22 @@
 			]
 		},
 		{
-			"type": "empty"
+			"type": "graph",
+			"values": [
+				{
+					"field": "ipaPoppetPT",
+					"name": "IPA Poppet PT",
+					"units": "PSI",
+					"color": [218, 165, 32]
+				},
+				{
+					"field": "nosPoppetPT",
+					"name": "NOS Poppet PT",
+					"units": "PSI",
+					"color": [30, 144, 255]
+				}
+		
+			]
 		},
 		{
 			"type": "graph",
