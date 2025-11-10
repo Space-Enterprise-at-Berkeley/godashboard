@@ -71,7 +71,21 @@
 			]
 		},
 		{
-			"type": "logs"
+			"type": "graph",
+			"values": [
+				{
+					"field": "rotatorAziPower",
+					"name": "Azimuth Power",
+					"units": "%",
+					"color": [218, 165, 32]
+				},
+                {
+					"field": "rotatorElvPower",
+					"name": "Elevation Power",
+					"units": "%",
+					"color": [30, 144, 255]
+				}
+			]
 		},
         {
 			"type": "four-button",
@@ -173,7 +187,7 @@
 			]
 		},
         {
-			"type": "empty"
+			"type": "logs"
 		}
     ]
 }
