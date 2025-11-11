@@ -7,34 +7,59 @@
 			"type": "four-button",
 			"buttons": [
 				null,
-				
 				{
-					// New values are normally open, so send power when closed
-					"id": "ipaMain",
-					"name": "IPA Main Valve",
-					"field": "ipaMainState",
-					"actions": {
-						"open": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "OFF",
-								"<channel>": "AC_IPA_MAIN",
-								"actuateTime": 0
-							}
-						},
-						"close": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "ON",
-								"<channel>": "AC_IPA_MAIN",
-								"actuateTime": 0
-							}
-						}
-					},
-					"green": ["EXTENDING", "RETRACTING"]
-				},
+                    "id": "ipaPoppet",
+                    "name": "IPA Main Poppet",
+                    "field": "ipaPoppetState",
+                    "actions": {
+                        "open": {
+                            "type": "packet",
+                            "packet": "ACActuateActuator",
+                            "args": {
+                                "action": "OFF",
+                                "<channel>": "AC_IPA_POPPET",
+                                "actuateTime": 0
+                            }
+                        },
+                        "close": {
+                            "type": "packet",
+                            "packet": "ACActuateActuator",
+                            "args": {
+                                "action": "ON",
+                                "<channel>": "AC_IPA_POPPET",
+                                "actuateTime": 0
+                            }
+                        }
+                    },
+                    "green": ["OFF"]
+                },
+				// {
+				// 	// New values are normally open, so send power when closed
+				// 	"id": "ipaMain",
+				// 	"name": "IPA Main Valve",
+				// 	"field": "ipaMainState",
+				// 	"actions": {
+				// 		"open": {
+				// 			"type": "packet",
+				// 			"packet": "ACActuateActuator",
+				// 			"args": {
+				// 				"action": "OFF",
+				// 				"<channel>": "AC_IPA_MAIN",
+				// 				"actuateTime": 0
+				// 			}
+				// 		},
+				// 		"close": {
+				// 			"type": "packet",
+				// 			"packet": "ACActuateActuator",
+				// 			"args": {
+				// 				"action": "ON",
+				// 				"<channel>": "AC_IPA_MAIN",
+				// 				"actuateTime": 0
+				// 			}
+				// 		}
+				// 	},
+				// 	"green": ["EXTENDING", "RETRACTING"]
+				// },
 				{
 					"id": "resetEreg",
 					"name": "Reset E-Reg",
@@ -46,32 +71,58 @@
 					}
 				},
 				{
-					// New values are normally open, so send power when closed
-					"id": "nosMain",
-					"name": "NOS Main Valve",
-					"field": "nosMainState",
-					"actions": {
-						"open": {
-							"type": "packet",
+                    "id": "nosPoppet",
+                    "name": "NOS Main Poppet",
+                    "field": "nosPoppetState",
+                    "actions": {
+                        "open": {
+                            "type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
-								"<channel>": "AC_NOS_MAIN",
+								"<channel>": "AC_NOS_POPPET",
 								"actuateTime": 0
 							}
-						},
-						"close": {
-							"type": "packet",
+                        },
+                        "close": {
+                            "type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
-								"<channel>": "AC_NOS_MAIN",
+								"<channel>": "AC_NOS_POPPET",
 								"actuateTime": 0
 							}
-						}
-					},
-					"green": ["EXTENDING", "RETRACTING"]
-				}
+                        }
+                    },
+					"green": ["OFF"]
+                },
+				// {
+				// 	// New values are normally open, so send power when closed
+				// 	"id": "nosMain",
+				// 	"name": "NOS Main Valve",
+				// 	"field": "nosMainState",
+				// 	"actions": {
+				// 		"open": {
+				// 			"type": "packet",
+				// 			"packet": "ACActuateActuator",
+				// 			"args": {
+				// 				"action": "OFF",
+				// 				"<channel>": "AC_NOS_MAIN",
+				// 				"actuateTime": 0
+				// 			}
+				// 		},
+				// 		"close": {
+				// 			"type": "packet",
+				// 			"packet": "ACActuateActuator",
+				// 			"args": {
+				// 				"action": "ON",
+				// 				"<channel>": "AC_NOS_MAIN",
+				// 				"actuateTime": 0
+				// 			}
+				// 		}
+				// 	},
+				// 	"green": ["EXTENDING", "RETRACTING"]
+				// }
 			]
 		},
 		{
@@ -123,58 +174,60 @@
 		{
 			"type": "four-button",
 			"buttons": [
-                {
-                    "id": "nosPoppet",
-                    "name": "NOS Poppet",
-                    "field": "nosPoppetState",
-                    "actions": {
-                        "open": {
-                            "type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "OFF",
-								"<channel>": "AC_NOS_POPPET",
-								"actuateTime": 0
-							}
-                        },
-                        "close": {
-                            "type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "ON",
-								"<channel>": "AC_NOS_POPPET",
-								"actuateTime": 0
-							}
-                        }
-                    },
-					"green": ["OFF"]
-                },
-                {
-                    "id": "ipaPoppet",
-                    "name": "IPA Poppet",
-                    "field": "ipaPoppetState",
-                    "actions": {
-                        "open": {
-                            "type": "packet",
-                            "packet": "ACActuateActuator",
-                            "args": {
-                                "action": "OFF",
-                                "<channel>": "AC_IPA_POPPET",
-                                "actuateTime": 0
-                            }
-                        },
-                        "close": {
-                            "type": "packet",
-                            "packet": "ACActuateActuator",
-                            "args": {
-                                "action": "ON",
-                                "<channel>": "AC_IPA_POPPET",
-                                "actuateTime": 0
-                            }
-                        }
-                    },
-                    "green": ["OFF"]
-                },
+				null,
+				null,
+                // {
+                //     "id": "nosPoppet",
+                //     "name": "NOS Poppet",
+                //     "field": "nosPoppetState",
+                //     "actions": {
+                //         "open": {
+                //             "type": "packet",
+				// 			"packet": "ACActuateActuator",
+				// 			"args": {
+				// 				"action": "OFF",
+				// 				"<channel>": "AC_NOS_POPPET",
+				// 				"actuateTime": 0
+				// 			}
+                //         },
+                //         "close": {
+                //             "type": "packet",
+				// 			"packet": "ACActuateActuator",
+				// 			"args": {
+				// 				"action": "ON",
+				// 				"<channel>": "AC_NOS_POPPET",
+				// 				"actuateTime": 0
+				// 			}
+                //         }
+                //     },
+				// 	"green": ["OFF"]
+                // },
+                // {
+                //     "id": "ipaPoppet",
+                //     "name": "IPA Poppet",
+                //     "field": "ipaPoppetState",
+                //     "actions": {
+                //         "open": {
+                //             "type": "packet",
+                //             "packet": "ACActuateActuator",
+                //             "args": {
+                //                 "action": "OFF",
+                //                 "<channel>": "AC_IPA_POPPET",
+                //                 "actuateTime": 0
+                //             }
+                //         },
+                //         "close": {
+                //             "type": "packet",
+                //             "packet": "ACActuateActuator",
+                //             "args": {
+                //                 "action": "ON",
+                //                 "<channel>": "AC_IPA_POPPET",
+                //                 "actuateTime": 0
+                //             }
+                //         }
+                //     },
+                //     "green": ["OFF"]
+                // },
 				null,
                 null
 			]
