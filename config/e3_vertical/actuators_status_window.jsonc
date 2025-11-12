@@ -26,24 +26,24 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "nosMainContinuity",
-					"name": "NOS Main V",
+					"field": "nosPoppetContinuity",
+					"name": "NOS Main Poppet V",
 					"units": "V"
 				},
 				{
-					"field": "ipaMainContinuity",
-					"name": "IPA Main V",
+					"field": "ipaPoppetContinuity",
+					"name": "IPA Main Poppet V",
 					"units": "V"
 				},
 				null,
 				{
-					"field": "nosMainCurrent",
-					"name": "Nitrous Main I",
+					"field": "nosPoppetCurrent",
+					"name": "NOS Main Poppet I",
 					"units": "mA"
 				},
 				{
-					"field": "ipaMainCurrent",
-					"name": "IPA Main I",
+					"field": "ipaPoppetCurrent",
+					"name": "IPA Main Poppet I",
 					"units": "mA"
 				},
 				null
@@ -171,13 +171,13 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "nosDrainContinuity",
-					"name": "NOS Drain V",
+					"field": "nosRqdContinuity",
+					"name": "NOS RQD V",
 					"units": "V"
 				},
 				{
-					"field": "nosDrainCurrent",
-					"name": "NOS Drain I",
+					"field": "nosRqdCurrent",
+					"name": "NOS RQD I",
 					"units": "mA"
 				},
 				null,

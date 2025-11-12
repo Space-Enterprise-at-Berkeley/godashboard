@@ -112,13 +112,13 @@
 					"units": "V"
 				},
 				{
-					"field": "nosMainState",
-					"name": "NOS Main State",
+					"field": "nosPoppetState",
+					"name": "NOS Main Poppet State",
 					"units": ""
 				},
 				{
-					"field": "ipaMainState",
-					"name": "IPA Main State",
+					"field": "ipaPoppetState",
+					"name": "IPA Main Poppet State",
 					"units": ""
 				},
 				null

@@ -441,16 +441,16 @@
 			"type": "four-button",
 			"buttons": [
 				{
-					"id": "nosDrain",
-					"name": "NOS Drain",
-					"field": "nosDrainState",
+					"id": "nosRQD",
+					"name": "NOS RQD",
+					"field": "nosRqdState",
 					"actions": {
 						"open": {
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
 								"action": "OFF",
-								"<channel>": "AC_NOS_DRAIN",
+								"<channel>": "AC_NOS_RQD",
 								"actuateTime": 0
 							},
 							"safe": true
@@ -460,7 +460,7 @@
 							"packet": "ACActuateActuator",
 							"args": {
 								"action": "ON",
-								"<channel>": "AC_NOS_DRAIN",
+								"<channel>": "AC_NOS_RQD",
 								"actuateTime": 0
 							}
 						}
