@@ -31,7 +31,7 @@
                             }
                         }
                     },
-                    "green": ["OFF"]
+                    "green": ["EXTENDING", "RETRACTING"]
                 },
 				// {
 				// 	// New values are normally open, so send power when closed
@@ -94,7 +94,7 @@
 							}
                         }
                     },
-					"green": ["OFF"]
+					"green": ["EXTENDING", "RETRACTING"]
                 },
 				// {
 				// 	// New values are normally open, so send power when closed
@@ -494,7 +494,33 @@
 					},
 					"green": ["EXTENDING", "RETRACTING"]
 				},
-				null,
+				{
+					"id": "nosDrain",
+					"name": "NOS Drain",
+					"field": "nosDrainState",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "OFF",
+								"<channel>": "AC_NOS_DRAIN",
+								"actuateTime": 0
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "ON",
+								"<channel>": "AC_NOS_DRAIN",
+								"actuateTime": 0
+							}
+						}
+					},
+					"green": ["EXTENDING", "RETRACTING"]
+				},
 				null
 			]
 		}
