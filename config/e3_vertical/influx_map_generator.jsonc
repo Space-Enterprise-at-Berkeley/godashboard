@@ -279,6 +279,30 @@
 			"output": "@a@b"
 		},
 		{
+			"pattern": "FC_[^\\.]+\\..+\\..+",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "0",
+					"out": "a"
+				},
+				{
+					"type": "func",
+					"func": "pascal",
+					"in": "1",
+					"out": "b"
+				},
+				{
+					"type": "func",
+					"func": "pascal",
+					"in": "2",
+					"out": "c"
+				}
+			],
+			"output": "@a@b@c"
+		},
+		{
 			"pattern": "MF\\.MagFillReadLevel\\..+",
 			"transforms": [
 				{
