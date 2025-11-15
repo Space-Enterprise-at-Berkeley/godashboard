@@ -7,24 +7,24 @@
             "type": "six-square",
             "values": [
                 {
-                    "field": "1msCounterfc1",
-                    "name": "CFC 1ms Counter",
-                    "units": "paggles"
+                    "field": "fc1ByteRate",
+                    "name": "CFC Byte Rate",
+                    "units": "bytes / s"
                 },
                 {
-                    "field": "10msCounterfc1",
-                    "name": "CFC 10ms Counter",
-                    "units": "paggles"
+                    "field": "fc1PacketRate",
+                    "name": "CFC Packet Rate",
+                    "units": "packets / s"
                 },
                 {
-                    "field": "100msCounterfc1",
-                    "name": "CFC 100ms Counter",
-                    "units": "paggles"
+                    "field": "fc1ErrorCount",
+                    "name": "CFC Packet Read Errors",
+                    "units": "errors"
                 },
                 {
-                    "field": "1sCounterfc1",
-                    "name": "CFC 1s Counter",
-                    "units": "paggles"
+                    "field": "fc1TimeoutCount",
+                    "name": "CFC Total Timeouts",
+                    "units": "timeouts"
                 },
                 {
                     "field": "fc1Supply24Voltage",
@@ -42,26 +42,150 @@
             "type": "six-square",
             "values": [
                 {
-                    "field": "fc1ByteRate",
-                    "name": "CFC Byte Rate",
-                    "units": "bytes / second"
+                    "field": "fc1BaroValuesAltitude",
+                    "name": "CFC Altitude",
+                    "units": "m"
                 },
                 null,
                 {
-                    "field": "fc1PacketRate",
-                    "name": "CFC Packet Rate",
-                    "units": "packets / second"
-                },
-                {
-                    "field": "fc1ErrorCount",
-                    "name": "CFC Packet Read Errors",
-                    "units": "errors"
+                    "field": "fc1BaroValuesPressure",
+                    "name": "CFC Pressure",
+                    "units": "hPa"
                 },
                 null,
                 {
-                    "field": "fc1TimeoutCount",
-                    "name": "CFC Total Timeouts",
-                    "units": "timeouts"
+                    "field": "fc1BaroValuesTemperature",
+                    "name": "CFC Temperature",
+                    "units": "°C"
+                },
+                null
+            ]
+        },
+        {
+            "type": "six-square",
+            "values": [
+                {
+                    "field": "fc1LowImuValuesAccelX",
+                    "name": "Low IMU Accel X",
+                    "units": "g"
+                },
+                {
+                    "field": "fc1LowImuValuesAccelY",
+                    "name": "Low IMU Accel Y",
+                    "units": "g"
+                },
+                {
+                    "field": "fc1LowImuValuesAccelZ",
+                    "name": "Low IMU Accel Z",
+                    "units": "g"
+                },
+                {
+                    "field": "fc1LowImuValuesGyroX",
+                    "name": "Low IMU Gyro X",
+                    "units": "rad/s"
+                },
+                {
+                    "field": "fc1LowImuValuesGyroY",
+                    "name": "Low IMU Gyro Y",
+                    "units": "rad/s"
+                },
+                {
+                    "field": "fc1LowImuValuesGyroZ",
+                    "name": "Low IMU Gyro Z",
+                    "units": "rad/s"
+                }
+            ]
+        },
+        {
+            "type": "six-square",
+            "values": [
+                {
+                    "field": "fc1HighImuValuesAccelX",
+                    "name": "High IMU Accel X",
+                    "units": "g"
+                },
+                null,
+                {
+                    "field": "fc1HighImuValuesAccelY",
+                    "name": "High IMU Accel Y",
+                    "units": "g"
+                },
+                null,
+                {
+                    "field": "fc1HighImuValuesAccelZ",
+                    "name": "High IMU Accel Z",
+                    "units": "g"
+                },
+                null
+            ]
+        },
+        {
+            "type": "six-square",
+            "values": [
+                {
+                    "field": "fc1GpsValuesLatitude",
+                    "name": "CFC GPS Latitude",
+                    "units": "°"
+                },
+                {
+                    "field": "fc1GpsValuesLongitude",
+                    "name": "CFC GPS Longitude",
+                    "units": "°"
+                },
+                {
+                    "field": "fc1GpsValuesAltitude",
+                    "name": "CFC GPS Altitude",
+                    "units": "mm"
+                },
+                {
+                    "field": "fc1GpsValuesHeading",
+                    "name": "CFC GPS Heading",
+                    "units": "°"
+                },
+                {
+                    "field": "fc1GpsValuesSiv",
+                    "name": "CFC GPS SIV",
+                    "units": "sats"
+                },
+                {
+                    "field": "fc1GpsValuesFixType",
+                    "name": "CFC GPS Fix Type",
+                    "units": ""
+                }
+            ]
+        },
+        {
+            "type": "six-square",
+            "values": [
+                {
+                    "field": "fc1GpsValuesHorizontalAccuracy",
+                    "name": "CFC GPS Horizontal Acc.",
+                    "units": "mm"
+                },
+                {
+                    "field": "fc1GpsValuesVerticalAccuracy",
+                    "name": "CFC GPS Vertical Acc.",
+                    "units": "mm"
+                },
+                {
+                    "field": "fc1GpsValuesHeadingAccuracy",
+                    "name": "CFC GPS Heading Acc.",
+                    "units": "°"
+                },
+                {
+                    "field": "fc1GpsValuesAtTheading",
+                    "name": "CFC GPS At Theading",
+                    "units": "°"
+                },
+                {
+                    "field": "fc1GpsValuesAtTpitch",
+                    "name": "CFC GPS At Tpitch",
+                    "units": "°"
+                },
+                {
+                    "field": "fc1GpsValuesAtTroll",
+                    "name": "CFC GPS At Troll",
+                    "units": "°"
                 }
             ]
         }
