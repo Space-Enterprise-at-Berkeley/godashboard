@@ -22,8 +22,8 @@
 	"protoPackets": "$../universalproto/packets.jsonc",
 	"protoTypes": "$../universalproto/types.jsonc",
 	"influxMapGenerator": "$e3_vertical/influx_map_generator.jsonc",
-	"burnTime": 2000, // ms
-	"mode": "HOTFIRE",
+	"burnTime": 15000, // ms
+	"mode": "COLDFLOW",
 	"windowPresets": "$e3_vertical/window_presets.jsonc",
 	"quickWindowPresets": ["main", "debug", "calibration", "empty"],
 	"cameras": [{"id": 205, "name": "cam5", "ip": "10.0.0.205"}]
