@@ -165,7 +165,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "OFF",
+								"action": "ON",
 								"<channel>": "AC_IPA_STATIC_PRESS",
 								"actuateTime": 0
 							}
@@ -174,7 +174,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "ON",
+								"action": "OFF",
 								"<channel>": "AC_IPA_STATIC_PRESS",
 								"actuateTime": 0
 							}
@@ -368,7 +368,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "OFF",
+								"action": "ON",
 								"<channel>": "AC_NOS_RQD",
 								"actuateTime": 0
 							},
@@ -378,7 +378,7 @@
 							"type": "packet",
 							"packet": "ACActuateActuator",
 							"args": {
-								"action": "ON",
+								"action": "OFF",
 								"<channel>": "AC_NOS_RQD",
 								"actuateTime": 0
 							}
