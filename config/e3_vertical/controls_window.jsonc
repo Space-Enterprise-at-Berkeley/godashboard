@@ -194,7 +194,43 @@
 						}
 					}
 				},
-				null // NOS Automation, if it were actually used
+				{
+					"id": "ipaPressFlow",
+					"name": "IPA Press Flow",
+					"field": "ipaPressFlowState",
+					"actions": {
+						"close": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "RETRACT_FULL",
+								"<channel>": "AC_IPA_PRESS_FLOW",
+								"actuateTime": 0
+							}
+						},
+						"open-partial": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "EXTEND_TIMED",
+								"<channel>": "AC_IPA_PRESS_FLOW",
+								"actuateTime": "<input>"
+							},
+							"safe": true
+						},
+						"close-partial": {
+							"type": "packet",
+							"packet": "ACActuateActuator",
+							"args": {
+								"action": "RETRACT_TIMED",
+								"<channel>": "AC_IPA_PRESS_FLOW",
+								"actuateTime": "<input>"
+							}
+						}
+					},
+					"green": ["EXTENDING", "RETRACTING"]
+				}
+				// NOS Automation, if it were actually used
 			]
 		},
 		{
