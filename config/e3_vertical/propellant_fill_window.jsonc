@@ -176,7 +176,7 @@
 						"open": {
 							"type": "packet",
 							"packet": "ACSetAutoventThreshold",
-							"board": "AC_3",
+							"board": "AC_2",
 							"args": {
 								"nosAutoventPressure": "<input>",
 								"ipaAutoventPressure": "<input>",
