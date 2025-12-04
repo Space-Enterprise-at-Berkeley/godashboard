@@ -46,19 +46,31 @@
                     "name": "CFC Altitude",
                     "units": "m"
                 },
-                null,
                 {
                     "field": "fc1BaroValuesPressure",
                     "name": "CFC Pressure",
                     "units": "hPa"
                 },
-                null,
                 {
                     "field": "fc1BaroValuesTemperature",
                     "name": "CFC Temperature",
                     "units": "°C"
                 },
-                null
+                {
+                    "field": "fc1HighImuValuesAccelX",
+                    "name": "High IMU Accel X",
+                    "units": "g"
+                },
+                {
+                    "field": "fc1HighImuValuesAccelY",
+                    "name": "High IMU Accel Y",
+                    "units": "g"
+                },
+                {
+                    "field": "fc1HighImuValuesAccelZ",
+                    "name": "High IMU Accel Z",
+                    "units": "g"
+                }
             ]
         },
         {
@@ -97,24 +109,76 @@
             ]
         },
         {
-            "type": "six-square",
-            "values": [
+            "type": "four-button",
+            "buttons": [
                 {
-                    "field": "fc1HighImuValuesAccelX",
-                    "name": "High IMU Accel X",
-                    "units": "g"
+                    "id": "enablePDB",
+					"name": "Enable PDB",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "FCEnableRuncamPDB",
+                            "board": "FC_1",
+							"args": {
+								"action": "ENABLE"
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "FCEnableRuncamPDB",
+                            "board": "FC_1",
+							"args": {
+								"action": "DISABLE"
+							}
+						}
+					}
                 },
-                null,
                 {
-                    "field": "fc1HighImuValuesAccelY",
-                    "name": "High IMU Accel Y",
-                    "units": "g"
+                    "id": "enableRadio",
+					"name": "Enable Radio",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "FCEnableTelemetryRadio",
+                            "board": "FC_1",
+							"args": {
+								"action": "ENABLE"
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "FCEnableTelemetryRadio",
+                            "board": "FC_1",
+							"args": {
+								"action": "DISABLE"
+							}
+						}
+					}
                 },
-                null,
                 {
-                    "field": "fc1HighImuValuesAccelZ",
-                    "name": "High IMU Accel Z",
-                    "units": "g"
+                    "id": "enableBB",
+					"name": "Enable Black Box",
+					"actions": {
+						"open": {
+							"type": "packet",
+							"packet": "FCEraseAndStartRecordingBB",
+                            "board": "FC_1",
+							"args": {
+								"action": "ENABLE"
+							},
+							"safe": true
+						},
+						"close": {
+							"type": "packet",
+							"packet": "FCEraseAndStartRecordingBB",
+                            "board": "FC_1",
+							"args": {
+								"action": "DISABLE"
+							}
+						}
+					}
                 },
                 null
             ]
@@ -135,7 +199,7 @@
                 {
                     "field": "fc1GpsValuesAltitude",
                     "name": "CFC GPS Altitude",
-                    "units": "mm"
+                    "units": "m"
                 },
                 {
                     "field": "fc1GpsValuesHeading",
@@ -143,7 +207,7 @@
                     "units": "°"
                 },
                 {
-                    "field": "fc1GpsValuesSiv",
+                    "field": "fc1GpsExtraValuesSiv",
                     "name": "CFC GPS SIV",
                     "units": "sats"
                 },
@@ -173,18 +237,18 @@
                     "units": "°"
                 },
                 {
-                    "field": "fc1GpsValuesAtTheading",
-                    "name": "CFC GPS At Theading",
+                    "field": "fc1GpsExtraValuesAtTheading",
+                    "name": "CFC GPS Att heading",
                     "units": "°"
                 },
                 {
-                    "field": "fc1GpsValuesAtTpitch",
-                    "name": "CFC GPS At Tpitch",
+                    "field": "fc1GpsExtraValuesAtTpitch",
+                    "name": "CFC GPS Att pitch",
                     "units": "°"
                 },
                 {
-                    "field": "fc1GpsValuesAtTroll",
-                    "name": "CFC GPS At Troll",
+                    "field": "fc1GpsExtraValuesAtTroll",
+                    "name": "CFC GPS Att roll",
                     "units": "°"
                 }
             ]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://sat0f5unyswn"]
 
-[ext_resource type="Script" uid="uid://chq3mt6ksrevw" path="res://display/launcher/launcher.gd" id="1_xrtql"]
-[ext_resource type="Shader" uid="uid://qcsuu2vi0g0f" path="res://display/launcher/vaporwave.gdshader" id="2_2dmux"]
+[ext_resource type="Script" path="res://display/launcher/launcher.gd" id="1_xrtql"]
+[ext_resource type="Shader" path="res://display/launcher/vaporwave.gdshader" id="2_2dmux"]
 [ext_resource type="Texture2D" uid="uid://cksqtemkbl2pj" path="res://resources/image/launcher_text.png" id="2_b0jfr"]
 [ext_resource type="Theme" uid="uid://ybppi6jsirls" path="res://theme/godot.tres" id="4_paie8"]
 

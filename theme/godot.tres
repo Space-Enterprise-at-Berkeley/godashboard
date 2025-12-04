@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://ybppi6jsirls"]
 
-[ext_resource type="Script" uid="uid://rjqls8hxi0uu" path="res://theme/godot/style_box_open_close_button.gd" id="1_ku103"]
+[ext_resource type="Script" path="res://theme/godot/style_box_open_close_button.gd" id="1_ku103"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5oqq"]
 bg_color = Color(0, 0.498039, 0, 1)
