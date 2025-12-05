@@ -148,7 +148,18 @@
 						}
 					}
 				},
-				null
+				{
+					"id": "zeroAzimuth",
+					"name": "Zero Azimuth",
+					"actions": {
+						"open": {
+							"type": "packet",
+                            "board": "RT_1",
+							"packet": "RTZeroAzimuth",
+                            "args": {}
+						}
+					}
+				},
 			]
 		},
         {
