@@ -163,7 +163,7 @@
 					"actions": {
 						"open": {
 							"type": "packet",
-							"packet": "FCEraseAndStartRecordingBB",
+							"packet": "FCEnableBB",
                             "board": "FC_1",
 							"args": {
 								"action": "ENABLE"
@@ -172,7 +172,7 @@
 						},
 						"close": {
 							"type": "packet",
-							"packet": "FCEraseAndStartRecordingBB",
+							"packet": "FCEnableBB",
                             "board": "FC_1",
 							"args": {
 								"action": "DISABLE"
@@ -251,6 +251,46 @@
                     "name": "CFC GPS Att roll",
                     "units": "°"
                 }
+            ]
+        },
+        {
+            "type": "six-square",
+            "values": [
+                {
+                    "field": "fc1FcHealthRuncamEnabled",
+                    "name": "Runcam PDB Enabled",
+                    "units": ""
+                },
+                {
+                    "field": "fc1FcHealthAvgTaskDelay",
+                    "name": "Avg Task Delay",
+                    "units": "us"
+                },
+                {
+                    "field": "fc1FcHealthBlackboxWritePointer",
+                    "name": "Blackbox Write Pointer",
+                    "units": "bytes"
+                },
+                {
+                    "field": "fc1FcHealthRadioEnabled",
+                    "name": "Telemetry Radio Enabled",
+                    "units": ""
+                },
+                {
+                    "field": "fc1FcHealthBlackboxEnabled",
+                    "name": "Blackbox Enabled",
+                    "units": ""
+                }
+            ]
+        },
+        {
+            "type": "six-square",
+            "values": [
+            ]
+        },
+        {
+            "type": "six-square",
+            "values": [
             ]
         }
     ]
