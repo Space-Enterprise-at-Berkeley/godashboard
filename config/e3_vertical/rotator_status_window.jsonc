@@ -11,18 +11,13 @@
 					"name": "X Position Estimate",
 					"units": "m",
 					"color": [218, 165, 32]
-				}
-			]
-		},
-        {
-			"type": "graph",
-			"values": [
+				},
 				{
 					"field": "trackingYPos",
 					"name": "Y Position Estimate",
 					"units": "m",
-					"color": [218, 165, 32]
-				}
+					"color": [30, 144, 255]
+				}	
 			]
 		},
         {
@@ -35,6 +30,42 @@
 					"color": [218, 165, 32]
 				}
 			]
+		},
+        {
+			"type": "six-square",
+			"values": [
+				{
+					"field": "rotatorEnableState",
+					"name": "Rotation Status",
+					"units": ""
+				},
+				{
+					"field": "rotatorElvEncoderFault",
+					"name": "Elv Encoder Fault ",
+					"units": ""
+				},
+				{
+					"field": "rotatorAziEncoderFault",
+					"name": "Azi Encoder Fault",
+					"units": ""
+				},
+				{
+					"field": "rotatorGpsRate",
+					"name": "GPS Data Rate",
+					"units": "Hz"
+				},
+				{
+					"field": "rotatorAccelRate",
+					"name": "Accel Data Rate",
+					"units": "Hz"
+				},
+				{
+					"field": "rotatorLaunchDetectState",
+					"name": "Launch Detect State",
+					"units": ""
+				}
+			]
+			
 		},
         {
 			"type": "graph",
