@@ -2,7 +2,3 @@
 	path = extension/godot-cpp
 	url = https://github.com/godotengine/godot-cpp
 	branch = 4.2
-[submodule "universalproto"]
-	path = universalproto
-	url = https://github.com/Space-Enterprise-at-Berkeley/universalproto.git
-	branch = dev
