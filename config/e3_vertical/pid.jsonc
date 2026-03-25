@@ -1,0 +1,35 @@
+{
+    "nodes": [
+        {
+            "type": "tank",
+            "label": "Test Tank",
+            "id": "tank1",
+            "field": "tank1Pressure",
+            "x": 0,
+            "y": 10
+        },
+        {
+            "type": "rbv",
+            "label": "Test RBV",
+            "id": "rbv1",
+            "field": "testRbvState",
+            "x": 10,
+            "y": 10
+        }
+    ],
+    "connections": [
+        {
+            "type": "pipe",
+            "id": "pipe1",
+            "from": "tank1/right",
+            "to": "rbv1/left"
+        }
+    ],
+    "sensors": [
+        {
+            "type": "pt",
+            "at": "pipe1",
+            "field": "fillPt",
+        }
+    ]
+}

@@ -22,6 +22,7 @@
 	"protoPackets": "$../../universalproto/packets.jsonc",
 	"protoTypes": "$../../universalproto/types.jsonc",
 	"influxMapGenerator": "$e3_vertical/influx_map_generator.jsonc",
+    "pid": "$e3_vertical/pid.jsonc",
 	"burnTime": 20000, // ms
 	"mode": "COLDFLOW",
 	"windowPresets": "$e3_vertical/window_presets.jsonc",
