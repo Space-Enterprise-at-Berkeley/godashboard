@@ -4,6 +4,8 @@ extends Node
 signal pid_changed
 
 class PidConnection:
+	signal connection_changed
+
 	var from: PidNode
 	var to: PidNode
 	var id: String
@@ -23,6 +25,7 @@ class PidConnection:
 		for b: String in Pid.connections.keys():
 			if Pid.components.connected(id, b):
 				Pid.connections[b].hasFluid = hasFluid
+		connection_changed.emit()
 
 	func update_connection() -> void:
 		var pressure: float
@@ -41,6 +44,8 @@ class PidConnection:
 		_propagate_connection()
 
 class PidNode:
+	signal node_changed
+	
 	var connections: Array[PidConnection]
 	var field: String
 	
@@ -64,6 +69,7 @@ class NodeSource extends PidNode:
 
 	func _on_source_update(value: Variant, timestamp: int) -> void:
 		pressure = value
+		node_changed.emit()
 		if connections.size() > 0:
 			connections[0].update_connection()
 
@@ -82,6 +88,7 @@ class NodeValve extends PidNode:
 		if newOpen == isOpen:
 			return
 		isOpen = newOpen
+		node_changed.emit()
 		if isOpen:
 			if connections.size() > 0:
 				for i in range(connections.size() - 1):
@@ -156,8 +163,10 @@ func _ready() -> void:
 		if node["type"] in ["rbv", "pbv", "manual", "poppet"]:
 			var isOpen: bool = node["defaultState"] == "open"
 			nodes[node["id"]] = NodeValve.new(node["field"], isOpen)
+			nodes[node["id"]].node_changed.connect(func() -> void: pid_changed.emit())
 		elif node["type"] in ["tank", "bottle"]:
 			nodes[node["id"]] = NodeSource.new(node["field"])
+			nodes[node["id"]].node_changed.connect(func() -> void: pid_changed.emit())
 
 	# second pass: initialize all the connections (pipes)
 	for conn: Dictionary in pidConfig["connections"]:
@@ -167,6 +176,7 @@ func _ready() -> void:
 			GoLogger.error("Connection node id does not exist")
 			continue
 		connections[conn["id"]] = PidConnection.new(nodes[from], nodes[to], conn["id"])
+		connections[conn["id"]].connection_changed.connect(func() -> void: pid_changed.emit())
 		nodes[from].add_connection(connections[conn["id"]])
 		nodes[to].add_connection(connections[conn["id"]])
 
@@ -188,7 +198,7 @@ func _ready() -> void:
 			conn.pt.register_callback()
 
 	# initialize quick union with connected components
-	recompute()
+	recompute()	
 
 static func recompute() -> void:
 	# initialize all the connected components
