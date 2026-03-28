@@ -1,3 +1,4 @@
+class_name Pid
 extends Node
 
 signal pid_changed
@@ -17,6 +18,27 @@ class PidConnection:
 	
 	func set_pt(sensor: PidPressure) -> void:
 		self.pt = sensor
+
+	func _propagate_connection() -> void:
+		for b: String in Pid.connections.keys():
+			if Pid.components.connected(id, b):
+				Pid.connections[b].hasFluid = hasFluid
+
+	func update_connection() -> void:
+		var pressure: float
+		if pt != null:
+			pressure = pt.pressure
+		elif from is NodeSource:
+			pressure = from.pressure
+		elif to is NodeSource:
+			pressure = to.pressure
+		else:
+			return
+		var newFluid: bool = pressure >= Pid.AMBIENT_PRESSURE
+		if newFluid == hasFluid:
+			return
+		hasFluid = newFluid
+		_propagate_connection()
 
 class PidNode:
 	var connections: Array[PidConnection]
@@ -42,6 +64,8 @@ class NodeSource extends PidNode:
 
 	func _on_source_update(value: Variant, timestamp: int) -> void:
 		pressure = value
+		if connections.size() > 0:
+			connections[0].update_connection()
 
 	func register_callback() -> void:
 		Databus.register_callback(field, null, _on_source_update)
@@ -54,7 +78,20 @@ class NodeValve extends PidNode:
 		isOpen = state
 
 	func _on_valve_update(value: Variant, timestamp: int) -> void:
-		isOpen = !isOpen
+		var newOpen: bool = value == 1
+		if newOpen == isOpen:
+			return
+		isOpen = newOpen
+		if isOpen:
+			if connections.size() > 0:
+				for i in range(connections.size() - 1):
+					Pid.components.union(connections[0].id, connections[i+1].id)
+				for conn in connections:
+					if conn.hasFluid:
+						conn._propagate_connection()
+						break
+		else:
+			Pid.recompute()
 
 	func register_callback() -> void:
 		Databus.register_callback(field, null, _on_valve_update)
@@ -71,11 +108,12 @@ class PidPressure:
 
 	func _on_pt_update(value: Variant, timestamp: int) -> void:
 		pressure = value
+		connection.update_connection()
 	
 	func register_callback() -> void:
 		Databus.register_callback(field, null, _on_pt_update)
 
-class QuickUnion:
+class QuickUnion extends RefCounted:
 	var parent: Dictionary
 
 	func _init() -> void:
@@ -101,19 +139,20 @@ class QuickUnion:
 		var root_b: String = find_root(b)
 		return root_a == root_b
 
-var nodes: Dictionary
-var connections: Dictionary
-var components: QuickUnion
+static var nodes: Dictionary
+static var connections: Dictionary
+static var components: QuickUnion
+static var AMBIENT_PRESSURE: int
 
 func _ready() -> void:
 	# initialize data structures
 	var pidConfig: Dictionary = Config.config["pid"]
 	nodes = {}
 	connections = {}
-	components = QuickUnion.new()
+	AMBIENT_PRESSURE = pidConfig["ambientPressure"]
 
 	# first pass: initialize all the nodes
-	for node in pidConfig["nodes"]:
+	for node: Dictionary in pidConfig["nodes"]:
 		if node["type"] in ["rbv", "pbv", "manual", "poppet"]:
 			var isOpen: bool = node["defaultState"] == "open"
 			nodes[node["id"]] = NodeValve.new(node["field"], isOpen)
@@ -121,7 +160,7 @@ func _ready() -> void:
 			nodes[node["id"]] = NodeSource.new(node["field"])
 
 	# second pass: initialize all the connections (pipes)
-	for conn in pidConfig["connections"]:
+	for conn: Dictionary in pidConfig["connections"]:
 		var from: String = conn["from"].left(conn["from"].find("/"))
 		var to: String = conn["to"].left(conn["to"].find("/"))
 		if !nodes.has(from) || !nodes.has(to):
@@ -130,10 +169,9 @@ func _ready() -> void:
 		connections[conn["id"]] = PidConnection.new(nodes[from], nodes[to], conn["id"])
 		nodes[from].add_connection(connections[conn["id"]])
 		nodes[to].add_connection(connections[conn["id"]])
-		components.add(conn["id"])
 
 	# third pass: initialize all the sensors (PTs)
-	for sensor in pidConfig["sensors"]:
+	for sensor: Dictionary in pidConfig["sensors"]:
 		var id: String = sensor["at"]
 		if !connections.has(id):
 			GoLogger.error("Sensor connection id does not exist")
@@ -141,8 +179,23 @@ func _ready() -> void:
 		var conn: PidConnection = connections[id]
 		conn.set_pt(PidPressure.new(sensor["field"], conn))
 
+	# register callbacks for all nodes and sensors
+	for nodeId: String in nodes.keys():
+		nodes[nodeId].register_callback()
+	for connId: String in connections.keys():
+		var conn: PidConnection = connections[connId]
+		if conn.pt != null:
+			conn.pt.register_callback()
+
 	# initialize quick union with connected components
-	for node in pidConfig["nodes"]:
+	recompute()
+
+static func recompute() -> void:
+	# initialize all the connected components
+	components = QuickUnion.new()
+	for connId: String in connections.keys():
+		components.add(connId)
+	for node: Dictionary in Config.config["pid"]["nodes"]:
 		if node["type"] in ["rbv", "pbv", "manual", "poppet"]:
 			var valve: NodeValve = nodes[node["id"]]
 			if valve.isOpen:
@@ -154,4 +207,10 @@ func _ready() -> void:
 			if source.connections.size() > 0:
 				for i in range(source.connections.size() - 1):
 					components.union(source.connections[0].id, source.connections[i+1].id)
-			
+
+	# reset and recalculate hasFluid for each component
+	for connId: String in connections.keys():
+		connections[connId].hasFluid = false
+	for connId: String in connections.keys():
+		var conn: PidConnection = connections[connId]
+		conn.update_connection()
