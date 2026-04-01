@@ -118,13 +118,21 @@
 		},
 		
 		{
-			"type": "four-button",
-			"buttons": [
-				null,
-				null,
-				null,
-                null
-			]
+			"type": "six-square",
+            "values": [
+                {
+                    "field": "ipaPoppetState",
+                    "name": "IPA Poppet Count",
+                    "units": "",
+                    "mode": "counter"
+                },
+                {
+                    "field": "nosPoppetState",
+                    "name": "NOS Poppet Count",
+                    "units": "",
+                    "mode": "counter"
+                }
+            ]
 		},
 
 		{
