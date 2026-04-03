@@ -111,7 +111,6 @@
 					"units": "PSI",
 					"color": [30, 144, 255]
 				}
-		
 			]
 		},
 		{
@@ -158,7 +157,7 @@
 			"values": [
 				{
 					"field": "pneumaticsPT",
-					"name": "Pneumatics PT",
+					"name": "Poppet Press PT",
 					"units": "PSI",
 					"color": [128, 254, 206]
 				}

@@ -134,7 +134,6 @@
                 }
             ]
 		},
-
 		{
 			"type": "four-button",
 			"buttons": [
@@ -164,32 +163,7 @@
 					},
 					"green": ["EXTENDING", "RETRACTING"]
 				},
-				{
-					"id": "ipaStaticPress",
-					"name": "IPA Static Press",
-					"field": "ipaStaticPressState",
-					"actions": {
-						"open": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "ON",
-								"<channel>": "AC_IPA_STATIC_PRESS",
-								"actuateTime": 0
-							}
-						},
-						"close": {
-							"type": "packet",
-							"packet": "ACActuateActuator",
-							"args": {
-								"action": "OFF",
-								"<channel>": "AC_IPA_STATIC_PRESS",
-								"actuateTime": 0
-							}
-						}
-					},
-					"green": ["EXTENDING", "RETRACTING"]
-				},
+				null,
 				{
 					"id": "eregDiagnostic",
 					"name": "E-Reg Diagnostic",
