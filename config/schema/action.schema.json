@@ -68,6 +68,7 @@
 			},
 			"required": ["id"]
 		},
+		
 		{
 			"properties": {
 				"type": {

@@ -180,7 +180,29 @@
 						}
 					}
                 },
-                null
+                {
+                    "id": "enableBarometerCalibration",
+                    "name": "Enable Baro Calibration",
+                    "actions": {
+                        "open": {
+                            "type": "packet",
+                            "packet": "FCEnableBaroCalibration",
+                            "board": "FC_1",
+                            "args": {
+                                "action": "ENABLE"
+                            },
+                            "safe": true
+                        },
+                        "close": {
+                            "type": "packet",
+                            "packet": "FCEnableBaroCalibration",
+                            "board": "FC_1",
+                            "args": {
+                                "action": "DISABLE"
+                            }
+                        }
+                    }
+                }
             ]
         },
         {
@@ -280,7 +302,13 @@
                     "field": "fc1FcHealthBlackboxEnabled",
                     "name": "Blackbox Enabled",
                     "units": ""
+                },
+                {
+                    "field": "fc1AvgBaroValuesAvgpressure",
+                    "name": "Calibrated Baro Pressure",
+                    "units": "hPa"
                 }
+
             ]
         },
         {
