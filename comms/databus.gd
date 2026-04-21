@@ -376,6 +376,8 @@ func make_uint32(value: int) -> Array:
 
 func process_chat(data: PackedByteArray, addr: String) -> void:
 	var msg: Variant = JSON.parse_string(data.get_string_from_utf8())
+	if msg["message"] == ":bee:":
+		msg["message"] = "🐝"
 	GoLogger.chat("(%s) %s" % [msg["sender"], msg["message"]])
 	
 func toggle_lock() -> void : 

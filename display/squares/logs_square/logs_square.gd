@@ -94,6 +94,8 @@ func _input(event: InputEvent) -> void:
 
 func _send_chat() -> void:
 	var user: String = OS.get_environment("USERNAME")
+	if "bee" in chat.text:
+		chat.text = chat.text.replace("bee", "🐝")
 	var msg: String = JSON.stringify({
 		"type": "chat",
 		"message": chat.text,
