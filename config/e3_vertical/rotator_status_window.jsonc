@@ -45,9 +45,21 @@
 					"name": "Baro Accept Rate",
 					"units": ""
 				},
-				null,
-				null,
-				null
+				{
+					"field": "GPSRate",
+					"name": "GPS State",
+					"units": ""
+				},
+				{
+					"field": "AccelRate",
+					"name": "Accel State",
+					"units": ""
+				},
+				{
+					"field": "BaroRate",
+					"name": "Baro State",
+					"units": ""
+				}
 			]
 		},
         {
