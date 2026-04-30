@@ -339,8 +339,17 @@
 			"output": "tracking@a"
 		},
 		{
-            "pattern": "RT_[^\\.]+\\.RTDataAcceptState\\..+",
-            "output": "@2"
-        }
+   			"pattern": "RT_[^\\.]+\\.RTDataAcceptState\\..+",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "pascal",
+					"in": "2",
+					"out": "a"
+				}
+			],
+			"output": "tracking@a"
+			
+		}
 	]
 }

@@ -28,37 +28,38 @@
 			]
 		},
         {
+
 			"type": "six-square",
 			"values": [
 				{
-					"field": "GPSAcceptRate",
+					"field": "trackingGpsAcceptRate",
 					"name": "GPS Accept Rate",
 					"units": ""
 				},
 				{
-					"field": "AccelAcceptRate",
+					"field": "trackingAccelAcceptRate",
 					"name": "Accel Accept Rate",
 					"units": ""
 				},
 				{
-					"field": "BaroAcceptRate",
+					"field": "trackingBaroAcceptRate",
 					"name": "Baro Accept Rate",
 					"units": ""
 				},
 				{
-					"field": "GPSRate",
-					"name": "GPS State",
-					"units": ""
+					"field": "trackingGpsRate",
+					"name": "GPS Rate",
+					"units": "Hz"
 				},
 				{
-					"field": "AccelRate",
-					"name": "Accel State",
-					"units": ""
+					"field": "trackingAccelRate",
+					"name": "Accel Rate",
+					"units": "Hz"
 				},
 				{
-					"field": "BaroRate",
-					"name": "Baro State",
-					"units": ""
+					"field": "trackingBaroRate",
+					"name": "Baro Rate",
+					"units": "Hz"
 				}
 			]
 		},
