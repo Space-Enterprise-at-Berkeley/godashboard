@@ -229,7 +229,7 @@
                     "units": "°"
                 },
                 {
-                    "field": "fc1GpsExtraValuesSiv",
+                    "field": "fc1GpsValuesSiv",
                     "name": "CFC GPS SIV",
                     "units": "sats"
                 },

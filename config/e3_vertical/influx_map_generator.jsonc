@@ -279,6 +279,36 @@
 			"output": "@a@b"
 		},
 		{
+			"pattern": "FC_[^\\.]+\\..+\\..+\\..+",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "camel",
+					"in": "0",
+					"out": "a"
+				},
+				{
+					"type": "func",
+					"func": "pascal",
+					"in": "1",
+					"out": "b"
+				},
+				{
+					"type": "func",
+					"func": "pascal",
+					"in": "2",
+					"out": "c"
+				},
+				{
+					"type": "func",
+					"func": "pascal",
+					"in": "3",
+					"out": "d"
+				}
+			],
+			"output": "@a@b@c@d"
+		},
+		{
 			"pattern": "FC_[^\\.]+\\..+\\..+",
 			"transforms": [
 				{
@@ -337,6 +367,19 @@
 				}
 			],
 			"output": "tracking@a"
+		},
+		{
+   			"pattern": "RT_[^\\.]+\\.RTDataAcceptState\\..+",
+			"transforms": [
+				{
+					"type": "func",
+					"func": "pascal",
+					"in": "2",
+					"out": "a"
+				}
+			],
+			"output": "tracking@a"
+			
 		}
 	]
 }

@@ -17,17 +17,49 @@
 					"name": "Y Position Estimate",
 					"units": "m",
 					"color": [30, 144, 255]
-				}	
-			]
-		},
-        {
-			"type": "graph",
-			"values": [
+				},
 				{
 					"field": "trackingZPos",
 					"name": "Z Position Estimate",
 					"units": "m",
-					"color": [218, 165, 32]
+					"color": [34, 139, 34]
+				}
+
+			]
+		},
+        {
+
+			"type": "six-square",
+			"values": [
+				{
+					"field": "trackingGpsAcceptRate",
+					"name": "GPS Accept Rate",
+					"units": ""
+				},
+				{
+					"field": "trackingAccelAcceptRate",
+					"name": "Accel Accept Rate",
+					"units": ""
+				},
+				{
+					"field": "trackingBaroAcceptRate",
+					"name": "Baro Accept Rate",
+					"units": ""
+				},
+				{
+					"field": "trackingGpsRate",
+					"name": "GPS Rate",
+					"units": "Hz"
+				},
+				{
+					"field": "trackingAccelRate",
+					"name": "Accel Rate",
+					"units": "Hz"
+				},
+				{
+					"field": "trackingBaroRate",
+					"name": "Baro Rate",
+					"units": "Hz"
 				}
 			]
 		},
@@ -190,7 +222,7 @@
                             "args": {}
 						}
 					}
-				},
+				}
 			]
 		},
         {
