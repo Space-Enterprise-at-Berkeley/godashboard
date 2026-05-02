@@ -43,6 +43,12 @@ func _launch() -> void:
 
 func _abort() -> void:
 	Databus.abort("MANUAL")
+	if Config.config["mode"] != "HOTFIRE":
+		return
+	var stream: AudioStreamMP3 = AudioStreamMP3.load_from_file("res://resources/sounds/fahhh.mp3")
+	if stream:
+		$AudioStreamPlayer.stream = stream
+		$AudioStreamPlayer.play()
 
 func _handle_packet_enable(value: String, timestamp: int) -> void:
 	var update: bool = false

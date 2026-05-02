@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfeqes7ogmhvs"]
+[gd_scene format=3 uid="uid://cfeqes7ogmhvs"]
 
-[ext_resource type="Script" uid="uid://d0jw7q40sr4iu" path="res://display/squares/launch_button_square/launch_button_square.gd" id="1_ej5p5"]
+[ext_resource type="Script" uid="uid://dftlklrn3mc8b" path="res://display/squares/launch_button_square/launch_button_square.gd" id="1_ej5p5"]
 
-[node name="LaunchButtonSquare" type="Control"]
+[node name="LaunchButtonSquare" type="Control" unique_id=443348026]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_ej5p5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1810649463]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,11 +21,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LaunchMargin" type="MarginContainer" parent="VBoxContainer"]
+[node name="LaunchMargin" type="MarginContainer" parent="VBoxContainer" unique_id=142230738]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LaunchButton" type="Button" parent="VBoxContainer/LaunchMargin"]
+[node name="LaunchButton" type="Button" parent="VBoxContainer/LaunchMargin" unique_id=817181741]
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"ButtonOpen"
@@ -33,13 +33,15 @@ theme_override_font_sizes/font_size = 100
 disabled = true
 text = "???"
 
-[node name="AbortMargin" type="MarginContainer" parent="VBoxContainer"]
+[node name="AbortMargin" type="MarginContainer" parent="VBoxContainer" unique_id=1517836612]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="AbortButton" type="Button" parent="VBoxContainer/AbortMargin"]
+[node name="AbortButton" type="Button" parent="VBoxContainer/AbortMargin" unique_id=1270494732]
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"ButtonClose"
 theme_override_font_sizes/font_size = 100
 text = "ABORT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1712824688]
