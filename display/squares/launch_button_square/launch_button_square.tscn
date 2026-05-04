@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cfeqes7ogmhvs"]
 
 [ext_resource type="Script" uid="uid://dftlklrn3mc8b" path="res://display/squares/launch_button_square/launch_button_square.gd" id="1_ej5p5"]
+[ext_resource type="AudioStream" uid="uid://4t81f43umm4w" path="res://resources/sounds/fahhh.mp3" id="2_xdwvn"]
 
 [node name="LaunchButtonSquare" type="Control" unique_id=443348026]
 layout_mode = 3
@@ -45,3 +46,4 @@ theme_override_font_sizes/font_size = 100
 text = "ABORT"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1712824688]
+stream = ExtResource("2_xdwvn")
