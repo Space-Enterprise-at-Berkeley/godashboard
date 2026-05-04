@@ -47,3 +47,6 @@ size_flags_vertical = 3
 theme_type_variation = &"ButtonClose"
 theme_override_font_sizes/font_size = 100
 text = "ABORT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1712824688]
+stream = ExtResource("2_xdwvn")
