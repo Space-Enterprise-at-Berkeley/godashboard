@@ -9,7 +9,6 @@ const SYSTEM_MODE_TEXTS: Dictionary = {
 	"GASFLOW": "Gas Flow",
 	"WATERFLOW": "Water Flow",
 }
-
 @onready var launch_button: Button = $VBoxContainer/LaunchMargin/LaunchButton
 @onready var abort_button: Button = $VBoxContainer/AbortMargin/AbortButton
 
@@ -45,10 +44,7 @@ func _abort() -> void:
 	Databus.abort("MANUAL")
 	if Config.config["mode"] != "HOTFIRE":
 		return
-	var stream: AudioStreamMP3 = AudioStreamMP3.load_from_file("res://resources/sounds/fahhh.mp3")
-	if stream:
-		$AudioStreamPlayer.stream = stream
-		$AudioStreamPlayer.play()
+	$AudioStreamPlayer.play()
 
 func _handle_packet_enable(value: String, timestamp: int) -> void:
 	var update: bool = false
