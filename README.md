@@ -1,6 +1,7 @@
 # Installation Instructions
 Note: These are temporary instructions that will be updated when things are more complete. This process will be simpler in the future.
 * Clone this repository.
+* Clone the [universalroto](https://github.com/Space-Enterprise-at-Berkeley/universalproto) repository into the same directory you cloned godashboard. This means the root godashboard and universalproto folder should sit at the same folder level, not inside of either one. 
 * Within the repository, run `git config --local include.path ../.gitconfig`. This will add extra git commands for this repo.
 * Run `git submodule update --init --recursive`.
 * Within the repository, run `git pull-all`. This pulls the current branch as well as all submodules (the packet spec). Always use this instead of `git pull`, unless you aren't using the packet spec.
